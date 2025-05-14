@@ -5,7 +5,7 @@ prepare: patch generate
 	cargo build
 
 patch:
-	svd patch $(YAML)
+	svdtools patch $(YAML)
 
 # Generates PAC source code from (patched) SVD
 generate:
@@ -29,3 +29,5 @@ tag:
 version:
 	echo $(VERSION)
 
+svdtools:
+	cargo binstall svdtools
