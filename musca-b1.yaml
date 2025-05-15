@@ -1,4 +1,4 @@
-_svd: musca-b1.svd
+_svd: svd/Musca_B1.corrected.svd
 
 _delete:
   - SPI0
