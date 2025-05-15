@@ -5694,7 +5694,7 @@
             <description>Interrupt Status Register</description>
             <addressOffset>0x04</addressOffset>
             <resetValue>0x00000004</resetValue>
-            <access>read</access>
+            <access>read-only</access>
                 <fields>
                   <field>  <name>ROF</name>
                     <description>RX FIFO Overflow: This bit is set if an attempt
@@ -5739,7 +5739,7 @@
           <register>                <name>SPIIER</name>
             <description>Interrupt Enable Register</description>
             <addressOffset>0x08</addressOffset>
-            <access>write</access>
+            <access>write-only</access>
                 <fields>
                   <field>  <name>ROFE</name>
                     <description>RX FIFO Overflow Enable</description>
@@ -5781,7 +5781,7 @@
           <register>                <name>SPIIDR</name>
             <description>Interrupt Disable Register</description>
             <addressOffset>0x0C</addressOffset>
-            <access>write</access>
+            <access>write-only</access>
                 <fields>
                   <field>  <name>ROFD</name>
                     <description>RX FIFO Overflow Disable</description>
@@ -5824,7 +5824,7 @@
             <description>Interrupt Mask Register</description>
             <addressOffset>0x010</addressOffset>
             <resetValue>0x00000000</resetValue>
-            <access>read</access>
+            <access>read-only</access>
                 <fields>
                   <field>  <name>ROFM</name>
                     <description>RX FIFO Overflow Mask</description>
@@ -5883,7 +5883,7 @@
           <register>                <name>SPITDR</name>
             <description>Transmit Data Register</description>
             <addressOffset>0x01C</addressOffset>
-            <access>write</access>
+            <access>write-only</access>
                 <fields>
                   <field>  <name>TDATA</name>
                     <description>Transmit Data: Writes to the TX FIFO location
@@ -5898,7 +5898,7 @@
             <description>Receive Data Register</description>
             <addressOffset>0x020</addressOffset>
             <resetValue>0x00000000</resetValue>
-            <access>read</access>
+            <access>read-only</access>
                 <fields>
                   <field>  <name>RDATA</name>
                     <description>Receive Data: Reads the RX FIFO location indicated
