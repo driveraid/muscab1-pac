@@ -1,40 +1,37 @@
-#[doc = "Reader of register SRAM_CTRL"]
-pub type R = crate::R<u32, super::SRAM_CTRL>;
-#[doc = "Writer for register SRAM_CTRL"]
-pub type W = crate::W<u32, super::SRAM_CTRL>;
-#[doc = "Register SRAM_CTRL `reset()`'s with value 0x4810_0000"]
-impl crate::ResetValue for super::SRAM_CTRL {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x4810_0000
-    }
-}
-#[doc = "Reader of field `CODE_SRAMx_PGEN`"]
-pub type CODE_SRAMX_PGEN_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `CODE_SRAMx_PGEN`"]
-pub struct CODE_SRAMX_PGEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CODE_SRAMX_PGEN_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xffff) | ((value as u32) & 0xffff);
-        self.w
-    }
-}
+#[doc = "Register `SRAM_CTRL` reader"]
+pub type R = crate::R<SramCtrlSpec>;
+#[doc = "Register `SRAM_CTRL` writer"]
+pub type W = crate::W<SramCtrlSpec>;
+#[doc = "Field `CODE_SRAMx_PGEN` reader - SRAM cell power gate enable"]
+pub type CodeSramxPgenR = crate::FieldReader<u16>;
+#[doc = "Field `CODE_SRAMx_PGEN` writer - SRAM cell power gate enable"]
+pub type CodeSramxPgenW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - SRAM cell power gate enable"]
     #[inline(always)]
-    pub fn code_sramx_pgen(&self) -> CODE_SRAMX_PGEN_R {
-        CODE_SRAMX_PGEN_R::new((self.bits & 0xffff) as u16)
+    pub fn code_sramx_pgen(&self) -> CodeSramxPgenR {
+        CodeSramxPgenR::new((self.bits & 0xffff) as u16)
     }
 }
 impl W {
     #[doc = "Bits 0:15 - SRAM cell power gate enable"]
     #[inline(always)]
-    pub fn code_sramx_pgen(&mut self) -> CODE_SRAMX_PGEN_W {
-        CODE_SRAMX_PGEN_W { w: self }
+    pub fn code_sramx_pgen(&mut self) -> CodeSramxPgenW<SramCtrlSpec> {
+        CodeSramxPgenW::new(self, 0)
     }
+}
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`sram_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sram_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SramCtrlSpec;
+impl crate::RegisterSpec for SramCtrlSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`sram_ctrl::R`](R) reader structure"]
+impl crate::Readable for SramCtrlSpec {}
+#[doc = "`write(|w| ..)` method takes [`sram_ctrl::W`](W) writer structure"]
+impl crate::Writable for SramCtrlSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets SRAM_CTRL to value 0x4810_0000"]
+impl crate::Resettable for SramCtrlSpec {
+    const RESET_VALUE: u32 = 0x4810_0000;
 }

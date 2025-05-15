@@ -1,300 +1,213 @@
-#[doc = "Reader of register WICCTRL"]
-pub type R = crate::R<u32, super::WICCTRL>;
-#[doc = "Writer for register WICCTRL"]
-pub type W = crate::W<u32, super::WICCTRL>;
-#[doc = "Register WICCTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::WICCTRL {
-    type Type = u32;
+#[doc = "Register `WICCTRL` reader"]
+pub type R = crate::R<WicctrlSpec>;
+#[doc = "Register `WICCTRL` writer"]
+pub type W = crate::W<WicctrlSpec>;
+#[doc = "CPU 0 WIC Enable Request Status\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cpu0wicenStatus {
+    #[doc = "1: CPU 0 WIC request enabled"]
+    Enable = 1,
+    #[doc = "0: CPU 0 WIC request disabled"]
+    Disabled = 0,
+}
+impl From<Cpu0wicenStatus> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn from(variant: Cpu0wicenStatus) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Possible values of the field `CPU0WICEN_STATUS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPU0WICEN_STATUS_A {
+#[doc = "Field `CPU0WICEN_STATUS` reader - CPU 0 WIC Enable Request Status"]
+pub type Cpu0wicenStatusR = crate::BitReader<Cpu0wicenStatus>;
+impl Cpu0wicenStatusR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Cpu0wicenStatus {
+        match self.bits {
+            true => Cpu0wicenStatus::Enable,
+            false => Cpu0wicenStatus::Disabled,
+        }
+    }
     #[doc = "CPU 0 WIC request enabled"]
-    ENABLE,
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        *self == Cpu0wicenStatus::Enable
+    }
     #[doc = "CPU 0 WIC request disabled"]
-    DISABLED,
-}
-impl From<CPU0WICEN_STATUS_A> for bool {
-    #[inline(always)]
-    fn from(variant: CPU0WICEN_STATUS_A) -> Self {
-        match variant {
-            CPU0WICEN_STATUS_A::ENABLE => true,
-            CPU0WICEN_STATUS_A::DISABLED => false,
-        }
-    }
-}
-#[doc = "Reader of field `CPU0WICEN_STATUS`"]
-pub type CPU0WICEN_STATUS_R = crate::R<bool, CPU0WICEN_STATUS_A>;
-impl CPU0WICEN_STATUS_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> CPU0WICEN_STATUS_A {
-        match self.bits {
-            true => CPU0WICEN_STATUS_A::ENABLE,
-            false => CPU0WICEN_STATUS_A::DISABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
-    pub fn is_enable(&self) -> bool {
-        *self == CPU0WICEN_STATUS_A::ENABLE
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == CPU0WICEN_STATUS_A::DISABLED
+        *self == Cpu0wicenStatus::Disabled
     }
 }
-#[doc = "Possible values of the field `CPU1WICEN_STATUS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPU1WICEN_STATUS_A {
+#[doc = "CPU 1 WIC Enable Request Status\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cpu1wicenStatus {
+    #[doc = "1: CPU 1 WIC request enabled"]
+    Enable = 1,
+    #[doc = "0: CPU 1 WIC request disabled"]
+    Disabled = 0,
+}
+impl From<Cpu1wicenStatus> for bool {
+    #[inline(always)]
+    fn from(variant: Cpu1wicenStatus) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `CPU1WICEN_STATUS` reader - CPU 1 WIC Enable Request Status"]
+pub type Cpu1wicenStatusR = crate::BitReader<Cpu1wicenStatus>;
+impl Cpu1wicenStatusR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Cpu1wicenStatus {
+        match self.bits {
+            true => Cpu1wicenStatus::Enable,
+            false => Cpu1wicenStatus::Disabled,
+        }
+    }
     #[doc = "CPU 1 WIC request enabled"]
-    ENABLE,
-    #[doc = "CPU 1 WIC request disabled"]
-    DISABLED,
-}
-impl From<CPU1WICEN_STATUS_A> for bool {
-    #[inline(always)]
-    fn from(variant: CPU1WICEN_STATUS_A) -> Self {
-        match variant {
-            CPU1WICEN_STATUS_A::ENABLE => true,
-            CPU1WICEN_STATUS_A::DISABLED => false,
-        }
-    }
-}
-#[doc = "Reader of field `CPU1WICEN_STATUS`"]
-pub type CPU1WICEN_STATUS_R = crate::R<bool, CPU1WICEN_STATUS_A>;
-impl CPU1WICEN_STATUS_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> CPU1WICEN_STATUS_A {
-        match self.bits {
-            true => CPU1WICEN_STATUS_A::ENABLE,
-            false => CPU1WICEN_STATUS_A::DISABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == CPU1WICEN_STATUS_A::ENABLE
+        *self == Cpu1wicenStatus::Enable
     }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[doc = "CPU 1 WIC request disabled"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == CPU1WICEN_STATUS_A::DISABLED
+        *self == Cpu1wicenStatus::Disabled
     }
 }
-#[doc = "Write proxy for field `CPU0WICEN_SET`"]
-pub struct CPU0WICEN_SET_W<'a> {
-    w: &'a mut W,
+#[doc = "Field `CPU0WICEN_SET` writer - High Active CPU 0 WIC Enable Request Set"]
+pub type Cpu0wicenSetW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `CPU1WICEN_SET` writer - High Active CPU 1 WIC Enable Request Set"]
+pub type Cpu1wicenSetW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `CPU0WICEN_CLR` writer - High Active CPU 0 WIC Enable Request Clear"]
+pub type Cpu0wicenClrW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `CPU1WICEN_CLR` writer - High Active CPU 1 WIC Enable Request Clear"]
+pub type Cpu1wicenClrW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "CPU 0 WIC Enable Acknowledge\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cpu0wicrdy {
+    #[doc = "1: CPU 0 WIC Enabled"]
+    Enabled = 1,
+    #[doc = "0: CPU 0 WIC Disabled"]
+    Disabled = 0,
 }
-impl<'a> CPU0WICEN_SET_W<'a> {
-    #[doc = r"Sets the field bit"]
+impl From<Cpu0wicrdy> for bool {
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
-        self.w
-    }
-}
-#[doc = "Write proxy for field `CPU1WICEN_SET`"]
-pub struct CPU1WICEN_SET_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CPU1WICEN_SET_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
-        self.w
+    fn from(variant: Cpu0wicrdy) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `CPU0WICEN_CLR`"]
-pub struct CPU0WICEN_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CPU0WICEN_CLR_W<'a> {
-    #[doc = r"Sets the field bit"]
+#[doc = "Field `CPU0WICRDY` reader - CPU 0 WIC Enable Acknowledge"]
+pub type Cpu0wicrdyR = crate::BitReader<Cpu0wicrdy>;
+impl Cpu0wicrdyR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub const fn variant(&self) -> Cpu0wicrdy {
+        match self.bits {
+            true => Cpu0wicrdy::Enabled,
+            false => Cpu0wicrdy::Disabled,
+        }
     }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
-        self.w
-    }
-}
-#[doc = "Write proxy for field `CPU1WICEN_CLR`"]
-pub struct CPU1WICEN_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CPU1WICEN_CLR_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
-        self.w
-    }
-}
-#[doc = "Possible values of the field `CPU0WICRDY`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPU0WICRDY_A {
     #[doc = "CPU 0 WIC Enabled"]
-    ENABLED,
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == Cpu0wicrdy::Enabled
+    }
     #[doc = "CPU 0 WIC Disabled"]
-    DISABLED,
-}
-impl From<CPU0WICRDY_A> for bool {
-    #[inline(always)]
-    fn from(variant: CPU0WICRDY_A) -> Self {
-        match variant {
-            CPU0WICRDY_A::ENABLED => true,
-            CPU0WICRDY_A::DISABLED => false,
-        }
-    }
-}
-#[doc = "Reader of field `CPU0WICRDY`"]
-pub type CPU0WICRDY_R = crate::R<bool, CPU0WICRDY_A>;
-impl CPU0WICRDY_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> CPU0WICRDY_A {
-        match self.bits {
-            true => CPU0WICRDY_A::ENABLED,
-            false => CPU0WICRDY_A::DISABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline(always)]
-    pub fn is_enabled(&self) -> bool {
-        *self == CPU0WICRDY_A::ENABLED
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == CPU0WICRDY_A::DISABLED
+        *self == Cpu0wicrdy::Disabled
     }
 }
-#[doc = "Possible values of the field `CPU1WICRDY`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPU1WICRDY_A {
+#[doc = "CPU 1 WIC Enable Acknowledge\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cpu1wicrdy {
+    #[doc = "1: CPU 1 WIC Enabled"]
+    Enabled = 1,
+    #[doc = "0: CPU 1 WIC Disabled"]
+    Disabled = 0,
+}
+impl From<Cpu1wicrdy> for bool {
+    #[inline(always)]
+    fn from(variant: Cpu1wicrdy) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `CPU1WICRDY` reader - CPU 1 WIC Enable Acknowledge"]
+pub type Cpu1wicrdyR = crate::BitReader<Cpu1wicrdy>;
+impl Cpu1wicrdyR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Cpu1wicrdy {
+        match self.bits {
+            true => Cpu1wicrdy::Enabled,
+            false => Cpu1wicrdy::Disabled,
+        }
+    }
     #[doc = "CPU 1 WIC Enabled"]
-    ENABLED,
-    #[doc = "CPU 1 WIC Disabled"]
-    DISABLED,
-}
-impl From<CPU1WICRDY_A> for bool {
-    #[inline(always)]
-    fn from(variant: CPU1WICRDY_A) -> Self {
-        match variant {
-            CPU1WICRDY_A::ENABLED => true,
-            CPU1WICRDY_A::DISABLED => false,
-        }
-    }
-}
-#[doc = "Reader of field `CPU1WICRDY`"]
-pub type CPU1WICRDY_R = crate::R<bool, CPU1WICRDY_A>;
-impl CPU1WICRDY_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> CPU1WICRDY_A {
-        match self.bits {
-            true => CPU1WICRDY_A::ENABLED,
-            false => CPU1WICRDY_A::DISABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == CPU1WICRDY_A::ENABLED
+        *self == Cpu1wicrdy::Enabled
     }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[doc = "CPU 1 WIC Disabled"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == CPU1WICRDY_A::DISABLED
+        *self == Cpu1wicrdy::Disabled
     }
 }
 impl R {
     #[doc = "Bit 0 - CPU 0 WIC Enable Request Status"]
     #[inline(always)]
-    pub fn cpu0wicen_status(&self) -> CPU0WICEN_STATUS_R {
-        CPU0WICEN_STATUS_R::new((self.bits & 0x01) != 0)
+    pub fn cpu0wicen_status(&self) -> Cpu0wicenStatusR {
+        Cpu0wicenStatusR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - CPU 1 WIC Enable Request Status"]
     #[inline(always)]
-    pub fn cpu1wicen_status(&self) -> CPU1WICEN_STATUS_R {
-        CPU1WICEN_STATUS_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn cpu1wicen_status(&self) -> Cpu1wicenStatusR {
+        Cpu1wicenStatusR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 16 - CPU 0 WIC Enable Acknowledge"]
     #[inline(always)]
-    pub fn cpu0wicrdy(&self) -> CPU0WICRDY_R {
-        CPU0WICRDY_R::new(((self.bits >> 16) & 0x01) != 0)
+    pub fn cpu0wicrdy(&self) -> Cpu0wicrdyR {
+        Cpu0wicrdyR::new(((self.bits >> 16) & 1) != 0)
     }
     #[doc = "Bit 17 - CPU 1 WIC Enable Acknowledge"]
     #[inline(always)]
-    pub fn cpu1wicrdy(&self) -> CPU1WICRDY_R {
-        CPU1WICRDY_R::new(((self.bits >> 17) & 0x01) != 0)
+    pub fn cpu1wicrdy(&self) -> Cpu1wicrdyR {
+        Cpu1wicrdyR::new(((self.bits >> 17) & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 4 - High Active CPU 0 WIC Enable Request Set"]
     #[inline(always)]
-    pub fn cpu0wicen_set(&mut self) -> CPU0WICEN_SET_W {
-        CPU0WICEN_SET_W { w: self }
+    pub fn cpu0wicen_set(&mut self) -> Cpu0wicenSetW<WicctrlSpec> {
+        Cpu0wicenSetW::new(self, 4)
     }
     #[doc = "Bit 5 - High Active CPU 1 WIC Enable Request Set"]
     #[inline(always)]
-    pub fn cpu1wicen_set(&mut self) -> CPU1WICEN_SET_W {
-        CPU1WICEN_SET_W { w: self }
+    pub fn cpu1wicen_set(&mut self) -> Cpu1wicenSetW<WicctrlSpec> {
+        Cpu1wicenSetW::new(self, 5)
     }
     #[doc = "Bit 8 - High Active CPU 0 WIC Enable Request Clear"]
     #[inline(always)]
-    pub fn cpu0wicen_clr(&mut self) -> CPU0WICEN_CLR_W {
-        CPU0WICEN_CLR_W { w: self }
+    pub fn cpu0wicen_clr(&mut self) -> Cpu0wicenClrW<WicctrlSpec> {
+        Cpu0wicenClrW::new(self, 8)
     }
     #[doc = "Bit 9 - High Active CPU 1 WIC Enable Request Clear"]
     #[inline(always)]
-    pub fn cpu1wicen_clr(&mut self) -> CPU1WICEN_CLR_W {
-        CPU1WICEN_CLR_W { w: self }
+    pub fn cpu1wicen_clr(&mut self) -> Cpu1wicenClrW<WicctrlSpec> {
+        Cpu1wicenClrW::new(self, 9)
     }
 }
+#[doc = "WIC request and acknowledge handshake\n\nYou can [`read`](crate::Reg::read) this register and get [`wicctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wicctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct WicctrlSpec;
+impl crate::RegisterSpec for WicctrlSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`wicctrl::R`](R) reader structure"]
+impl crate::Readable for WicctrlSpec {}
+#[doc = "`write(|w| ..)` method takes [`wicctrl::W`](W) writer structure"]
+impl crate::Writable for WicctrlSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets WICCTRL to value 0"]
+impl crate::Resettable for WicctrlSpec {}

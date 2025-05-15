@@ -1,104 +1,84 @@
-#[doc = "Reader of register PWMCR"]
-pub type R = crate::R<u32, super::PWMCR>;
-#[doc = "Writer for register PWMCR"]
-pub type W = crate::W<u32, super::PWMCR>;
-#[doc = "Register PWMCR `reset()`'s with value 0"]
-impl crate::ResetValue for super::PWMCR {
-    type Type = u32;
+#[doc = "Register `PWMCR` reader"]
+pub type R = crate::R<PwmcrSpec>;
+#[doc = "Register `PWMCR` writer"]
+pub type W = crate::W<PwmcrSpec>;
+#[doc = "Start stop bit for the pwm_output\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum OutputSet {
+    #[doc = "1: Generate programmed waveform on pwm_output"]
+    Enabled = 1,
+    #[doc = "0: Set pwm_output continually high"]
+    Disabled = 0,
+}
+impl From<OutputSet> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn from(variant: OutputSet) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Possible values of the field `OUTPUT_SET`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum OUTPUT_SET_A {
-    #[doc = "Generate programmed waveform on\n                          pwm_output"]
-    ENABLED,
-    #[doc = "Set pwm_output continually high"]
-    DISABLED,
-}
-impl From<OUTPUT_SET_A> for bool {
+#[doc = "Field `OUTPUT_SET` reader - Start stop bit for the pwm_output"]
+pub type OutputSetR = crate::BitReader<OutputSet>;
+impl OutputSetR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    fn from(variant: OUTPUT_SET_A) -> Self {
-        match variant {
-            OUTPUT_SET_A::ENABLED => true,
-            OUTPUT_SET_A::DISABLED => false,
-        }
-    }
-}
-#[doc = "Reader of field `OUTPUT_SET`"]
-pub type OUTPUT_SET_R = crate::R<bool, OUTPUT_SET_A>;
-impl OUTPUT_SET_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> OUTPUT_SET_A {
+    pub const fn variant(&self) -> OutputSet {
         match self.bits {
-            true => OUTPUT_SET_A::ENABLED,
-            false => OUTPUT_SET_A::DISABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline(always)]
-    pub fn is_enabled(&self) -> bool {
-        *self == OUTPUT_SET_A::ENABLED
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline(always)]
-    pub fn is_disabled(&self) -> bool {
-        *self == OUTPUT_SET_A::DISABLED
-    }
-}
-#[doc = "Write proxy for field `OUTPUT_SET`"]
-pub struct OUTPUT_SET_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> OUTPUT_SET_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: OUTPUT_SET_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
+            true => OutputSet::Enabled,
+            false => OutputSet::Disabled,
         }
     }
     #[doc = "Generate programmed waveform on pwm_output"]
     #[inline(always)]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(OUTPUT_SET_A::ENABLED)
+    pub fn is_enabled(&self) -> bool {
+        *self == OutputSet::Enabled
     }
     #[doc = "Set pwm_output continually high"]
     #[inline(always)]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(OUTPUT_SET_A::DISABLED)
+    pub fn is_disabled(&self) -> bool {
+        *self == OutputSet::Disabled
     }
-    #[doc = r"Sets the field bit"]
+}
+#[doc = "Field `OUTPUT_SET` writer - Start stop bit for the pwm_output"]
+pub type OutputSetW<'a, REG> = crate::BitWriter<'a, REG, OutputSet>;
+impl<'a, REG> OutputSetW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Generate programmed waveform on pwm_output"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(OutputSet::Enabled)
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "Set pwm_output continually high"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(OutputSet::Disabled)
     }
 }
 impl R {
     #[doc = "Bit 0 - Start stop bit for the pwm_output"]
     #[inline(always)]
-    pub fn output_set(&self) -> OUTPUT_SET_R {
-        OUTPUT_SET_R::new((self.bits & 0x01) != 0)
+    pub fn output_set(&self) -> OutputSetR {
+        OutputSetR::new((self.bits & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 0 - Start stop bit for the pwm_output"]
     #[inline(always)]
-    pub fn output_set(&mut self) -> OUTPUT_SET_W {
-        OUTPUT_SET_W { w: self }
+    pub fn output_set(&mut self) -> OutputSetW<PwmcrSpec> {
+        OutputSetW::new(self, 0)
     }
 }
+#[doc = "PWM Control Register\n\nYou can [`read`](crate::Reg::read) this register and get [`pwmcr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pwmcr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct PwmcrSpec;
+impl crate::RegisterSpec for PwmcrSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`pwmcr::R`](R) reader structure"]
+impl crate::Readable for PwmcrSpec {}
+#[doc = "`write(|w| ..)` method takes [`pwmcr::W`](W) writer structure"]
+impl crate::Writable for PwmcrSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets PWMCR to value 0"]
+impl crate::Resettable for PwmcrSpec {}

@@ -1,40 +1,35 @@
-#[doc = "Reader of register UARTIBRD"]
-pub type R = crate::R<u32, super::UARTIBRD>;
-#[doc = "Writer for register UARTIBRD"]
-pub type W = crate::W<u32, super::UARTIBRD>;
-#[doc = "Register UARTIBRD `reset()`'s with value 0"]
-impl crate::ResetValue for super::UARTIBRD {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
-    }
-}
-#[doc = "Reader of field `BAUD_DIVINT`"]
-pub type BAUD_DIVINT_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `BAUD_DIVINT`"]
-pub struct BAUD_DIVINT_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> BAUD_DIVINT_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xffff) | ((value as u32) & 0xffff);
-        self.w
-    }
-}
+#[doc = "Register `UARTIBRD` reader"]
+pub type R = crate::R<UartibrdSpec>;
+#[doc = "Register `UARTIBRD` writer"]
+pub type W = crate::W<UartibrdSpec>;
+#[doc = "Field `BAUD_DIVINT` reader - The integer baud rate divisor"]
+pub type BaudDivintR = crate::FieldReader<u16>;
+#[doc = "Field `BAUD_DIVINT` writer - The integer baud rate divisor"]
+pub type BaudDivintW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - The integer baud rate divisor"]
     #[inline(always)]
-    pub fn baud_divint(&self) -> BAUD_DIVINT_R {
-        BAUD_DIVINT_R::new((self.bits & 0xffff) as u16)
+    pub fn baud_divint(&self) -> BaudDivintR {
+        BaudDivintR::new((self.bits & 0xffff) as u16)
     }
 }
 impl W {
     #[doc = "Bits 0:15 - The integer baud rate divisor"]
     #[inline(always)]
-    pub fn baud_divint(&mut self) -> BAUD_DIVINT_W {
-        BAUD_DIVINT_W { w: self }
+    pub fn baud_divint(&mut self) -> BaudDivintW<UartibrdSpec> {
+        BaudDivintW::new(self, 0)
     }
 }
+#[doc = "Integer baud rate register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartibrd::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartibrd::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct UartibrdSpec;
+impl crate::RegisterSpec for UartibrdSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`uartibrd::R`](R) reader structure"]
+impl crate::Readable for UartibrdSpec {}
+#[doc = "`write(|w| ..)` method takes [`uartibrd::W`](W) writer structure"]
+impl crate::Writable for UartibrdSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets UARTIBRD to value 0"]
+impl crate::Resettable for UartibrdSpec {}

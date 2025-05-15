@@ -1,108 +1,63 @@
-#[doc = "Reader of register RLAR"]
-pub type R = crate::R<u32, super::RLAR>;
-#[doc = "Writer for register RLAR"]
-pub type W = crate::W<u32, super::RLAR>;
-#[doc = "Register RLAR `reset()`'s with value 0"]
-impl crate::ResetValue for super::RLAR {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
-    }
-}
-#[doc = "Reader of field `LADDR`"]
-pub type LADDR_R = crate::R<u32, u32>;
-#[doc = "Write proxy for field `LADDR`"]
-pub struct LADDR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> LADDR_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07ff_ffff << 5)) | (((value as u32) & 0x07ff_ffff) << 5);
-        self.w
-    }
-}
-#[doc = "Reader of field `NSC`"]
-pub type NSC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `NSC`"]
-pub struct NSC_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> NSC_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
-        self.w
-    }
-}
-#[doc = "Reader of field `ENABLE`"]
-pub type ENABLE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENABLE`"]
-pub struct ENABLE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> ENABLE_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
-    }
-}
+#[doc = "Register `RLAR` reader"]
+pub type R = crate::R<RlarSpec>;
+#[doc = "Register `RLAR` writer"]
+pub type W = crate::W<RlarSpec>;
+#[doc = "Field `ENABLE` reader - SAU Region enabled"]
+pub type EnableR = crate::BitReader;
+#[doc = "Field `ENABLE` writer - SAU Region enabled"]
+pub type EnableW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `NSC` reader - Non-Secure Callable"]
+pub type NscR = crate::BitReader;
+#[doc = "Field `NSC` writer - Non-Secure Callable"]
+pub type NscW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `LADDR` reader - Limit Address"]
+pub type LaddrR = crate::FieldReader<u32>;
+#[doc = "Field `LADDR` writer - Limit Address"]
+pub type LaddrW<'a, REG> = crate::FieldWriter<'a, REG, 27, u32>;
 impl R {
-    #[doc = "Bits 5:31 - Limit Address"]
+    #[doc = "Bit 0 - SAU Region enabled"]
     #[inline(always)]
-    pub fn laddr(&self) -> LADDR_R {
-        LADDR_R::new(((self.bits >> 5) & 0x07ff_ffff) as u32)
+    pub fn enable(&self) -> EnableR {
+        EnableR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - Non-Secure Callable"]
     #[inline(always)]
-    pub fn nsc(&self) -> NSC_R {
-        NSC_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn nsc(&self) -> NscR {
+        NscR::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 0 - SAU Region enabled"]
+    #[doc = "Bits 5:31 - Limit Address"]
     #[inline(always)]
-    pub fn enable(&self) -> ENABLE_R {
-        ENABLE_R::new((self.bits & 0x01) != 0)
+    pub fn laddr(&self) -> LaddrR {
+        LaddrR::new((self.bits >> 5) & 0x07ff_ffff)
     }
 }
 impl W {
-    #[doc = "Bits 5:31 - Limit Address"]
+    #[doc = "Bit 0 - SAU Region enabled"]
     #[inline(always)]
-    pub fn laddr(&mut self) -> LADDR_W {
-        LADDR_W { w: self }
+    pub fn enable(&mut self) -> EnableW<RlarSpec> {
+        EnableW::new(self, 0)
     }
     #[doc = "Bit 1 - Non-Secure Callable"]
     #[inline(always)]
-    pub fn nsc(&mut self) -> NSC_W {
-        NSC_W { w: self }
+    pub fn nsc(&mut self) -> NscW<RlarSpec> {
+        NscW::new(self, 1)
     }
-    #[doc = "Bit 0 - SAU Region enabled"]
+    #[doc = "Bits 5:31 - Limit Address"]
     #[inline(always)]
-    pub fn enable(&mut self) -> ENABLE_W {
-        ENABLE_W { w: self }
+    pub fn laddr(&mut self) -> LaddrW<RlarSpec> {
+        LaddrW::new(self, 5)
     }
 }
+#[doc = "Region Limit Address Register\n\nYou can [`read`](crate::Reg::read) this register and get [`rlar::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rlar::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct RlarSpec;
+impl crate::RegisterSpec for RlarSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`rlar::R`](R) reader structure"]
+impl crate::Readable for RlarSpec {}
+#[doc = "`write(|w| ..)` method takes [`rlar::W`](W) writer structure"]
+impl crate::Writable for RlarSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets RLAR to value 0"]
+impl crate::Resettable for RlarSpec {}

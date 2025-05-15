@@ -1,856 +1,583 @@
-#[doc = "Reader of register UARTCR"]
-pub type R = crate::R<u32, super::UARTCR>;
-#[doc = "Writer for register UARTCR"]
-pub type W = crate::W<u32, super::UARTCR>;
-#[doc = "Register UARTCR `reset()`'s with value 0x0300"]
-impl crate::ResetValue for super::UARTCR {
-    type Type = u32;
+#[doc = "Register `UARTCR` reader"]
+pub type R = crate::R<UartcrSpec>;
+#[doc = "Register `UARTCR` writer"]
+pub type W = crate::W<UartcrSpec>;
+#[doc = "UART enable\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Uarten {
+    #[doc = "0: UART is disabled"]
+    Disable = 0,
+    #[doc = "1: UART is enabled"]
+    Enable = 1,
+}
+impl From<Uarten> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x0300
+    fn from(variant: Uarten) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Possible values of the field `UARTEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum UARTEN_A {
-    #[doc = "UART is disabled"]
-    DISABLE,
-    #[doc = "UART is enabled"]
-    ENABLE,
-}
-impl From<UARTEN_A> for bool {
+#[doc = "Field `UARTEN` reader - UART enable"]
+pub type UartenR = crate::BitReader<Uarten>;
+impl UartenR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    fn from(variant: UARTEN_A) -> Self {
-        match variant {
-            UARTEN_A::DISABLE => false,
-            UARTEN_A::ENABLE => true,
-        }
-    }
-}
-#[doc = "Reader of field `UARTEN`"]
-pub type UARTEN_R = crate::R<bool, UARTEN_A>;
-impl UARTEN_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> UARTEN_A {
+    pub const fn variant(&self) -> Uarten {
         match self.bits {
-            false => UARTEN_A::DISABLE,
-            true => UARTEN_A::ENABLE,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline(always)]
-    pub fn is_disable(&self) -> bool {
-        *self == UARTEN_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
-    pub fn is_enable(&self) -> bool {
-        *self == UARTEN_A::ENABLE
-    }
-}
-#[doc = "Write proxy for field `UARTEN`"]
-pub struct UARTEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> UARTEN_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: UARTEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
+            false => Uarten::Disable,
+            true => Uarten::Enable,
         }
     }
     #[doc = "UART is disabled"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(UARTEN_A::DISABLE)
+    pub fn is_disable(&self) -> bool {
+        *self == Uarten::Disable
     }
     #[doc = "UART is enabled"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(UARTEN_A::ENABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
-    }
-}
-#[doc = "Possible values of the field `SIREN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SIREN_A {
-    #[doc = "SIR is disabled"]
-    DISABLE,
-    #[doc = "SIR is enabled"]
-    ENABLE,
-}
-impl From<SIREN_A> for bool {
-    #[inline(always)]
-    fn from(variant: SIREN_A) -> Self {
-        match variant {
-            SIREN_A::DISABLE => false,
-            SIREN_A::ENABLE => true,
-        }
-    }
-}
-#[doc = "Reader of field `SIREN`"]
-pub type SIREN_R = crate::R<bool, SIREN_A>;
-impl SIREN_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> SIREN_A {
-        match self.bits {
-            false => SIREN_A::DISABLE,
-            true => SIREN_A::ENABLE,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline(always)]
-    pub fn is_disable(&self) -> bool {
-        *self == SIREN_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == SIREN_A::ENABLE
+        *self == Uarten::Enable
     }
 }
-#[doc = "Write proxy for field `SIREN`"]
-pub struct SIREN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SIREN_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
+#[doc = "Field `UARTEN` writer - UART enable"]
+pub type UartenW<'a, REG> = crate::BitWriter<'a, REG, Uarten>;
+impl<'a, REG> UartenW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "UART is disabled"]
     #[inline(always)]
-    pub fn variant(self, variant: SIREN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Uarten::Disable)
+    }
+    #[doc = "UART is enabled"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Uarten::Enable)
+    }
+}
+#[doc = "SIR enable\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Siren {
+    #[doc = "0: SIR is disabled"]
+    Disable = 0,
+    #[doc = "1: SIR is enabled"]
+    Enable = 1,
+}
+impl From<Siren> for bool {
+    #[inline(always)]
+    fn from(variant: Siren) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `SIREN` reader - SIR enable"]
+pub type SirenR = crate::BitReader<Siren>;
+impl SirenR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Siren {
+        match self.bits {
+            false => Siren::Disable,
+            true => Siren::Enable,
         }
     }
     #[doc = "SIR is disabled"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(SIREN_A::DISABLE)
+    pub fn is_disable(&self) -> bool {
+        *self == Siren::Disable
     }
     #[doc = "SIR is enabled"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(SIREN_A::ENABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
-        self.w
-    }
-}
-#[doc = "Possible values of the field `SIRLP`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SIRLP_A {
-    #[doc = "SIR low power mode is disabled"]
-    DISABLE,
-    #[doc = "SIR low power mode is enabled"]
-    ENABLE,
-}
-impl From<SIRLP_A> for bool {
-    #[inline(always)]
-    fn from(variant: SIRLP_A) -> Self {
-        match variant {
-            SIRLP_A::DISABLE => false,
-            SIRLP_A::ENABLE => true,
-        }
-    }
-}
-#[doc = "Reader of field `SIRLP`"]
-pub type SIRLP_R = crate::R<bool, SIRLP_A>;
-impl SIRLP_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> SIRLP_A {
-        match self.bits {
-            false => SIRLP_A::DISABLE,
-            true => SIRLP_A::ENABLE,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline(always)]
-    pub fn is_disable(&self) -> bool {
-        *self == SIRLP_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == SIRLP_A::ENABLE
+        *self == Siren::Enable
     }
 }
-#[doc = "Write proxy for field `SIRLP`"]
-pub struct SIRLP_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SIRLP_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
+#[doc = "Field `SIREN` writer - SIR enable"]
+pub type SirenW<'a, REG> = crate::BitWriter<'a, REG, Siren>;
+impl<'a, REG> SirenW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "SIR is disabled"]
     #[inline(always)]
-    pub fn variant(self, variant: SIRLP_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Siren::Disable)
+    }
+    #[doc = "SIR is enabled"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Siren::Enable)
+    }
+}
+#[doc = "IrDA SIR low power mode\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Sirlp {
+    #[doc = "0: SIR low power mode is disabled"]
+    Disable = 0,
+    #[doc = "1: SIR low power mode is enabled"]
+    Enable = 1,
+}
+impl From<Sirlp> for bool {
+    #[inline(always)]
+    fn from(variant: Sirlp) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `SIRLP` reader - IrDA SIR low power mode"]
+pub type SirlpR = crate::BitReader<Sirlp>;
+impl SirlpR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Sirlp {
+        match self.bits {
+            false => Sirlp::Disable,
+            true => Sirlp::Enable,
         }
     }
     #[doc = "SIR low power mode is disabled"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(SIRLP_A::DISABLE)
+    pub fn is_disable(&self) -> bool {
+        *self == Sirlp::Disable
     }
     #[doc = "SIR low power mode is enabled"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(SIRLP_A::ENABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
-        self.w
-    }
-}
-#[doc = "Possible values of the field `LBE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LBE_A {
-    #[doc = "Loop back mode is disabled"]
-    DISABLE,
-    #[doc = "Loop back mode is enabled"]
-    ENABLE,
-}
-impl From<LBE_A> for bool {
-    #[inline(always)]
-    fn from(variant: LBE_A) -> Self {
-        match variant {
-            LBE_A::DISABLE => false,
-            LBE_A::ENABLE => true,
-        }
-    }
-}
-#[doc = "Reader of field `LBE`"]
-pub type LBE_R = crate::R<bool, LBE_A>;
-impl LBE_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> LBE_A {
-        match self.bits {
-            false => LBE_A::DISABLE,
-            true => LBE_A::ENABLE,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline(always)]
-    pub fn is_disable(&self) -> bool {
-        *self == LBE_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == LBE_A::ENABLE
+        *self == Sirlp::Enable
     }
 }
-#[doc = "Write proxy for field `LBE`"]
-pub struct LBE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> LBE_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
+#[doc = "Field `SIRLP` writer - IrDA SIR low power mode"]
+pub type SirlpW<'a, REG> = crate::BitWriter<'a, REG, Sirlp>;
+impl<'a, REG> SirlpW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "SIR low power mode is disabled"]
     #[inline(always)]
-    pub fn variant(self, variant: LBE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Sirlp::Disable)
+    }
+    #[doc = "SIR low power mode is enabled"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Sirlp::Enable)
+    }
+}
+#[doc = "Loop back enable\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Lbe {
+    #[doc = "0: Loop back mode is disabled"]
+    Disable = 0,
+    #[doc = "1: Loop back mode is enabled"]
+    Enable = 1,
+}
+impl From<Lbe> for bool {
+    #[inline(always)]
+    fn from(variant: Lbe) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `LBE` reader - Loop back enable"]
+pub type LbeR = crate::BitReader<Lbe>;
+impl LbeR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Lbe {
+        match self.bits {
+            false => Lbe::Disable,
+            true => Lbe::Enable,
         }
     }
     #[doc = "Loop back mode is disabled"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(LBE_A::DISABLE)
+    pub fn is_disable(&self) -> bool {
+        *self == Lbe::Disable
     }
     #[doc = "Loop back mode is enabled"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(LBE_A::ENABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
-        self.w
-    }
-}
-#[doc = "Possible values of the field `TXE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TXE_A {
-    #[doc = "Transmission is disabled."]
-    DISABLE,
-    #[doc = "Transmission is enabled."]
-    ENABLE,
-}
-impl From<TXE_A> for bool {
-    #[inline(always)]
-    fn from(variant: TXE_A) -> Self {
-        match variant {
-            TXE_A::DISABLE => false,
-            TXE_A::ENABLE => true,
-        }
-    }
-}
-#[doc = "Reader of field `TXE`"]
-pub type TXE_R = crate::R<bool, TXE_A>;
-impl TXE_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> TXE_A {
-        match self.bits {
-            false => TXE_A::DISABLE,
-            true => TXE_A::ENABLE,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline(always)]
-    pub fn is_disable(&self) -> bool {
-        *self == TXE_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == TXE_A::ENABLE
+        *self == Lbe::Enable
     }
 }
-#[doc = "Write proxy for field `TXE`"]
-pub struct TXE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> TXE_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
+#[doc = "Field `LBE` writer - Loop back enable"]
+pub type LbeW<'a, REG> = crate::BitWriter<'a, REG, Lbe>;
+impl<'a, REG> LbeW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Loop back mode is disabled"]
     #[inline(always)]
-    pub fn variant(self, variant: TXE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Lbe::Disable)
+    }
+    #[doc = "Loop back mode is enabled"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Lbe::Enable)
+    }
+}
+#[doc = "Transmit enable\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Txe {
+    #[doc = "0: Transmission is disabled."]
+    Disable = 0,
+    #[doc = "1: Transmission is enabled."]
+    Enable = 1,
+}
+impl From<Txe> for bool {
+    #[inline(always)]
+    fn from(variant: Txe) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `TXE` reader - Transmit enable"]
+pub type TxeR = crate::BitReader<Txe>;
+impl TxeR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Txe {
+        match self.bits {
+            false => Txe::Disable,
+            true => Txe::Enable,
         }
     }
     #[doc = "Transmission is disabled."]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(TXE_A::DISABLE)
+    pub fn is_disable(&self) -> bool {
+        *self == Txe::Disable
     }
     #[doc = "Transmission is enabled."]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(TXE_A::ENABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
-        self.w
-    }
-}
-#[doc = "Possible values of the field `RXE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RXE_A {
-    #[doc = " Reception is disabled"]
-    DISABLE,
-    #[doc = "Reception is enabled"]
-    ENABLE,
-}
-impl From<RXE_A> for bool {
-    #[inline(always)]
-    fn from(variant: RXE_A) -> Self {
-        match variant {
-            RXE_A::DISABLE => false,
-            RXE_A::ENABLE => true,
-        }
-    }
-}
-#[doc = "Reader of field `RXE`"]
-pub type RXE_R = crate::R<bool, RXE_A>;
-impl RXE_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> RXE_A {
-        match self.bits {
-            false => RXE_A::DISABLE,
-            true => RXE_A::ENABLE,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline(always)]
-    pub fn is_disable(&self) -> bool {
-        *self == RXE_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == RXE_A::ENABLE
+        *self == Txe::Enable
     }
 }
-#[doc = "Write proxy for field `RXE`"]
-pub struct RXE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> RXE_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
+#[doc = "Field `TXE` writer - Transmit enable"]
+pub type TxeW<'a, REG> = crate::BitWriter<'a, REG, Txe>;
+impl<'a, REG> TxeW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Transmission is disabled."]
     #[inline(always)]
-    pub fn variant(self, variant: RXE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Txe::Disable)
+    }
+    #[doc = "Transmission is enabled."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Txe::Enable)
+    }
+}
+#[doc = "Receive enable\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Rxe {
+    #[doc = "0: Reception is disabled"]
+    Disable = 0,
+    #[doc = "1: Reception is enabled"]
+    Enable = 1,
+}
+impl From<Rxe> for bool {
+    #[inline(always)]
+    fn from(variant: Rxe) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `RXE` reader - Receive enable"]
+pub type RxeR = crate::BitReader<Rxe>;
+impl RxeR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Rxe {
+        match self.bits {
+            false => Rxe::Disable,
+            true => Rxe::Enable,
         }
     }
     #[doc = "Reception is disabled"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(RXE_A::DISABLE)
+    pub fn is_disable(&self) -> bool {
+        *self == Rxe::Disable
     }
     #[doc = "Reception is enabled"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(RXE_A::ENABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
-        self.w
-    }
-}
-#[doc = "Reader of field `DTR`"]
-pub type DTR_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DTR`"]
-pub struct DTR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> DTR_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
-        self.w
-    }
-}
-#[doc = "Reader of field `RTS`"]
-pub type RTS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `RTS`"]
-pub struct RTS_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> RTS_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
-        self.w
-    }
-}
-#[doc = "Reader of field `Out1`"]
-pub type OUT1_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `Out1`"]
-pub struct OUT1_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> OUT1_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
-        self.w
-    }
-}
-#[doc = "Reader of field `Out2`"]
-pub type OUT2_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `Out2`"]
-pub struct OUT2_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> OUT2_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
-        self.w
-    }
-}
-#[doc = "Possible values of the field `RTSEn`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RTSEN_A {
-    #[doc = "RTS hardware flow control is disabled"]
-    DISABLE,
-    #[doc = "RTS hardware flow control is enabled"]
-    ENABLE,
-}
-impl From<RTSEN_A> for bool {
-    #[inline(always)]
-    fn from(variant: RTSEN_A) -> Self {
-        match variant {
-            RTSEN_A::DISABLE => false,
-            RTSEN_A::ENABLE => true,
-        }
-    }
-}
-#[doc = "Reader of field `RTSEn`"]
-pub type RTSEN_R = crate::R<bool, RTSEN_A>;
-impl RTSEN_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> RTSEN_A {
-        match self.bits {
-            false => RTSEN_A::DISABLE,
-            true => RTSEN_A::ENABLE,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline(always)]
-    pub fn is_disable(&self) -> bool {
-        *self == RTSEN_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == RTSEN_A::ENABLE
+        *self == Rxe::Enable
     }
 }
-#[doc = "Write proxy for field `RTSEn`"]
-pub struct RTSEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> RTSEN_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
+#[doc = "Field `RXE` writer - Receive enable"]
+pub type RxeW<'a, REG> = crate::BitWriter<'a, REG, Rxe>;
+impl<'a, REG> RxeW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Reception is disabled"]
     #[inline(always)]
-    pub fn variant(self, variant: RTSEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxe::Disable)
+    }
+    #[doc = "Reception is enabled"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxe::Enable)
+    }
+}
+#[doc = "Field `DTR` reader - Data transmit ready"]
+pub type DtrR = crate::BitReader;
+#[doc = "Field `DTR` writer - Data transmit ready"]
+pub type DtrW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `RTS` reader - Request to send"]
+pub type RtsR = crate::BitReader;
+#[doc = "Field `RTS` writer - Request to send"]
+pub type RtsW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `Out1` reader - Complement of the UART Out1"]
+pub type Out1R = crate::BitReader;
+#[doc = "Field `Out1` writer - Complement of the UART Out1"]
+pub type Out1W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `Out2` reader - Complement of the UART Out2"]
+pub type Out2R = crate::BitReader;
+#[doc = "Field `Out2` writer - Complement of the UART Out2"]
+pub type Out2W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "RTS hardware flow control enable\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Rtsen {
+    #[doc = "0: RTS hardware flow control is disabled"]
+    Disable = 0,
+    #[doc = "1: RTS hardware flow control is enabled"]
+    Enable = 1,
+}
+impl From<Rtsen> for bool {
+    #[inline(always)]
+    fn from(variant: Rtsen) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `RTSEn` reader - RTS hardware flow control enable"]
+pub type RtsenR = crate::BitReader<Rtsen>;
+impl RtsenR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Rtsen {
+        match self.bits {
+            false => Rtsen::Disable,
+            true => Rtsen::Enable,
         }
     }
     #[doc = "RTS hardware flow control is disabled"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(RTSEN_A::DISABLE)
+    pub fn is_disable(&self) -> bool {
+        *self == Rtsen::Disable
     }
     #[doc = "RTS hardware flow control is enabled"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(RTSEN_A::ENABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
-        self.w
+    pub fn is_enable(&self) -> bool {
+        *self == Rtsen::Enable
     }
 }
-#[doc = "Possible values of the field `CTSEn`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CTSEN_A {
-    #[doc = "CTS hardware flow control is disabled"]
-    DISABLE,
-    #[doc = "CTS hardware flow control is enabled"]
-    ENABLE,
-}
-impl From<CTSEN_A> for bool {
+#[doc = "Field `RTSEn` writer - RTS hardware flow control enable"]
+pub type RtsenW<'a, REG> = crate::BitWriter<'a, REG, Rtsen>;
+impl<'a, REG> RtsenW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "RTS hardware flow control is disabled"]
     #[inline(always)]
-    fn from(variant: CTSEN_A) -> Self {
-        match variant {
-            CTSEN_A::DISABLE => false,
-            CTSEN_A::ENABLE => true,
-        }
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Rtsen::Disable)
+    }
+    #[doc = "RTS hardware flow control is enabled"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Rtsen::Enable)
     }
 }
-#[doc = "Reader of field `CTSEn`"]
-pub type CTSEN_R = crate::R<bool, CTSEN_A>;
-impl CTSEN_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "CTS hardware flow control enable\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Ctsen {
+    #[doc = "0: CTS hardware flow control is disabled"]
+    Disable = 0,
+    #[doc = "1: CTS hardware flow control is enabled"]
+    Enable = 1,
+}
+impl From<Ctsen> for bool {
     #[inline(always)]
-    pub fn variant(&self) -> CTSEN_A {
+    fn from(variant: Ctsen) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `CTSEn` reader - CTS hardware flow control enable"]
+pub type CtsenR = crate::BitReader<Ctsen>;
+impl CtsenR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Ctsen {
         match self.bits {
-            false => CTSEN_A::DISABLE,
-            true => CTSEN_A::ENABLE,
+            false => Ctsen::Disable,
+            true => Ctsen::Enable,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "CTS hardware flow control is disabled"]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == CTSEN_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
-    pub fn is_enable(&self) -> bool {
-        *self == CTSEN_A::ENABLE
-    }
-}
-#[doc = "Write proxy for field `CTSEn`"]
-pub struct CTSEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CTSEN_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: CTSEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "CTS hardware flow control is disabled"]
-    #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(CTSEN_A::DISABLE)
+        *self == Ctsen::Disable
     }
     #[doc = "CTS hardware flow control is enabled"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(CTSEN_A::ENABLE)
+    pub fn is_enable(&self) -> bool {
+        *self == Ctsen::Enable
     }
-    #[doc = r"Sets the field bit"]
+}
+#[doc = "Field `CTSEn` writer - CTS hardware flow control enable"]
+pub type CtsenW<'a, REG> = crate::BitWriter<'a, REG, Ctsen>;
+impl<'a, REG> CtsenW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "CTS hardware flow control is disabled"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Ctsen::Disable)
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "CTS hardware flow control is enabled"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
-        self.w
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Ctsen::Enable)
     }
 }
 impl R {
     #[doc = "Bit 0 - UART enable"]
     #[inline(always)]
-    pub fn uarten(&self) -> UARTEN_R {
-        UARTEN_R::new((self.bits & 0x01) != 0)
+    pub fn uarten(&self) -> UartenR {
+        UartenR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - SIR enable"]
     #[inline(always)]
-    pub fn siren(&self) -> SIREN_R {
-        SIREN_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn siren(&self) -> SirenR {
+        SirenR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - IrDA SIR low power mode"]
     #[inline(always)]
-    pub fn sirlp(&self) -> SIRLP_R {
-        SIRLP_R::new(((self.bits >> 2) & 0x01) != 0)
+    pub fn sirlp(&self) -> SirlpR {
+        SirlpR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 7 - Loop back enable"]
     #[inline(always)]
-    pub fn lbe(&self) -> LBE_R {
-        LBE_R::new(((self.bits >> 7) & 0x01) != 0)
+    pub fn lbe(&self) -> LbeR {
+        LbeR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 8 - Transmit enable"]
     #[inline(always)]
-    pub fn txe(&self) -> TXE_R {
-        TXE_R::new(((self.bits >> 8) & 0x01) != 0)
+    pub fn txe(&self) -> TxeR {
+        TxeR::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 9 - Receive enable"]
     #[inline(always)]
-    pub fn rxe(&self) -> RXE_R {
-        RXE_R::new(((self.bits >> 9) & 0x01) != 0)
+    pub fn rxe(&self) -> RxeR {
+        RxeR::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bit 10 - Data transmit ready"]
     #[inline(always)]
-    pub fn dtr(&self) -> DTR_R {
-        DTR_R::new(((self.bits >> 10) & 0x01) != 0)
+    pub fn dtr(&self) -> DtrR {
+        DtrR::new(((self.bits >> 10) & 1) != 0)
     }
     #[doc = "Bit 11 - Request to send"]
     #[inline(always)]
-    pub fn rts(&self) -> RTS_R {
-        RTS_R::new(((self.bits >> 11) & 0x01) != 0)
+    pub fn rts(&self) -> RtsR {
+        RtsR::new(((self.bits >> 11) & 1) != 0)
     }
     #[doc = "Bit 12 - Complement of the UART Out1"]
     #[inline(always)]
-    pub fn out1(&self) -> OUT1_R {
-        OUT1_R::new(((self.bits >> 12) & 0x01) != 0)
+    pub fn out1(&self) -> Out1R {
+        Out1R::new(((self.bits >> 12) & 1) != 0)
     }
     #[doc = "Bit 13 - Complement of the UART Out2"]
     #[inline(always)]
-    pub fn out2(&self) -> OUT2_R {
-        OUT2_R::new(((self.bits >> 13) & 0x01) != 0)
+    pub fn out2(&self) -> Out2R {
+        Out2R::new(((self.bits >> 13) & 1) != 0)
     }
     #[doc = "Bit 14 - RTS hardware flow control enable"]
     #[inline(always)]
-    pub fn rtsen(&self) -> RTSEN_R {
-        RTSEN_R::new(((self.bits >> 14) & 0x01) != 0)
+    pub fn rtsen(&self) -> RtsenR {
+        RtsenR::new(((self.bits >> 14) & 1) != 0)
     }
     #[doc = "Bit 15 - CTS hardware flow control enable"]
     #[inline(always)]
-    pub fn ctsen(&self) -> CTSEN_R {
-        CTSEN_R::new(((self.bits >> 15) & 0x01) != 0)
+    pub fn ctsen(&self) -> CtsenR {
+        CtsenR::new(((self.bits >> 15) & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 0 - UART enable"]
     #[inline(always)]
-    pub fn uarten(&mut self) -> UARTEN_W {
-        UARTEN_W { w: self }
+    pub fn uarten(&mut self) -> UartenW<UartcrSpec> {
+        UartenW::new(self, 0)
     }
     #[doc = "Bit 1 - SIR enable"]
     #[inline(always)]
-    pub fn siren(&mut self) -> SIREN_W {
-        SIREN_W { w: self }
+    pub fn siren(&mut self) -> SirenW<UartcrSpec> {
+        SirenW::new(self, 1)
     }
     #[doc = "Bit 2 - IrDA SIR low power mode"]
     #[inline(always)]
-    pub fn sirlp(&mut self) -> SIRLP_W {
-        SIRLP_W { w: self }
+    pub fn sirlp(&mut self) -> SirlpW<UartcrSpec> {
+        SirlpW::new(self, 2)
     }
     #[doc = "Bit 7 - Loop back enable"]
     #[inline(always)]
-    pub fn lbe(&mut self) -> LBE_W {
-        LBE_W { w: self }
+    pub fn lbe(&mut self) -> LbeW<UartcrSpec> {
+        LbeW::new(self, 7)
     }
     #[doc = "Bit 8 - Transmit enable"]
     #[inline(always)]
-    pub fn txe(&mut self) -> TXE_W {
-        TXE_W { w: self }
+    pub fn txe(&mut self) -> TxeW<UartcrSpec> {
+        TxeW::new(self, 8)
     }
     #[doc = "Bit 9 - Receive enable"]
     #[inline(always)]
-    pub fn rxe(&mut self) -> RXE_W {
-        RXE_W { w: self }
+    pub fn rxe(&mut self) -> RxeW<UartcrSpec> {
+        RxeW::new(self, 9)
     }
     #[doc = "Bit 10 - Data transmit ready"]
     #[inline(always)]
-    pub fn dtr(&mut self) -> DTR_W {
-        DTR_W { w: self }
+    pub fn dtr(&mut self) -> DtrW<UartcrSpec> {
+        DtrW::new(self, 10)
     }
     #[doc = "Bit 11 - Request to send"]
     #[inline(always)]
-    pub fn rts(&mut self) -> RTS_W {
-        RTS_W { w: self }
+    pub fn rts(&mut self) -> RtsW<UartcrSpec> {
+        RtsW::new(self, 11)
     }
     #[doc = "Bit 12 - Complement of the UART Out1"]
     #[inline(always)]
-    pub fn out1(&mut self) -> OUT1_W {
-        OUT1_W { w: self }
+    pub fn out1(&mut self) -> Out1W<UartcrSpec> {
+        Out1W::new(self, 12)
     }
     #[doc = "Bit 13 - Complement of the UART Out2"]
     #[inline(always)]
-    pub fn out2(&mut self) -> OUT2_W {
-        OUT2_W { w: self }
+    pub fn out2(&mut self) -> Out2W<UartcrSpec> {
+        Out2W::new(self, 13)
     }
     #[doc = "Bit 14 - RTS hardware flow control enable"]
     #[inline(always)]
-    pub fn rtsen(&mut self) -> RTSEN_W {
-        RTSEN_W { w: self }
+    pub fn rtsen(&mut self) -> RtsenW<UartcrSpec> {
+        RtsenW::new(self, 14)
     }
     #[doc = "Bit 15 - CTS hardware flow control enable"]
     #[inline(always)]
-    pub fn ctsen(&mut self) -> CTSEN_W {
-        CTSEN_W { w: self }
+    pub fn ctsen(&mut self) -> CtsenW<UartcrSpec> {
+        CtsenW::new(self, 15)
     }
+}
+#[doc = "Control register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartcr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartcr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct UartcrSpec;
+impl crate::RegisterSpec for UartcrSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`uartcr::R`](R) reader structure"]
+impl crate::Readable for UartcrSpec {}
+#[doc = "`write(|w| ..)` method takes [`uartcr::W`](W) writer structure"]
+impl crate::Writable for UartcrSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets UARTCR to value 0x0300"]
+impl crate::Resettable for UartcrSpec {
+    const RESET_VALUE: u32 = 0x0300;
 }

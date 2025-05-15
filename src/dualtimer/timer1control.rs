@@ -1,548 +1,421 @@
-#[doc = "Reader of register TIMER1CONTROL"]
-pub type R = crate::R<u32, super::TIMER1CONTROL>;
-#[doc = "Writer for register TIMER1CONTROL"]
-pub type W = crate::W<u32, super::TIMER1CONTROL>;
-#[doc = "Register TIMER1CONTROL `reset()`'s with value 0x20"]
-impl crate::ResetValue for super::TIMER1CONTROL {
-    type Type = u32;
+#[doc = "Register `TIMER1CONTROL` reader"]
+pub type R = crate::R<Timer1controlSpec>;
+#[doc = "Register `TIMER1CONTROL` writer"]
+pub type W = crate::W<Timer1controlSpec>;
+#[doc = "Selects one-shot or wrapping counter mode.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum OneShotCount {
+    #[doc = "0: Wrapping counter mode"]
+    Wrapping = 0,
+    #[doc = "1: One-shot counter mode"]
+    OneShot = 1,
+}
+impl From<OneShotCount> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x20
+    fn from(variant: OneShotCount) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Possible values of the field `OneShotCount`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ONESHOTCOUNT_A {
-    #[doc = "Wrapping counter mode"]
-    WRAPPING,
-    #[doc = "One-shot counter mode"]
-    ONESHOT,
-}
-impl From<ONESHOTCOUNT_A> for bool {
+#[doc = "Field `OneShotCount` reader - Selects one-shot or wrapping counter mode."]
+pub type OneShotCountR = crate::BitReader<OneShotCount>;
+impl OneShotCountR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    fn from(variant: ONESHOTCOUNT_A) -> Self {
-        match variant {
-            ONESHOTCOUNT_A::WRAPPING => false,
-            ONESHOTCOUNT_A::ONESHOT => true,
-        }
-    }
-}
-#[doc = "Reader of field `OneShotCount`"]
-pub type ONESHOTCOUNT_R = crate::R<bool, ONESHOTCOUNT_A>;
-impl ONESHOTCOUNT_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> ONESHOTCOUNT_A {
+    pub const fn variant(&self) -> OneShotCount {
         match self.bits {
-            false => ONESHOTCOUNT_A::WRAPPING,
-            true => ONESHOTCOUNT_A::ONESHOT,
+            false => OneShotCount::Wrapping,
+            true => OneShotCount::OneShot,
         }
     }
-    #[doc = "Checks if the value of the field is `WRAPPING`"]
+    #[doc = "Wrapping counter mode"]
     #[inline(always)]
     pub fn is_wrapping(&self) -> bool {
-        *self == ONESHOTCOUNT_A::WRAPPING
-    }
-    #[doc = "Checks if the value of the field is `ONESHOT`"]
-    #[inline(always)]
-    pub fn is_one_shot(&self) -> bool {
-        *self == ONESHOTCOUNT_A::ONESHOT
-    }
-}
-#[doc = "Write proxy for field `OneShotCount`"]
-pub struct ONESHOTCOUNT_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> ONESHOTCOUNT_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: ONESHOTCOUNT_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "Wrapping counter mode"]
-    #[inline(always)]
-    pub fn wrapping(self) -> &'a mut W {
-        self.variant(ONESHOTCOUNT_A::WRAPPING)
+        *self == OneShotCount::Wrapping
     }
     #[doc = "One-shot counter mode"]
     #[inline(always)]
-    pub fn one_shot(self) -> &'a mut W {
-        self.variant(ONESHOTCOUNT_A::ONESHOT)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
+    pub fn is_one_shot(&self) -> bool {
+        *self == OneShotCount::OneShot
     }
 }
-#[doc = "Possible values of the field `TimerSize`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TIMERSIZE_A {
-    #[doc = "16-bit counter mode"]
-    _16BIT,
-    #[doc = "32-bit counter mode"]
-    _32BIT,
-}
-impl From<TIMERSIZE_A> for bool {
+#[doc = "Field `OneShotCount` writer - Selects one-shot or wrapping counter mode."]
+pub type OneShotCountW<'a, REG> = crate::BitWriter<'a, REG, OneShotCount>;
+impl<'a, REG> OneShotCountW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Wrapping counter mode"]
     #[inline(always)]
-    fn from(variant: TIMERSIZE_A) -> Self {
-        match variant {
-            TIMERSIZE_A::_16BIT => false,
-            TIMERSIZE_A::_32BIT => true,
-        }
+    pub fn wrapping(self) -> &'a mut crate::W<REG> {
+        self.variant(OneShotCount::Wrapping)
+    }
+    #[doc = "One-shot counter mode"]
+    #[inline(always)]
+    pub fn one_shot(self) -> &'a mut crate::W<REG> {
+        self.variant(OneShotCount::OneShot)
     }
 }
-#[doc = "Reader of field `TimerSize`"]
-pub type TIMERSIZE_R = crate::R<bool, TIMERSIZE_A>;
-impl TIMERSIZE_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Selects 16-bit or 32- bit counter operation.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TimerSize {
+    #[doc = "0: 16-bit counter mode"]
+    _16bit = 0,
+    #[doc = "1: 32-bit counter mode"]
+    _32bit = 1,
+}
+impl From<TimerSize> for bool {
     #[inline(always)]
-    pub fn variant(&self) -> TIMERSIZE_A {
+    fn from(variant: TimerSize) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `TimerSize` reader - Selects 16-bit or 32- bit counter operation."]
+pub type TimerSizeR = crate::BitReader<TimerSize>;
+impl TimerSizeR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> TimerSize {
         match self.bits {
-            false => TIMERSIZE_A::_16BIT,
-            true => TIMERSIZE_A::_32BIT,
+            false => TimerSize::_16bit,
+            true => TimerSize::_32bit,
         }
     }
-    #[doc = "Checks if the value of the field is `_16BIT`"]
+    #[doc = "16-bit counter mode"]
     #[inline(always)]
     pub fn is_16bit(&self) -> bool {
-        *self == TIMERSIZE_A::_16BIT
-    }
-    #[doc = "Checks if the value of the field is `_32BIT`"]
-    #[inline(always)]
-    pub fn is_32bit(&self) -> bool {
-        *self == TIMERSIZE_A::_32BIT
-    }
-}
-#[doc = "Write proxy for field `TimerSize`"]
-pub struct TIMERSIZE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> TIMERSIZE_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: TIMERSIZE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "16-bit counter mode"]
-    #[inline(always)]
-    pub fn _16bit(self) -> &'a mut W {
-        self.variant(TIMERSIZE_A::_16BIT)
+        *self == TimerSize::_16bit
     }
     #[doc = "32-bit counter mode"]
     #[inline(always)]
-    pub fn _32bit(self) -> &'a mut W {
-        self.variant(TIMERSIZE_A::_32BIT)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
-        self.w
+    pub fn is_32bit(&self) -> bool {
+        *self == TimerSize::_32bit
     }
 }
-#[doc = "Possible values of the field `TimerPre`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TIMERPRE_A {
-    #[doc = "clock is divided by 1"]
-    DIVIDEDBY1,
-    #[doc = "clock is divided by 16"]
-    DIVIDEDBY16,
-    #[doc = "clock is divided by 256"]
-    DIVIDEDBY256,
-}
-impl From<TIMERPRE_A> for u8 {
+#[doc = "Field `TimerSize` writer - Selects 16-bit or 32- bit counter operation."]
+pub type TimerSizeW<'a, REG> = crate::BitWriter<'a, REG, TimerSize>;
+impl<'a, REG> TimerSizeW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "16-bit counter mode"]
     #[inline(always)]
-    fn from(variant: TIMERPRE_A) -> Self {
-        match variant {
-            TIMERPRE_A::DIVIDEDBY1 => 0,
-            TIMERPRE_A::DIVIDEDBY16 => 1,
-            TIMERPRE_A::DIVIDEDBY256 => 2,
-        }
+    pub fn _16bit(self) -> &'a mut crate::W<REG> {
+        self.variant(TimerSize::_16bit)
+    }
+    #[doc = "32-bit counter mode"]
+    #[inline(always)]
+    pub fn _32bit(self) -> &'a mut crate::W<REG> {
+        self.variant(TimerSize::_32bit)
     }
 }
-#[doc = "Reader of field `TimerPre`"]
-pub type TIMERPRE_R = crate::R<u8, TIMERPRE_A>;
-impl TIMERPRE_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Timer prescale bits.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum TimerPre {
+    #[doc = "0: clock is divided by 1"]
+    Dividedby1 = 0,
+    #[doc = "1: clock is divided by 16"]
+    Dividedby16 = 1,
+    #[doc = "2: clock is divided by 256"]
+    Dividedby256 = 2,
+}
+impl From<TimerPre> for u8 {
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, TIMERPRE_A> {
-        use crate::Variant::*;
+    fn from(variant: TimerPre) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for TimerPre {
+    type Ux = u8;
+}
+impl crate::IsEnum for TimerPre {}
+#[doc = "Field `TimerPre` reader - Timer prescale bits."]
+pub type TimerPreR = crate::FieldReader<TimerPre>;
+impl TimerPreR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<TimerPre> {
         match self.bits {
-            0 => Val(TIMERPRE_A::DIVIDEDBY1),
-            1 => Val(TIMERPRE_A::DIVIDEDBY16),
-            2 => Val(TIMERPRE_A::DIVIDEDBY256),
-            i => Res(i),
+            0 => Some(TimerPre::Dividedby1),
+            1 => Some(TimerPre::Dividedby16),
+            2 => Some(TimerPre::Dividedby256),
+            _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `DIVIDEDBY1`"]
+    #[doc = "clock is divided by 1"]
     #[inline(always)]
     pub fn is_dividedby1(&self) -> bool {
-        *self == TIMERPRE_A::DIVIDEDBY1
-    }
-    #[doc = "Checks if the value of the field is `DIVIDEDBY16`"]
-    #[inline(always)]
-    pub fn is_dividedby16(&self) -> bool {
-        *self == TIMERPRE_A::DIVIDEDBY16
-    }
-    #[doc = "Checks if the value of the field is `DIVIDEDBY256`"]
-    #[inline(always)]
-    pub fn is_dividedby256(&self) -> bool {
-        *self == TIMERPRE_A::DIVIDEDBY256
-    }
-}
-#[doc = "Write proxy for field `TimerPre`"]
-pub struct TIMERPRE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> TIMERPRE_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: TIMERPRE_A) -> &'a mut W {
-        unsafe { self.bits(variant.into()) }
-    }
-    #[doc = "clock is divided by 1"]
-    #[inline(always)]
-    pub fn dividedby1(self) -> &'a mut W {
-        self.variant(TIMERPRE_A::DIVIDEDBY1)
+        *self == TimerPre::Dividedby1
     }
     #[doc = "clock is divided by 16"]
     #[inline(always)]
-    pub fn dividedby16(self) -> &'a mut W {
-        self.variant(TIMERPRE_A::DIVIDEDBY16)
+    pub fn is_dividedby16(&self) -> bool {
+        *self == TimerPre::Dividedby16
     }
     #[doc = "clock is divided by 256"]
     #[inline(always)]
-    pub fn dividedby256(self) -> &'a mut W {
-        self.variant(TIMERPRE_A::DIVIDEDBY256)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 2)) | (((value as u32) & 0x03) << 2);
-        self.w
+    pub fn is_dividedby256(&self) -> bool {
+        *self == TimerPre::Dividedby256
     }
 }
-#[doc = "Possible values of the field `InterruptEnable`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum INTERRUPTENABLE_A {
-    #[doc = "Interrupt is disabled."]
-    DISABLE,
-    #[doc = "Interrupt is enabled."]
-    ENABLE,
-}
-impl From<INTERRUPTENABLE_A> for bool {
+#[doc = "Field `TimerPre` writer - Timer prescale bits."]
+pub type TimerPreW<'a, REG> = crate::FieldWriter<'a, REG, 2, TimerPre>;
+impl<'a, REG> TimerPreW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "clock is divided by 1"]
     #[inline(always)]
-    fn from(variant: INTERRUPTENABLE_A) -> Self {
-        match variant {
-            INTERRUPTENABLE_A::DISABLE => false,
-            INTERRUPTENABLE_A::ENABLE => true,
-        }
+    pub fn dividedby1(self) -> &'a mut crate::W<REG> {
+        self.variant(TimerPre::Dividedby1)
+    }
+    #[doc = "clock is divided by 16"]
+    #[inline(always)]
+    pub fn dividedby16(self) -> &'a mut crate::W<REG> {
+        self.variant(TimerPre::Dividedby16)
+    }
+    #[doc = "clock is divided by 256"]
+    #[inline(always)]
+    pub fn dividedby256(self) -> &'a mut crate::W<REG> {
+        self.variant(TimerPre::Dividedby256)
     }
 }
-#[doc = "Reader of field `InterruptEnable`"]
-pub type INTERRUPTENABLE_R = crate::R<bool, INTERRUPTENABLE_A>;
-impl INTERRUPTENABLE_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Interrupt Enable bit.\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum InterruptEnable {
+    #[doc = "0: Interrupt is disabled."]
+    Disable = 0,
+    #[doc = "1: Interrupt is enabled."]
+    Enable = 1,
+}
+impl From<InterruptEnable> for bool {
     #[inline(always)]
-    pub fn variant(&self) -> INTERRUPTENABLE_A {
+    fn from(variant: InterruptEnable) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `InterruptEnable` reader - Interrupt Enable bit."]
+pub type InterruptEnableR = crate::BitReader<InterruptEnable>;
+impl InterruptEnableR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> InterruptEnable {
         match self.bits {
-            false => INTERRUPTENABLE_A::DISABLE,
-            true => INTERRUPTENABLE_A::ENABLE,
+            false => InterruptEnable::Disable,
+            true => InterruptEnable::Enable,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Interrupt is disabled."]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == INTERRUPTENABLE_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
-    pub fn is_enable(&self) -> bool {
-        *self == INTERRUPTENABLE_A::ENABLE
-    }
-}
-#[doc = "Write proxy for field `InterruptEnable`"]
-pub struct INTERRUPTENABLE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> INTERRUPTENABLE_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: INTERRUPTENABLE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "Interrupt is disabled."]
-    #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(INTERRUPTENABLE_A::DISABLE)
+        *self == InterruptEnable::Disable
     }
     #[doc = "Interrupt is enabled."]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(INTERRUPTENABLE_A::ENABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
-        self.w
+    pub fn is_enable(&self) -> bool {
+        *self == InterruptEnable::Enable
     }
 }
-#[doc = "Possible values of the field `TimerMode`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TIMERMODE_A {
-    #[doc = "Free-Running timer mode."]
-    FREERUNNING,
-    #[doc = "Periodic timer mode."]
-    PERIODIC,
-}
-impl From<TIMERMODE_A> for bool {
+#[doc = "Field `InterruptEnable` writer - Interrupt Enable bit."]
+pub type InterruptEnableW<'a, REG> = crate::BitWriter<'a, REG, InterruptEnable>;
+impl<'a, REG> InterruptEnableW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Interrupt is disabled."]
     #[inline(always)]
-    fn from(variant: TIMERMODE_A) -> Self {
-        match variant {
-            TIMERMODE_A::FREERUNNING => false,
-            TIMERMODE_A::PERIODIC => true,
-        }
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(InterruptEnable::Disable)
+    }
+    #[doc = "Interrupt is enabled."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(InterruptEnable::Enable)
     }
 }
-#[doc = "Reader of field `TimerMode`"]
-pub type TIMERMODE_R = crate::R<bool, TIMERMODE_A>;
-impl TIMERMODE_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Timer Mode bit.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TimerMode {
+    #[doc = "0: Free-Running timer mode."]
+    FreeRunning = 0,
+    #[doc = "1: Periodic timer mode."]
+    Periodic = 1,
+}
+impl From<TimerMode> for bool {
     #[inline(always)]
-    pub fn variant(&self) -> TIMERMODE_A {
+    fn from(variant: TimerMode) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `TimerMode` reader - Timer Mode bit."]
+pub type TimerModeR = crate::BitReader<TimerMode>;
+impl TimerModeR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> TimerMode {
         match self.bits {
-            false => TIMERMODE_A::FREERUNNING,
-            true => TIMERMODE_A::PERIODIC,
+            false => TimerMode::FreeRunning,
+            true => TimerMode::Periodic,
         }
     }
-    #[doc = "Checks if the value of the field is `FREERUNNING`"]
+    #[doc = "Free-Running timer mode."]
     #[inline(always)]
     pub fn is_free_running(&self) -> bool {
-        *self == TIMERMODE_A::FREERUNNING
-    }
-    #[doc = "Checks if the value of the field is `PERIODIC`"]
-    #[inline(always)]
-    pub fn is_periodic(&self) -> bool {
-        *self == TIMERMODE_A::PERIODIC
-    }
-}
-#[doc = "Write proxy for field `TimerMode`"]
-pub struct TIMERMODE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> TIMERMODE_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: TIMERMODE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "Free-Running timer mode."]
-    #[inline(always)]
-    pub fn free_running(self) -> &'a mut W {
-        self.variant(TIMERMODE_A::FREERUNNING)
+        *self == TimerMode::FreeRunning
     }
     #[doc = "Periodic timer mode."]
     #[inline(always)]
-    pub fn periodic(self) -> &'a mut W {
-        self.variant(TIMERMODE_A::PERIODIC)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
-        self.w
+    pub fn is_periodic(&self) -> bool {
+        *self == TimerMode::Periodic
     }
 }
-#[doc = "Possible values of the field `TimerEnable`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TIMERENABLE_A {
-    #[doc = "Timer is disabled."]
-    DISABLE,
-    #[doc = "Timer is enabled."]
-    ENABLE,
-}
-impl From<TIMERENABLE_A> for bool {
+#[doc = "Field `TimerMode` writer - Timer Mode bit."]
+pub type TimerModeW<'a, REG> = crate::BitWriter<'a, REG, TimerMode>;
+impl<'a, REG> TimerModeW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Free-Running timer mode."]
     #[inline(always)]
-    fn from(variant: TIMERENABLE_A) -> Self {
-        match variant {
-            TIMERENABLE_A::DISABLE => false,
-            TIMERENABLE_A::ENABLE => true,
-        }
+    pub fn free_running(self) -> &'a mut crate::W<REG> {
+        self.variant(TimerMode::FreeRunning)
+    }
+    #[doc = "Periodic timer mode."]
+    #[inline(always)]
+    pub fn periodic(self) -> &'a mut crate::W<REG> {
+        self.variant(TimerMode::Periodic)
     }
 }
-#[doc = "Reader of field `TimerEnable`"]
-pub type TIMERENABLE_R = crate::R<bool, TIMERENABLE_A>;
-impl TIMERENABLE_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Timer Enable Enable bit.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TimerEnable {
+    #[doc = "0: Timer is disabled."]
+    Disable = 0,
+    #[doc = "1: Timer is enabled."]
+    Enable = 1,
+}
+impl From<TimerEnable> for bool {
     #[inline(always)]
-    pub fn variant(&self) -> TIMERENABLE_A {
+    fn from(variant: TimerEnable) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `TimerEnable` reader - Timer Enable Enable bit."]
+pub type TimerEnableR = crate::BitReader<TimerEnable>;
+impl TimerEnableR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> TimerEnable {
         match self.bits {
-            false => TIMERENABLE_A::DISABLE,
-            true => TIMERENABLE_A::ENABLE,
+            false => TimerEnable::Disable,
+            true => TimerEnable::Enable,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Timer is disabled."]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == TIMERENABLE_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
-    pub fn is_enable(&self) -> bool {
-        *self == TIMERENABLE_A::ENABLE
-    }
-}
-#[doc = "Write proxy for field `TimerEnable`"]
-pub struct TIMERENABLE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> TIMERENABLE_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: TIMERENABLE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "Timer is disabled."]
-    #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(TIMERENABLE_A::DISABLE)
+        *self == TimerEnable::Disable
     }
     #[doc = "Timer is enabled."]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(TIMERENABLE_A::ENABLE)
+    pub fn is_enable(&self) -> bool {
+        *self == TimerEnable::Enable
     }
-    #[doc = r"Sets the field bit"]
+}
+#[doc = "Field `TimerEnable` writer - Timer Enable Enable bit."]
+pub type TimerEnableW<'a, REG> = crate::BitWriter<'a, REG, TimerEnable>;
+impl<'a, REG> TimerEnableW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Timer is disabled."]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(TimerEnable::Disable)
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "Timer is enabled."]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
-        self.w
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(TimerEnable::Enable)
     }
 }
 impl R {
     #[doc = "Bit 0 - Selects one-shot or wrapping counter mode."]
     #[inline(always)]
-    pub fn one_shot_count(&self) -> ONESHOTCOUNT_R {
-        ONESHOTCOUNT_R::new((self.bits & 0x01) != 0)
+    pub fn one_shot_count(&self) -> OneShotCountR {
+        OneShotCountR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - Selects 16-bit or 32- bit counter operation."]
     #[inline(always)]
-    pub fn timer_size(&self) -> TIMERSIZE_R {
-        TIMERSIZE_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn timer_size(&self) -> TimerSizeR {
+        TimerSizeR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bits 2:3 - Timer prescale bits."]
     #[inline(always)]
-    pub fn timer_pre(&self) -> TIMERPRE_R {
-        TIMERPRE_R::new(((self.bits >> 2) & 0x03) as u8)
+    pub fn timer_pre(&self) -> TimerPreR {
+        TimerPreR::new(((self.bits >> 2) & 3) as u8)
     }
     #[doc = "Bit 5 - Interrupt Enable bit."]
     #[inline(always)]
-    pub fn interrupt_enable(&self) -> INTERRUPTENABLE_R {
-        INTERRUPTENABLE_R::new(((self.bits >> 5) & 0x01) != 0)
+    pub fn interrupt_enable(&self) -> InterruptEnableR {
+        InterruptEnableR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - Timer Mode bit."]
     #[inline(always)]
-    pub fn timer_mode(&self) -> TIMERMODE_R {
-        TIMERMODE_R::new(((self.bits >> 6) & 0x01) != 0)
+    pub fn timer_mode(&self) -> TimerModeR {
+        TimerModeR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - Timer Enable Enable bit."]
     #[inline(always)]
-    pub fn timer_enable(&self) -> TIMERENABLE_R {
-        TIMERENABLE_R::new(((self.bits >> 7) & 0x01) != 0)
+    pub fn timer_enable(&self) -> TimerEnableR {
+        TimerEnableR::new(((self.bits >> 7) & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 0 - Selects one-shot or wrapping counter mode."]
     #[inline(always)]
-    pub fn one_shot_count(&mut self) -> ONESHOTCOUNT_W {
-        ONESHOTCOUNT_W { w: self }
+    pub fn one_shot_count(&mut self) -> OneShotCountW<Timer1controlSpec> {
+        OneShotCountW::new(self, 0)
     }
     #[doc = "Bit 1 - Selects 16-bit or 32- bit counter operation."]
     #[inline(always)]
-    pub fn timer_size(&mut self) -> TIMERSIZE_W {
-        TIMERSIZE_W { w: self }
+    pub fn timer_size(&mut self) -> TimerSizeW<Timer1controlSpec> {
+        TimerSizeW::new(self, 1)
     }
     #[doc = "Bits 2:3 - Timer prescale bits."]
     #[inline(always)]
-    pub fn timer_pre(&mut self) -> TIMERPRE_W {
-        TIMERPRE_W { w: self }
+    pub fn timer_pre(&mut self) -> TimerPreW<Timer1controlSpec> {
+        TimerPreW::new(self, 2)
     }
     #[doc = "Bit 5 - Interrupt Enable bit."]
     #[inline(always)]
-    pub fn interrupt_enable(&mut self) -> INTERRUPTENABLE_W {
-        INTERRUPTENABLE_W { w: self }
+    pub fn interrupt_enable(&mut self) -> InterruptEnableW<Timer1controlSpec> {
+        InterruptEnableW::new(self, 5)
     }
     #[doc = "Bit 6 - Timer Mode bit."]
     #[inline(always)]
-    pub fn timer_mode(&mut self) -> TIMERMODE_W {
-        TIMERMODE_W { w: self }
+    pub fn timer_mode(&mut self) -> TimerModeW<Timer1controlSpec> {
+        TimerModeW::new(self, 6)
     }
     #[doc = "Bit 7 - Timer Enable Enable bit."]
     #[inline(always)]
-    pub fn timer_enable(&mut self) -> TIMERENABLE_W {
-        TIMERENABLE_W { w: self }
+    pub fn timer_enable(&mut self) -> TimerEnableW<Timer1controlSpec> {
+        TimerEnableW::new(self, 7)
     }
+}
+#[doc = "Timer 1 Control Register\n\nYou can [`read`](crate::Reg::read) this register and get [`timer1control::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`timer1control::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Timer1controlSpec;
+impl crate::RegisterSpec for Timer1controlSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`timer1control::R`](R) reader structure"]
+impl crate::Readable for Timer1controlSpec {}
+#[doc = "`write(|w| ..)` method takes [`timer1control::W`](W) writer structure"]
+impl crate::Writable for Timer1controlSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets TIMER1CONTROL to value 0x20"]
+impl crate::Resettable for Timer1controlSpec {
+    const RESET_VALUE: u32 = 0x20;
 }

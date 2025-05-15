@@ -1,14 +1,23 @@
-#[doc = "Reader of register SPCSECTRL"]
-pub type R = crate::R<u32, super::SPCSECTRL>;
-#[doc = "Writer for register SPCSECTRL"]
-pub type W = crate::W<u32, super::SPCSECTRL>;
-#[doc = "Register SPCSECTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::SPCSECTRL {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+#[doc = "Register `SPCSECTRL` reader"]
+pub type R = crate::R<SpcsectrlSpec>;
+#[doc = "Register `SPCSECTRL` writer"]
+pub type W = crate::W<SpcsectrlSpec>;
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        write!(f, "{}", self.bits())
     }
 }
-impl R {}
 impl W {}
+#[doc = "Secure Privilege Controller Secure Configuration Control register\n\nYou can [`read`](crate::Reg::read) this register and get [`spcsectrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`spcsectrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SpcsectrlSpec;
+impl crate::RegisterSpec for SpcsectrlSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`spcsectrl::R`](R) reader structure"]
+impl crate::Readable for SpcsectrlSpec {}
+#[doc = "`write(|w| ..)` method takes [`spcsectrl::W`](W) writer structure"]
+impl crate::Writable for SpcsectrlSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets SPCSECTRL to value 0"]
+impl crate::Resettable for SpcsectrlSpec {}

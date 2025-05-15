@@ -1,40 +1,37 @@
-#[doc = "Reader of register AZ_SYS_REMAP_OFFSET"]
-pub type R = crate::R<u32, super::AZ_SYS_REMAP_OFFSET>;
-#[doc = "Writer for register AZ_SYS_REMAP_OFFSET"]
-pub type W = crate::W<u32, super::AZ_SYS_REMAP_OFFSET>;
-#[doc = "Register AZ_SYS_REMAP_OFFSET `reset()`'s with value 0x4001_0000"]
-impl crate::ResetValue for super::AZ_SYS_REMAP_OFFSET {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x4001_0000
-    }
-}
-#[doc = "Reader of field `az_sys_remap_offset`"]
-pub type AZ_SYS_REMAP_OFFSET_R = crate::R<u32, u32>;
-#[doc = "Write proxy for field `az_sys_remap_offset`"]
-pub struct AZ_SYS_REMAP_OFFSET_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> AZ_SYS_REMAP_OFFSET_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xffff_ffff) | ((value as u32) & 0xffff_ffff);
-        self.w
-    }
-}
+#[doc = "Register `AZ_SYS_REMAP_OFFSET` reader"]
+pub type R = crate::R<AzSysRemapOffsetSpec>;
+#[doc = "Register `AZ_SYS_REMAP_OFFSET` writer"]
+pub type W = crate::W<AzSysRemapOffsetSpec>;
+#[doc = "Field `az_sys_remap_offset` reader - Alcatraz system remap offset"]
+pub type AzSysRemapOffsetR = crate::FieldReader<u32>;
+#[doc = "Field `az_sys_remap_offset` writer - Alcatraz system remap offset"]
+pub type AzSysRemapOffsetW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - Alcatraz system remap offset"]
     #[inline(always)]
-    pub fn az_sys_remap_offset(&self) -> AZ_SYS_REMAP_OFFSET_R {
-        AZ_SYS_REMAP_OFFSET_R::new((self.bits & 0xffff_ffff) as u32)
+    pub fn az_sys_remap_offset(&self) -> AzSysRemapOffsetR {
+        AzSysRemapOffsetR::new(self.bits)
     }
 }
 impl W {
     #[doc = "Bits 0:31 - Alcatraz system remap offset"]
     #[inline(always)]
-    pub fn az_sys_remap_offset(&mut self) -> AZ_SYS_REMAP_OFFSET_W {
-        AZ_SYS_REMAP_OFFSET_W { w: self }
+    pub fn az_sys_remap_offset(&mut self) -> AzSysRemapOffsetW<AzSysRemapOffsetSpec> {
+        AzSysRemapOffsetW::new(self, 0)
     }
+}
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`az_sys_remap_offset::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`az_sys_remap_offset::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct AzSysRemapOffsetSpec;
+impl crate::RegisterSpec for AzSysRemapOffsetSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`az_sys_remap_offset::R`](R) reader structure"]
+impl crate::Readable for AzSysRemapOffsetSpec {}
+#[doc = "`write(|w| ..)` method takes [`az_sys_remap_offset::W`](W) writer structure"]
+impl crate::Writable for AzSysRemapOffsetSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets AZ_SYS_REMAP_OFFSET to value 0x4001_0000"]
+impl crate::Resettable for AzSysRemapOffsetSpec {
+    const RESET_VALUE: u32 = 0x4001_0000;
 }

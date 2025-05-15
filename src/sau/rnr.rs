@@ -1,122 +1,117 @@
-#[doc = "Reader of register RNR"]
-pub type R = crate::R<u32, super::RNR>;
-#[doc = "Writer for register RNR"]
-pub type W = crate::W<u32, super::RNR>;
-#[doc = "Register RNR `reset()`'s with value 0"]
-impl crate::ResetValue for super::RNR {
-    type Type = u32;
+#[doc = "Register `RNR` reader"]
+pub type R = crate::R<RnrSpec>;
+#[doc = "Register `RNR` writer"]
+pub type W = crate::W<RnrSpec>;
+#[doc = "Currently selected SAU region\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Region {
+    #[doc = "0: Select SAU Region 0"]
+    SauRegion0 = 0,
+    #[doc = "1: Select SAU Region 1"]
+    SauRegion1 = 1,
+    #[doc = "2: Select SAU Region 2"]
+    SauRegion2 = 2,
+    #[doc = "3: Select SAU Region 3"]
+    SauRegion3 = 3,
+}
+impl From<Region> for u8 {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn from(variant: Region) -> Self {
+        variant as _
     }
 }
-#[doc = "Possible values of the field `REGION`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum REGION_A {
-    #[doc = "Select SAU Region 0"]
-    SAU_REGION_0,
-    #[doc = "Select SAU Region 1"]
-    SAU_REGION_1,
-    #[doc = "Select SAU Region 2"]
-    SAU_REGION_2,
-    #[doc = "Select SAU Region 3"]
-    SAU_REGION_3,
+impl crate::FieldSpec for Region {
+    type Ux = u8;
 }
-impl From<REGION_A> for u8 {
+impl crate::IsEnum for Region {}
+#[doc = "Field `REGION` reader - Currently selected SAU region"]
+pub type RegionR = crate::FieldReader<Region>;
+impl RegionR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    fn from(variant: REGION_A) -> Self {
-        match variant {
-            REGION_A::SAU_REGION_0 => 0,
-            REGION_A::SAU_REGION_1 => 1,
-            REGION_A::SAU_REGION_2 => 2,
-            REGION_A::SAU_REGION_3 => 3,
-        }
-    }
-}
-#[doc = "Reader of field `REGION`"]
-pub type REGION_R = crate::R<u8, REGION_A>;
-impl REGION_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, REGION_A> {
-        use crate::Variant::*;
+    pub const fn variant(&self) -> Option<Region> {
         match self.bits {
-            0 => Val(REGION_A::SAU_REGION_0),
-            1 => Val(REGION_A::SAU_REGION_1),
-            2 => Val(REGION_A::SAU_REGION_2),
-            3 => Val(REGION_A::SAU_REGION_3),
-            i => Res(i),
+            0 => Some(Region::SauRegion0),
+            1 => Some(Region::SauRegion1),
+            2 => Some(Region::SauRegion2),
+            3 => Some(Region::SauRegion3),
+            _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `SAU_REGION_0`"]
+    #[doc = "Select SAU Region 0"]
     #[inline(always)]
     pub fn is_sau_region_0(&self) -> bool {
-        *self == REGION_A::SAU_REGION_0
-    }
-    #[doc = "Checks if the value of the field is `SAU_REGION_1`"]
-    #[inline(always)]
-    pub fn is_sau_region_1(&self) -> bool {
-        *self == REGION_A::SAU_REGION_1
-    }
-    #[doc = "Checks if the value of the field is `SAU_REGION_2`"]
-    #[inline(always)]
-    pub fn is_sau_region_2(&self) -> bool {
-        *self == REGION_A::SAU_REGION_2
-    }
-    #[doc = "Checks if the value of the field is `SAU_REGION_3`"]
-    #[inline(always)]
-    pub fn is_sau_region_3(&self) -> bool {
-        *self == REGION_A::SAU_REGION_3
-    }
-}
-#[doc = "Write proxy for field `REGION`"]
-pub struct REGION_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> REGION_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: REGION_A) -> &'a mut W {
-        unsafe { self.bits(variant.into()) }
-    }
-    #[doc = "Select SAU Region 0"]
-    #[inline(always)]
-    pub fn sau_region_0(self) -> &'a mut W {
-        self.variant(REGION_A::SAU_REGION_0)
+        *self == Region::SauRegion0
     }
     #[doc = "Select SAU Region 1"]
     #[inline(always)]
-    pub fn sau_region_1(self) -> &'a mut W {
-        self.variant(REGION_A::SAU_REGION_1)
+    pub fn is_sau_region_1(&self) -> bool {
+        *self == Region::SauRegion1
     }
     #[doc = "Select SAU Region 2"]
     #[inline(always)]
-    pub fn sau_region_2(self) -> &'a mut W {
-        self.variant(REGION_A::SAU_REGION_2)
+    pub fn is_sau_region_2(&self) -> bool {
+        *self == Region::SauRegion2
     }
     #[doc = "Select SAU Region 3"]
     #[inline(always)]
-    pub fn sau_region_3(self) -> &'a mut W {
-        self.variant(REGION_A::SAU_REGION_3)
+    pub fn is_sau_region_3(&self) -> bool {
+        *self == Region::SauRegion3
     }
-    #[doc = r"Writes raw bits to the field"]
+}
+#[doc = "Field `REGION` writer - Currently selected SAU region"]
+pub type RegionW<'a, REG> = crate::FieldWriter<'a, REG, 8, Region>;
+impl<'a, REG> RegionW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "Select SAU Region 0"]
     #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
-        self.w
+    pub fn sau_region_0(self) -> &'a mut crate::W<REG> {
+        self.variant(Region::SauRegion0)
+    }
+    #[doc = "Select SAU Region 1"]
+    #[inline(always)]
+    pub fn sau_region_1(self) -> &'a mut crate::W<REG> {
+        self.variant(Region::SauRegion1)
+    }
+    #[doc = "Select SAU Region 2"]
+    #[inline(always)]
+    pub fn sau_region_2(self) -> &'a mut crate::W<REG> {
+        self.variant(Region::SauRegion2)
+    }
+    #[doc = "Select SAU Region 3"]
+    #[inline(always)]
+    pub fn sau_region_3(self) -> &'a mut crate::W<REG> {
+        self.variant(Region::SauRegion3)
     }
 }
 impl R {
     #[doc = "Bits 0:7 - Currently selected SAU region"]
     #[inline(always)]
-    pub fn region(&self) -> REGION_R {
-        REGION_R::new((self.bits & 0xff) as u8)
+    pub fn region(&self) -> RegionR {
+        RegionR::new((self.bits & 0xff) as u8)
     }
 }
 impl W {
     #[doc = "Bits 0:7 - Currently selected SAU region"]
     #[inline(always)]
-    pub fn region(&mut self) -> REGION_W {
-        REGION_W { w: self }
+    pub fn region(&mut self) -> RegionW<RnrSpec> {
+        RegionW::new(self, 0)
     }
 }
+#[doc = "Region Number Register\n\nYou can [`read`](crate::Reg::read) this register and get [`rnr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rnr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct RnrSpec;
+impl crate::RegisterSpec for RnrSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`rnr::R`](R) reader structure"]
+impl crate::Readable for RnrSpec {}
+#[doc = "`write(|w| ..)` method takes [`rnr::W`](W) writer structure"]
+impl crate::Writable for RnrSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets RNR to value 0"]
+impl crate::Resettable for RnrSpec {}

@@ -1,386 +1,268 @@
-#[doc = "Reader of register ICCTRL"]
-pub type R = crate::R<u32, super::ICCTRL>;
-#[doc = "Writer for register ICCTRL"]
-pub type W = crate::W<u32, super::ICCTRL>;
-#[doc = "Register ICCTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::ICCTRL {
-    type Type = u32;
+#[doc = "Register `ICCTRL` reader"]
+pub type R = crate::R<IcctrlSpec>;
+#[doc = "Register `ICCTRL` writer"]
+pub type W = crate::W<IcctrlSpec>;
+#[doc = "Enable Cache\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cacheen {
+    #[doc = "1: Caching is enabled"]
+    Enabled = 1,
+    #[doc = "0: All accesses bypass the cache"]
+    Disabled = 0,
+}
+impl From<Cacheen> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn from(variant: Cacheen) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Possible values of the field `CACHEEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CACHEEN_A {
-    #[doc = "Caching is enabled"]
-    ENABLED,
-    #[doc = "All accesses bypass the cache"]
-    DISABLED,
-}
-impl From<CACHEEN_A> for bool {
+#[doc = "Field `CACHEEN` reader - Enable Cache"]
+pub type CacheenR = crate::BitReader<Cacheen>;
+impl CacheenR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    fn from(variant: CACHEEN_A) -> Self {
-        match variant {
-            CACHEEN_A::ENABLED => true,
-            CACHEEN_A::DISABLED => false,
-        }
-    }
-}
-#[doc = "Reader of field `CACHEEN`"]
-pub type CACHEEN_R = crate::R<bool, CACHEEN_A>;
-impl CACHEEN_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> CACHEEN_A {
+    pub const fn variant(&self) -> Cacheen {
         match self.bits {
-            true => CACHEEN_A::ENABLED,
-            false => CACHEEN_A::DISABLED,
+            true => Cacheen::Enabled,
+            false => Cacheen::Disabled,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[doc = "Caching is enabled"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == CACHEEN_A::ENABLED
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline(always)]
-    pub fn is_disabled(&self) -> bool {
-        *self == CACHEEN_A::DISABLED
-    }
-}
-#[doc = "Write proxy for field `CACHEEN`"]
-pub struct CACHEEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CACHEEN_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: CACHEEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "Caching is enabled"]
-    #[inline(always)]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(CACHEEN_A::ENABLED)
+        *self == Cacheen::Enabled
     }
     #[doc = "All accesses bypass the cache"]
     #[inline(always)]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(CACHEEN_A::DISABLED)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
+    pub fn is_disabled(&self) -> bool {
+        *self == Cacheen::Disabled
     }
 }
-#[doc = "Possible values of the field `FINV`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum FINV_AW {
-    #[doc = "Triggers the instruction cache to start\n                          invalidating all cache lines"]
-    INVALIDATE,
-}
-impl From<FINV_AW> for bool {
+#[doc = "Field `CACHEEN` writer - Enable Cache"]
+pub type CacheenW<'a, REG> = crate::BitWriter<'a, REG, Cacheen>;
+impl<'a, REG> CacheenW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Caching is enabled"]
     #[inline(always)]
-    fn from(variant: FINV_AW) -> Self {
-        match variant {
-            FINV_AW::INVALIDATE => true,
-        }
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(Cacheen::Enabled)
+    }
+    #[doc = "All accesses bypass the cache"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(Cacheen::Disabled)
     }
 }
-#[doc = "Write proxy for field `FINV`"]
-pub struct FINV_W<'a> {
-    w: &'a mut W,
+#[doc = "Full Cache Invalidate\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Finv {
+    #[doc = "1: Triggers the instruction cache to start invalidating all cache lines"]
+    Invalidate = 1,
 }
-impl<'a> FINV_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
+impl From<Finv> for bool {
     #[inline(always)]
-    pub fn variant(self, variant: FINV_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+    fn from(variant: Finv) -> Self {
+        variant as u8 != 0
     }
+}
+#[doc = "Field `FINV` writer - Full Cache Invalidate"]
+pub type FinvW<'a, REG> = crate::BitWriter<'a, REG, Finv>;
+impl<'a, REG> FinvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Triggers the instruction cache to start invalidating all cache lines"]
     #[inline(always)]
-    pub fn invalidate(self) -> &'a mut W {
-        self.variant(FINV_AW::INVALIDATE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
-        self.w
+    pub fn invalidate(self) -> &'a mut crate::W<REG> {
+        self.variant(Finv::Invalidate)
     }
 }
-#[doc = "Possible values of the field `STATEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum STATEN_A {
-    #[doc = "Cache statistic counters are enabled"]
-    ENABLED,
-    #[doc = "Cache statistic counters are disabled"]
-    DISABLED,
+#[doc = "Enable Statistic function\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Staten {
+    #[doc = "1: Cache statistic counters are enabled"]
+    Enabled = 1,
+    #[doc = "0: Cache statistic counters are disabled"]
+    Disabled = 0,
 }
-impl From<STATEN_A> for bool {
+impl From<Staten> for bool {
     #[inline(always)]
-    fn from(variant: STATEN_A) -> Self {
-        match variant {
-            STATEN_A::ENABLED => true,
-            STATEN_A::DISABLED => false,
-        }
+    fn from(variant: Staten) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `STATEN`"]
-pub type STATEN_R = crate::R<bool, STATEN_A>;
-impl STATEN_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `STATEN` reader - Enable Statistic function"]
+pub type StatenR = crate::BitReader<Staten>;
+impl StatenR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> STATEN_A {
+    pub const fn variant(&self) -> Staten {
         match self.bits {
-            true => STATEN_A::ENABLED,
-            false => STATEN_A::DISABLED,
+            true => Staten::Enabled,
+            false => Staten::Disabled,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[doc = "Cache statistic counters are enabled"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == STATEN_A::ENABLED
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline(always)]
-    pub fn is_disabled(&self) -> bool {
-        *self == STATEN_A::DISABLED
-    }
-}
-#[doc = "Write proxy for field `STATEN`"]
-pub struct STATEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> STATEN_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: STATEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "Cache statistic counters are enabled"]
-    #[inline(always)]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(STATEN_A::ENABLED)
+        *self == Staten::Enabled
     }
     #[doc = "Cache statistic counters are disabled"]
     #[inline(always)]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(STATEN_A::DISABLED)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
-        self.w
+    pub fn is_disabled(&self) -> bool {
+        *self == Staten::Disabled
     }
 }
-#[doc = "Possible values of the field `STATC`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum STATC_AW {
-    #[doc = "Triggers the instruction cache to start\n                          clear all cache statistic counters"]
-    CLEAR,
-}
-impl From<STATC_AW> for bool {
+#[doc = "Field `STATEN` writer - Enable Statistic function"]
+pub type StatenW<'a, REG> = crate::BitWriter<'a, REG, Staten>;
+impl<'a, REG> StatenW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Cache statistic counters are enabled"]
     #[inline(always)]
-    fn from(variant: STATC_AW) -> Self {
-        match variant {
-            STATC_AW::CLEAR => true,
-        }
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(Staten::Enabled)
+    }
+    #[doc = "Cache statistic counters are disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(Staten::Disabled)
     }
 }
-#[doc = "Write proxy for field `STATC`"]
-pub struct STATC_W<'a> {
-    w: &'a mut W,
+#[doc = "Clear Statistic values\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Statc {
+    #[doc = "1: Triggers the instruction cache to start clear all cache statistic counters"]
+    Clear = 1,
 }
-impl<'a> STATC_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
+impl From<Statc> for bool {
     #[inline(always)]
-    pub fn variant(self, variant: STATC_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+    fn from(variant: Statc) -> Self {
+        variant as u8 != 0
     }
+}
+#[doc = "Field `STATC` writer - Clear Statistic values"]
+pub type StatcW<'a, REG> = crate::BitWriter<'a, REG, Statc>;
+impl<'a, REG> StatcW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Triggers the instruction cache to start clear all cache statistic counters"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(STATC_AW::CLEAR)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
-        self.w
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(Statc::Clear)
     }
 }
-#[doc = "Possible values of the field `HALLOC`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum HALLOC_A {
-    #[doc = "All incoming handler code fetches are not\n                          allocated a cache line if a miss occurs"]
-    LOW,
-    #[doc = "Handler code access is treated like any other\n                          code access arriving at its interface"]
-    HIGH,
+#[doc = "Enable Handler Allocation\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Halloc {
+    #[doc = "0: All incoming handler code fetches are not allocated a cache line if a miss occurs"]
+    Low = 0,
+    #[doc = "1: Handler code access is treated like any other code access arriving at its interface"]
+    High = 1,
 }
-impl From<HALLOC_A> for bool {
+impl From<Halloc> for bool {
     #[inline(always)]
-    fn from(variant: HALLOC_A) -> Self {
-        match variant {
-            HALLOC_A::LOW => false,
-            HALLOC_A::HIGH => true,
-        }
+    fn from(variant: Halloc) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `HALLOC`"]
-pub type HALLOC_R = crate::R<bool, HALLOC_A>;
-impl HALLOC_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `HALLOC` reader - Enable Handler Allocation"]
+pub type HallocR = crate::BitReader<Halloc>;
+impl HallocR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> HALLOC_A {
+    pub const fn variant(&self) -> Halloc {
         match self.bits {
-            false => HALLOC_A::LOW,
-            true => HALLOC_A::HIGH,
-        }
-    }
-    #[doc = "Checks if the value of the field is `LOW`"]
-    #[inline(always)]
-    pub fn is_low(&self) -> bool {
-        *self == HALLOC_A::LOW
-    }
-    #[doc = "Checks if the value of the field is `HIGH`"]
-    #[inline(always)]
-    pub fn is_high(&self) -> bool {
-        *self == HALLOC_A::HIGH
-    }
-}
-#[doc = "Write proxy for field `HALLOC`"]
-pub struct HALLOC_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> HALLOC_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: HALLOC_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
+            false => Halloc::Low,
+            true => Halloc::High,
         }
     }
     #[doc = "All incoming handler code fetches are not allocated a cache line if a miss occurs"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(HALLOC_A::LOW)
+    pub fn is_low(&self) -> bool {
+        *self == Halloc::Low
     }
     #[doc = "Handler code access is treated like any other code access arriving at its interface"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(HALLOC_A::HIGH)
+    pub fn is_high(&self) -> bool {
+        *self == Halloc::High
     }
-    #[doc = r"Sets the field bit"]
+}
+#[doc = "Field `HALLOC` writer - Enable Handler Allocation"]
+pub type HallocW<'a, REG> = crate::BitWriter<'a, REG, Halloc>;
+impl<'a, REG> HallocW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "All incoming handler code fetches are not allocated a cache line if a miss occurs"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(Halloc::Low)
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "Handler code access is treated like any other code access arriving at its interface"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
-        self.w
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(Halloc::High)
     }
 }
 impl R {
     #[doc = "Bit 0 - Enable Cache"]
     #[inline(always)]
-    pub fn cacheen(&self) -> CACHEEN_R {
-        CACHEEN_R::new((self.bits & 0x01) != 0)
+    pub fn cacheen(&self) -> CacheenR {
+        CacheenR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 3 - Enable Statistic function"]
     #[inline(always)]
-    pub fn staten(&self) -> STATEN_R {
-        STATEN_R::new(((self.bits >> 3) & 0x01) != 0)
+    pub fn staten(&self) -> StatenR {
+        StatenR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 5 - Enable Handler Allocation"]
     #[inline(always)]
-    pub fn halloc(&self) -> HALLOC_R {
-        HALLOC_R::new(((self.bits >> 5) & 0x01) != 0)
+    pub fn halloc(&self) -> HallocR {
+        HallocR::new(((self.bits >> 5) & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 0 - Enable Cache"]
     #[inline(always)]
-    pub fn cacheen(&mut self) -> CACHEEN_W {
-        CACHEEN_W { w: self }
+    pub fn cacheen(&mut self) -> CacheenW<IcctrlSpec> {
+        CacheenW::new(self, 0)
     }
     #[doc = "Bit 2 - Full Cache Invalidate"]
     #[inline(always)]
-    pub fn finv(&mut self) -> FINV_W {
-        FINV_W { w: self }
+    pub fn finv(&mut self) -> FinvW<IcctrlSpec> {
+        FinvW::new(self, 2)
     }
     #[doc = "Bit 3 - Enable Statistic function"]
     #[inline(always)]
-    pub fn staten(&mut self) -> STATEN_W {
-        STATEN_W { w: self }
+    pub fn staten(&mut self) -> StatenW<IcctrlSpec> {
+        StatenW::new(self, 3)
     }
     #[doc = "Bit 4 - Clear Statistic values"]
     #[inline(always)]
-    pub fn statc(&mut self) -> STATC_W {
-        STATC_W { w: self }
+    pub fn statc(&mut self) -> StatcW<IcctrlSpec> {
+        StatcW::new(self, 4)
     }
     #[doc = "Bit 5 - Enable Handler Allocation"]
     #[inline(always)]
-    pub fn halloc(&mut self) -> HALLOC_W {
-        HALLOC_W { w: self }
+    pub fn halloc(&mut self) -> HallocW<IcctrlSpec> {
+        HallocW::new(self, 5)
     }
 }
+#[doc = "Instruction Cache Control Register\n\nYou can [`read`](crate::Reg::read) this register and get [`icctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct IcctrlSpec;
+impl crate::RegisterSpec for IcctrlSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`icctrl::R`](R) reader structure"]
+impl crate::Readable for IcctrlSpec {}
+#[doc = "`write(|w| ..)` method takes [`icctrl::W`](W) writer structure"]
+impl crate::Writable for IcctrlSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets ICCTRL to value 0"]
+impl crate::Resettable for IcctrlSpec {}

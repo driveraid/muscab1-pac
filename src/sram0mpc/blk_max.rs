@@ -1,18 +1,27 @@
-#[doc = "Reader of register BLK_MAX"]
-pub type R = crate::R<u32, super::BLK_MAX>;
-#[doc = "Reader of field `bit[3_0]`"]
-pub type BIT3_0_R = crate::R<u8, u8>;
-#[doc = "Reader of field `bit[31]`"]
-pub type BIT31_R = crate::R<bool, bool>;
+#[doc = "Register `BLK_MAX` reader"]
+pub type R = crate::R<BlkMaxSpec>;
+#[doc = "Field `bit[3_0]` reader - Block size"]
+pub type Bit3_0R = crate::FieldReader;
+#[doc = "Field `bit[31]` reader - Initialization in progress"]
+pub type Bit31R = crate::BitReader;
 impl R {
     #[doc = "Bits 0:3 - Block size"]
     #[inline(always)]
-    pub fn bit3_0(&self) -> BIT3_0_R {
-        BIT3_0_R::new((self.bits & 0x0f) as u8)
+    pub fn bit3_0(&self) -> Bit3_0R {
+        Bit3_0R::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bit 31 - Initialization in progress"]
     #[inline(always)]
-    pub fn bit31(&self) -> BIT31_R {
-        BIT31_R::new(((self.bits >> 31) & 0x01) != 0)
+    pub fn bit31(&self) -> Bit31R {
+        Bit31R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[doc = "Maximum value of block based index register\n\nYou can [`read`](crate::Reg::read) this register and get [`blk_max::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct BlkMaxSpec;
+impl crate::RegisterSpec for BlkMaxSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`blk_max::R`](R) reader structure"]
+impl crate::Readable for BlkMaxSpec {}
+#[doc = "`reset()` method sets BLK_MAX to value 0"]
+impl crate::Resettable for BlkMaxSpec {}

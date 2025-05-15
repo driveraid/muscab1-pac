@@ -1,456 +1,336 @@
-#[doc = "Reader of register SCSECCTRL"]
-pub type R = crate::R<u32, super::SCSECCTRL>;
-#[doc = "Writer for register SCSECCTRL"]
-pub type W = crate::W<u32, super::SCSECCTRL>;
-#[doc = "Register SCSECCTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::SCSECCTRL {
-    type Type = u32;
+#[doc = "Register `SCSECCTRL` reader"]
+pub type R = crate::R<ScsecctrlSpec>;
+#[doc = "Register `SCSECCTRL` writer"]
+pub type W = crate::W<ScsecctrlSpec>;
+#[doc = "Control to disable certification path\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Certdisable {
+    #[doc = "1: control to disable certification path"]
+    Disable = 1,
+    #[doc = "0: control to enable certification path"]
+    Enable = 0,
+}
+impl From<Certdisable> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn from(variant: Certdisable) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Possible values of the field `CERTDISABLE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CERTDISABLE_A {
-    #[doc = "control to disable certification path"]
-    DISABLE,
-    #[doc = "control to enable certification path"]
-    ENABLE,
-}
-impl From<CERTDISABLE_A> for bool {
+#[doc = "Field `CERTDISABLE` reader - Control to disable certification path"]
+pub type CertdisableR = crate::BitReader<Certdisable>;
+impl CertdisableR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    fn from(variant: CERTDISABLE_A) -> Self {
-        match variant {
-            CERTDISABLE_A::DISABLE => true,
-            CERTDISABLE_A::ENABLE => false,
-        }
-    }
-}
-#[doc = "Reader of field `CERTDISABLE`"]
-pub type CERTDISABLE_R = crate::R<bool, CERTDISABLE_A>;
-impl CERTDISABLE_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> CERTDISABLE_A {
+    pub const fn variant(&self) -> Certdisable {
         match self.bits {
-            true => CERTDISABLE_A::DISABLE,
-            false => CERTDISABLE_A::ENABLE,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline(always)]
-    pub fn is_disable(&self) -> bool {
-        *self == CERTDISABLE_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
-    pub fn is_enable(&self) -> bool {
-        *self == CERTDISABLE_A::ENABLE
-    }
-}
-#[doc = "Write proxy for field `CERTDISABLE`"]
-pub struct CERTDISABLE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CERTDISABLE_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: CERTDISABLE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
+            true => Certdisable::Disable,
+            false => Certdisable::Enable,
         }
     }
     #[doc = "control to disable certification path"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(CERTDISABLE_A::DISABLE)
+    pub fn is_disable(&self) -> bool {
+        *self == Certdisable::Disable
     }
     #[doc = "control to enable certification path"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(CERTDISABLE_A::ENABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
-    }
-}
-#[doc = "Possible values of the field `CERTREADEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CERTREADEN_A {
-    #[doc = "control to enable read access on the certification path as long as CERTDISABLE is also LOW"]
-    ENABLE,
-    #[doc = "control to disable read access on the certification path as long as CERTDISABLE is also LOW"]
-    DISABLE,
-}
-impl From<CERTREADEN_A> for bool {
-    #[inline(always)]
-    fn from(variant: CERTREADEN_A) -> Self {
-        match variant {
-            CERTREADEN_A::ENABLE => true,
-            CERTREADEN_A::DISABLE => false,
-        }
-    }
-}
-#[doc = "Reader of field `CERTREADEN`"]
-pub type CERTREADEN_R = crate::R<bool, CERTREADEN_A>;
-impl CERTREADEN_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> CERTREADEN_A {
-        match self.bits {
-            true => CERTREADEN_A::ENABLE,
-            false => CERTREADEN_A::DISABLE,
-        }
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == CERTREADEN_A::ENABLE
-    }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline(always)]
-    pub fn is_disable(&self) -> bool {
-        *self == CERTREADEN_A::DISABLE
+        *self == Certdisable::Enable
     }
 }
-#[doc = "Write proxy for field `CERTREADEN`"]
-pub struct CERTREADEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CERTREADEN_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
+#[doc = "Field `CERTDISABLE` writer - Control to disable certification path"]
+pub type CertdisableW<'a, REG> = crate::BitWriter<'a, REG, Certdisable>;
+impl<'a, REG> CertdisableW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "control to disable certification path"]
     #[inline(always)]
-    pub fn variant(self, variant: CERTREADEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Certdisable::Disable)
+    }
+    #[doc = "control to enable certification path"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Certdisable::Enable)
+    }
+}
+#[doc = "Control to enable read access on the certification path as long as CERTDISABLE is also LOW\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Certreaden {
+    #[doc = "1: control to enable read access on the certification path as long as CERTDISABLE is also LOW"]
+    Enable = 1,
+    #[doc = "0: control to disable read access on the certification path as long as CERTDISABLE is also LOW"]
+    Disable = 0,
+}
+impl From<Certreaden> for bool {
+    #[inline(always)]
+    fn from(variant: Certreaden) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `CERTREADEN` reader - Control to enable read access on the certification path as long as CERTDISABLE is also LOW"]
+pub type CertreadenR = crate::BitReader<Certreaden>;
+impl CertreadenR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Certreaden {
+        match self.bits {
+            true => Certreaden::Enable,
+            false => Certreaden::Disable,
         }
     }
     #[doc = "control to enable read access on the certification path as long as CERTDISABLE is also LOW"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(CERTREADEN_A::ENABLE)
+    pub fn is_enable(&self) -> bool {
+        *self == Certreaden::Enable
     }
     #[doc = "control to disable read access on the certification path as long as CERTDISABLE is also LOW"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(CERTREADEN_A::DISABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
-        self.w
+    pub fn is_disable(&self) -> bool {
+        *self == Certreaden::Disable
     }
 }
-#[doc = "Possible values of the field `SCSECCFGLOCK`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SCSECCFGLOCK_A {
-    #[doc = "control to disable writes to security-related control registers in this register block"]
-    DISABLE,
-    #[doc = "control to enable writes to security-related control registers in this register block"]
-    ENABLE,
-}
-impl From<SCSECCFGLOCK_A> for bool {
+#[doc = "Field `CERTREADEN` writer - Control to enable read access on the certification path as long as CERTDISABLE is also LOW"]
+pub type CertreadenW<'a, REG> = crate::BitWriter<'a, REG, Certreaden>;
+impl<'a, REG> CertreadenW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "control to enable read access on the certification path as long as CERTDISABLE is also LOW"]
     #[inline(always)]
-    fn from(variant: SCSECCFGLOCK_A) -> Self {
-        match variant {
-            SCSECCFGLOCK_A::DISABLE => true,
-            SCSECCFGLOCK_A::ENABLE => false,
-        }
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Certreaden::Enable)
+    }
+    #[doc = "control to disable read access on the certification path as long as CERTDISABLE is also LOW"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Certreaden::Disable)
     }
 }
-#[doc = "Reader of field `SCSECCFGLOCK`"]
-pub type SCSECCFGLOCK_R = crate::R<bool, SCSECCFGLOCK_A>;
-impl SCSECCFGLOCK_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Control to disable writes to security-related control registers in this register block\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Scseccfglock {
+    #[doc = "1: control to disable writes to security-related control registers in this register block"]
+    Disable = 1,
+    #[doc = "0: control to enable writes to security-related control registers in this register block"]
+    Enable = 0,
+}
+impl From<Scseccfglock> for bool {
     #[inline(always)]
-    pub fn variant(&self) -> SCSECCFGLOCK_A {
+    fn from(variant: Scseccfglock) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `SCSECCFGLOCK` reader - Control to disable writes to security-related control registers in this register block"]
+pub type ScseccfglockR = crate::BitReader<Scseccfglock>;
+impl ScseccfglockR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Scseccfglock {
         match self.bits {
-            true => SCSECCFGLOCK_A::DISABLE,
-            false => SCSECCFGLOCK_A::ENABLE,
+            true => Scseccfglock::Disable,
+            false => Scseccfglock::Enable,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "control to disable writes to security-related control registers in this register block"]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == SCSECCFGLOCK_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
-    pub fn is_enable(&self) -> bool {
-        *self == SCSECCFGLOCK_A::ENABLE
-    }
-}
-#[doc = "Write proxy for field `SCSECCFGLOCK`"]
-pub struct SCSECCFGLOCK_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SCSECCFGLOCK_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: SCSECCFGLOCK_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "control to disable writes to security-related control registers in this register block"]
-    #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(SCSECCFGLOCK_A::DISABLE)
+        *self == Scseccfglock::Disable
     }
     #[doc = "control to enable writes to security-related control registers in this register block"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(SCSECCFGLOCK_A::ENABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
-        self.w
+    pub fn is_enable(&self) -> bool {
+        *self == Scseccfglock::Enable
     }
 }
-#[doc = "Possible values of the field `CERTDISABLED`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CERTDISABLED_A {
-    #[doc = "Certification write path has been disabled"]
-    DISABLED,
-    #[doc = "Certification write path has been enabled"]
-    ENABLED,
-}
-impl From<CERTDISABLED_A> for bool {
+#[doc = "Field `SCSECCFGLOCK` writer - Control to disable writes to security-related control registers in this register block"]
+pub type ScseccfglockW<'a, REG> = crate::BitWriter<'a, REG, Scseccfglock>;
+impl<'a, REG> ScseccfglockW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "control to disable writes to security-related control registers in this register block"]
     #[inline(always)]
-    fn from(variant: CERTDISABLED_A) -> Self {
-        match variant {
-            CERTDISABLED_A::DISABLED => true,
-            CERTDISABLED_A::ENABLED => false,
-        }
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Scseccfglock::Disable)
+    }
+    #[doc = "control to enable writes to security-related control registers in this register block"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Scseccfglock::Enable)
     }
 }
-#[doc = "Reader of field `CERTDISABLED`"]
-pub type CERTDISABLED_R = crate::R<bool, CERTDISABLED_A>;
-impl CERTDISABLED_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Indicates that the Certification write path has been disabled\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Certdisabled {
+    #[doc = "1: Certification write path has been disabled"]
+    Disabled = 1,
+    #[doc = "0: Certification write path has been enabled"]
+    Enabled = 0,
+}
+impl From<Certdisabled> for bool {
     #[inline(always)]
-    pub fn variant(&self) -> CERTDISABLED_A {
+    fn from(variant: Certdisabled) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `CERTDISABLED` reader - Indicates that the Certification write path has been disabled"]
+pub type CertdisabledR = crate::BitReader<Certdisabled>;
+impl CertdisabledR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Certdisabled {
         match self.bits {
-            true => CERTDISABLED_A::DISABLED,
-            false => CERTDISABLED_A::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline(always)]
-    pub fn is_disabled(&self) -> bool {
-        *self == CERTDISABLED_A::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline(always)]
-    pub fn is_enabled(&self) -> bool {
-        *self == CERTDISABLED_A::ENABLED
-    }
-}
-#[doc = "Write proxy for field `CERTDISABLED`"]
-pub struct CERTDISABLED_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CERTDISABLED_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: CERTDISABLED_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
+            true => Certdisabled::Disabled,
+            false => Certdisabled::Enabled,
         }
     }
     #[doc = "Certification write path has been disabled"]
     #[inline(always)]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(CERTDISABLED_A::DISABLED)
+    pub fn is_disabled(&self) -> bool {
+        *self == Certdisabled::Disabled
     }
     #[doc = "Certification write path has been enabled"]
     #[inline(always)]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(CERTDISABLED_A::ENABLED)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
-        self.w
+    pub fn is_enabled(&self) -> bool {
+        *self == Certdisabled::Enabled
     }
 }
-#[doc = "Possible values of the field `CERTREADENABLED`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CERTREADENABLED_A {
-    #[doc = "certification read access is enabled"]
-    ENABLED,
-    #[doc = "certification read access is disabled"]
-    DISABLED,
-}
-impl From<CERTREADENABLED_A> for bool {
+#[doc = "Field `CERTDISABLED` writer - Indicates that the Certification write path has been disabled"]
+pub type CertdisabledW<'a, REG> = crate::BitWriter<'a, REG, Certdisabled>;
+impl<'a, REG> CertdisabledW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Certification write path has been disabled"]
     #[inline(always)]
-    fn from(variant: CERTREADENABLED_A) -> Self {
-        match variant {
-            CERTREADENABLED_A::ENABLED => true,
-            CERTREADENABLED_A::DISABLED => false,
-        }
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(Certdisabled::Disabled)
+    }
+    #[doc = "Certification write path has been enabled"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(Certdisabled::Enabled)
     }
 }
-#[doc = "Reader of field `CERTREADENABLED`"]
-pub type CERTREADENABLED_R = crate::R<bool, CERTREADENABLED_A>;
-impl CERTREADENABLED_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Indicates whether the certification read access is enabled\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Certreadenabled {
+    #[doc = "1: certification read access is enabled"]
+    Enabled = 1,
+    #[doc = "0: certification read access is disabled"]
+    Disabled = 0,
+}
+impl From<Certreadenabled> for bool {
     #[inline(always)]
-    pub fn variant(&self) -> CERTREADENABLED_A {
+    fn from(variant: Certreadenabled) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `CERTREADENABLED` reader - Indicates whether the certification read access is enabled"]
+pub type CertreadenabledR = crate::BitReader<Certreadenabled>;
+impl CertreadenabledR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Certreadenabled {
         match self.bits {
-            true => CERTREADENABLED_A::ENABLED,
-            false => CERTREADENABLED_A::DISABLED,
+            true => Certreadenabled::Enabled,
+            false => Certreadenabled::Disabled,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[doc = "certification read access is enabled"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == CERTREADENABLED_A::ENABLED
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline(always)]
-    pub fn is_disabled(&self) -> bool {
-        *self == CERTREADENABLED_A::DISABLED
-    }
-}
-#[doc = "Write proxy for field `CERTREADENABLED`"]
-pub struct CERTREADENABLED_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CERTREADENABLED_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: CERTREADENABLED_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "certification read access is enabled"]
-    #[inline(always)]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(CERTREADENABLED_A::ENABLED)
+        *self == Certreadenabled::Enabled
     }
     #[doc = "certification read access is disabled"]
     #[inline(always)]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(CERTREADENABLED_A::DISABLED)
+    pub fn is_disabled(&self) -> bool {
+        *self == Certreadenabled::Disabled
     }
-    #[doc = r"Sets the field bit"]
+}
+#[doc = "Field `CERTREADENABLED` writer - Indicates whether the certification read access is enabled"]
+pub type CertreadenabledW<'a, REG> = crate::BitWriter<'a, REG, Certreadenabled>;
+impl<'a, REG> CertreadenabledW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "certification read access is enabled"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(Certreadenabled::Enabled)
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "certification read access is disabled"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
-        self.w
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(Certreadenabled::Disabled)
     }
 }
 impl R {
     #[doc = "Bit 0 - Control to disable certification path"]
     #[inline(always)]
-    pub fn certdisable(&self) -> CERTDISABLE_R {
-        CERTDISABLE_R::new((self.bits & 0x01) != 0)
+    pub fn certdisable(&self) -> CertdisableR {
+        CertdisableR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - Control to enable read access on the certification path as long as CERTDISABLE is also LOW"]
     #[inline(always)]
-    pub fn certreaden(&self) -> CERTREADEN_R {
-        CERTREADEN_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn certreaden(&self) -> CertreadenR {
+        CertreadenR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - Control to disable writes to security-related control registers in this register block"]
     #[inline(always)]
-    pub fn scseccfglock(&self) -> SCSECCFGLOCK_R {
-        SCSECCFGLOCK_R::new(((self.bits >> 2) & 0x01) != 0)
+    pub fn scseccfglock(&self) -> ScseccfglockR {
+        ScseccfglockR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 16 - Indicates that the Certification write path has been disabled"]
     #[inline(always)]
-    pub fn certdisabled(&self) -> CERTDISABLED_R {
-        CERTDISABLED_R::new(((self.bits >> 16) & 0x01) != 0)
+    pub fn certdisabled(&self) -> CertdisabledR {
+        CertdisabledR::new(((self.bits >> 16) & 1) != 0)
     }
     #[doc = "Bit 17 - Indicates whether the certification read access is enabled"]
     #[inline(always)]
-    pub fn certreadenabled(&self) -> CERTREADENABLED_R {
-        CERTREADENABLED_R::new(((self.bits >> 17) & 0x01) != 0)
+    pub fn certreadenabled(&self) -> CertreadenabledR {
+        CertreadenabledR::new(((self.bits >> 17) & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 0 - Control to disable certification path"]
     #[inline(always)]
-    pub fn certdisable(&mut self) -> CERTDISABLE_W {
-        CERTDISABLE_W { w: self }
+    pub fn certdisable(&mut self) -> CertdisableW<ScsecctrlSpec> {
+        CertdisableW::new(self, 0)
     }
     #[doc = "Bit 1 - Control to enable read access on the certification path as long as CERTDISABLE is also LOW"]
     #[inline(always)]
-    pub fn certreaden(&mut self) -> CERTREADEN_W {
-        CERTREADEN_W { w: self }
+    pub fn certreaden(&mut self) -> CertreadenW<ScsecctrlSpec> {
+        CertreadenW::new(self, 1)
     }
     #[doc = "Bit 2 - Control to disable writes to security-related control registers in this register block"]
     #[inline(always)]
-    pub fn scseccfglock(&mut self) -> SCSECCFGLOCK_W {
-        SCSECCFGLOCK_W { w: self }
+    pub fn scseccfglock(&mut self) -> ScseccfglockW<ScsecctrlSpec> {
+        ScseccfglockW::new(self, 2)
     }
     #[doc = "Bit 16 - Indicates that the Certification write path has been disabled"]
     #[inline(always)]
-    pub fn certdisabled(&mut self) -> CERTDISABLED_W {
-        CERTDISABLED_W { w: self }
+    pub fn certdisabled(&mut self) -> CertdisabledW<ScsecctrlSpec> {
+        CertdisabledW::new(self, 16)
     }
     #[doc = "Bit 17 - Indicates whether the certification read access is enabled"]
     #[inline(always)]
-    pub fn certreadenabled(&mut self) -> CERTREADENABLED_W {
-        CERTREADENABLED_W { w: self }
+    pub fn certreadenabled(&mut self) -> CertreadenabledW<ScsecctrlSpec> {
+        CertreadenabledW::new(self, 17)
     }
 }
+#[doc = "System Security Control\n\nYou can [`read`](crate::Reg::read) this register and get [`scsecctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`scsecctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct ScsecctrlSpec;
+impl crate::RegisterSpec for ScsecctrlSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`scsecctrl::R`](R) reader structure"]
+impl crate::Readable for ScsecctrlSpec {}
+#[doc = "`write(|w| ..)` method takes [`scsecctrl::W`](W) writer structure"]
+impl crate::Writable for ScsecctrlSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets SCSECCTRL to value 0"]
+impl crate::Resettable for ScsecctrlSpec {}

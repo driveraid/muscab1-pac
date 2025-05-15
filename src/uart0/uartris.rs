@@ -1,81 +1,90 @@
-#[doc = "Reader of register UARTRIS"]
-pub type R = crate::R<u32, super::UARTRIS>;
-#[doc = "Reader of field `RIRMIS`"]
-pub type RIRMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `CTSRMIS`"]
-pub type CTSRMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `DCDRMIS`"]
-pub type DCDRMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `DSRRMIS`"]
-pub type DSRRMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `RXRIS`"]
-pub type RXRIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `TXRIS`"]
-pub type TXRIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `RTRIS`"]
-pub type RTRIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `FERIS`"]
-pub type FERIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `PERIS`"]
-pub type PERIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `BERIS`"]
-pub type BERIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `OERIS`"]
-pub type OERIS_R = crate::R<bool, bool>;
+#[doc = "Register `UARTRIS` reader"]
+pub type R = crate::R<UartrisSpec>;
+#[doc = "Field `RIRMIS` reader - nUARTRI modem interrupt status"]
+pub type RirmisR = crate::BitReader;
+#[doc = "Field `CTSRMIS` reader - nUARTCTS modem interrupt status."]
+pub type CtsrmisR = crate::BitReader;
+#[doc = "Field `DCDRMIS` reader - nUARTDCD modem interrupt status"]
+pub type DcdrmisR = crate::BitReader;
+#[doc = "Field `DSRRMIS` reader - nUARTDSR modem interrupt status"]
+pub type DsrrmisR = crate::BitReader;
+#[doc = "Field `RXRIS` reader - Receive interrupt status"]
+pub type RxrisR = crate::BitReader;
+#[doc = "Field `TXRIS` reader - Transmit interrupt status"]
+pub type TxrisR = crate::BitReader;
+#[doc = "Field `RTRIS` reader - Receive timeout interrupt status"]
+pub type RtrisR = crate::BitReader;
+#[doc = "Field `FERIS` reader - Framing error interrupt status"]
+pub type FerisR = crate::BitReader;
+#[doc = "Field `PERIS` reader - Parity error interrupt status"]
+pub type PerisR = crate::BitReader;
+#[doc = "Field `BERIS` reader - Break error interrupt status"]
+pub type BerisR = crate::BitReader;
+#[doc = "Field `OERIS` reader - Overrun error interrupt status"]
+pub type OerisR = crate::BitReader;
 impl R {
     #[doc = "Bit 0 - nUARTRI modem interrupt status"]
     #[inline(always)]
-    pub fn rirmis(&self) -> RIRMIS_R {
-        RIRMIS_R::new((self.bits & 0x01) != 0)
+    pub fn rirmis(&self) -> RirmisR {
+        RirmisR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - nUARTCTS modem interrupt status."]
     #[inline(always)]
-    pub fn ctsrmis(&self) -> CTSRMIS_R {
-        CTSRMIS_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn ctsrmis(&self) -> CtsrmisR {
+        CtsrmisR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - nUARTDCD modem interrupt status"]
     #[inline(always)]
-    pub fn dcdrmis(&self) -> DCDRMIS_R {
-        DCDRMIS_R::new(((self.bits >> 2) & 0x01) != 0)
+    pub fn dcdrmis(&self) -> DcdrmisR {
+        DcdrmisR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - nUARTDSR modem interrupt status"]
     #[inline(always)]
-    pub fn dsrrmis(&self) -> DSRRMIS_R {
-        DSRRMIS_R::new(((self.bits >> 3) & 0x01) != 0)
+    pub fn dsrrmis(&self) -> DsrrmisR {
+        DsrrmisR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - Receive interrupt status"]
     #[inline(always)]
-    pub fn rxris(&self) -> RXRIS_R {
-        RXRIS_R::new(((self.bits >> 4) & 0x01) != 0)
+    pub fn rxris(&self) -> RxrisR {
+        RxrisR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - Transmit interrupt status"]
     #[inline(always)]
-    pub fn txris(&self) -> TXRIS_R {
-        TXRIS_R::new(((self.bits >> 5) & 0x01) != 0)
+    pub fn txris(&self) -> TxrisR {
+        TxrisR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - Receive timeout interrupt status"]
     #[inline(always)]
-    pub fn rtris(&self) -> RTRIS_R {
-        RTRIS_R::new(((self.bits >> 6) & 0x01) != 0)
+    pub fn rtris(&self) -> RtrisR {
+        RtrisR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - Framing error interrupt status"]
     #[inline(always)]
-    pub fn feris(&self) -> FERIS_R {
-        FERIS_R::new(((self.bits >> 7) & 0x01) != 0)
+    pub fn feris(&self) -> FerisR {
+        FerisR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 8 - Parity error interrupt status"]
     #[inline(always)]
-    pub fn peris(&self) -> PERIS_R {
-        PERIS_R::new(((self.bits >> 8) & 0x01) != 0)
+    pub fn peris(&self) -> PerisR {
+        PerisR::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 9 - Break error interrupt status"]
     #[inline(always)]
-    pub fn beris(&self) -> BERIS_R {
-        BERIS_R::new(((self.bits >> 9) & 0x01) != 0)
+    pub fn beris(&self) -> BerisR {
+        BerisR::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bit 10 - Overrun error interrupt status"]
     #[inline(always)]
-    pub fn oeris(&self) -> OERIS_R {
-        OERIS_R::new(((self.bits >> 10) & 0x01) != 0)
+    pub fn oeris(&self) -> OerisR {
+        OerisR::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[doc = "Raw interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartris::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct UartrisSpec;
+impl crate::RegisterSpec for UartrisSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`uartris::R`](R) reader structure"]
+impl crate::Readable for UartrisSpec {}
+#[doc = "`reset()` method sets UARTRIS to value 0"]
+impl crate::Resettable for UartrisSpec {}

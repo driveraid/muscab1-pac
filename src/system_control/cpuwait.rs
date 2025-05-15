@@ -1,192 +1,147 @@
-#[doc = "Reader of register CPUWAIT"]
-pub type R = crate::R<u32, super::CPUWAIT>;
-#[doc = "Writer for register CPUWAIT"]
-pub type W = crate::W<u32, super::CPUWAIT>;
-#[doc = "Register CPUWAIT `reset()`'s with value 0"]
-impl crate::ResetValue for super::CPUWAIT {
-    type Type = u32;
+#[doc = "Register `CPUWAIT` reader"]
+pub type R = crate::R<CpuwaitSpec>;
+#[doc = "Register `CPUWAIT` writer"]
+pub type W = crate::W<CpuwaitSpec>;
+#[doc = "CPU 0 waits at boot and whether CPU1 powers up\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cpu0wait {
+    #[doc = "0: CPU0 boot normally. From Power ON reset, nSRST reset or Watchdog Reset, CPU 1 powers up"]
+    Normallyorpowerup = 0,
+    #[doc = "1: CPU0 wait. From Power ON reset, nSRST reset or Watchdog Reset, CPU 1 do not power up"]
+    Waitornopowerup = 1,
+}
+impl From<Cpu0wait> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn from(variant: Cpu0wait) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Possible values of the field `CPU0WAIT`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPU0WAIT_A {
-    #[doc = "CPU0 boot normally. From Power ON reset, nSRST reset or Watchdog Reset, CPU 1 powers up"]
-    NORMALLYORPOWERUP,
-    #[doc = "CPU0 wait. From Power ON reset, nSRST reset or Watchdog Reset, CPU 1 do not power up"]
-    WAITORNOPOWERUP,
-}
-impl From<CPU0WAIT_A> for bool {
+#[doc = "Field `CPU0WAIT` reader - CPU 0 waits at boot and whether CPU1 powers up"]
+pub type Cpu0waitR = crate::BitReader<Cpu0wait>;
+impl Cpu0waitR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    fn from(variant: CPU0WAIT_A) -> Self {
-        match variant {
-            CPU0WAIT_A::NORMALLYORPOWERUP => false,
-            CPU0WAIT_A::WAITORNOPOWERUP => true,
-        }
-    }
-}
-#[doc = "Reader of field `CPU0WAIT`"]
-pub type CPU0WAIT_R = crate::R<bool, CPU0WAIT_A>;
-impl CPU0WAIT_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> CPU0WAIT_A {
+    pub const fn variant(&self) -> Cpu0wait {
         match self.bits {
-            false => CPU0WAIT_A::NORMALLYORPOWERUP,
-            true => CPU0WAIT_A::WAITORNOPOWERUP,
-        }
-    }
-    #[doc = "Checks if the value of the field is `NORMALLYORPOWERUP`"]
-    #[inline(always)]
-    pub fn is_normallyorpowerup(&self) -> bool {
-        *self == CPU0WAIT_A::NORMALLYORPOWERUP
-    }
-    #[doc = "Checks if the value of the field is `WAITORNOPOWERUP`"]
-    #[inline(always)]
-    pub fn is_waitornopowerup(&self) -> bool {
-        *self == CPU0WAIT_A::WAITORNOPOWERUP
-    }
-}
-#[doc = "Write proxy for field `CPU0WAIT`"]
-pub struct CPU0WAIT_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CPU0WAIT_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: CPU0WAIT_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
+            false => Cpu0wait::Normallyorpowerup,
+            true => Cpu0wait::Waitornopowerup,
         }
     }
     #[doc = "CPU0 boot normally. From Power ON reset, nSRST reset or Watchdog Reset, CPU 1 powers up"]
     #[inline(always)]
-    pub fn normallyorpowerup(self) -> &'a mut W {
-        self.variant(CPU0WAIT_A::NORMALLYORPOWERUP)
+    pub fn is_normallyorpowerup(&self) -> bool {
+        *self == Cpu0wait::Normallyorpowerup
     }
     #[doc = "CPU0 wait. From Power ON reset, nSRST reset or Watchdog Reset, CPU 1 do not power up"]
     #[inline(always)]
-    pub fn waitornopowerup(self) -> &'a mut W {
-        self.variant(CPU0WAIT_A::WAITORNOPOWERUP)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
+    pub fn is_waitornopowerup(&self) -> bool {
+        *self == Cpu0wait::Waitornopowerup
     }
 }
-#[doc = "Possible values of the field `CPU1WAIT`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPU1WAIT_A {
-    #[doc = "CPU1 boot normally. From Power ON reset, nSRST reset or Watchdog Reset, CPU 0 powers up"]
-    NORMALLYORPOWERUP,
-    #[doc = "CPU1 wait. From Power ON reset, nSRST reset or Watchdog Reset, CPU 0 do not power up"]
-    WAITORNOPOWERUP,
-}
-impl From<CPU1WAIT_A> for bool {
+#[doc = "Field `CPU0WAIT` writer - CPU 0 waits at boot and whether CPU1 powers up"]
+pub type Cpu0waitW<'a, REG> = crate::BitWriter<'a, REG, Cpu0wait>;
+impl<'a, REG> Cpu0waitW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "CPU0 boot normally. From Power ON reset, nSRST reset or Watchdog Reset, CPU 1 powers up"]
     #[inline(always)]
-    fn from(variant: CPU1WAIT_A) -> Self {
-        match variant {
-            CPU1WAIT_A::NORMALLYORPOWERUP => false,
-            CPU1WAIT_A::WAITORNOPOWERUP => true,
-        }
+    pub fn normallyorpowerup(self) -> &'a mut crate::W<REG> {
+        self.variant(Cpu0wait::Normallyorpowerup)
+    }
+    #[doc = "CPU0 wait. From Power ON reset, nSRST reset or Watchdog Reset, CPU 1 do not power up"]
+    #[inline(always)]
+    pub fn waitornopowerup(self) -> &'a mut crate::W<REG> {
+        self.variant(Cpu0wait::Waitornopowerup)
     }
 }
-#[doc = "Reader of field `CPU1WAIT`"]
-pub type CPU1WAIT_R = crate::R<bool, CPU1WAIT_A>;
-impl CPU1WAIT_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "CPU 1 waits at boot and whether CPU0 powers up\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cpu1wait {
+    #[doc = "0: CPU1 boot normally. From Power ON reset, nSRST reset or Watchdog Reset, CPU 0 powers up"]
+    Normallyorpowerup = 0,
+    #[doc = "1: CPU1 wait. From Power ON reset, nSRST reset or Watchdog Reset, CPU 0 do not power up"]
+    Waitornopowerup = 1,
+}
+impl From<Cpu1wait> for bool {
     #[inline(always)]
-    pub fn variant(&self) -> CPU1WAIT_A {
+    fn from(variant: Cpu1wait) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `CPU1WAIT` reader - CPU 1 waits at boot and whether CPU0 powers up"]
+pub type Cpu1waitR = crate::BitReader<Cpu1wait>;
+impl Cpu1waitR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Cpu1wait {
         match self.bits {
-            false => CPU1WAIT_A::NORMALLYORPOWERUP,
-            true => CPU1WAIT_A::WAITORNOPOWERUP,
+            false => Cpu1wait::Normallyorpowerup,
+            true => Cpu1wait::Waitornopowerup,
         }
     }
-    #[doc = "Checks if the value of the field is `NORMALLYORPOWERUP`"]
+    #[doc = "CPU1 boot normally. From Power ON reset, nSRST reset or Watchdog Reset, CPU 0 powers up"]
     #[inline(always)]
     pub fn is_normallyorpowerup(&self) -> bool {
-        *self == CPU1WAIT_A::NORMALLYORPOWERUP
-    }
-    #[doc = "Checks if the value of the field is `WAITORNOPOWERUP`"]
-    #[inline(always)]
-    pub fn is_waitornopowerup(&self) -> bool {
-        *self == CPU1WAIT_A::WAITORNOPOWERUP
-    }
-}
-#[doc = "Write proxy for field `CPU1WAIT`"]
-pub struct CPU1WAIT_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CPU1WAIT_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: CPU1WAIT_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "CPU1 boot normally. From Power ON reset, nSRST reset or Watchdog Reset, CPU 0 powers up"]
-    #[inline(always)]
-    pub fn normallyorpowerup(self) -> &'a mut W {
-        self.variant(CPU1WAIT_A::NORMALLYORPOWERUP)
+        *self == Cpu1wait::Normallyorpowerup
     }
     #[doc = "CPU1 wait. From Power ON reset, nSRST reset or Watchdog Reset, CPU 0 do not power up"]
     #[inline(always)]
-    pub fn waitornopowerup(self) -> &'a mut W {
-        self.variant(CPU1WAIT_A::WAITORNOPOWERUP)
+    pub fn is_waitornopowerup(&self) -> bool {
+        *self == Cpu1wait::Waitornopowerup
     }
-    #[doc = r"Sets the field bit"]
+}
+#[doc = "Field `CPU1WAIT` writer - CPU 1 waits at boot and whether CPU0 powers up"]
+pub type Cpu1waitW<'a, REG> = crate::BitWriter<'a, REG, Cpu1wait>;
+impl<'a, REG> Cpu1waitW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "CPU1 boot normally. From Power ON reset, nSRST reset or Watchdog Reset, CPU 0 powers up"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub fn normallyorpowerup(self) -> &'a mut crate::W<REG> {
+        self.variant(Cpu1wait::Normallyorpowerup)
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "CPU1 wait. From Power ON reset, nSRST reset or Watchdog Reset, CPU 0 do not power up"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
-        self.w
+    pub fn waitornopowerup(self) -> &'a mut crate::W<REG> {
+        self.variant(Cpu1wait::Waitornopowerup)
     }
 }
 impl R {
     #[doc = "Bit 0 - CPU 0 waits at boot and whether CPU1 powers up"]
     #[inline(always)]
-    pub fn cpu0wait(&self) -> CPU0WAIT_R {
-        CPU0WAIT_R::new((self.bits & 0x01) != 0)
+    pub fn cpu0wait(&self) -> Cpu0waitR {
+        Cpu0waitR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - CPU 1 waits at boot and whether CPU0 powers up"]
     #[inline(always)]
-    pub fn cpu1wait(&self) -> CPU1WAIT_R {
-        CPU1WAIT_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn cpu1wait(&self) -> Cpu1waitR {
+        Cpu1waitR::new(((self.bits >> 1) & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 0 - CPU 0 waits at boot and whether CPU1 powers up"]
     #[inline(always)]
-    pub fn cpu0wait(&mut self) -> CPU0WAIT_W {
-        CPU0WAIT_W { w: self }
+    pub fn cpu0wait(&mut self) -> Cpu0waitW<CpuwaitSpec> {
+        Cpu0waitW::new(self, 0)
     }
     #[doc = "Bit 1 - CPU 1 waits at boot and whether CPU0 powers up"]
     #[inline(always)]
-    pub fn cpu1wait(&mut self) -> CPU1WAIT_W {
-        CPU1WAIT_W { w: self }
+    pub fn cpu1wait(&mut self) -> Cpu1waitW<CpuwaitSpec> {
+        Cpu1waitW::new(self, 1)
     }
 }
+#[doc = "CPU Boot wait control after reset\n\nYou can [`read`](crate::Reg::read) this register and get [`cpuwait::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpuwait::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CpuwaitSpec;
+impl crate::RegisterSpec for CpuwaitSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`cpuwait::R`](R) reader structure"]
+impl crate::Readable for CpuwaitSpec {}
+#[doc = "`write(|w| ..)` method takes [`cpuwait::W`](W) writer structure"]
+impl crate::Writable for CpuwaitSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets CPUWAIT to value 0"]
+impl crate::Resettable for CpuwaitSpec {}

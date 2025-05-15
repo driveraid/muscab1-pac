@@ -1,40 +1,35 @@
-#[doc = "Reader of register PVT_CTRL"]
-pub type R = crate::R<u32, super::PVT_CTRL>;
-#[doc = "Writer for register PVT_CTRL"]
-pub type W = crate::W<u32, super::PVT_CTRL>;
-#[doc = "Register PVT_CTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::PVT_CTRL {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
-    }
-}
-#[doc = "Reader of field `TSTSENNUM`"]
-pub type TSTSENNUM_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `TSTSENNUM`"]
-pub struct TSTSENNUM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> TSTSENNUM_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x1f) | ((value as u32) & 0x1f);
-        self.w
-    }
-}
+#[doc = "Register `PVT_CTRL` reader"]
+pub type R = crate::R<PvtCtrlSpec>;
+#[doc = "Register `PVT_CTRL` writer"]
+pub type W = crate::W<PvtCtrlSpec>;
+#[doc = "Field `TSTSENNUM` reader - Select PVT sensor to write to and read from"]
+pub type TstsennumR = crate::FieldReader;
+#[doc = "Field `TSTSENNUM` writer - Select PVT sensor to write to and read from"]
+pub type TstsennumW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 impl R {
     #[doc = "Bits 0:4 - Select PVT sensor to write to and read from"]
     #[inline(always)]
-    pub fn tstsennum(&self) -> TSTSENNUM_R {
-        TSTSENNUM_R::new((self.bits & 0x1f) as u8)
+    pub fn tstsennum(&self) -> TstsennumR {
+        TstsennumR::new((self.bits & 0x1f) as u8)
     }
 }
 impl W {
     #[doc = "Bits 0:4 - Select PVT sensor to write to and read from"]
     #[inline(always)]
-    pub fn tstsennum(&mut self) -> TSTSENNUM_W {
-        TSTSENNUM_W { w: self }
+    pub fn tstsennum(&mut self) -> TstsennumW<PvtCtrlSpec> {
+        TstsennumW::new(self, 0)
     }
 }
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`pvt_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pvt_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct PvtCtrlSpec;
+impl crate::RegisterSpec for PvtCtrlSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`pvt_ctrl::R`](R) reader structure"]
+impl crate::Readable for PvtCtrlSpec {}
+#[doc = "`write(|w| ..)` method takes [`pvt_ctrl::W`](W) writer structure"]
+impl crate::Writable for PvtCtrlSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets PVT_CTRL to value 0"]
+impl crate::Resettable for PvtCtrlSpec {}

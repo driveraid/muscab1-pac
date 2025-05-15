@@ -1,256 +1,241 @@
-#[doc = "Reader of register UARTIFLS"]
-pub type R = crate::R<u32, super::UARTIFLS>;
-#[doc = "Writer for register UARTIFLS"]
-pub type W = crate::W<u32, super::UARTIFLS>;
-#[doc = "Register UARTIFLS `reset()`'s with value 0x12"]
-impl crate::ResetValue for super::UARTIFLS {
-    type Type = u32;
+#[doc = "Register `UARTIFLS` reader"]
+pub type R = crate::R<UartiflsSpec>;
+#[doc = "Register `UARTIFLS` writer"]
+pub type W = crate::W<UartiflsSpec>;
+#[doc = "Transmit interrupt FIFO level select\n\nValue on reset: 2"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Txiflsel {
+    #[doc = "0: Transmit FIFO becomes less than or equal to 1/8 full"]
+    _18full = 0,
+    #[doc = "1: Transmit FIFO becomes less than or equal to 1/4 full"]
+    _14full = 1,
+    #[doc = "2: Transmit FIFO becomes less than or equal to 1/2 full"]
+    _12full = 2,
+    #[doc = "3: Transmit FIFO becomes less than or equal to 3/4 full"]
+    _34full = 3,
+    #[doc = "4: Transmit FIFO becomes less than or equal to 7/8 full"]
+    _78full = 4,
+}
+impl From<Txiflsel> for u8 {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x12
+    fn from(variant: Txiflsel) -> Self {
+        variant as _
     }
 }
-#[doc = "Possible values of the field `TXIFLSEL`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TXIFLSEL_A {
-    #[doc = "Transmit FIFO becomes less than or equal to 1/8 full"]
-    _18FULL,
-    #[doc = "Transmit FIFO becomes less than or equal to 1/4 full"]
-    _14FULL,
-    #[doc = "Transmit FIFO becomes less than or equal to 1/2 full"]
-    _12FULL,
-    #[doc = "Transmit FIFO becomes less than or equal to 3/4 full"]
-    _34FULL,
-    #[doc = "Transmit FIFO becomes less than or equal to 7/8 full"]
-    _78FULL,
+impl crate::FieldSpec for Txiflsel {
+    type Ux = u8;
 }
-impl From<TXIFLSEL_A> for u8 {
+impl crate::IsEnum for Txiflsel {}
+#[doc = "Field `TXIFLSEL` reader - Transmit interrupt FIFO level select"]
+pub type TxiflselR = crate::FieldReader<Txiflsel>;
+impl TxiflselR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    fn from(variant: TXIFLSEL_A) -> Self {
-        match variant {
-            TXIFLSEL_A::_18FULL => 0,
-            TXIFLSEL_A::_14FULL => 1,
-            TXIFLSEL_A::_12FULL => 2,
-            TXIFLSEL_A::_34FULL => 3,
-            TXIFLSEL_A::_78FULL => 4,
-        }
-    }
-}
-#[doc = "Reader of field `TXIFLSEL`"]
-pub type TXIFLSEL_R = crate::R<u8, TXIFLSEL_A>;
-impl TXIFLSEL_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, TXIFLSEL_A> {
-        use crate::Variant::*;
+    pub const fn variant(&self) -> Option<Txiflsel> {
         match self.bits {
-            0 => Val(TXIFLSEL_A::_18FULL),
-            1 => Val(TXIFLSEL_A::_14FULL),
-            2 => Val(TXIFLSEL_A::_12FULL),
-            3 => Val(TXIFLSEL_A::_34FULL),
-            4 => Val(TXIFLSEL_A::_78FULL),
-            i => Res(i),
+            0 => Some(Txiflsel::_18full),
+            1 => Some(Txiflsel::_14full),
+            2 => Some(Txiflsel::_12full),
+            3 => Some(Txiflsel::_34full),
+            4 => Some(Txiflsel::_78full),
+            _ => None,
         }
-    }
-    #[doc = "Checks if the value of the field is `_18FULL`"]
-    #[inline(always)]
-    pub fn is_18full(&self) -> bool {
-        *self == TXIFLSEL_A::_18FULL
-    }
-    #[doc = "Checks if the value of the field is `_14FULL`"]
-    #[inline(always)]
-    pub fn is_14full(&self) -> bool {
-        *self == TXIFLSEL_A::_14FULL
-    }
-    #[doc = "Checks if the value of the field is `_12FULL`"]
-    #[inline(always)]
-    pub fn is_12full(&self) -> bool {
-        *self == TXIFLSEL_A::_12FULL
-    }
-    #[doc = "Checks if the value of the field is `_34FULL`"]
-    #[inline(always)]
-    pub fn is_34full(&self) -> bool {
-        *self == TXIFLSEL_A::_34FULL
-    }
-    #[doc = "Checks if the value of the field is `_78FULL`"]
-    #[inline(always)]
-    pub fn is_78full(&self) -> bool {
-        *self == TXIFLSEL_A::_78FULL
-    }
-}
-#[doc = "Write proxy for field `TXIFLSEL`"]
-pub struct TXIFLSEL_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> TXIFLSEL_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: TXIFLSEL_A) -> &'a mut W {
-        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Transmit FIFO becomes less than or equal to 1/8 full"]
     #[inline(always)]
-    pub fn _18full(self) -> &'a mut W {
-        self.variant(TXIFLSEL_A::_18FULL)
+    pub fn is_18full(&self) -> bool {
+        *self == Txiflsel::_18full
     }
     #[doc = "Transmit FIFO becomes less than or equal to 1/4 full"]
     #[inline(always)]
-    pub fn _14full(self) -> &'a mut W {
-        self.variant(TXIFLSEL_A::_14FULL)
+    pub fn is_14full(&self) -> bool {
+        *self == Txiflsel::_14full
     }
     #[doc = "Transmit FIFO becomes less than or equal to 1/2 full"]
     #[inline(always)]
-    pub fn _12full(self) -> &'a mut W {
-        self.variant(TXIFLSEL_A::_12FULL)
+    pub fn is_12full(&self) -> bool {
+        *self == Txiflsel::_12full
     }
     #[doc = "Transmit FIFO becomes less than or equal to 3/4 full"]
     #[inline(always)]
-    pub fn _34full(self) -> &'a mut W {
-        self.variant(TXIFLSEL_A::_34FULL)
+    pub fn is_34full(&self) -> bool {
+        *self == Txiflsel::_34full
     }
     #[doc = "Transmit FIFO becomes less than or equal to 7/8 full"]
     #[inline(always)]
-    pub fn _78full(self) -> &'a mut W {
-        self.variant(TXIFLSEL_A::_78FULL)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x07) | ((value as u32) & 0x07);
-        self.w
+    pub fn is_78full(&self) -> bool {
+        *self == Txiflsel::_78full
     }
 }
-#[doc = "Possible values of the field `RXIFLSEL`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RXIFLSEL_A {
-    #[doc = "Receive FIFO becomes greater than or equal to 1/8 full"]
-    _18FULL,
-    #[doc = "Receive FIFO becomes greater than or equal to 1/4 full"]
-    _14FULL,
-    #[doc = "Receive FIFO becomes greater than or equal to 1/2 full"]
-    _12FULL,
-    #[doc = "Receive FIFO becomes greater than or equal to 3/4 full"]
-    _34FULL,
-    #[doc = "Receive FIFO becomes greater than or equal to 7/8 full"]
-    _78FULL,
-}
-impl From<RXIFLSEL_A> for u8 {
+#[doc = "Field `TXIFLSEL` writer - Transmit interrupt FIFO level select"]
+pub type TxiflselW<'a, REG> = crate::FieldWriter<'a, REG, 3, Txiflsel>;
+impl<'a, REG> TxiflselW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "Transmit FIFO becomes less than or equal to 1/8 full"]
     #[inline(always)]
-    fn from(variant: RXIFLSEL_A) -> Self {
-        match variant {
-            RXIFLSEL_A::_18FULL => 0,
-            RXIFLSEL_A::_14FULL => 1,
-            RXIFLSEL_A::_12FULL => 2,
-            RXIFLSEL_A::_34FULL => 3,
-            RXIFLSEL_A::_78FULL => 4,
-        }
+    pub fn _18full(self) -> &'a mut crate::W<REG> {
+        self.variant(Txiflsel::_18full)
+    }
+    #[doc = "Transmit FIFO becomes less than or equal to 1/4 full"]
+    #[inline(always)]
+    pub fn _14full(self) -> &'a mut crate::W<REG> {
+        self.variant(Txiflsel::_14full)
+    }
+    #[doc = "Transmit FIFO becomes less than or equal to 1/2 full"]
+    #[inline(always)]
+    pub fn _12full(self) -> &'a mut crate::W<REG> {
+        self.variant(Txiflsel::_12full)
+    }
+    #[doc = "Transmit FIFO becomes less than or equal to 3/4 full"]
+    #[inline(always)]
+    pub fn _34full(self) -> &'a mut crate::W<REG> {
+        self.variant(Txiflsel::_34full)
+    }
+    #[doc = "Transmit FIFO becomes less than or equal to 7/8 full"]
+    #[inline(always)]
+    pub fn _78full(self) -> &'a mut crate::W<REG> {
+        self.variant(Txiflsel::_78full)
     }
 }
-#[doc = "Reader of field `RXIFLSEL`"]
-pub type RXIFLSEL_R = crate::R<u8, RXIFLSEL_A>;
-impl RXIFLSEL_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Receive interrupt FIFO level select\n\nValue on reset: 2"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Rxiflsel {
+    #[doc = "0: Receive FIFO becomes greater than or equal to 1/8 full"]
+    _18full = 0,
+    #[doc = "1: Receive FIFO becomes greater than or equal to 1/4 full"]
+    _14full = 1,
+    #[doc = "2: Receive FIFO becomes greater than or equal to 1/2 full"]
+    _12full = 2,
+    #[doc = "3: Receive FIFO becomes greater than or equal to 3/4 full"]
+    _34full = 3,
+    #[doc = "4: Receive FIFO becomes greater than or equal to 7/8 full"]
+    _78full = 4,
+}
+impl From<Rxiflsel> for u8 {
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, RXIFLSEL_A> {
-        use crate::Variant::*;
+    fn from(variant: Rxiflsel) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for Rxiflsel {
+    type Ux = u8;
+}
+impl crate::IsEnum for Rxiflsel {}
+#[doc = "Field `RXIFLSEL` reader - Receive interrupt FIFO level select"]
+pub type RxiflselR = crate::FieldReader<Rxiflsel>;
+impl RxiflselR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<Rxiflsel> {
         match self.bits {
-            0 => Val(RXIFLSEL_A::_18FULL),
-            1 => Val(RXIFLSEL_A::_14FULL),
-            2 => Val(RXIFLSEL_A::_12FULL),
-            3 => Val(RXIFLSEL_A::_34FULL),
-            4 => Val(RXIFLSEL_A::_78FULL),
-            i => Res(i),
+            0 => Some(Rxiflsel::_18full),
+            1 => Some(Rxiflsel::_14full),
+            2 => Some(Rxiflsel::_12full),
+            3 => Some(Rxiflsel::_34full),
+            4 => Some(Rxiflsel::_78full),
+            _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `_18FULL`"]
+    #[doc = "Receive FIFO becomes greater than or equal to 1/8 full"]
     #[inline(always)]
     pub fn is_18full(&self) -> bool {
-        *self == RXIFLSEL_A::_18FULL
-    }
-    #[doc = "Checks if the value of the field is `_14FULL`"]
-    #[inline(always)]
-    pub fn is_14full(&self) -> bool {
-        *self == RXIFLSEL_A::_14FULL
-    }
-    #[doc = "Checks if the value of the field is `_12FULL`"]
-    #[inline(always)]
-    pub fn is_12full(&self) -> bool {
-        *self == RXIFLSEL_A::_12FULL
-    }
-    #[doc = "Checks if the value of the field is `_34FULL`"]
-    #[inline(always)]
-    pub fn is_34full(&self) -> bool {
-        *self == RXIFLSEL_A::_34FULL
-    }
-    #[doc = "Checks if the value of the field is `_78FULL`"]
-    #[inline(always)]
-    pub fn is_78full(&self) -> bool {
-        *self == RXIFLSEL_A::_78FULL
-    }
-}
-#[doc = "Write proxy for field `RXIFLSEL`"]
-pub struct RXIFLSEL_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> RXIFLSEL_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: RXIFLSEL_A) -> &'a mut W {
-        unsafe { self.bits(variant.into()) }
-    }
-    #[doc = "Receive FIFO becomes greater than or equal to 1/8 full"]
-    #[inline(always)]
-    pub fn _18full(self) -> &'a mut W {
-        self.variant(RXIFLSEL_A::_18FULL)
+        *self == Rxiflsel::_18full
     }
     #[doc = "Receive FIFO becomes greater than or equal to 1/4 full"]
     #[inline(always)]
-    pub fn _14full(self) -> &'a mut W {
-        self.variant(RXIFLSEL_A::_14FULL)
+    pub fn is_14full(&self) -> bool {
+        *self == Rxiflsel::_14full
     }
     #[doc = "Receive FIFO becomes greater than or equal to 1/2 full"]
     #[inline(always)]
-    pub fn _12full(self) -> &'a mut W {
-        self.variant(RXIFLSEL_A::_12FULL)
+    pub fn is_12full(&self) -> bool {
+        *self == Rxiflsel::_12full
     }
     #[doc = "Receive FIFO becomes greater than or equal to 3/4 full"]
     #[inline(always)]
-    pub fn _34full(self) -> &'a mut W {
-        self.variant(RXIFLSEL_A::_34FULL)
+    pub fn is_34full(&self) -> bool {
+        *self == Rxiflsel::_34full
     }
     #[doc = "Receive FIFO becomes greater than or equal to 7/8 full"]
     #[inline(always)]
-    pub fn _78full(self) -> &'a mut W {
-        self.variant(RXIFLSEL_A::_78FULL)
+    pub fn is_78full(&self) -> bool {
+        *self == Rxiflsel::_78full
     }
-    #[doc = r"Writes raw bits to the field"]
+}
+#[doc = "Field `RXIFLSEL` writer - Receive interrupt FIFO level select"]
+pub type RxiflselW<'a, REG> = crate::FieldWriter<'a, REG, 3, Rxiflsel>;
+impl<'a, REG> RxiflselW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "Receive FIFO becomes greater than or equal to 1/8 full"]
     #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 3)) | (((value as u32) & 0x07) << 3);
-        self.w
+    pub fn _18full(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxiflsel::_18full)
+    }
+    #[doc = "Receive FIFO becomes greater than or equal to 1/4 full"]
+    #[inline(always)]
+    pub fn _14full(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxiflsel::_14full)
+    }
+    #[doc = "Receive FIFO becomes greater than or equal to 1/2 full"]
+    #[inline(always)]
+    pub fn _12full(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxiflsel::_12full)
+    }
+    #[doc = "Receive FIFO becomes greater than or equal to 3/4 full"]
+    #[inline(always)]
+    pub fn _34full(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxiflsel::_34full)
+    }
+    #[doc = "Receive FIFO becomes greater than or equal to 7/8 full"]
+    #[inline(always)]
+    pub fn _78full(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxiflsel::_78full)
     }
 }
 impl R {
     #[doc = "Bits 0:2 - Transmit interrupt FIFO level select"]
     #[inline(always)]
-    pub fn txiflsel(&self) -> TXIFLSEL_R {
-        TXIFLSEL_R::new((self.bits & 0x07) as u8)
+    pub fn txiflsel(&self) -> TxiflselR {
+        TxiflselR::new((self.bits & 7) as u8)
     }
     #[doc = "Bits 3:5 - Receive interrupt FIFO level select"]
     #[inline(always)]
-    pub fn rxiflsel(&self) -> RXIFLSEL_R {
-        RXIFLSEL_R::new(((self.bits >> 3) & 0x07) as u8)
+    pub fn rxiflsel(&self) -> RxiflselR {
+        RxiflselR::new(((self.bits >> 3) & 7) as u8)
     }
 }
 impl W {
     #[doc = "Bits 0:2 - Transmit interrupt FIFO level select"]
     #[inline(always)]
-    pub fn txiflsel(&mut self) -> TXIFLSEL_W {
-        TXIFLSEL_W { w: self }
+    pub fn txiflsel(&mut self) -> TxiflselW<UartiflsSpec> {
+        TxiflselW::new(self, 0)
     }
     #[doc = "Bits 3:5 - Receive interrupt FIFO level select"]
     #[inline(always)]
-    pub fn rxiflsel(&mut self) -> RXIFLSEL_W {
-        RXIFLSEL_W { w: self }
+    pub fn rxiflsel(&mut self) -> RxiflselW<UartiflsSpec> {
+        RxiflselW::new(self, 3)
     }
+}
+#[doc = "Interrupt FIFO level select register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartifls::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartifls::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct UartiflsSpec;
+impl crate::RegisterSpec for UartiflsSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`uartifls::R`](R) reader structure"]
+impl crate::Readable for UartiflsSpec {}
+#[doc = "`write(|w| ..)` method takes [`uartifls::W`](W) writer structure"]
+impl crate::Writable for UartiflsSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets UARTIFLS to value 0x12"]
+impl crate::Resettable for UartiflsSpec {
+    const RESET_VALUE: u32 = 0x12;
 }

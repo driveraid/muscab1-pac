@@ -1,579 +1,523 @@
-#[doc = r"Register block"]
 #[repr(C)]
+#[doc = "Register block"]
 pub struct RegisterBlock {
-    #[doc = "0x00 - Secure Privilege Controller Secure Configuration Control register"]
-    pub spcsectrl: SPCSECTRL,
-    #[doc = "0x04 - Bus Access wait control after reset"]
-    pub buswait: BUSWAIT,
-    _reserved2: [u8; 8usize],
-    #[doc = "0x10 - Security Violation Response Configuration register"]
-    pub secrespcfg: SECRESPCFG,
-    #[doc = "0x14 - Non Secure Callable Configuration for IDAU"]
-    pub nsccfg: NSCCFG,
-    _reserved4: [u8; 4usize],
-    #[doc = "0x1c - Secure MPC Interrupt Status"]
-    pub secmpcintstatus: SECMPCINTSTATUS,
-    #[doc = "0x20 - Secure PPC Interrupt Status"]
-    pub secppcintstat: SECPPCINTSTAT,
-    #[doc = "0x24 - Secure PPC Interrupt Clear"]
-    pub secppcintclr: SECPPCINTCLR,
-    #[doc = "0x28 - Secure PPC Interrupt Enable"]
-    pub secppcinten: SECPPCINTEN,
-    _reserved8: [u8; 4usize],
-    #[doc = "0x30 - Secure MSC Interrupt Status"]
-    pub secmscintstat: SECMSCINTSTAT,
-    #[doc = "0x34 - Secure MSC Interrupt Clear"]
-    pub secmscintclr: SECMSCINTCLR,
-    #[doc = "0x38 - Secure MSC Interrupt Enable"]
-    pub secmscinten: SECMSCINTEN,
-    _reserved11: [u8; 4usize],
-    #[doc = "0x40 - Bridge Buffer Error Interrupt Status"]
-    pub brgintstat: BRGINTSTAT,
-    #[doc = "0x44 - Bridge Buffer Error Interrupt Clear"]
-    pub brgintclr: BRGINTCLR,
-    #[doc = "0x48 - Bridge Buffer Error Interrupt Enable"]
-    pub brginten: BRGINTEN,
-    _reserved14: [u8; 4usize],
-    #[doc = "0x50 - Non-Secure Access AHB slave Peripheral Protection Control 0"]
-    pub ahbnsppc0: AHBNSPPC0,
-    _reserved15: [u8; 12usize],
-    #[doc = "0x60 - Expansion 0 Non_Secure Access AHB slave Peripheral Protection Control"]
-    pub ahbnsppcexp0: AHBNSPPCEXP0,
-    #[doc = "0x64 - Expansion 1 Non_Secure Access AHB slave Peripheral Protection Control"]
-    pub ahbnsppcexp1: AHBNSPPCEXP1,
-    #[doc = "0x68 - Expansion 2 Non_Secure Access AHB slave Peripheral Protection Control"]
-    pub ahbnsppcexp2: AHBNSPPCEXP2,
-    #[doc = "0x6c - Expansion 3 Non_Secure Access AHB slave Peripheral Protection Control"]
-    pub ahbnsppcexp3: AHBNSPPCEXP3,
-    #[doc = "0x70 - Non-Secure Access APB slave Peripheral Protection Control 0"]
-    pub apbnsppc0: APBNSPPC0,
-    #[doc = "0x74 - Non-Secure Access APB slave Peripheral Protection Control 1"]
-    pub apbnsppc1: APBNSPPC1,
-    _reserved21: [u8; 8usize],
-    #[doc = "0x80 - Expansion 0 Non_Secure Access APB slave Peripheral Protection Control"]
-    pub apbnsppcexp0: APBNSPPCEXP0,
-    #[doc = "0x84 - Expansion 1 Non_Secure Access APB slave Peripheral Protection Control"]
-    pub apbnsppcexp1: APBNSPPCEXP1,
-    #[doc = "0x88 - Expansion 2 Non_Secure Access APB slave Peripheral Protection Control"]
-    pub apbnsppcexp2: APBNSPPCEXP2,
-    #[doc = "0x8c - Expansion 3 Non_Secure Access APB slave Peripheral Protection Control"]
-    pub apbnsppcexp3: APBNSPPCEXP3,
-    #[doc = "0x90 - Secure Unprivileged Access AHB slave Peripheral Protection Control 0"]
-    pub ahbspppc0: AHBSPPPC0,
-    _reserved26: [u8; 12usize],
-    #[doc = "0xa0 - Expansion 0 Secure Unprivileged Access AHB slave Peripheral Protection Control"]
-    pub ahbspppcexp0: AHBSPPPCEXP0,
-    #[doc = "0xa4 - Expansion 1 Secure Unprivileged Access AHB slave Peripheral Protection Control"]
-    pub ahbspppcexp1: AHBSPPPCEXP1,
-    #[doc = "0xa8 - Expansion 2 Secure Unprivileged Access AHB slave Peripheral Protection Control"]
-    pub ahbspppcexp2: AHBSPPPCEXP2,
-    #[doc = "0xac - Expansion 3 Secure Unprivileged Access AHB slave Peripheral Protection Control"]
-    pub ahbspppcexp3: AHBSPPPCEXP3,
-    #[doc = "0xb0 - Secure Unprivileged Access APB slave Peripheral Protection Control 0"]
-    pub apbspppc0: APBSPPPC0,
-    #[doc = "0xb4 - Secure Unprivileged Access APB slave Peripheral Protection Control 1"]
-    pub apbspppc1: APBSPPPC1,
-    _reserved32: [u8; 8usize],
-    #[doc = "0xc0 - Expansion 0 Secure Unprivileged Access APB slave Peripheral Protection Control"]
-    pub apbspppcexp0: APBSPPPCEXP0,
-    #[doc = "0xc4 - Expansion 1 Secure Unprivileged Access APB slave Peripheral Protection Control"]
-    pub apbspppcexp1: APBSPPPCEXP1,
-    #[doc = "0xc8 - Expansion 2 Secure Unprivileged Access APB slave Peripheral Protection Control"]
-    pub apbspppcexp2: APBSPPPCEXP2,
-    #[doc = "0xcc - Expansion 3 Secure Unprivileged Access APB slave Peripheral Protection Control"]
-    pub apbspppcexp3: APBSPPPCEXP3,
-    #[doc = "0xd0 - Expansion MSC Non-Secure Configuration"]
-    pub nsmscexp: NSMSCEXP,
-    _reserved37: [u8; 3836usize],
-    #[doc = "0xfd0 - Peripheral ID 4"]
-    pub pid4: PID4,
-    _reserved38: [u8; 12usize],
-    #[doc = "0xfe0 - Peripheral ID 0"]
-    pub pid0: PID0,
-    #[doc = "0xfe4 - Peripheral ID 1"]
-    pub pid1: PID1,
-    #[doc = "0xfe8 - Peripheral ID 2"]
-    pub pid2: PID2,
-    #[doc = "0xfec - Peripheral ID 3"]
-    pub pid3: PID3,
-    #[doc = "0xff0 - Component ID 0"]
-    pub cidr0: CIDR0,
-    #[doc = "0xff4 - Component ID 1"]
-    pub cidr1: CIDR1,
-    #[doc = "0xff8 - Component ID 2"]
-    pub cidr2: CIDR2,
-    #[doc = "0xffc - Component ID 3"]
-    pub cidr3: CIDR3,
+    spcsectrl: Spcsectrl,
+    buswait: Buswait,
+    _reserved2: [u8; 0x08],
+    secrespcfg: Secrespcfg,
+    nsccfg: Nsccfg,
+    _reserved4: [u8; 0x04],
+    secmpcintstatus: Secmpcintstatus,
+    secppcintstat: Secppcintstat,
+    secppcintclr: Secppcintclr,
+    secppcinten: Secppcinten,
+    _reserved8: [u8; 0x04],
+    secmscintstat: Secmscintstat,
+    secmscintclr: Secmscintclr,
+    secmscinten: Secmscinten,
+    _reserved11: [u8; 0x04],
+    brgintstat: Brgintstat,
+    brgintclr: Brgintclr,
+    brginten: Brginten,
+    _reserved14: [u8; 0x04],
+    ahbnsppc0: Ahbnsppc0,
+    _reserved15: [u8; 0x0c],
+    ahbnsppcexp0: Ahbnsppcexp0,
+    ahbnsppcexp1: Ahbnsppcexp1,
+    ahbnsppcexp2: Ahbnsppcexp2,
+    ahbnsppcexp3: Ahbnsppcexp3,
+    apbnsppc0: Apbnsppc0,
+    apbnsppc1: Apbnsppc1,
+    _reserved21: [u8; 0x08],
+    apbnsppcexp0: Apbnsppcexp0,
+    apbnsppcexp1: Apbnsppcexp1,
+    apbnsppcexp2: Apbnsppcexp2,
+    apbnsppcexp3: Apbnsppcexp3,
+    ahbspppc0: Ahbspppc0,
+    _reserved26: [u8; 0x0c],
+    ahbspppcexp0: Ahbspppcexp0,
+    ahbspppcexp1: Ahbspppcexp1,
+    ahbspppcexp2: Ahbspppcexp2,
+    ahbspppcexp3: Ahbspppcexp3,
+    apbspppc0: Apbspppc0,
+    apbspppc1: Apbspppc1,
+    _reserved32: [u8; 0x08],
+    apbspppcexp0: Apbspppcexp0,
+    apbspppcexp1: Apbspppcexp1,
+    apbspppcexp2: Apbspppcexp2,
+    apbspppcexp3: Apbspppcexp3,
+    nsmscexp: Nsmscexp,
+    _reserved37: [u8; 0x0efc],
+    pid4: Pid4,
+    _reserved38: [u8; 0x0c],
+    pid0: Pid0,
+    pid1: Pid1,
+    pid2: Pid2,
+    pid3: Pid3,
+    cidr0: Cidr0,
+    cidr1: Cidr1,
+    cidr2: Cidr2,
+    cidr3: Cidr3,
 }
-#[doc = "Secure Privilege Controller Secure Configuration Control register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [spcsectrl](spcsectrl) module"]
-pub type SPCSECTRL = crate::Reg<u32, _SPCSECTRL>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SPCSECTRL;
-#[doc = "`read()` method returns [spcsectrl::R](spcsectrl::R) reader structure"]
-impl crate::Readable for SPCSECTRL {}
-#[doc = "`write(|w| ..)` method takes [spcsectrl::W](spcsectrl::W) writer structure"]
-impl crate::Writable for SPCSECTRL {}
+impl RegisterBlock {
+    #[doc = "0x00 - Secure Privilege Controller Secure Configuration Control register"]
+    #[inline(always)]
+    pub const fn spcsectrl(&self) -> &Spcsectrl {
+        &self.spcsectrl
+    }
+    #[doc = "0x04 - Bus Access wait control after reset"]
+    #[inline(always)]
+    pub const fn buswait(&self) -> &Buswait {
+        &self.buswait
+    }
+    #[doc = "0x10 - Security Violation Response Configuration register"]
+    #[inline(always)]
+    pub const fn secrespcfg(&self) -> &Secrespcfg {
+        &self.secrespcfg
+    }
+    #[doc = "0x14 - Non Secure Callable Configuration for IDAU"]
+    #[inline(always)]
+    pub const fn nsccfg(&self) -> &Nsccfg {
+        &self.nsccfg
+    }
+    #[doc = "0x1c - Secure MPC Interrupt Status"]
+    #[inline(always)]
+    pub const fn secmpcintstatus(&self) -> &Secmpcintstatus {
+        &self.secmpcintstatus
+    }
+    #[doc = "0x20 - Secure PPC Interrupt Status"]
+    #[inline(always)]
+    pub const fn secppcintstat(&self) -> &Secppcintstat {
+        &self.secppcintstat
+    }
+    #[doc = "0x24 - Secure PPC Interrupt Clear"]
+    #[inline(always)]
+    pub const fn secppcintclr(&self) -> &Secppcintclr {
+        &self.secppcintclr
+    }
+    #[doc = "0x28 - Secure PPC Interrupt Enable"]
+    #[inline(always)]
+    pub const fn secppcinten(&self) -> &Secppcinten {
+        &self.secppcinten
+    }
+    #[doc = "0x30 - Secure MSC Interrupt Status"]
+    #[inline(always)]
+    pub const fn secmscintstat(&self) -> &Secmscintstat {
+        &self.secmscintstat
+    }
+    #[doc = "0x34 - Secure MSC Interrupt Clear"]
+    #[inline(always)]
+    pub const fn secmscintclr(&self) -> &Secmscintclr {
+        &self.secmscintclr
+    }
+    #[doc = "0x38 - Secure MSC Interrupt Enable"]
+    #[inline(always)]
+    pub const fn secmscinten(&self) -> &Secmscinten {
+        &self.secmscinten
+    }
+    #[doc = "0x40 - Bridge Buffer Error Interrupt Status"]
+    #[inline(always)]
+    pub const fn brgintstat(&self) -> &Brgintstat {
+        &self.brgintstat
+    }
+    #[doc = "0x44 - Bridge Buffer Error Interrupt Clear"]
+    #[inline(always)]
+    pub const fn brgintclr(&self) -> &Brgintclr {
+        &self.brgintclr
+    }
+    #[doc = "0x48 - Bridge Buffer Error Interrupt Enable"]
+    #[inline(always)]
+    pub const fn brginten(&self) -> &Brginten {
+        &self.brginten
+    }
+    #[doc = "0x50 - Non-Secure Access AHB slave Peripheral Protection Control 0"]
+    #[inline(always)]
+    pub const fn ahbnsppc0(&self) -> &Ahbnsppc0 {
+        &self.ahbnsppc0
+    }
+    #[doc = "0x60 - Expansion 0 Non_Secure Access AHB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn ahbnsppcexp0(&self) -> &Ahbnsppcexp0 {
+        &self.ahbnsppcexp0
+    }
+    #[doc = "0x64 - Expansion 1 Non_Secure Access AHB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn ahbnsppcexp1(&self) -> &Ahbnsppcexp1 {
+        &self.ahbnsppcexp1
+    }
+    #[doc = "0x68 - Expansion 2 Non_Secure Access AHB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn ahbnsppcexp2(&self) -> &Ahbnsppcexp2 {
+        &self.ahbnsppcexp2
+    }
+    #[doc = "0x6c - Expansion 3 Non_Secure Access AHB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn ahbnsppcexp3(&self) -> &Ahbnsppcexp3 {
+        &self.ahbnsppcexp3
+    }
+    #[doc = "0x70 - Non-Secure Access APB slave Peripheral Protection Control 0"]
+    #[inline(always)]
+    pub const fn apbnsppc0(&self) -> &Apbnsppc0 {
+        &self.apbnsppc0
+    }
+    #[doc = "0x74 - Non-Secure Access APB slave Peripheral Protection Control 1"]
+    #[inline(always)]
+    pub const fn apbnsppc1(&self) -> &Apbnsppc1 {
+        &self.apbnsppc1
+    }
+    #[doc = "0x80 - Expansion 0 Non_Secure Access APB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn apbnsppcexp0(&self) -> &Apbnsppcexp0 {
+        &self.apbnsppcexp0
+    }
+    #[doc = "0x84 - Expansion 1 Non_Secure Access APB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn apbnsppcexp1(&self) -> &Apbnsppcexp1 {
+        &self.apbnsppcexp1
+    }
+    #[doc = "0x88 - Expansion 2 Non_Secure Access APB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn apbnsppcexp2(&self) -> &Apbnsppcexp2 {
+        &self.apbnsppcexp2
+    }
+    #[doc = "0x8c - Expansion 3 Non_Secure Access APB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn apbnsppcexp3(&self) -> &Apbnsppcexp3 {
+        &self.apbnsppcexp3
+    }
+    #[doc = "0x90 - Secure Unprivileged Access AHB slave Peripheral Protection Control 0"]
+    #[inline(always)]
+    pub const fn ahbspppc0(&self) -> &Ahbspppc0 {
+        &self.ahbspppc0
+    }
+    #[doc = "0xa0 - Expansion 0 Secure Unprivileged Access AHB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn ahbspppcexp0(&self) -> &Ahbspppcexp0 {
+        &self.ahbspppcexp0
+    }
+    #[doc = "0xa4 - Expansion 1 Secure Unprivileged Access AHB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn ahbspppcexp1(&self) -> &Ahbspppcexp1 {
+        &self.ahbspppcexp1
+    }
+    #[doc = "0xa8 - Expansion 2 Secure Unprivileged Access AHB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn ahbspppcexp2(&self) -> &Ahbspppcexp2 {
+        &self.ahbspppcexp2
+    }
+    #[doc = "0xac - Expansion 3 Secure Unprivileged Access AHB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn ahbspppcexp3(&self) -> &Ahbspppcexp3 {
+        &self.ahbspppcexp3
+    }
+    #[doc = "0xb0 - Secure Unprivileged Access APB slave Peripheral Protection Control 0"]
+    #[inline(always)]
+    pub const fn apbspppc0(&self) -> &Apbspppc0 {
+        &self.apbspppc0
+    }
+    #[doc = "0xb4 - Secure Unprivileged Access APB slave Peripheral Protection Control 1"]
+    #[inline(always)]
+    pub const fn apbspppc1(&self) -> &Apbspppc1 {
+        &self.apbspppc1
+    }
+    #[doc = "0xc0 - Expansion 0 Secure Unprivileged Access APB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn apbspppcexp0(&self) -> &Apbspppcexp0 {
+        &self.apbspppcexp0
+    }
+    #[doc = "0xc4 - Expansion 1 Secure Unprivileged Access APB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn apbspppcexp1(&self) -> &Apbspppcexp1 {
+        &self.apbspppcexp1
+    }
+    #[doc = "0xc8 - Expansion 2 Secure Unprivileged Access APB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn apbspppcexp2(&self) -> &Apbspppcexp2 {
+        &self.apbspppcexp2
+    }
+    #[doc = "0xcc - Expansion 3 Secure Unprivileged Access APB slave Peripheral Protection Control"]
+    #[inline(always)]
+    pub const fn apbspppcexp3(&self) -> &Apbspppcexp3 {
+        &self.apbspppcexp3
+    }
+    #[doc = "0xd0 - Expansion MSC Non-Secure Configuration"]
+    #[inline(always)]
+    pub const fn nsmscexp(&self) -> &Nsmscexp {
+        &self.nsmscexp
+    }
+    #[doc = "0xfd0 - Peripheral ID 4"]
+    #[inline(always)]
+    pub const fn pid4(&self) -> &Pid4 {
+        &self.pid4
+    }
+    #[doc = "0xfe0 - Peripheral ID 0"]
+    #[inline(always)]
+    pub const fn pid0(&self) -> &Pid0 {
+        &self.pid0
+    }
+    #[doc = "0xfe4 - Peripheral ID 1"]
+    #[inline(always)]
+    pub const fn pid1(&self) -> &Pid1 {
+        &self.pid1
+    }
+    #[doc = "0xfe8 - Peripheral ID 2"]
+    #[inline(always)]
+    pub const fn pid2(&self) -> &Pid2 {
+        &self.pid2
+    }
+    #[doc = "0xfec - Peripheral ID 3"]
+    #[inline(always)]
+    pub const fn pid3(&self) -> &Pid3 {
+        &self.pid3
+    }
+    #[doc = "0xff0 - Component ID 0"]
+    #[inline(always)]
+    pub const fn cidr0(&self) -> &Cidr0 {
+        &self.cidr0
+    }
+    #[doc = "0xff4 - Component ID 1"]
+    #[inline(always)]
+    pub const fn cidr1(&self) -> &Cidr1 {
+        &self.cidr1
+    }
+    #[doc = "0xff8 - Component ID 2"]
+    #[inline(always)]
+    pub const fn cidr2(&self) -> &Cidr2 {
+        &self.cidr2
+    }
+    #[doc = "0xffc - Component ID 3"]
+    #[inline(always)]
+    pub const fn cidr3(&self) -> &Cidr3 {
+        &self.cidr3
+    }
+}
+#[doc = "SPCSECTRL (rw) register accessor: Secure Privilege Controller Secure Configuration Control register\n\nYou can [`read`](crate::Reg::read) this register and get [`spcsectrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`spcsectrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@spcsectrl`] module"]
+#[doc(alias = "SPCSECTRL")]
+pub type Spcsectrl = crate::Reg<spcsectrl::SpcsectrlSpec>;
 #[doc = "Secure Privilege Controller Secure Configuration Control register"]
 pub mod spcsectrl;
-#[doc = "Bus Access wait control after reset\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [buswait](buswait) module"]
-pub type BUSWAIT = crate::Reg<u32, _BUSWAIT>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _BUSWAIT;
-#[doc = "`read()` method returns [buswait::R](buswait::R) reader structure"]
-impl crate::Readable for BUSWAIT {}
-#[doc = "`write(|w| ..)` method takes [buswait::W](buswait::W) writer structure"]
-impl crate::Writable for BUSWAIT {}
+#[doc = "BUSWAIT (rw) register accessor: Bus Access wait control after reset\n\nYou can [`read`](crate::Reg::read) this register and get [`buswait::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`buswait::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@buswait`] module"]
+#[doc(alias = "BUSWAIT")]
+pub type Buswait = crate::Reg<buswait::BuswaitSpec>;
 #[doc = "Bus Access wait control after reset"]
 pub mod buswait;
-#[doc = "Security Violation Response Configuration register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [secrespcfg](secrespcfg) module"]
-pub type SECRESPCFG = crate::Reg<u32, _SECRESPCFG>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SECRESPCFG;
-#[doc = "`read()` method returns [secrespcfg::R](secrespcfg::R) reader structure"]
-impl crate::Readable for SECRESPCFG {}
-#[doc = "`write(|w| ..)` method takes [secrespcfg::W](secrespcfg::W) writer structure"]
-impl crate::Writable for SECRESPCFG {}
+#[doc = "SECRESPCFG (rw) register accessor: Security Violation Response Configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`secrespcfg::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`secrespcfg::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@secrespcfg`] module"]
+#[doc(alias = "SECRESPCFG")]
+pub type Secrespcfg = crate::Reg<secrespcfg::SecrespcfgSpec>;
 #[doc = "Security Violation Response Configuration register"]
 pub mod secrespcfg;
-#[doc = "Non Secure Callable Configuration for IDAU\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [nsccfg](nsccfg) module"]
-pub type NSCCFG = crate::Reg<u32, _NSCCFG>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _NSCCFG;
-#[doc = "`read()` method returns [nsccfg::R](nsccfg::R) reader structure"]
-impl crate::Readable for NSCCFG {}
-#[doc = "`write(|w| ..)` method takes [nsccfg::W](nsccfg::W) writer structure"]
-impl crate::Writable for NSCCFG {}
+#[doc = "NSCCFG (rw) register accessor: Non Secure Callable Configuration for IDAU\n\nYou can [`read`](crate::Reg::read) this register and get [`nsccfg::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`nsccfg::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@nsccfg`] module"]
+#[doc(alias = "NSCCFG")]
+pub type Nsccfg = crate::Reg<nsccfg::NsccfgSpec>;
 #[doc = "Non Secure Callable Configuration for IDAU"]
 pub mod nsccfg;
-#[doc = "Secure MPC Interrupt Status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [secmpcintstatus](secmpcintstatus) module"]
-pub type SECMPCINTSTATUS = crate::Reg<u32, _SECMPCINTSTATUS>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SECMPCINTSTATUS;
-#[doc = "`read()` method returns [secmpcintstatus::R](secmpcintstatus::R) reader structure"]
-impl crate::Readable for SECMPCINTSTATUS {}
+#[doc = "SECMPCINTSTATUS (r) register accessor: Secure MPC Interrupt Status\n\nYou can [`read`](crate::Reg::read) this register and get [`secmpcintstatus::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@secmpcintstatus`] module"]
+#[doc(alias = "SECMPCINTSTATUS")]
+pub type Secmpcintstatus = crate::Reg<secmpcintstatus::SecmpcintstatusSpec>;
 #[doc = "Secure MPC Interrupt Status"]
 pub mod secmpcintstatus;
-#[doc = "Secure PPC Interrupt Status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [secppcintstat](secppcintstat) module"]
-pub type SECPPCINTSTAT = crate::Reg<u32, _SECPPCINTSTAT>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SECPPCINTSTAT;
-#[doc = "`read()` method returns [secppcintstat::R](secppcintstat::R) reader structure"]
-impl crate::Readable for SECPPCINTSTAT {}
+#[doc = "SECPPCINTSTAT (r) register accessor: Secure PPC Interrupt Status\n\nYou can [`read`](crate::Reg::read) this register and get [`secppcintstat::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@secppcintstat`] module"]
+#[doc(alias = "SECPPCINTSTAT")]
+pub type Secppcintstat = crate::Reg<secppcintstat::SecppcintstatSpec>;
 #[doc = "Secure PPC Interrupt Status"]
 pub mod secppcintstat;
-#[doc = "Secure PPC Interrupt Clear\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [secppcintclr](secppcintclr) module"]
-pub type SECPPCINTCLR = crate::Reg<u32, _SECPPCINTCLR>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SECPPCINTCLR;
-#[doc = "`write(|w| ..)` method takes [secppcintclr::W](secppcintclr::W) writer structure"]
-impl crate::Writable for SECPPCINTCLR {}
+#[doc = "SECPPCINTCLR (w) register accessor: Secure PPC Interrupt Clear\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`secppcintclr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@secppcintclr`] module"]
+#[doc(alias = "SECPPCINTCLR")]
+pub type Secppcintclr = crate::Reg<secppcintclr::SecppcintclrSpec>;
 #[doc = "Secure PPC Interrupt Clear"]
 pub mod secppcintclr;
-#[doc = "Secure PPC Interrupt Enable\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [secppcinten](secppcinten) module"]
-pub type SECPPCINTEN = crate::Reg<u32, _SECPPCINTEN>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SECPPCINTEN;
-#[doc = "`read()` method returns [secppcinten::R](secppcinten::R) reader structure"]
-impl crate::Readable for SECPPCINTEN {}
-#[doc = "`write(|w| ..)` method takes [secppcinten::W](secppcinten::W) writer structure"]
-impl crate::Writable for SECPPCINTEN {}
+#[doc = "SECPPCINTEN (rw) register accessor: Secure PPC Interrupt Enable\n\nYou can [`read`](crate::Reg::read) this register and get [`secppcinten::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`secppcinten::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@secppcinten`] module"]
+#[doc(alias = "SECPPCINTEN")]
+pub type Secppcinten = crate::Reg<secppcinten::SecppcintenSpec>;
 #[doc = "Secure PPC Interrupt Enable"]
 pub mod secppcinten;
-#[doc = "Secure MSC Interrupt Status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [secmscintstat](secmscintstat) module"]
-pub type SECMSCINTSTAT = crate::Reg<u32, _SECMSCINTSTAT>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SECMSCINTSTAT;
-#[doc = "`read()` method returns [secmscintstat::R](secmscintstat::R) reader structure"]
-impl crate::Readable for SECMSCINTSTAT {}
+#[doc = "SECMSCINTSTAT (r) register accessor: Secure MSC Interrupt Status\n\nYou can [`read`](crate::Reg::read) this register and get [`secmscintstat::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@secmscintstat`] module"]
+#[doc(alias = "SECMSCINTSTAT")]
+pub type Secmscintstat = crate::Reg<secmscintstat::SecmscintstatSpec>;
 #[doc = "Secure MSC Interrupt Status"]
 pub mod secmscintstat;
-#[doc = "Secure MSC Interrupt Clear\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [secmscintclr](secmscintclr) module"]
-pub type SECMSCINTCLR = crate::Reg<u32, _SECMSCINTCLR>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SECMSCINTCLR;
-#[doc = "`read()` method returns [secmscintclr::R](secmscintclr::R) reader structure"]
-impl crate::Readable for SECMSCINTCLR {}
-#[doc = "`write(|w| ..)` method takes [secmscintclr::W](secmscintclr::W) writer structure"]
-impl crate::Writable for SECMSCINTCLR {}
+#[doc = "SECMSCINTCLR (rw) register accessor: Secure MSC Interrupt Clear\n\nYou can [`read`](crate::Reg::read) this register and get [`secmscintclr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`secmscintclr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@secmscintclr`] module"]
+#[doc(alias = "SECMSCINTCLR")]
+pub type Secmscintclr = crate::Reg<secmscintclr::SecmscintclrSpec>;
 #[doc = "Secure MSC Interrupt Clear"]
 pub mod secmscintclr;
-#[doc = "Secure MSC Interrupt Enable\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [secmscinten](secmscinten) module"]
-pub type SECMSCINTEN = crate::Reg<u32, _SECMSCINTEN>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SECMSCINTEN;
-#[doc = "`read()` method returns [secmscinten::R](secmscinten::R) reader structure"]
-impl crate::Readable for SECMSCINTEN {}
-#[doc = "`write(|w| ..)` method takes [secmscinten::W](secmscinten::W) writer structure"]
-impl crate::Writable for SECMSCINTEN {}
+#[doc = "SECMSCINTEN (rw) register accessor: Secure MSC Interrupt Enable\n\nYou can [`read`](crate::Reg::read) this register and get [`secmscinten::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`secmscinten::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@secmscinten`] module"]
+#[doc(alias = "SECMSCINTEN")]
+pub type Secmscinten = crate::Reg<secmscinten::SecmscintenSpec>;
 #[doc = "Secure MSC Interrupt Enable"]
 pub mod secmscinten;
-#[doc = "Bridge Buffer Error Interrupt Status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [brgintstat](brgintstat) module"]
-pub type BRGINTSTAT = crate::Reg<u32, _BRGINTSTAT>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _BRGINTSTAT;
-#[doc = "`read()` method returns [brgintstat::R](brgintstat::R) reader structure"]
-impl crate::Readable for BRGINTSTAT {}
+#[doc = "BRGINTSTAT (r) register accessor: Bridge Buffer Error Interrupt Status\n\nYou can [`read`](crate::Reg::read) this register and get [`brgintstat::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@brgintstat`] module"]
+#[doc(alias = "BRGINTSTAT")]
+pub type Brgintstat = crate::Reg<brgintstat::BrgintstatSpec>;
 #[doc = "Bridge Buffer Error Interrupt Status"]
 pub mod brgintstat;
-#[doc = "Bridge Buffer Error Interrupt Clear\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [brgintclr](brgintclr) module"]
-pub type BRGINTCLR = crate::Reg<u32, _BRGINTCLR>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _BRGINTCLR;
-#[doc = "`write(|w| ..)` method takes [brgintclr::W](brgintclr::W) writer structure"]
-impl crate::Writable for BRGINTCLR {}
+#[doc = "BRGINTCLR (w) register accessor: Bridge Buffer Error Interrupt Clear\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`brgintclr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@brgintclr`] module"]
+#[doc(alias = "BRGINTCLR")]
+pub type Brgintclr = crate::Reg<brgintclr::BrgintclrSpec>;
 #[doc = "Bridge Buffer Error Interrupt Clear"]
 pub mod brgintclr;
-#[doc = "Bridge Buffer Error Interrupt Enable\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [brginten](brginten) module"]
-pub type BRGINTEN = crate::Reg<u32, _BRGINTEN>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _BRGINTEN;
-#[doc = "`read()` method returns [brginten::R](brginten::R) reader structure"]
-impl crate::Readable for BRGINTEN {}
-#[doc = "`write(|w| ..)` method takes [brginten::W](brginten::W) writer structure"]
-impl crate::Writable for BRGINTEN {}
+#[doc = "BRGINTEN (rw) register accessor: Bridge Buffer Error Interrupt Enable\n\nYou can [`read`](crate::Reg::read) this register and get [`brginten::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`brginten::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@brginten`] module"]
+#[doc(alias = "BRGINTEN")]
+pub type Brginten = crate::Reg<brginten::BrgintenSpec>;
 #[doc = "Bridge Buffer Error Interrupt Enable"]
 pub mod brginten;
-#[doc = "Non-Secure Access AHB slave Peripheral Protection Control 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ahbnsppc0](ahbnsppc0) module"]
-pub type AHBNSPPC0 = crate::Reg<u32, _AHBNSPPC0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _AHBNSPPC0;
-#[doc = "`read()` method returns [ahbnsppc0::R](ahbnsppc0::R) reader structure"]
-impl crate::Readable for AHBNSPPC0 {}
-#[doc = "`write(|w| ..)` method takes [ahbnsppc0::W](ahbnsppc0::W) writer structure"]
-impl crate::Writable for AHBNSPPC0 {}
+#[doc = "AHBNSPPC0 (rw) register accessor: Non-Secure Access AHB slave Peripheral Protection Control 0\n\nYou can [`read`](crate::Reg::read) this register and get [`ahbnsppc0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ahbnsppc0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ahbnsppc0`] module"]
+#[doc(alias = "AHBNSPPC0")]
+pub type Ahbnsppc0 = crate::Reg<ahbnsppc0::Ahbnsppc0Spec>;
 #[doc = "Non-Secure Access AHB slave Peripheral Protection Control 0"]
 pub mod ahbnsppc0;
-#[doc = "Expansion 0 Non_Secure Access AHB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ahbnsppcexp0](ahbnsppcexp0) module"]
-pub type AHBNSPPCEXP0 = crate::Reg<u32, _AHBNSPPCEXP0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _AHBNSPPCEXP0;
-#[doc = "`read()` method returns [ahbnsppcexp0::R](ahbnsppcexp0::R) reader structure"]
-impl crate::Readable for AHBNSPPCEXP0 {}
-#[doc = "`write(|w| ..)` method takes [ahbnsppcexp0::W](ahbnsppcexp0::W) writer structure"]
-impl crate::Writable for AHBNSPPCEXP0 {}
+#[doc = "AHBNSPPCEXP0 (rw) register accessor: Expansion 0 Non_Secure Access AHB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`ahbnsppcexp0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ahbnsppcexp0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ahbnsppcexp0`] module"]
+#[doc(alias = "AHBNSPPCEXP0")]
+pub type Ahbnsppcexp0 = crate::Reg<ahbnsppcexp0::Ahbnsppcexp0Spec>;
 #[doc = "Expansion 0 Non_Secure Access AHB slave Peripheral Protection Control"]
 pub mod ahbnsppcexp0;
-#[doc = "Expansion 1 Non_Secure Access AHB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ahbnsppcexp1](ahbnsppcexp1) module"]
-pub type AHBNSPPCEXP1 = crate::Reg<u32, _AHBNSPPCEXP1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _AHBNSPPCEXP1;
-#[doc = "`read()` method returns [ahbnsppcexp1::R](ahbnsppcexp1::R) reader structure"]
-impl crate::Readable for AHBNSPPCEXP1 {}
-#[doc = "`write(|w| ..)` method takes [ahbnsppcexp1::W](ahbnsppcexp1::W) writer structure"]
-impl crate::Writable for AHBNSPPCEXP1 {}
+#[doc = "AHBNSPPCEXP1 (rw) register accessor: Expansion 1 Non_Secure Access AHB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`ahbnsppcexp1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ahbnsppcexp1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ahbnsppcexp1`] module"]
+#[doc(alias = "AHBNSPPCEXP1")]
+pub type Ahbnsppcexp1 = crate::Reg<ahbnsppcexp1::Ahbnsppcexp1Spec>;
 #[doc = "Expansion 1 Non_Secure Access AHB slave Peripheral Protection Control"]
 pub mod ahbnsppcexp1;
-#[doc = "Expansion 2 Non_Secure Access AHB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ahbnsppcexp2](ahbnsppcexp2) module"]
-pub type AHBNSPPCEXP2 = crate::Reg<u32, _AHBNSPPCEXP2>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _AHBNSPPCEXP2;
-#[doc = "`read()` method returns [ahbnsppcexp2::R](ahbnsppcexp2::R) reader structure"]
-impl crate::Readable for AHBNSPPCEXP2 {}
-#[doc = "`write(|w| ..)` method takes [ahbnsppcexp2::W](ahbnsppcexp2::W) writer structure"]
-impl crate::Writable for AHBNSPPCEXP2 {}
+#[doc = "AHBNSPPCEXP2 (rw) register accessor: Expansion 2 Non_Secure Access AHB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`ahbnsppcexp2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ahbnsppcexp2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ahbnsppcexp2`] module"]
+#[doc(alias = "AHBNSPPCEXP2")]
+pub type Ahbnsppcexp2 = crate::Reg<ahbnsppcexp2::Ahbnsppcexp2Spec>;
 #[doc = "Expansion 2 Non_Secure Access AHB slave Peripheral Protection Control"]
 pub mod ahbnsppcexp2;
-#[doc = "Expansion 3 Non_Secure Access AHB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ahbnsppcexp3](ahbnsppcexp3) module"]
-pub type AHBNSPPCEXP3 = crate::Reg<u32, _AHBNSPPCEXP3>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _AHBNSPPCEXP3;
-#[doc = "`read()` method returns [ahbnsppcexp3::R](ahbnsppcexp3::R) reader structure"]
-impl crate::Readable for AHBNSPPCEXP3 {}
-#[doc = "`write(|w| ..)` method takes [ahbnsppcexp3::W](ahbnsppcexp3::W) writer structure"]
-impl crate::Writable for AHBNSPPCEXP3 {}
+#[doc = "AHBNSPPCEXP3 (rw) register accessor: Expansion 3 Non_Secure Access AHB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`ahbnsppcexp3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ahbnsppcexp3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ahbnsppcexp3`] module"]
+#[doc(alias = "AHBNSPPCEXP3")]
+pub type Ahbnsppcexp3 = crate::Reg<ahbnsppcexp3::Ahbnsppcexp3Spec>;
 #[doc = "Expansion 3 Non_Secure Access AHB slave Peripheral Protection Control"]
 pub mod ahbnsppcexp3;
-#[doc = "Non-Secure Access APB slave Peripheral Protection Control 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [apbnsppc0](apbnsppc0) module"]
-pub type APBNSPPC0 = crate::Reg<u32, _APBNSPPC0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _APBNSPPC0;
-#[doc = "`read()` method returns [apbnsppc0::R](apbnsppc0::R) reader structure"]
-impl crate::Readable for APBNSPPC0 {}
-#[doc = "`write(|w| ..)` method takes [apbnsppc0::W](apbnsppc0::W) writer structure"]
-impl crate::Writable for APBNSPPC0 {}
+#[doc = "APBNSPPC0 (rw) register accessor: Non-Secure Access APB slave Peripheral Protection Control 0\n\nYou can [`read`](crate::Reg::read) this register and get [`apbnsppc0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apbnsppc0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@apbnsppc0`] module"]
+#[doc(alias = "APBNSPPC0")]
+pub type Apbnsppc0 = crate::Reg<apbnsppc0::Apbnsppc0Spec>;
 #[doc = "Non-Secure Access APB slave Peripheral Protection Control 0"]
 pub mod apbnsppc0;
-#[doc = "Non-Secure Access APB slave Peripheral Protection Control 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [apbnsppc1](apbnsppc1) module"]
-pub type APBNSPPC1 = crate::Reg<u32, _APBNSPPC1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _APBNSPPC1;
-#[doc = "`read()` method returns [apbnsppc1::R](apbnsppc1::R) reader structure"]
-impl crate::Readable for APBNSPPC1 {}
-#[doc = "`write(|w| ..)` method takes [apbnsppc1::W](apbnsppc1::W) writer structure"]
-impl crate::Writable for APBNSPPC1 {}
+#[doc = "APBNSPPC1 (rw) register accessor: Non-Secure Access APB slave Peripheral Protection Control 1\n\nYou can [`read`](crate::Reg::read) this register and get [`apbnsppc1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apbnsppc1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@apbnsppc1`] module"]
+#[doc(alias = "APBNSPPC1")]
+pub type Apbnsppc1 = crate::Reg<apbnsppc1::Apbnsppc1Spec>;
 #[doc = "Non-Secure Access APB slave Peripheral Protection Control 1"]
 pub mod apbnsppc1;
-#[doc = "Expansion 0 Non_Secure Access APB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [apbnsppcexp0](apbnsppcexp0) module"]
-pub type APBNSPPCEXP0 = crate::Reg<u32, _APBNSPPCEXP0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _APBNSPPCEXP0;
-#[doc = "`read()` method returns [apbnsppcexp0::R](apbnsppcexp0::R) reader structure"]
-impl crate::Readable for APBNSPPCEXP0 {}
-#[doc = "`write(|w| ..)` method takes [apbnsppcexp0::W](apbnsppcexp0::W) writer structure"]
-impl crate::Writable for APBNSPPCEXP0 {}
+#[doc = "APBNSPPCEXP0 (rw) register accessor: Expansion 0 Non_Secure Access APB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`apbnsppcexp0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apbnsppcexp0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@apbnsppcexp0`] module"]
+#[doc(alias = "APBNSPPCEXP0")]
+pub type Apbnsppcexp0 = crate::Reg<apbnsppcexp0::Apbnsppcexp0Spec>;
 #[doc = "Expansion 0 Non_Secure Access APB slave Peripheral Protection Control"]
 pub mod apbnsppcexp0;
-#[doc = "Expansion 1 Non_Secure Access APB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [apbnsppcexp1](apbnsppcexp1) module"]
-pub type APBNSPPCEXP1 = crate::Reg<u32, _APBNSPPCEXP1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _APBNSPPCEXP1;
-#[doc = "`read()` method returns [apbnsppcexp1::R](apbnsppcexp1::R) reader structure"]
-impl crate::Readable for APBNSPPCEXP1 {}
-#[doc = "`write(|w| ..)` method takes [apbnsppcexp1::W](apbnsppcexp1::W) writer structure"]
-impl crate::Writable for APBNSPPCEXP1 {}
+#[doc = "APBNSPPCEXP1 (rw) register accessor: Expansion 1 Non_Secure Access APB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`apbnsppcexp1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apbnsppcexp1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@apbnsppcexp1`] module"]
+#[doc(alias = "APBNSPPCEXP1")]
+pub type Apbnsppcexp1 = crate::Reg<apbnsppcexp1::Apbnsppcexp1Spec>;
 #[doc = "Expansion 1 Non_Secure Access APB slave Peripheral Protection Control"]
 pub mod apbnsppcexp1;
-#[doc = "Expansion 2 Non_Secure Access APB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [apbnsppcexp2](apbnsppcexp2) module"]
-pub type APBNSPPCEXP2 = crate::Reg<u32, _APBNSPPCEXP2>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _APBNSPPCEXP2;
-#[doc = "`read()` method returns [apbnsppcexp2::R](apbnsppcexp2::R) reader structure"]
-impl crate::Readable for APBNSPPCEXP2 {}
-#[doc = "`write(|w| ..)` method takes [apbnsppcexp2::W](apbnsppcexp2::W) writer structure"]
-impl crate::Writable for APBNSPPCEXP2 {}
+#[doc = "APBNSPPCEXP2 (rw) register accessor: Expansion 2 Non_Secure Access APB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`apbnsppcexp2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apbnsppcexp2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@apbnsppcexp2`] module"]
+#[doc(alias = "APBNSPPCEXP2")]
+pub type Apbnsppcexp2 = crate::Reg<apbnsppcexp2::Apbnsppcexp2Spec>;
 #[doc = "Expansion 2 Non_Secure Access APB slave Peripheral Protection Control"]
 pub mod apbnsppcexp2;
-#[doc = "Expansion 3 Non_Secure Access APB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [apbnsppcexp3](apbnsppcexp3) module"]
-pub type APBNSPPCEXP3 = crate::Reg<u32, _APBNSPPCEXP3>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _APBNSPPCEXP3;
-#[doc = "`read()` method returns [apbnsppcexp3::R](apbnsppcexp3::R) reader structure"]
-impl crate::Readable for APBNSPPCEXP3 {}
-#[doc = "`write(|w| ..)` method takes [apbnsppcexp3::W](apbnsppcexp3::W) writer structure"]
-impl crate::Writable for APBNSPPCEXP3 {}
+#[doc = "APBNSPPCEXP3 (rw) register accessor: Expansion 3 Non_Secure Access APB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`apbnsppcexp3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apbnsppcexp3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@apbnsppcexp3`] module"]
+#[doc(alias = "APBNSPPCEXP3")]
+pub type Apbnsppcexp3 = crate::Reg<apbnsppcexp3::Apbnsppcexp3Spec>;
 #[doc = "Expansion 3 Non_Secure Access APB slave Peripheral Protection Control"]
 pub mod apbnsppcexp3;
-#[doc = "Secure Unprivileged Access AHB slave Peripheral Protection Control 0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ahbspppc0](ahbspppc0) module"]
-pub type AHBSPPPC0 = crate::Reg<u32, _AHBSPPPC0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _AHBSPPPC0;
-#[doc = "`read()` method returns [ahbspppc0::R](ahbspppc0::R) reader structure"]
-impl crate::Readable for AHBSPPPC0 {}
+#[doc = "AHBSPPPC0 (r) register accessor: Secure Unprivileged Access AHB slave Peripheral Protection Control 0\n\nYou can [`read`](crate::Reg::read) this register and get [`ahbspppc0::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ahbspppc0`] module"]
+#[doc(alias = "AHBSPPPC0")]
+pub type Ahbspppc0 = crate::Reg<ahbspppc0::Ahbspppc0Spec>;
 #[doc = "Secure Unprivileged Access AHB slave Peripheral Protection Control 0"]
 pub mod ahbspppc0;
-#[doc = "Expansion 0 Secure Unprivileged Access AHB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ahbspppcexp0](ahbspppcexp0) module"]
-pub type AHBSPPPCEXP0 = crate::Reg<u32, _AHBSPPPCEXP0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _AHBSPPPCEXP0;
-#[doc = "`read()` method returns [ahbspppcexp0::R](ahbspppcexp0::R) reader structure"]
-impl crate::Readable for AHBSPPPCEXP0 {}
-#[doc = "`write(|w| ..)` method takes [ahbspppcexp0::W](ahbspppcexp0::W) writer structure"]
-impl crate::Writable for AHBSPPPCEXP0 {}
+#[doc = "AHBSPPPCEXP0 (rw) register accessor: Expansion 0 Secure Unprivileged Access AHB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`ahbspppcexp0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ahbspppcexp0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ahbspppcexp0`] module"]
+#[doc(alias = "AHBSPPPCEXP0")]
+pub type Ahbspppcexp0 = crate::Reg<ahbspppcexp0::Ahbspppcexp0Spec>;
 #[doc = "Expansion 0 Secure Unprivileged Access AHB slave Peripheral Protection Control"]
 pub mod ahbspppcexp0;
-#[doc = "Expansion 1 Secure Unprivileged Access AHB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ahbspppcexp1](ahbspppcexp1) module"]
-pub type AHBSPPPCEXP1 = crate::Reg<u32, _AHBSPPPCEXP1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _AHBSPPPCEXP1;
-#[doc = "`read()` method returns [ahbspppcexp1::R](ahbspppcexp1::R) reader structure"]
-impl crate::Readable for AHBSPPPCEXP1 {}
-#[doc = "`write(|w| ..)` method takes [ahbspppcexp1::W](ahbspppcexp1::W) writer structure"]
-impl crate::Writable for AHBSPPPCEXP1 {}
+#[doc = "AHBSPPPCEXP1 (rw) register accessor: Expansion 1 Secure Unprivileged Access AHB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`ahbspppcexp1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ahbspppcexp1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ahbspppcexp1`] module"]
+#[doc(alias = "AHBSPPPCEXP1")]
+pub type Ahbspppcexp1 = crate::Reg<ahbspppcexp1::Ahbspppcexp1Spec>;
 #[doc = "Expansion 1 Secure Unprivileged Access AHB slave Peripheral Protection Control"]
 pub mod ahbspppcexp1;
-#[doc = "Expansion 2 Secure Unprivileged Access AHB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ahbspppcexp2](ahbspppcexp2) module"]
-pub type AHBSPPPCEXP2 = crate::Reg<u32, _AHBSPPPCEXP2>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _AHBSPPPCEXP2;
-#[doc = "`read()` method returns [ahbspppcexp2::R](ahbspppcexp2::R) reader structure"]
-impl crate::Readable for AHBSPPPCEXP2 {}
-#[doc = "`write(|w| ..)` method takes [ahbspppcexp2::W](ahbspppcexp2::W) writer structure"]
-impl crate::Writable for AHBSPPPCEXP2 {}
+#[doc = "AHBSPPPCEXP2 (rw) register accessor: Expansion 2 Secure Unprivileged Access AHB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`ahbspppcexp2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ahbspppcexp2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ahbspppcexp2`] module"]
+#[doc(alias = "AHBSPPPCEXP2")]
+pub type Ahbspppcexp2 = crate::Reg<ahbspppcexp2::Ahbspppcexp2Spec>;
 #[doc = "Expansion 2 Secure Unprivileged Access AHB slave Peripheral Protection Control"]
 pub mod ahbspppcexp2;
-#[doc = "Expansion 3 Secure Unprivileged Access AHB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ahbspppcexp3](ahbspppcexp3) module"]
-pub type AHBSPPPCEXP3 = crate::Reg<u32, _AHBSPPPCEXP3>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _AHBSPPPCEXP3;
-#[doc = "`read()` method returns [ahbspppcexp3::R](ahbspppcexp3::R) reader structure"]
-impl crate::Readable for AHBSPPPCEXP3 {}
-#[doc = "`write(|w| ..)` method takes [ahbspppcexp3::W](ahbspppcexp3::W) writer structure"]
-impl crate::Writable for AHBSPPPCEXP3 {}
+#[doc = "AHBSPPPCEXP3 (rw) register accessor: Expansion 3 Secure Unprivileged Access AHB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`ahbspppcexp3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ahbspppcexp3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ahbspppcexp3`] module"]
+#[doc(alias = "AHBSPPPCEXP3")]
+pub type Ahbspppcexp3 = crate::Reg<ahbspppcexp3::Ahbspppcexp3Spec>;
 #[doc = "Expansion 3 Secure Unprivileged Access AHB slave Peripheral Protection Control"]
 pub mod ahbspppcexp3;
-#[doc = "Secure Unprivileged Access APB slave Peripheral Protection Control 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [apbspppc0](apbspppc0) module"]
-pub type APBSPPPC0 = crate::Reg<u32, _APBSPPPC0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _APBSPPPC0;
-#[doc = "`read()` method returns [apbspppc0::R](apbspppc0::R) reader structure"]
-impl crate::Readable for APBSPPPC0 {}
-#[doc = "`write(|w| ..)` method takes [apbspppc0::W](apbspppc0::W) writer structure"]
-impl crate::Writable for APBSPPPC0 {}
+#[doc = "APBSPPPC0 (rw) register accessor: Secure Unprivileged Access APB slave Peripheral Protection Control 0\n\nYou can [`read`](crate::Reg::read) this register and get [`apbspppc0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apbspppc0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@apbspppc0`] module"]
+#[doc(alias = "APBSPPPC0")]
+pub type Apbspppc0 = crate::Reg<apbspppc0::Apbspppc0Spec>;
 #[doc = "Secure Unprivileged Access APB slave Peripheral Protection Control 0"]
 pub mod apbspppc0;
-#[doc = "Secure Unprivileged Access APB slave Peripheral Protection Control 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [apbspppc1](apbspppc1) module"]
-pub type APBSPPPC1 = crate::Reg<u32, _APBSPPPC1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _APBSPPPC1;
-#[doc = "`read()` method returns [apbspppc1::R](apbspppc1::R) reader structure"]
-impl crate::Readable for APBSPPPC1 {}
-#[doc = "`write(|w| ..)` method takes [apbspppc1::W](apbspppc1::W) writer structure"]
-impl crate::Writable for APBSPPPC1 {}
+#[doc = "APBSPPPC1 (rw) register accessor: Secure Unprivileged Access APB slave Peripheral Protection Control 1\n\nYou can [`read`](crate::Reg::read) this register and get [`apbspppc1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apbspppc1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@apbspppc1`] module"]
+#[doc(alias = "APBSPPPC1")]
+pub type Apbspppc1 = crate::Reg<apbspppc1::Apbspppc1Spec>;
 #[doc = "Secure Unprivileged Access APB slave Peripheral Protection Control 1"]
 pub mod apbspppc1;
-#[doc = "Expansion 0 Secure Unprivileged Access APB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [apbspppcexp0](apbspppcexp0) module"]
-pub type APBSPPPCEXP0 = crate::Reg<u32, _APBSPPPCEXP0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _APBSPPPCEXP0;
-#[doc = "`read()` method returns [apbspppcexp0::R](apbspppcexp0::R) reader structure"]
-impl crate::Readable for APBSPPPCEXP0 {}
-#[doc = "`write(|w| ..)` method takes [apbspppcexp0::W](apbspppcexp0::W) writer structure"]
-impl crate::Writable for APBSPPPCEXP0 {}
+#[doc = "APBSPPPCEXP0 (rw) register accessor: Expansion 0 Secure Unprivileged Access APB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`apbspppcexp0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apbspppcexp0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@apbspppcexp0`] module"]
+#[doc(alias = "APBSPPPCEXP0")]
+pub type Apbspppcexp0 = crate::Reg<apbspppcexp0::Apbspppcexp0Spec>;
 #[doc = "Expansion 0 Secure Unprivileged Access APB slave Peripheral Protection Control"]
 pub mod apbspppcexp0;
-#[doc = "Expansion 1 Secure Unprivileged Access APB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [apbspppcexp1](apbspppcexp1) module"]
-pub type APBSPPPCEXP1 = crate::Reg<u32, _APBSPPPCEXP1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _APBSPPPCEXP1;
-#[doc = "`read()` method returns [apbspppcexp1::R](apbspppcexp1::R) reader structure"]
-impl crate::Readable for APBSPPPCEXP1 {}
-#[doc = "`write(|w| ..)` method takes [apbspppcexp1::W](apbspppcexp1::W) writer structure"]
-impl crate::Writable for APBSPPPCEXP1 {}
+#[doc = "APBSPPPCEXP1 (rw) register accessor: Expansion 1 Secure Unprivileged Access APB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`apbspppcexp1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apbspppcexp1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@apbspppcexp1`] module"]
+#[doc(alias = "APBSPPPCEXP1")]
+pub type Apbspppcexp1 = crate::Reg<apbspppcexp1::Apbspppcexp1Spec>;
 #[doc = "Expansion 1 Secure Unprivileged Access APB slave Peripheral Protection Control"]
 pub mod apbspppcexp1;
-#[doc = "Expansion 2 Secure Unprivileged Access APB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [apbspppcexp2](apbspppcexp2) module"]
-pub type APBSPPPCEXP2 = crate::Reg<u32, _APBSPPPCEXP2>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _APBSPPPCEXP2;
-#[doc = "`read()` method returns [apbspppcexp2::R](apbspppcexp2::R) reader structure"]
-impl crate::Readable for APBSPPPCEXP2 {}
-#[doc = "`write(|w| ..)` method takes [apbspppcexp2::W](apbspppcexp2::W) writer structure"]
-impl crate::Writable for APBSPPPCEXP2 {}
+#[doc = "APBSPPPCEXP2 (rw) register accessor: Expansion 2 Secure Unprivileged Access APB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`apbspppcexp2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apbspppcexp2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@apbspppcexp2`] module"]
+#[doc(alias = "APBSPPPCEXP2")]
+pub type Apbspppcexp2 = crate::Reg<apbspppcexp2::Apbspppcexp2Spec>;
 #[doc = "Expansion 2 Secure Unprivileged Access APB slave Peripheral Protection Control"]
 pub mod apbspppcexp2;
-#[doc = "Expansion 3 Secure Unprivileged Access APB slave Peripheral Protection Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [apbspppcexp3](apbspppcexp3) module"]
-pub type APBSPPPCEXP3 = crate::Reg<u32, _APBSPPPCEXP3>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _APBSPPPCEXP3;
-#[doc = "`read()` method returns [apbspppcexp3::R](apbspppcexp3::R) reader structure"]
-impl crate::Readable for APBSPPPCEXP3 {}
-#[doc = "`write(|w| ..)` method takes [apbspppcexp3::W](apbspppcexp3::W) writer structure"]
-impl crate::Writable for APBSPPPCEXP3 {}
+#[doc = "APBSPPPCEXP3 (rw) register accessor: Expansion 3 Secure Unprivileged Access APB slave Peripheral Protection Control\n\nYou can [`read`](crate::Reg::read) this register and get [`apbspppcexp3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apbspppcexp3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@apbspppcexp3`] module"]
+#[doc(alias = "APBSPPPCEXP3")]
+pub type Apbspppcexp3 = crate::Reg<apbspppcexp3::Apbspppcexp3Spec>;
 #[doc = "Expansion 3 Secure Unprivileged Access APB slave Peripheral Protection Control"]
 pub mod apbspppcexp3;
-#[doc = "Expansion MSC Non-Secure Configuration\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [nsmscexp](nsmscexp) module"]
-pub type NSMSCEXP = crate::Reg<u32, _NSMSCEXP>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _NSMSCEXP;
-#[doc = "`read()` method returns [nsmscexp::R](nsmscexp::R) reader structure"]
-impl crate::Readable for NSMSCEXP {}
+#[doc = "NSMSCEXP (r) register accessor: Expansion MSC Non-Secure Configuration\n\nYou can [`read`](crate::Reg::read) this register and get [`nsmscexp::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@nsmscexp`] module"]
+#[doc(alias = "NSMSCEXP")]
+pub type Nsmscexp = crate::Reg<nsmscexp::NsmscexpSpec>;
 #[doc = "Expansion MSC Non-Secure Configuration"]
 pub mod nsmscexp;
-#[doc = "Peripheral ID 4\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pid4](pid4) module"]
-pub type PID4 = crate::Reg<u32, _PID4>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _PID4;
-#[doc = "`read()` method returns [pid4::R](pid4::R) reader structure"]
-impl crate::Readable for PID4 {}
+#[doc = "PID4 (r) register accessor: Peripheral ID 4\n\nYou can [`read`](crate::Reg::read) this register and get [`pid4::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pid4`] module"]
+#[doc(alias = "PID4")]
+pub type Pid4 = crate::Reg<pid4::Pid4Spec>;
 #[doc = "Peripheral ID 4"]
 pub mod pid4;
-#[doc = "Peripheral ID 0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pid0](pid0) module"]
-pub type PID0 = crate::Reg<u32, _PID0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _PID0;
-#[doc = "`read()` method returns [pid0::R](pid0::R) reader structure"]
-impl crate::Readable for PID0 {}
+#[doc = "PID0 (r) register accessor: Peripheral ID 0\n\nYou can [`read`](crate::Reg::read) this register and get [`pid0::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pid0`] module"]
+#[doc(alias = "PID0")]
+pub type Pid0 = crate::Reg<pid0::Pid0Spec>;
 #[doc = "Peripheral ID 0"]
 pub mod pid0;
-#[doc = "Peripheral ID 1\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pid1](pid1) module"]
-pub type PID1 = crate::Reg<u32, _PID1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _PID1;
-#[doc = "`read()` method returns [pid1::R](pid1::R) reader structure"]
-impl crate::Readable for PID1 {}
+#[doc = "PID1 (r) register accessor: Peripheral ID 1\n\nYou can [`read`](crate::Reg::read) this register and get [`pid1::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pid1`] module"]
+#[doc(alias = "PID1")]
+pub type Pid1 = crate::Reg<pid1::Pid1Spec>;
 #[doc = "Peripheral ID 1"]
 pub mod pid1;
-#[doc = "Peripheral ID 2\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pid2](pid2) module"]
-pub type PID2 = crate::Reg<u32, _PID2>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _PID2;
-#[doc = "`read()` method returns [pid2::R](pid2::R) reader structure"]
-impl crate::Readable for PID2 {}
+#[doc = "PID2 (r) register accessor: Peripheral ID 2\n\nYou can [`read`](crate::Reg::read) this register and get [`pid2::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pid2`] module"]
+#[doc(alias = "PID2")]
+pub type Pid2 = crate::Reg<pid2::Pid2Spec>;
 #[doc = "Peripheral ID 2"]
 pub mod pid2;
-#[doc = "Peripheral ID 3\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pid3](pid3) module"]
-pub type PID3 = crate::Reg<u32, _PID3>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _PID3;
-#[doc = "`read()` method returns [pid3::R](pid3::R) reader structure"]
-impl crate::Readable for PID3 {}
+#[doc = "PID3 (r) register accessor: Peripheral ID 3\n\nYou can [`read`](crate::Reg::read) this register and get [`pid3::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pid3`] module"]
+#[doc(alias = "PID3")]
+pub type Pid3 = crate::Reg<pid3::Pid3Spec>;
 #[doc = "Peripheral ID 3"]
 pub mod pid3;
-#[doc = "Component ID 0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [cidr0](cidr0) module"]
-pub type CIDR0 = crate::Reg<u32, _CIDR0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CIDR0;
-#[doc = "`read()` method returns [cidr0::R](cidr0::R) reader structure"]
-impl crate::Readable for CIDR0 {}
+#[doc = "CIDR0 (r) register accessor: Component ID 0\n\nYou can [`read`](crate::Reg::read) this register and get [`cidr0::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cidr0`] module"]
+#[doc(alias = "CIDR0")]
+pub type Cidr0 = crate::Reg<cidr0::Cidr0Spec>;
 #[doc = "Component ID 0"]
 pub mod cidr0;
-#[doc = "Component ID 1\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [cidr1](cidr1) module"]
-pub type CIDR1 = crate::Reg<u32, _CIDR1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CIDR1;
-#[doc = "`read()` method returns [cidr1::R](cidr1::R) reader structure"]
-impl crate::Readable for CIDR1 {}
+#[doc = "CIDR1 (r) register accessor: Component ID 1\n\nYou can [`read`](crate::Reg::read) this register and get [`cidr1::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cidr1`] module"]
+#[doc(alias = "CIDR1")]
+pub type Cidr1 = crate::Reg<cidr1::Cidr1Spec>;
 #[doc = "Component ID 1"]
 pub mod cidr1;
-#[doc = "Component ID 2\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [cidr2](cidr2) module"]
-pub type CIDR2 = crate::Reg<u32, _CIDR2>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CIDR2;
-#[doc = "`read()` method returns [cidr2::R](cidr2::R) reader structure"]
-impl crate::Readable for CIDR2 {}
+#[doc = "CIDR2 (r) register accessor: Component ID 2\n\nYou can [`read`](crate::Reg::read) this register and get [`cidr2::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cidr2`] module"]
+#[doc(alias = "CIDR2")]
+pub type Cidr2 = crate::Reg<cidr2::Cidr2Spec>;
 #[doc = "Component ID 2"]
 pub mod cidr2;
-#[doc = "Component ID 3\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [cidr3](cidr3) module"]
-pub type CIDR3 = crate::Reg<u32, _CIDR3>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CIDR3;
-#[doc = "`read()` method returns [cidr3::R](cidr3::R) reader structure"]
-impl crate::Readable for CIDR3 {}
+#[doc = "CIDR3 (r) register accessor: Component ID 3\n\nYou can [`read`](crate::Reg::read) this register and get [`cidr3::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cidr3`] module"]
+#[doc(alias = "CIDR3")]
+pub type Cidr3 = crate::Reg<cidr3::Cidr3Spec>;
 #[doc = "Component ID 3"]
 pub mod cidr3;

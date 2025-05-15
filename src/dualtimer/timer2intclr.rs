@@ -1,39 +1,23 @@
-#[doc = "Writer for register TIMER2INTCLR"]
-pub type W = crate::W<u32, super::TIMER2INTCLR>;
-#[doc = "Register TIMER2INTCLR `reset()`'s with value 0"]
-impl crate::ResetValue for super::TIMER2INTCLR {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
-    }
-}
-#[doc = "Write proxy for field `INT`"]
-pub struct INT_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> INT_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
-    }
-}
+#[doc = "Register `TIMER2INTCLR` writer"]
+pub type W = crate::W<Timer2intclrSpec>;
+#[doc = "Field `INT` writer - Interrupt"]
+pub type IntW<'a, REG> = crate::BitWriter1C<'a, REG>;
 impl W {
     #[doc = "Bit 0 - Interrupt"]
     #[inline(always)]
-    pub fn int(&mut self) -> INT_W {
-        INT_W { w: self }
+    pub fn int(&mut self) -> IntW<Timer2intclrSpec> {
+        IntW::new(self, 0)
     }
 }
+#[doc = "Timer 2 Interrupt Clear Register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`timer2intclr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Timer2intclrSpec;
+impl crate::RegisterSpec for Timer2intclrSpec {
+    type Ux = u32;
+}
+#[doc = "`write(|w| ..)` method takes [`timer2intclr::W`](W) writer structure"]
+impl crate::Writable for Timer2intclrSpec {
+    type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x01;
+}
+#[doc = "`reset()` method sets TIMER2INTCLR to value 0"]
+impl crate::Resettable for Timer2intclrSpec {}

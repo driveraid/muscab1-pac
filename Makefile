@@ -9,9 +9,8 @@ patch:
 
 # Generates PAC source code from (patched) SVD
 generate:
-	rm -rf src
-	mkdir src
 	svd2rust -i ./$(SVD)
+	rm -rf src
 	form -i lib.rs -o src/ && rm lib.rs
 	cargo fmt
 
@@ -30,4 +29,10 @@ version:
 	echo $(VERSION)
 
 svdtools:
-	cargo binstall svdtools
+	cargo binstall form svdtools svd2rust
+
+svd2rust:
+	cargo binstall svd2rust
+
+form:
+	cargo install form

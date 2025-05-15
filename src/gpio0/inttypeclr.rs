@@ -1,14 +1,23 @@
-#[doc = "Reader of register INTTYPECLR"]
-pub type R = crate::R<u32, super::INTTYPECLR>;
-#[doc = "Writer for register INTTYPECLR"]
-pub type W = crate::W<u32, super::INTTYPECLR>;
-#[doc = "Register INTTYPECLR `reset()`'s with value 0"]
-impl crate::ResetValue for super::INTTYPECLR {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+#[doc = "Register `INTTYPECLR` reader"]
+pub type R = crate::R<InttypeclrSpec>;
+#[doc = "Register `INTTYPECLR` writer"]
+pub type W = crate::W<InttypeclrSpec>;
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        write!(f, "{}", self.bits())
     }
 }
-impl R {}
 impl W {}
+#[doc = "Interrupt type clear Register\n\nYou can [`read`](crate::Reg::read) this register and get [`inttypeclr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`inttypeclr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct InttypeclrSpec;
+impl crate::RegisterSpec for InttypeclrSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`inttypeclr::R`](R) reader structure"]
+impl crate::Readable for InttypeclrSpec {}
+#[doc = "`write(|w| ..)` method takes [`inttypeclr::W`](W) writer structure"]
+impl crate::Writable for InttypeclrSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets INTTYPECLR to value 0"]
+impl crate::Resettable for InttypeclrSpec {}

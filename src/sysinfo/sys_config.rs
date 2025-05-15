@@ -1,313 +1,314 @@
-#[doc = "Reader of register SYS_CONFIG"]
-pub type R = crate::R<u32, super::SYS_CONFIG>;
-#[doc = "Reader of field `SRAM_NUM_BANK`"]
-pub type SRAM_NUM_BANK_R = crate::R<u8, u8>;
-#[doc = "Reader of field `SRAM_ADDR_WIDTH`"]
-pub type SRAM_ADDR_WIDTH_R = crate::R<u8, u8>;
-#[doc = "Possible values of the field `CPU0_HAS_TCM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPU0_HAS_TCM_A {
+#[doc = "Register `SYS_CONFIG` reader"]
+pub type R = crate::R<SysConfigSpec>;
+#[doc = "Field `SRAM_NUM_BANK` reader - SRAM Number of Banks"]
+pub type SramNumBankR = crate::FieldReader;
+#[doc = "Field `SRAM_ADDR_WIDTH` reader - SRAM Bank Address Width"]
+pub type SramAddrWidthR = crate::FieldReader;
+#[doc = "CPU 0 has Data TCM:\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cpu0HasTcm {
+    #[doc = "0: CPU 0 does not have Data TCM"]
+    No = 0,
+    #[doc = "1: CPU 0 has Data TCM"]
+    Yes = 1,
+}
+impl From<Cpu0HasTcm> for bool {
+    #[inline(always)]
+    fn from(variant: Cpu0HasTcm) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `CPU0_HAS_TCM` reader - CPU 0 has Data TCM:"]
+pub type Cpu0HasTcmR = crate::BitReader<Cpu0HasTcm>;
+impl Cpu0HasTcmR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Cpu0HasTcm {
+        match self.bits {
+            false => Cpu0HasTcm::No,
+            true => Cpu0HasTcm::Yes,
+        }
+    }
     #[doc = "CPU 0 does not have Data TCM"]
-    NO,
+    #[inline(always)]
+    pub fn is_no(&self) -> bool {
+        *self == Cpu0HasTcm::No
+    }
     #[doc = "CPU 0 has Data TCM"]
-    YES,
-}
-impl From<CPU0_HAS_TCM_A> for bool {
-    #[inline(always)]
-    fn from(variant: CPU0_HAS_TCM_A) -> Self {
-        match variant {
-            CPU0_HAS_TCM_A::NO => false,
-            CPU0_HAS_TCM_A::YES => true,
-        }
-    }
-}
-#[doc = "Reader of field `CPU0_HAS_TCM`"]
-pub type CPU0_HAS_TCM_R = crate::R<bool, CPU0_HAS_TCM_A>;
-impl CPU0_HAS_TCM_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> CPU0_HAS_TCM_A {
-        match self.bits {
-            false => CPU0_HAS_TCM_A::NO,
-            true => CPU0_HAS_TCM_A::YES,
-        }
-    }
-    #[doc = "Checks if the value of the field is `NO`"]
-    #[inline(always)]
-    pub fn is_no(&self) -> bool {
-        *self == CPU0_HAS_TCM_A::NO
-    }
-    #[doc = "Checks if the value of the field is `YES`"]
     #[inline(always)]
     pub fn is_yes(&self) -> bool {
-        *self == CPU0_HAS_TCM_A::YES
+        *self == Cpu0HasTcm::Yes
     }
 }
-#[doc = "Possible values of the field `CPU1_HAS_TCM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPU1_HAS_TCM_A {
+#[doc = "CPU 1 has Data TCM:\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cpu1HasTcm {
+    #[doc = "0: CPU 1 does not have Data TCM"]
+    No = 0,
+    #[doc = "1: CPU 1 has Data TCM"]
+    Yes = 1,
+}
+impl From<Cpu1HasTcm> for bool {
+    #[inline(always)]
+    fn from(variant: Cpu1HasTcm) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `CPU1_HAS_TCM` reader - CPU 1 has Data TCM:"]
+pub type Cpu1HasTcmR = crate::BitReader<Cpu1HasTcm>;
+impl Cpu1HasTcmR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Cpu1HasTcm {
+        match self.bits {
+            false => Cpu1HasTcm::No,
+            true => Cpu1HasTcm::Yes,
+        }
+    }
     #[doc = "CPU 1 does not have Data TCM"]
-    NO,
+    #[inline(always)]
+    pub fn is_no(&self) -> bool {
+        *self == Cpu1HasTcm::No
+    }
     #[doc = "CPU 1 has Data TCM"]
-    YES,
-}
-impl From<CPU1_HAS_TCM_A> for bool {
-    #[inline(always)]
-    fn from(variant: CPU1_HAS_TCM_A) -> Self {
-        match variant {
-            CPU1_HAS_TCM_A::NO => false,
-            CPU1_HAS_TCM_A::YES => true,
-        }
-    }
-}
-#[doc = "Reader of field `CPU1_HAS_TCM`"]
-pub type CPU1_HAS_TCM_R = crate::R<bool, CPU1_HAS_TCM_A>;
-impl CPU1_HAS_TCM_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> CPU1_HAS_TCM_A {
-        match self.bits {
-            false => CPU1_HAS_TCM_A::NO,
-            true => CPU1_HAS_TCM_A::YES,
-        }
-    }
-    #[doc = "Checks if the value of the field is `NO`"]
-    #[inline(always)]
-    pub fn is_no(&self) -> bool {
-        *self == CPU1_HAS_TCM_A::NO
-    }
-    #[doc = "Checks if the value of the field is `YES`"]
     #[inline(always)]
     pub fn is_yes(&self) -> bool {
-        *self == CPU1_HAS_TCM_A::YES
+        *self == Cpu1HasTcm::Yes
     }
 }
-#[doc = "Possible values of the field `HAS_CRYPTO`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum HAS_CRYPTO_A {
+#[doc = "Whether CryptoCell Included:\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum HasCrypto {
+    #[doc = "0: CryptoCell Not Included"]
+    No = 0,
+    #[doc = "1: CryptoCell Included"]
+    Yes = 1,
+}
+impl From<HasCrypto> for bool {
+    #[inline(always)]
+    fn from(variant: HasCrypto) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `HAS_CRYPTO` reader - Whether CryptoCell Included:"]
+pub type HasCryptoR = crate::BitReader<HasCrypto>;
+impl HasCryptoR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> HasCrypto {
+        match self.bits {
+            false => HasCrypto::No,
+            true => HasCrypto::Yes,
+        }
+    }
     #[doc = "CryptoCell Not Included"]
-    NO,
-    #[doc = "CryptoCell Included"]
-    YES,
-}
-impl From<HAS_CRYPTO_A> for bool {
-    #[inline(always)]
-    fn from(variant: HAS_CRYPTO_A) -> Self {
-        match variant {
-            HAS_CRYPTO_A::NO => false,
-            HAS_CRYPTO_A::YES => true,
-        }
-    }
-}
-#[doc = "Reader of field `HAS_CRYPTO`"]
-pub type HAS_CRYPTO_R = crate::R<bool, HAS_CRYPTO_A>;
-impl HAS_CRYPTO_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> HAS_CRYPTO_A {
-        match self.bits {
-            false => HAS_CRYPTO_A::NO,
-            true => HAS_CRYPTO_A::YES,
-        }
-    }
-    #[doc = "Checks if the value of the field is `NO`"]
     #[inline(always)]
     pub fn is_no(&self) -> bool {
-        *self == HAS_CRYPTO_A::NO
+        *self == HasCrypto::No
     }
-    #[doc = "Checks if the value of the field is `YES`"]
+    #[doc = "CryptoCell Included"]
     #[inline(always)]
     pub fn is_yes(&self) -> bool {
-        *self == HAS_CRYPTO_A::YES
+        *self == HasCrypto::Yes
     }
 }
-#[doc = "Reader of field `CPU0_TCM_BANK_NUM`"]
-pub type CPU0_TCM_BANK_NUM_R = crate::R<u8, u8>;
-#[doc = "Possible values of the field `CPU1_TCM_BANK_NUM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPU1_TCM_BANK_NUM_A {
-    #[doc = "4 SRAM Banks"]
-    FOUR,
-    #[doc = "3 SRAM Banks"]
-    THREE,
-    #[doc = "2 SRAM Banks"]
-    TWO,
-    #[doc = "Otherwise"]
-    OTHERWISE,
+#[doc = "Field `CPU0_TCM_BANK_NUM` reader - The SRAM Bank that maps CPU0 Data TCM"]
+pub type Cpu0TcmBankNumR = crate::FieldReader;
+#[doc = "Number of SRAM banks\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Cpu1TcmBankNum {
+    #[doc = "3: 4 SRAM Banks"]
+    Four = 3,
+    #[doc = "2: 3 SRAM Banks"]
+    Three = 2,
+    #[doc = "1: 2 SRAM Banks"]
+    Two = 1,
+    #[doc = "0: Otherwise"]
+    Otherwise = 0,
 }
-impl From<CPU1_TCM_BANK_NUM_A> for u8 {
+impl From<Cpu1TcmBankNum> for u8 {
     #[inline(always)]
-    fn from(variant: CPU1_TCM_BANK_NUM_A) -> Self {
-        match variant {
-            CPU1_TCM_BANK_NUM_A::FOUR => 3,
-            CPU1_TCM_BANK_NUM_A::THREE => 2,
-            CPU1_TCM_BANK_NUM_A::TWO => 1,
-            CPU1_TCM_BANK_NUM_A::OTHERWISE => 0,
-        }
+    fn from(variant: Cpu1TcmBankNum) -> Self {
+        variant as _
     }
 }
-#[doc = "Reader of field `CPU1_TCM_BANK_NUM`"]
-pub type CPU1_TCM_BANK_NUM_R = crate::R<u8, CPU1_TCM_BANK_NUM_A>;
-impl CPU1_TCM_BANK_NUM_R {
-    #[doc = r"Get enumerated values variant"]
+impl crate::FieldSpec for Cpu1TcmBankNum {
+    type Ux = u8;
+}
+impl crate::IsEnum for Cpu1TcmBankNum {}
+#[doc = "Field `CPU1_TCM_BANK_NUM` reader - Number of SRAM banks"]
+pub type Cpu1TcmBankNumR = crate::FieldReader<Cpu1TcmBankNum>;
+impl Cpu1TcmBankNumR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, CPU1_TCM_BANK_NUM_A> {
-        use crate::Variant::*;
+    pub const fn variant(&self) -> Option<Cpu1TcmBankNum> {
         match self.bits {
-            3 => Val(CPU1_TCM_BANK_NUM_A::FOUR),
-            2 => Val(CPU1_TCM_BANK_NUM_A::THREE),
-            1 => Val(CPU1_TCM_BANK_NUM_A::TWO),
-            0 => Val(CPU1_TCM_BANK_NUM_A::OTHERWISE),
-            i => Res(i),
+            3 => Some(Cpu1TcmBankNum::Four),
+            2 => Some(Cpu1TcmBankNum::Three),
+            1 => Some(Cpu1TcmBankNum::Two),
+            0 => Some(Cpu1TcmBankNum::Otherwise),
+            _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `FOUR`"]
+    #[doc = "4 SRAM Banks"]
     #[inline(always)]
     pub fn is_four(&self) -> bool {
-        *self == CPU1_TCM_BANK_NUM_A::FOUR
+        *self == Cpu1TcmBankNum::Four
     }
-    #[doc = "Checks if the value of the field is `THREE`"]
+    #[doc = "3 SRAM Banks"]
     #[inline(always)]
     pub fn is_three(&self) -> bool {
-        *self == CPU1_TCM_BANK_NUM_A::THREE
+        *self == Cpu1TcmBankNum::Three
     }
-    #[doc = "Checks if the value of the field is `TWO`"]
+    #[doc = "2 SRAM Banks"]
     #[inline(always)]
     pub fn is_two(&self) -> bool {
-        *self == CPU1_TCM_BANK_NUM_A::TWO
+        *self == Cpu1TcmBankNum::Two
     }
-    #[doc = "Checks if the value of the field is `OTHERWISE`"]
+    #[doc = "Otherwise"]
     #[inline(always)]
     pub fn is_otherwise(&self) -> bool {
-        *self == CPU1_TCM_BANK_NUM_A::OTHERWISE
+        *self == Cpu1TcmBankNum::Otherwise
     }
 }
-#[doc = "Possible values of the field `CPU0_TYPE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPU0_TYPE_A {
-    #[doc = "Does Not Exist"]
-    NOTEXIST,
-    #[doc = "Cortex-M33 Core"]
-    CM33,
+#[doc = "CPU 0 Core Type\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Cpu0Type {
+    #[doc = "0: Does Not Exist"]
+    NotExist = 0,
+    #[doc = "2: Cortex-M33 Core"]
+    Cm33 = 2,
 }
-impl From<CPU0_TYPE_A> for u8 {
+impl From<Cpu0Type> for u8 {
     #[inline(always)]
-    fn from(variant: CPU0_TYPE_A) -> Self {
-        match variant {
-            CPU0_TYPE_A::NOTEXIST => 0,
-            CPU0_TYPE_A::CM33 => 2,
-        }
+    fn from(variant: Cpu0Type) -> Self {
+        variant as _
     }
 }
-#[doc = "Reader of field `CPU0_TYPE`"]
-pub type CPU0_TYPE_R = crate::R<u8, CPU0_TYPE_A>;
-impl CPU0_TYPE_R {
-    #[doc = r"Get enumerated values variant"]
+impl crate::FieldSpec for Cpu0Type {
+    type Ux = u8;
+}
+impl crate::IsEnum for Cpu0Type {}
+#[doc = "Field `CPU0_TYPE` reader - CPU 0 Core Type"]
+pub type Cpu0TypeR = crate::FieldReader<Cpu0Type>;
+impl Cpu0TypeR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, CPU0_TYPE_A> {
-        use crate::Variant::*;
+    pub const fn variant(&self) -> Option<Cpu0Type> {
         match self.bits {
-            0 => Val(CPU0_TYPE_A::NOTEXIST),
-            2 => Val(CPU0_TYPE_A::CM33),
-            i => Res(i),
+            0 => Some(Cpu0Type::NotExist),
+            2 => Some(Cpu0Type::Cm33),
+            _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `NOTEXIST`"]
+    #[doc = "Does Not Exist"]
     #[inline(always)]
     pub fn is_not_exist(&self) -> bool {
-        *self == CPU0_TYPE_A::NOTEXIST
+        *self == Cpu0Type::NotExist
     }
-    #[doc = "Checks if the value of the field is `CM33`"]
+    #[doc = "Cortex-M33 Core"]
     #[inline(always)]
     pub fn is_cm33(&self) -> bool {
-        *self == CPU0_TYPE_A::CM33
+        *self == Cpu0Type::Cm33
     }
 }
-#[doc = "Possible values of the field `CPU1_TYPE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPU1_TYPE_A {
-    #[doc = "Does Not Exist"]
-    NOTEXIST,
-    #[doc = "Cortex-M33 Core"]
-    CM33,
+#[doc = "CPU 1 Core Type\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Cpu1Type {
+    #[doc = "0: Does Not Exist"]
+    NotExist = 0,
+    #[doc = "2: Cortex-M33 Core"]
+    Cm33 = 2,
 }
-impl From<CPU1_TYPE_A> for u8 {
+impl From<Cpu1Type> for u8 {
     #[inline(always)]
-    fn from(variant: CPU1_TYPE_A) -> Self {
-        match variant {
-            CPU1_TYPE_A::NOTEXIST => 0,
-            CPU1_TYPE_A::CM33 => 2,
-        }
+    fn from(variant: Cpu1Type) -> Self {
+        variant as _
     }
 }
-#[doc = "Reader of field `CPU1_TYPE`"]
-pub type CPU1_TYPE_R = crate::R<u8, CPU1_TYPE_A>;
-impl CPU1_TYPE_R {
-    #[doc = r"Get enumerated values variant"]
+impl crate::FieldSpec for Cpu1Type {
+    type Ux = u8;
+}
+impl crate::IsEnum for Cpu1Type {}
+#[doc = "Field `CPU1_TYPE` reader - CPU 1 Core Type"]
+pub type Cpu1TypeR = crate::FieldReader<Cpu1Type>;
+impl Cpu1TypeR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, CPU1_TYPE_A> {
-        use crate::Variant::*;
+    pub const fn variant(&self) -> Option<Cpu1Type> {
         match self.bits {
-            0 => Val(CPU1_TYPE_A::NOTEXIST),
-            2 => Val(CPU1_TYPE_A::CM33),
-            i => Res(i),
+            0 => Some(Cpu1Type::NotExist),
+            2 => Some(Cpu1Type::Cm33),
+            _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `NOTEXIST`"]
+    #[doc = "Does Not Exist"]
     #[inline(always)]
     pub fn is_not_exist(&self) -> bool {
-        *self == CPU1_TYPE_A::NOTEXIST
+        *self == Cpu1Type::NotExist
     }
-    #[doc = "Checks if the value of the field is `CM33`"]
+    #[doc = "Cortex-M33 Core"]
     #[inline(always)]
     pub fn is_cm33(&self) -> bool {
-        *self == CPU1_TYPE_A::CM33
+        *self == Cpu1Type::Cm33
     }
 }
 impl R {
     #[doc = "Bits 0:3 - SRAM Number of Banks"]
     #[inline(always)]
-    pub fn sram_num_bank(&self) -> SRAM_NUM_BANK_R {
-        SRAM_NUM_BANK_R::new((self.bits & 0x0f) as u8)
+    pub fn sram_num_bank(&self) -> SramNumBankR {
+        SramNumBankR::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 4:8 - SRAM Bank Address Width"]
     #[inline(always)]
-    pub fn sram_addr_width(&self) -> SRAM_ADDR_WIDTH_R {
-        SRAM_ADDR_WIDTH_R::new(((self.bits >> 4) & 0x1f) as u8)
+    pub fn sram_addr_width(&self) -> SramAddrWidthR {
+        SramAddrWidthR::new(((self.bits >> 4) & 0x1f) as u8)
     }
     #[doc = "Bit 9 - CPU 0 has Data TCM:"]
     #[inline(always)]
-    pub fn cpu0_has_tcm(&self) -> CPU0_HAS_TCM_R {
-        CPU0_HAS_TCM_R::new(((self.bits >> 9) & 0x01) != 0)
+    pub fn cpu0_has_tcm(&self) -> Cpu0HasTcmR {
+        Cpu0HasTcmR::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bit 10 - CPU 1 has Data TCM:"]
     #[inline(always)]
-    pub fn cpu1_has_tcm(&self) -> CPU1_HAS_TCM_R {
-        CPU1_HAS_TCM_R::new(((self.bits >> 10) & 0x01) != 0)
+    pub fn cpu1_has_tcm(&self) -> Cpu1HasTcmR {
+        Cpu1HasTcmR::new(((self.bits >> 10) & 1) != 0)
     }
     #[doc = "Bit 12 - Whether CryptoCell Included:"]
     #[inline(always)]
-    pub fn has_crypto(&self) -> HAS_CRYPTO_R {
-        HAS_CRYPTO_R::new(((self.bits >> 12) & 0x01) != 0)
+    pub fn has_crypto(&self) -> HasCryptoR {
+        HasCryptoR::new(((self.bits >> 12) & 1) != 0)
     }
     #[doc = "Bits 16:19 - The SRAM Bank that maps CPU0 Data TCM"]
     #[inline(always)]
-    pub fn cpu0_tcm_bank_num(&self) -> CPU0_TCM_BANK_NUM_R {
-        CPU0_TCM_BANK_NUM_R::new(((self.bits >> 16) & 0x0f) as u8)
+    pub fn cpu0_tcm_bank_num(&self) -> Cpu0TcmBankNumR {
+        Cpu0TcmBankNumR::new(((self.bits >> 16) & 0x0f) as u8)
     }
     #[doc = "Bits 20:23 - Number of SRAM banks"]
     #[inline(always)]
-    pub fn cpu1_tcm_bank_num(&self) -> CPU1_TCM_BANK_NUM_R {
-        CPU1_TCM_BANK_NUM_R::new(((self.bits >> 20) & 0x0f) as u8)
+    pub fn cpu1_tcm_bank_num(&self) -> Cpu1TcmBankNumR {
+        Cpu1TcmBankNumR::new(((self.bits >> 20) & 0x0f) as u8)
     }
     #[doc = "Bits 24:27 - CPU 0 Core Type"]
     #[inline(always)]
-    pub fn cpu0_type(&self) -> CPU0_TYPE_R {
-        CPU0_TYPE_R::new(((self.bits >> 24) & 0x0f) as u8)
+    pub fn cpu0_type(&self) -> Cpu0TypeR {
+        Cpu0TypeR::new(((self.bits >> 24) & 0x0f) as u8)
     }
     #[doc = "Bits 28:31 - CPU 1 Core Type"]
     #[inline(always)]
-    pub fn cpu1_type(&self) -> CPU1_TYPE_R {
-        CPU1_TYPE_R::new(((self.bits >> 28) & 0x0f) as u8)
+    pub fn cpu1_type(&self) -> Cpu1TypeR {
+        Cpu1TypeR::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[doc = "System Hardware Configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`sys_config::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SysConfigSpec;
+impl crate::RegisterSpec for SysConfigSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`sys_config::R`](R) reader structure"]
+impl crate::Readable for SysConfigSpec {}
+#[doc = "`reset()` method sets SYS_CONFIG to value 0"]
+impl crate::Resettable for SysConfigSpec {}

@@ -1,40 +1,35 @@
-#[doc = "Reader of register GPTALARM1"]
-pub type R = crate::R<u32, super::GPTALARM1>;
-#[doc = "Writer for register GPTALARM1"]
-pub type W = crate::W<u32, super::GPTALARM1>;
-#[doc = "Register GPTALARM1 `reset()`'s with value 0"]
-impl crate::ResetValue for super::GPTALARM1 {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
-    }
-}
-#[doc = "Reader of field ` GPTALARM1_DATA`"]
-pub type GPTALARM1_DATA_R = crate::R<u32, u32>;
-#[doc = "Write proxy for field ` GPTALARM1_DATA`"]
-pub struct GPTALARM1_DATA_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> GPTALARM1_DATA_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xffff_ffff) | ((value as u32) & 0xffff_ffff);
-        self.w
-    }
-}
+#[doc = "Register `GPTALARM1` reader"]
+pub type R = crate::R<Gptalarm1Spec>;
+#[doc = "Register `GPTALARM1` writer"]
+pub type W = crate::W<Gptalarm1Spec>;
+#[doc = "Field `GPTALARM1_DATA` reader - Value that triggers the ALARM1 interrupt when the counter reaches that value"]
+pub type Gptalarm1DataR = crate::FieldReader<u32>;
+#[doc = "Field `GPTALARM1_DATA` writer - Value that triggers the ALARM1 interrupt when the counter reaches that value"]
+pub type Gptalarm1DataW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - Value that triggers the ALARM1 interrupt when the counter reaches that value"]
     #[inline(always)]
-    pub fn gptalarm1_data(&self) -> GPTALARM1_DATA_R {
-        GPTALARM1_DATA_R::new((self.bits & 0xffff_ffff) as u32)
+    pub fn gptalarm1_data(&self) -> Gptalarm1DataR {
+        Gptalarm1DataR::new(self.bits)
     }
 }
 impl W {
     #[doc = "Bits 0:31 - Value that triggers the ALARM1 interrupt when the counter reaches that value"]
     #[inline(always)]
-    pub fn gptalarm1_data(&mut self) -> GPTALARM1_DATA_W {
-        GPTALARM1_DATA_W { w: self }
+    pub fn gptalarm1_data(&mut self) -> Gptalarm1DataW<Gptalarm1Spec> {
+        Gptalarm1DataW::new(self, 0)
     }
 }
+#[doc = "ALARM1 data value register\n\nYou can [`read`](crate::Reg::read) this register and get [`gptalarm1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gptalarm1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Gptalarm1Spec;
+impl crate::RegisterSpec for Gptalarm1Spec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`gptalarm1::R`](R) reader structure"]
+impl crate::Readable for Gptalarm1Spec {}
+#[doc = "`write(|w| ..)` method takes [`gptalarm1::W`](W) writer structure"]
+impl crate::Writable for Gptalarm1Spec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets GPTALARM1 to value 0"]
+impl crate::Resettable for Gptalarm1Spec {}

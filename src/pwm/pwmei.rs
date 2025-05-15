@@ -1,65 +1,44 @@
-#[doc = "Writer for register PWMEI"]
-pub type W = crate::W<u32, super::PWMEI>;
-#[doc = "Register PWMEI `reset()`'s with value 0"]
-impl crate::ResetValue for super::PWMEI {
-    type Type = u32;
+#[doc = "Register `PWMEI` writer"]
+pub type W = crate::W<PwmeiSpec>;
+#[doc = "Determines whether the write accesses the Interrupt Enable register\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum EnableBit {
+    #[doc = "1: Enable the Interrupt generation"]
+    Enabled = 1,
+}
+impl From<EnableBit> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn from(variant: EnableBit) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Possible values of the field `Enable_BIT`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ENABLE_BIT_AW {
-    #[doc = "Enable the Interrupt generation"]
-    ENABLED,
-}
-impl From<ENABLE_BIT_AW> for bool {
-    #[inline(always)]
-    fn from(variant: ENABLE_BIT_AW) -> Self {
-        match variant {
-            ENABLE_BIT_AW::ENABLED => true,
-        }
-    }
-}
-#[doc = "Write proxy for field `Enable_BIT`"]
-pub struct ENABLE_BIT_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> ENABLE_BIT_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: ENABLE_BIT_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `Enable_BIT` writer - Determines whether the write accesses the Interrupt Enable register"]
+pub type EnableBitW<'a, REG> = crate::BitWriter<'a, REG, EnableBit>;
+impl<'a, REG> EnableBitW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Enable the Interrupt generation"]
     #[inline(always)]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(ENABLE_BIT_AW::ENABLED)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(EnableBit::Enabled)
     }
 }
 impl W {
     #[doc = "Bit 0 - Determines whether the write accesses the Interrupt Enable register"]
     #[inline(always)]
-    pub fn enable_bit(&mut self) -> ENABLE_BIT_W {
-        ENABLE_BIT_W { w: self }
+    pub fn enable_bit(&mut self) -> EnableBitW<PwmeiSpec> {
+        EnableBitW::new(self, 0)
     }
 }
+#[doc = "PWM Enable Interrupt Register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pwmei::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct PwmeiSpec;
+impl crate::RegisterSpec for PwmeiSpec {
+    type Ux = u32;
+}
+#[doc = "`write(|w| ..)` method takes [`pwmei::W`](W) writer structure"]
+impl crate::Writable for PwmeiSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets PWMEI to value 0"]
+impl crate::Resettable for PwmeiSpec {}

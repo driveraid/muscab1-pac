@@ -1,14 +1,23 @@
-#[doc = "Reader of register APBSPPPC0"]
-pub type R = crate::R<u32, super::APBSPPPC0>;
-#[doc = "Writer for register APBSPPPC0"]
-pub type W = crate::W<u32, super::APBSPPPC0>;
-#[doc = "Register APBSPPPC0 `reset()`'s with value 0"]
-impl crate::ResetValue for super::APBSPPPC0 {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+#[doc = "Register `APBSPPPC0` reader"]
+pub type R = crate::R<Apbspppc0Spec>;
+#[doc = "Register `APBSPPPC0` writer"]
+pub type W = crate::W<Apbspppc0Spec>;
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        write!(f, "{}", self.bits())
     }
 }
-impl R {}
 impl W {}
+#[doc = "Secure Unprivileged Access APB slave Peripheral Protection Control 0\n\nYou can [`read`](crate::Reg::read) this register and get [`apbspppc0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apbspppc0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Apbspppc0Spec;
+impl crate::RegisterSpec for Apbspppc0Spec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`apbspppc0::R`](R) reader structure"]
+impl crate::Readable for Apbspppc0Spec {}
+#[doc = "`write(|w| ..)` method takes [`apbspppc0::W`](W) writer structure"]
+impl crate::Writable for Apbspppc0Spec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets APBSPPPC0 to value 0"]
+impl crate::Resettable for Apbspppc0Spec {}

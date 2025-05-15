@@ -1,40 +1,35 @@
-#[doc = "Reader of register GPTINTM"]
-pub type R = crate::R<u32, super::GPTINTM>;
-#[doc = "Writer for register GPTINTM"]
-pub type W = crate::W<u32, super::GPTINTM>;
-#[doc = "Register GPTINTM `reset()`'s with value 0"]
-impl crate::ResetValue for super::GPTINTM {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
-    }
-}
-#[doc = "Reader of field `GPTINTM`"]
-pub type GPTINTM_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `GPTINTM`"]
-pub struct GPTINTM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> GPTINTM_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
-        self.w
-    }
-}
+#[doc = "Register `GPTINTM` reader"]
+pub type R = crate::R<GptintmSpec>;
+#[doc = "Register `GPTINTM` writer"]
+pub type W = crate::W<GptintmSpec>;
+#[doc = "Field `GPTINTM` reader - Current masked status of the interrupt"]
+pub type GptintmR = crate::FieldReader;
+#[doc = "Field `GPTINTM` writer - Current masked status of the interrupt"]
+pub type GptintmW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 impl R {
     #[doc = "Bits 0:1 - Current masked status of the interrupt"]
     #[inline(always)]
-    pub fn gptintm(&self) -> GPTINTM_R {
-        GPTINTM_R::new((self.bits & 0x03) as u8)
+    pub fn gptintm(&self) -> GptintmR {
+        GptintmR::new((self.bits & 3) as u8)
     }
 }
 impl W {
     #[doc = "Bits 0:1 - Current masked status of the interrupt"]
     #[inline(always)]
-    pub fn gptintm(&mut self) -> GPTINTM_W {
-        GPTINTM_W { w: self }
+    pub fn gptintm(&mut self) -> GptintmW<GptintmSpec> {
+        GptintmW::new(self, 0)
     }
 }
+#[doc = "Masked interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`gptintm::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gptintm::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct GptintmSpec;
+impl crate::RegisterSpec for GptintmSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`gptintm::R`](R) reader structure"]
+impl crate::Readable for GptintmSpec {}
+#[doc = "`write(|w| ..)` method takes [`gptintm::W`](W) writer structure"]
+impl crate::Writable for GptintmSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets GPTINTM to value 0"]
+impl crate::Resettable for GptintmSpec {}
