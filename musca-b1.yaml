@@ -1,14 +1,14 @@
 _svd: musca-b1.svd
 
 _delete:
-  SPI0:
-  SPI0_Secure:
-  UART1:
-  UART1_Secure:
-  TIMER1:
-  TIMER1_Secure:
-  S32KTIMER:
-  S32KTIMER_Secure:
+  - SPI0
+  - SPI0_Secure
+  - UART1
+  - UART1_Secure
+  - TIMER1
+  - TIMER1_Secure
+  - S32KTIMER
+  - S32KTIMER_Secure
 
 _add:
   MHU0:
