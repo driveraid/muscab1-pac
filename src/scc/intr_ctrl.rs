@@ -58,6 +58,10 @@ impl crate::Readable for IntrCtrlSpec {}
 #[doc = "`write(|w| ..)` method takes [`intr_ctrl::W`](W) writer structure"]
 impl crate::Writable for IntrCtrlSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets INTR_CTRL to value 0"]
-impl crate::Resettable for IntrCtrlSpec {}
+impl crate::Resettable for IntrCtrlSpec {
+    const RESET_VALUE: u32 = 0;
+}

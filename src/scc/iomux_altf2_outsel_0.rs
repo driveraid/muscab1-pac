@@ -30,6 +30,8 @@ impl crate::Readable for IomuxAltf2Outsel0Spec {}
 #[doc = "`write(|w| ..)` method takes [`iomux_altf2_outsel_0::W`](W) writer structure"]
 impl crate::Writable for IomuxAltf2Outsel0Spec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets IOMUX_ALTF2_OUTSEL_0 to value 0xffff_ffff"]
 impl crate::Resettable for IomuxAltf2Outsel0Spec {

@@ -13,4 +13,6 @@ impl crate::RegisterSpec for BrgintstatSpec {
 #[doc = "`read()` method returns [`brgintstat::R`](R) reader structure"]
 impl crate::Readable for BrgintstatSpec {}
 #[doc = "`reset()` method sets BRGINTSTAT to value 0"]
-impl crate::Resettable for BrgintstatSpec {}
+impl crate::Resettable for BrgintstatSpec {
+    const RESET_VALUE: u32 = 0;
+}

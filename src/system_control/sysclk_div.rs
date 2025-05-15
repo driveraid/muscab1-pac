@@ -37,6 +37,10 @@ impl crate::Readable for SysclkDivSpec {}
 #[doc = "`write(|w| ..)` method takes [`sysclk_div::W`](W) writer structure"]
 impl crate::Writable for SysclkDivSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SYSCLK_DIV to value 0"]
-impl crate::Resettable for SysclkDivSpec {}
+impl crate::Resettable for SysclkDivSpec {
+    const RESET_VALUE: u32 = 0;
+}

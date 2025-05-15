@@ -17,4 +17,6 @@ impl crate::RegisterSpec for WdogmisSpec {
 #[doc = "`read()` method returns [`wdogmis::R`](R) reader structure"]
 impl crate::Readable for WdogmisSpec {}
 #[doc = "`reset()` method sets WDOGMIS to value 0"]
-impl crate::Resettable for WdogmisSpec {}
+impl crate::Resettable for WdogmisSpec {
+    const RESET_VALUE: u32 = 0;
+}

@@ -30,6 +30,10 @@ impl crate::Readable for IomuxMainDefaultIn1Spec {}
 #[doc = "`write(|w| ..)` method takes [`iomux_main_default_in_1::W`](W) writer structure"]
 impl crate::Writable for IomuxMainDefaultIn1Spec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets IOMUX_MAIN_DEFAULT_IN_1 to value 0"]
-impl crate::Resettable for IomuxMainDefaultIn1Spec {}
+impl crate::Resettable for IomuxMainDefaultIn1Spec {
+    const RESET_VALUE: u32 = 0;
+}

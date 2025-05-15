@@ -24,4 +24,6 @@ impl crate::RegisterSpec for BlkMaxSpec {
 #[doc = "`read()` method returns [`blk_max::R`](R) reader structure"]
 impl crate::Readable for BlkMaxSpec {}
 #[doc = "`reset()` method sets BLK_MAX to value 0"]
-impl crate::Resettable for BlkMaxSpec {}
+impl crate::Resettable for BlkMaxSpec {
+    const RESET_VALUE: u32 = 0;
+}

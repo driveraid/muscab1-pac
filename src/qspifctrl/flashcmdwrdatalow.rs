@@ -18,6 +18,10 @@ impl crate::Readable for FlashcmdwrdatalowSpec {}
 #[doc = "`write(|w| ..)` method takes [`flashcmdwrdatalow::W`](W) writer structure"]
 impl crate::Writable for FlashcmdwrdatalowSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FLASHCMDWRDATALOW to value 0"]
-impl crate::Resettable for FlashcmdwrdatalowSpec {}
+impl crate::Resettable for FlashcmdwrdatalowSpec {
+    const RESET_VALUE: u32 = 0;
+}

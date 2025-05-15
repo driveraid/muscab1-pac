@@ -128,6 +128,10 @@ impl crate::Readable for SfsrSpec {}
 #[doc = "`write(|w| ..)` method takes [`sfsr::W`](W) writer structure"]
 impl crate::Writable for SfsrSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SFSR to value 0"]
-impl crate::Resettable for SfsrSpec {}
+impl crate::Resettable for SfsrSpec {
+    const RESET_VALUE: u32 = 0;
+}

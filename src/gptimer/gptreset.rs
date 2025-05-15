@@ -17,4 +17,6 @@ impl crate::RegisterSpec for GptresetSpec {
 #[doc = "`read()` method returns [`gptreset::R`](R) reader structure"]
 impl crate::Readable for GptresetSpec {}
 #[doc = "`reset()` method sets GPTRESET to value 0"]
-impl crate::Resettable for GptresetSpec {}
+impl crate::Resettable for GptresetSpec {
+    const RESET_VALUE: u32 = 0;
+}

@@ -338,4 +338,6 @@ impl crate::RegisterSpec for SecdbgstatSpec {
 #[doc = "`read()` method returns [`secdbgstat::R`](R) reader structure"]
 impl crate::Readable for SecdbgstatSpec {}
 #[doc = "`reset()` method sets SECDBGSTAT to value 0"]
-impl crate::Resettable for SecdbgstatSpec {}
+impl crate::Resettable for SecdbgstatSpec {
+    const RESET_VALUE: u32 = 0;
+}

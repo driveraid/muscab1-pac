@@ -17,7 +17,10 @@ impl crate::RegisterSpec for Timer2intclrSpec {
 #[doc = "`write(|w| ..)` method takes [`timer2intclr::W`](W) writer structure"]
 impl crate::Writable for Timer2intclrSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x01;
 }
 #[doc = "`reset()` method sets TIMER2INTCLR to value 0"]
-impl crate::Resettable for Timer2intclrSpec {}
+impl crate::Resettable for Timer2intclrSpec {
+    const RESET_VALUE: u32 = 0;
+}

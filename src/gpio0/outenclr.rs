@@ -18,6 +18,10 @@ impl crate::Readable for OutenclrSpec {}
 #[doc = "`write(|w| ..)` method takes [`outenclr::W`](W) writer structure"]
 impl crate::Writable for OutenclrSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets OUTENCLR to value 0"]
-impl crate::Resettable for OutenclrSpec {}
+impl crate::Resettable for OutenclrSpec {
+    const RESET_VALUE: u32 = 0;
+}

@@ -32,6 +32,8 @@ impl crate::Readable for PllPostdivCtrlPll0ClkSpec {}
 #[doc = "`write(|w| ..)` method takes [`pll_postdiv_ctrl_pll0_clk::W`](W) writer structure"]
 impl crate::Writable for PllPostdivCtrlPll0ClkSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets PLL_POSTDIV_CTRL_PLL0_CLK to value 0x01"]
 impl crate::Resettable for PllPostdivCtrlPll0ClkSpec {

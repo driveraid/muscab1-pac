@@ -30,6 +30,10 @@ impl crate::Readable for AzCodeRemapOffsetSpec {}
 #[doc = "`write(|w| ..)` method takes [`az_code_remap_offset::W`](W) writer structure"]
 impl crate::Writable for AzCodeRemapOffsetSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets AZ_CODE_REMAP_OFFSET to value 0"]
-impl crate::Resettable for AzCodeRemapOffsetSpec {}
+impl crate::Resettable for AzCodeRemapOffsetSpec {
+    const RESET_VALUE: u32 = 0;
+}

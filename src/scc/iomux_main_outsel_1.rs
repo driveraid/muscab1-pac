@@ -30,6 +30,8 @@ impl crate::Readable for IomuxMainOutsel1Spec {}
 #[doc = "`write(|w| ..)` method takes [`iomux_main_outsel_1::W`](W) writer structure"]
 impl crate::Writable for IomuxMainOutsel1Spec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets IOMUX_MAIN_OUTSEL_1 to value 0xffff_ffff"]
 impl crate::Resettable for IomuxMainOutsel1Spec {

@@ -30,6 +30,8 @@ impl crate::Readable for Cpu1VtorSpec {}
 #[doc = "`write(|w| ..)` method takes [`cpu1_vtor::W`](W) writer structure"]
 impl crate::Writable for Cpu1VtorSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CPU1_VTOR to value 0x1a40_0000"]
 impl crate::Resettable for Cpu1VtorSpec {

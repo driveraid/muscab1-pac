@@ -234,6 +234,8 @@ impl crate::Readable for UartiflsSpec {}
 #[doc = "`write(|w| ..)` method takes [`uartifls::W`](W) writer structure"]
 impl crate::Writable for UartiflsSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets UARTIFLS to value 0x12"]
 impl crate::Resettable for UartiflsSpec {

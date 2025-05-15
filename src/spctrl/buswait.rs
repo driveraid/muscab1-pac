@@ -18,6 +18,10 @@ impl crate::Readable for BuswaitSpec {}
 #[doc = "`write(|w| ..)` method takes [`buswait::W`](W) writer structure"]
 impl crate::Writable for BuswaitSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets BUSWAIT to value 0"]
-impl crate::Resettable for BuswaitSpec {}
+impl crate::Resettable for BuswaitSpec {
+    const RESET_VALUE: u32 = 0;
+}

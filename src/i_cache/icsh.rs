@@ -13,4 +13,6 @@ impl crate::RegisterSpec for IcshSpec {
 #[doc = "`read()` method returns [`icsh::R`](R) reader structure"]
 impl crate::Readable for IcshSpec {}
 #[doc = "`reset()` method sets ICSH to value 0"]
-impl crate::Resettable for IcshSpec {}
+impl crate::Resettable for IcshSpec {
+    const RESET_VALUE: u32 = 0;
+}

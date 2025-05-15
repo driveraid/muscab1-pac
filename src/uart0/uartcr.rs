@@ -576,6 +576,8 @@ impl crate::Readable for UartcrSpec {}
 #[doc = "`write(|w| ..)` method takes [`uartcr::W`](W) writer structure"]
 impl crate::Writable for UartcrSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets UARTCR to value 0x0300"]
 impl crate::Resettable for UartcrSpec {

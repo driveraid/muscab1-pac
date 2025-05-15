@@ -79,6 +79,10 @@ impl crate::Readable for PwmcrSpec {}
 #[doc = "`write(|w| ..)` method takes [`pwmcr::W`](W) writer structure"]
 impl crate::Writable for PwmcrSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets PWMCR to value 0"]
-impl crate::Resettable for PwmcrSpec {}
+impl crate::Resettable for PwmcrSpec {
+    const RESET_VALUE: u32 = 0;
+}

@@ -13,4 +13,6 @@ impl crate::RegisterSpec for BlkCfgSpec {
 #[doc = "`read()` method returns [`blk_cfg::R`](R) reader structure"]
 impl crate::Readable for BlkCfgSpec {}
 #[doc = "`reset()` method sets BLK_CFG to value 0"]
-impl crate::Resettable for BlkCfgSpec {}
+impl crate::Resettable for BlkCfgSpec {
+    const RESET_VALUE: u32 = 0;
+}

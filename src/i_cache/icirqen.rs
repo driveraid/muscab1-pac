@@ -394,6 +394,10 @@ impl crate::Readable for IcirqenSpec {}
 #[doc = "`write(|w| ..)` method takes [`icirqen::W`](W) writer structure"]
 impl crate::Writable for IcirqenSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets ICIRQEN to value 0"]
-impl crate::Resettable for IcirqenSpec {}
+impl crate::Resettable for IcirqenSpec {
+    const RESET_VALUE: u32 = 0;
+}

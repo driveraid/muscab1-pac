@@ -30,6 +30,8 @@ impl crate::Readable for AzCodeRemapMaskSpec {}
 #[doc = "`write(|w| ..)` method takes [`az_code_remap_mask::W`](W) writer structure"]
 impl crate::Writable for AzCodeRemapMaskSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets AZ_CODE_REMAP_MASK to value 0x00ff_ffff"]
 impl crate::Resettable for AzCodeRemapMaskSpec {

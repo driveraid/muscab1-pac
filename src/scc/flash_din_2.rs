@@ -30,6 +30,10 @@ impl crate::Readable for FlashDin2Spec {}
 #[doc = "`write(|w| ..)` method takes [`flash_din_2::W`](W) writer structure"]
 impl crate::Writable for FlashDin2Spec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FLASH_DIN_2 to value 0"]
-impl crate::Resettable for FlashDin2Spec {}
+impl crate::Resettable for FlashDin2Spec {
+    const RESET_VALUE: u32 = 0;
+}

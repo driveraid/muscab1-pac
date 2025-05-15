@@ -17,4 +17,6 @@ impl crate::RegisterSpec for GptintrSpec {
 #[doc = "`read()` method returns [`gptintr::R`](R) reader structure"]
 impl crate::Readable for GptintrSpec {}
 #[doc = "`reset()` method sets GPTINTR to value 0"]
-impl crate::Resettable for GptintrSpec {}
+impl crate::Resettable for GptintrSpec {
+    const RESET_VALUE: u32 = 0;
+}

@@ -30,6 +30,8 @@ impl crate::Readable for ClkPostdivCtrlQspiSpec {}
 #[doc = "`write(|w| ..)` method takes [`clk_postdiv_ctrl_qspi::W`](W) writer structure"]
 impl crate::Writable for ClkPostdivCtrlQspiSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CLK_POSTDIV_CTRL_QSPI to value 0x01"]
 impl crate::Resettable for ClkPostdivCtrlQspiSpec {

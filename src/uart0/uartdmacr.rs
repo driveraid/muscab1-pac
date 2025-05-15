@@ -205,6 +205,10 @@ impl crate::Readable for UartdmacrSpec {}
 #[doc = "`write(|w| ..)` method takes [`uartdmacr::W`](W) writer structure"]
 impl crate::Writable for UartdmacrSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets UARTDMACR to value 0"]
-impl crate::Resettable for UartdmacrSpec {}
+impl crate::Resettable for UartdmacrSpec {
+    const RESET_VALUE: u32 = 0;
+}

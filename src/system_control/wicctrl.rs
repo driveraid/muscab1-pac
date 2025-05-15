@@ -208,6 +208,10 @@ impl crate::Readable for WicctrlSpec {}
 #[doc = "`write(|w| ..)` method takes [`wicctrl::W`](W) writer structure"]
 impl crate::Writable for WicctrlSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets WICCTRL to value 0"]
-impl crate::Resettable for WicctrlSpec {}
+impl crate::Resettable for WicctrlSpec {
+    const RESET_VALUE: u32 = 0;
+}

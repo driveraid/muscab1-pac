@@ -13,4 +13,6 @@ impl crate::RegisterSpec for IcsucSpec {
 #[doc = "`read()` method returns [`icsuc::R`](R) reader structure"]
 impl crate::Readable for IcsucSpec {}
 #[doc = "`reset()` method sets ICSUC to value 0"]
-impl crate::Resettable for IcsucSpec {}
+impl crate::Resettable for IcsucSpec {
+    const RESET_VALUE: u32 = 0;
+}

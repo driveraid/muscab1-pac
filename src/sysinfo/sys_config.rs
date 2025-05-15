@@ -311,4 +311,6 @@ impl crate::RegisterSpec for SysConfigSpec {
 #[doc = "`read()` method returns [`sys_config::R`](R) reader structure"]
 impl crate::Readable for SysConfigSpec {}
 #[doc = "`reset()` method sets SYS_CONFIG to value 0"]
-impl crate::Resettable for SysConfigSpec {}
+impl crate::Resettable for SysConfigSpec {
+    const RESET_VALUE: u32 = 0;
+}

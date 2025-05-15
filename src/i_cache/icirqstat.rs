@@ -187,4 +187,6 @@ impl crate::RegisterSpec for IcirqstatSpec {
 #[doc = "`read()` method returns [`icirqstat::R`](R) reader structure"]
 impl crate::Readable for IcirqstatSpec {}
 #[doc = "`reset()` method sets ICIRQSTAT to value 0"]
-impl crate::Resettable for IcirqstatSpec {}
+impl crate::Resettable for IcirqstatSpec {
+    const RESET_VALUE: u32 = 0;
+}

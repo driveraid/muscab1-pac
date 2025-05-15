@@ -113,4 +113,6 @@ impl crate::RegisterSpec for IchwparamsSpec {
 #[doc = "`read()` method returns [`ichwparams::R`](R) reader structure"]
 impl crate::Readable for IchwparamsSpec {}
 #[doc = "`reset()` method sets ICHWPARAMS to value 0"]
-impl crate::Resettable for IchwparamsSpec {}
+impl crate::Resettable for IchwparamsSpec {
+    const RESET_VALUE: u32 = 0;
+}

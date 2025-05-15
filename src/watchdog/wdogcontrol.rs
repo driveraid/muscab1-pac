@@ -142,6 +142,10 @@ impl crate::Readable for WdogcontrolSpec {}
 #[doc = "`write(|w| ..)` method takes [`wdogcontrol::W`](W) writer structure"]
 impl crate::Writable for WdogcontrolSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets WDOGCONTROL to value 0"]
-impl crate::Resettable for WdogcontrolSpec {}
+impl crate::Resettable for WdogcontrolSpec {
+    const RESET_VALUE: u32 = 0;
+}

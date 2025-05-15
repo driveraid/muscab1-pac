@@ -18,6 +18,10 @@ impl crate::Readable for SecrespcfgSpec {}
 #[doc = "`write(|w| ..)` method takes [`secrespcfg::W`](W) writer structure"]
 impl crate::Writable for SecrespcfgSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SECRESPCFG to value 0"]
-impl crate::Resettable for SecrespcfgSpec {}
+impl crate::Resettable for SecrespcfgSpec {
+    const RESET_VALUE: u32 = 0;
+}

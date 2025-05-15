@@ -17,6 +17,10 @@ impl crate::RegisterSpec for IntClearSpec {
 #[doc = "`write(|w| ..)` method takes [`int_clear::W`](W) writer structure"]
 impl crate::Writable for IntClearSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets INT_CLEAR to value 0"]
-impl crate::Resettable for IntClearSpec {}
+impl crate::Resettable for IntClearSpec {
+    const RESET_VALUE: u32 = 0;
+}

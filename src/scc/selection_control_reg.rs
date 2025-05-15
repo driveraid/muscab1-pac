@@ -62,6 +62,8 @@ impl crate::Readable for SelectionControlRegSpec {}
 #[doc = "`write(|w| ..)` method takes [`selection_control_reg::W`](W) writer structure"]
 impl crate::Writable for SelectionControlRegSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SELECTION_CONTROL_REG to value 0x0100_0200"]
 impl crate::Resettable for SelectionControlRegSpec {

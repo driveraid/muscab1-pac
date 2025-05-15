@@ -44,4 +44,6 @@ impl crate::RegisterSpec for PwmriSpec {
 #[doc = "`read()` method returns [`pwmri::R`](R) reader structure"]
 impl crate::Readable for PwmriSpec {}
 #[doc = "`reset()` method sets PWMRI to value 0"]
-impl crate::Resettable for PwmriSpec {}
+impl crate::Resettable for PwmriSpec {
+    const RESET_VALUE: u32 = 0;
+}

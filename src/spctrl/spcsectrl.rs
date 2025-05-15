@@ -18,6 +18,10 @@ impl crate::Readable for SpcsectrlSpec {}
 #[doc = "`write(|w| ..)` method takes [`spcsectrl::W`](W) writer structure"]
 impl crate::Writable for SpcsectrlSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SPCSECTRL to value 0"]
-impl crate::Resettable for SpcsectrlSpec {}
+impl crate::Resettable for SpcsectrlSpec {
+    const RESET_VALUE: u32 = 0;
+}

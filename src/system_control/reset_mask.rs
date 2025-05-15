@@ -205,6 +205,8 @@ impl crate::Readable for ResetMaskSpec {}
 #[doc = "`write(|w| ..)` method takes [`reset_mask::W`](W) writer structure"]
 impl crate::Writable for ResetMaskSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets RESET_MASK to value 0x30"]
 impl crate::Resettable for ResetMaskSpec {

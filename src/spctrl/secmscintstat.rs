@@ -13,4 +13,6 @@ impl crate::RegisterSpec for SecmscintstatSpec {
 #[doc = "`read()` method returns [`secmscintstat::R`](R) reader structure"]
 impl crate::Readable for SecmscintstatSpec {}
 #[doc = "`reset()` method sets SECMSCINTSTAT to value 0"]
-impl crate::Resettable for SecmscintstatSpec {}
+impl crate::Resettable for SecmscintstatSpec {
+    const RESET_VALUE: u32 = 0;
+}

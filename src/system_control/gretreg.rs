@@ -30,6 +30,10 @@ impl crate::Readable for GretregSpec {}
 #[doc = "`write(|w| ..)` method takes [`gretreg::W`](W) writer structure"]
 impl crate::Writable for GretregSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets GRETREG to value 0"]
-impl crate::Resettable for GretregSpec {}
+impl crate::Resettable for GretregSpec {
+    const RESET_VALUE: u32 = 0;
+}

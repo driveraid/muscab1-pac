@@ -58,6 +58,8 @@ impl crate::Readable for AzCpuVtorSpec {}
 #[doc = "`write(|w| ..)` method takes [`az_cpu_vtor::W`](W) writer structure"]
 impl crate::Writable for AzCpuVtorSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets AZ_CPU_VTOR to value 0x00a0_3800"]
 impl crate::Resettable for AzCpuVtorSpec {

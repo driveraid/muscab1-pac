@@ -184,6 +184,10 @@ impl crate::RegisterSpec for IcirqsclrSpec {
 #[doc = "`write(|w| ..)` method takes [`icirqsclr::W`](W) writer structure"]
 impl crate::Writable for IcirqsclrSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets ICIRQSCLR to value 0"]
-impl crate::Resettable for IcirqsclrSpec {}
+impl crate::Resettable for IcirqsclrSpec {
+    const RESET_VALUE: u32 = 0;
+}

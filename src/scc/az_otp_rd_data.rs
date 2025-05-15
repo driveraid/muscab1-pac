@@ -30,6 +30,10 @@ impl crate::Readable for AzOtpRdDataSpec {}
 #[doc = "`write(|w| ..)` method takes [`az_otp_rd_data::W`](W) writer structure"]
 impl crate::Writable for AzOtpRdDataSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets AZ_OTP_RD_DATA to value 0"]
-impl crate::Resettable for AzOtpRdDataSpec {}
+impl crate::Resettable for AzOtpRdDataSpec {
+    const RESET_VALUE: u32 = 0;
+}

@@ -30,6 +30,10 @@ impl crate::Readable for GptintmSpec {}
 #[doc = "`write(|w| ..)` method takes [`gptintm::W`](W) writer structure"]
 impl crate::Writable for GptintmSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets GPTINTM to value 0"]
-impl crate::Resettable for GptintmSpec {}
+impl crate::Resettable for GptintmSpec {
+    const RESET_VALUE: u32 = 0;
+}

@@ -114,6 +114,8 @@ impl crate::Readable for DevreadinstrSpec {}
 #[doc = "`write(|w| ..)` method takes [`devreadinstr::W`](W) writer structure"]
 impl crate::Writable for DevreadinstrSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets DEVREADINSTR to value 0x03"]
 impl crate::Resettable for DevreadinstrSpec {

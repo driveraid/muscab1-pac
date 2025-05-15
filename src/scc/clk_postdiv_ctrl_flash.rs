@@ -30,6 +30,8 @@ impl crate::Readable for ClkPostdivCtrlFlashSpec {}
 #[doc = "`write(|w| ..)` method takes [`clk_postdiv_ctrl_flash::W`](W) writer structure"]
 impl crate::Writable for ClkPostdivCtrlFlashSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CLK_POSTDIV_CTRL_FLASH to value 0x01"]
 impl crate::Resettable for ClkPostdivCtrlFlashSpec {

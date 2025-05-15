@@ -90,72 +90,86 @@ impl RegisterBlock {
         &self.uartdmacr
     }
 }
-#[doc = "UARTDR (rw) register accessor: Data register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartdr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartdr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartdr`] module"]
+#[doc = "UARTDR (rw) register accessor: Data register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartdr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartdr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartdr`]
+module"]
 #[doc(alias = "UARTDR")]
 pub type Uartdr = crate::Reg<uartdr::UartdrSpec>;
 #[doc = "Data register"]
 pub mod uartdr;
-#[doc = "UARTRSR_UARTECR (rw) register accessor: Receive status register/error clear register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartrsr_uartecr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartrsr_uartecr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartrsr_uartecr`] module"]
+#[doc = "UARTRSR_UARTECR (rw) register accessor: Receive status register/error clear register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartrsr_uartecr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartrsr_uartecr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartrsr_uartecr`]
+module"]
 #[doc(alias = "UARTRSR_UARTECR")]
 pub type UartrsrUartecr = crate::Reg<uartrsr_uartecr::UartrsrUartecrSpec>;
 #[doc = "Receive status register/error clear register"]
 pub mod uartrsr_uartecr;
-#[doc = "UARTRFR (r) register accessor: Flag register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartrfr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartrfr`] module"]
+#[doc = "UARTRFR (r) register accessor: Flag register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartrfr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartrfr`]
+module"]
 #[doc(alias = "UARTRFR")]
 pub type Uartrfr = crate::Reg<uartrfr::UartrfrSpec>;
 #[doc = "Flag register"]
 pub mod uartrfr;
-#[doc = "UARTILPR (rw) register accessor: IrDA low-power counter register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartilpr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartilpr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartilpr`] module"]
+#[doc = "UARTILPR (rw) register accessor: IrDA low-power counter register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartilpr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartilpr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartilpr`]
+module"]
 #[doc(alias = "UARTILPR")]
 pub type Uartilpr = crate::Reg<uartilpr::UartilprSpec>;
 #[doc = "IrDA low-power counter register"]
 pub mod uartilpr;
-#[doc = "UARTIBRD (rw) register accessor: Integer baud rate register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartibrd::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartibrd::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartibrd`] module"]
+#[doc = "UARTIBRD (rw) register accessor: Integer baud rate register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartibrd::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartibrd::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartibrd`]
+module"]
 #[doc(alias = "UARTIBRD")]
 pub type Uartibrd = crate::Reg<uartibrd::UartibrdSpec>;
 #[doc = "Integer baud rate register"]
 pub mod uartibrd;
-#[doc = "UARTFBRD (rw) register accessor: Fractional baud rate register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartfbrd::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartfbrd::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartfbrd`] module"]
+#[doc = "UARTFBRD (rw) register accessor: Fractional baud rate register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartfbrd::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartfbrd::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartfbrd`]
+module"]
 #[doc(alias = "UARTFBRD")]
 pub type Uartfbrd = crate::Reg<uartfbrd::UartfbrdSpec>;
 #[doc = "Fractional baud rate register"]
 pub mod uartfbrd;
-#[doc = "UARTLCR_H (rw) register accessor: Line control register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartlcr_h::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartlcr_h::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartlcr_h`] module"]
+#[doc = "UARTLCR_H (rw) register accessor: Line control register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartlcr_h::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartlcr_h::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartlcr_h`]
+module"]
 #[doc(alias = "UARTLCR_H")]
 pub type UartlcrH = crate::Reg<uartlcr_h::UartlcrHSpec>;
 #[doc = "Line control register"]
 pub mod uartlcr_h;
-#[doc = "UARTCR (rw) register accessor: Control register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartcr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartcr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartcr`] module"]
+#[doc = "UARTCR (rw) register accessor: Control register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartcr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartcr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartcr`]
+module"]
 #[doc(alias = "UARTCR")]
 pub type Uartcr = crate::Reg<uartcr::UartcrSpec>;
 #[doc = "Control register"]
 pub mod uartcr;
-#[doc = "UARTIFLS (rw) register accessor: Interrupt FIFO level select register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartifls::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartifls::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartifls`] module"]
+#[doc = "UARTIFLS (rw) register accessor: Interrupt FIFO level select register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartifls::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartifls::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartifls`]
+module"]
 #[doc(alias = "UARTIFLS")]
 pub type Uartifls = crate::Reg<uartifls::UartiflsSpec>;
 #[doc = "Interrupt FIFO level select register"]
 pub mod uartifls;
-#[doc = "UARTIMSC (rw) register accessor: Interrupt mask set/clear register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartimsc::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartimsc::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartimsc`] module"]
+#[doc = "UARTIMSC (rw) register accessor: Interrupt mask set/clear register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartimsc::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartimsc::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartimsc`]
+module"]
 #[doc(alias = "UARTIMSC")]
 pub type Uartimsc = crate::Reg<uartimsc::UartimscSpec>;
 #[doc = "Interrupt mask set/clear register"]
 pub mod uartimsc;
-#[doc = "UARTRIS (r) register accessor: Raw interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartris::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartris`] module"]
+#[doc = "UARTRIS (r) register accessor: Raw interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartris::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartris`]
+module"]
 #[doc(alias = "UARTRIS")]
 pub type Uartris = crate::Reg<uartris::UartrisSpec>;
 #[doc = "Raw interrupt status register"]
 pub mod uartris;
-#[doc = "UARTMIS (r) register accessor: Masked interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartmis::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartmis`] module"]
+#[doc = "UARTMIS (r) register accessor: Masked interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartmis::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartmis`]
+module"]
 #[doc(alias = "UARTMIS")]
 pub type Uartmis = crate::Reg<uartmis::UartmisSpec>;
 #[doc = "Masked interrupt status register"]
 pub mod uartmis;
-#[doc = "UARTICR (w) register accessor: Interrupt clear register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uarticr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uarticr`] module"]
+#[doc = "UARTICR (w) register accessor: Interrupt clear register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uarticr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uarticr`]
+module"]
 #[doc(alias = "UARTICR")]
 pub type Uarticr = crate::Reg<uarticr::UarticrSpec>;
 #[doc = "Interrupt clear register"]
 pub mod uarticr;
-#[doc = "UARTDMACR (rw) register accessor: DMA control register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartdmacr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartdmacr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartdmacr`] module"]
+#[doc = "UARTDMACR (rw) register accessor: DMA control register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartdmacr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartdmacr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@uartdmacr`]
+module"]
 #[doc(alias = "UARTDMACR")]
 pub type Uartdmacr = crate::Reg<uartdmacr::UartdmacrSpec>;
 #[doc = "DMA control register"]

@@ -263,6 +263,10 @@ impl crate::Readable for IcctrlSpec {}
 #[doc = "`write(|w| ..)` method takes [`icctrl::W`](W) writer structure"]
 impl crate::Writable for IcctrlSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets ICCTRL to value 0"]
-impl crate::Resettable for IcctrlSpec {}
+impl crate::Resettable for IcctrlSpec {
+    const RESET_VALUE: u32 = 0;
+}

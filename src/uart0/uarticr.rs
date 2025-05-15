@@ -87,6 +87,10 @@ impl crate::RegisterSpec for UarticrSpec {
 #[doc = "`write(|w| ..)` method takes [`uarticr::W`](W) writer structure"]
 impl crate::Writable for UarticrSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets UARTICR to value 0"]
-impl crate::Resettable for UarticrSpec {}
+impl crate::Resettable for UarticrSpec {
+    const RESET_VALUE: u32 = 0;
+}

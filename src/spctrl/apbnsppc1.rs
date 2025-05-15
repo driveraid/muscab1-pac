@@ -18,6 +18,10 @@ impl crate::Readable for Apbnsppc1Spec {}
 #[doc = "`write(|w| ..)` method takes [`apbnsppc1::W`](W) writer structure"]
 impl crate::Writable for Apbnsppc1Spec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets APBNSPPC1 to value 0"]
-impl crate::Resettable for Apbnsppc1Spec {}
+impl crate::Resettable for Apbnsppc1Spec {
+    const RESET_VALUE: u32 = 0;
+}

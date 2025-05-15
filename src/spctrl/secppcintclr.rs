@@ -14,6 +14,10 @@ impl crate::RegisterSpec for SecppcintclrSpec {
 #[doc = "`write(|w| ..)` method takes [`secppcintclr::W`](W) writer structure"]
 impl crate::Writable for SecppcintclrSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SECPPCINTCLR to value 0"]
-impl crate::Resettable for SecppcintclrSpec {}
+impl crate::Resettable for SecppcintclrSpec {
+    const RESET_VALUE: u32 = 0;
+}

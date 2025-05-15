@@ -17,4 +17,6 @@ impl crate::RegisterSpec for GptcounterSpec {
 #[doc = "`read()` method returns [`gptcounter::R`](R) reader structure"]
 impl crate::Readable for GptcounterSpec {}
 #[doc = "`reset()` method sets GPTCOUNTER to value 0"]
-impl crate::Resettable for GptcounterSpec {}
+impl crate::Resettable for GptcounterSpec {
+    const RESET_VALUE: u32 = 0;
+}

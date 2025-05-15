@@ -13,4 +13,6 @@ impl crate::RegisterSpec for Ahbspppc0Spec {
 #[doc = "`read()` method returns [`ahbspppc0::R`](R) reader structure"]
 impl crate::Readable for Ahbspppc0Spec {}
 #[doc = "`reset()` method sets AHBSPPPC0 to value 0"]
-impl crate::Resettable for Ahbspppc0Spec {}
+impl crate::Resettable for Ahbspppc0Spec {
+    const RESET_VALUE: u32 = 0;
+}

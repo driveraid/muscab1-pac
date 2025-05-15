@@ -269,6 +269,10 @@ impl crate::RegisterSpec for SecdbgsetSpec {
 #[doc = "`write(|w| ..)` method takes [`secdbgset::W`](W) writer structure"]
 impl crate::Writable for SecdbgsetSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SECDBGSET to value 0"]
-impl crate::Resettable for SecdbgsetSpec {}
+impl crate::Resettable for SecdbgsetSpec {
+    const RESET_VALUE: u32 = 0;
+}

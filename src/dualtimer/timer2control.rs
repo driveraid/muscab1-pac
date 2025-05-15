@@ -414,6 +414,8 @@ impl crate::Readable for Timer2controlSpec {}
 #[doc = "`write(|w| ..)` method takes [`timer2control::W`](W) writer structure"]
 impl crate::Writable for Timer2controlSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets TIMER2CONTROL to value 0x20"]
 impl crate::Resettable for Timer2controlSpec {

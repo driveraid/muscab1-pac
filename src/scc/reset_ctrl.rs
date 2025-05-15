@@ -212,6 +212,8 @@ impl crate::Readable for ResetCtrlSpec {}
 #[doc = "`write(|w| ..)` method takes [`reset_ctrl::W`](W) writer structure"]
 impl crate::Writable for ResetCtrlSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets RESET_CTRL to value 0xffff_ffff"]
 impl crate::Resettable for ResetCtrlSpec {

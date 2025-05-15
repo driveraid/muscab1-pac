@@ -331,6 +331,10 @@ impl crate::Readable for ScsecctrlSpec {}
 #[doc = "`write(|w| ..)` method takes [`scsecctrl::W`](W) writer structure"]
 impl crate::Writable for ScsecctrlSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SCSECCTRL to value 0"]
-impl crate::Resettable for ScsecctrlSpec {}
+impl crate::Resettable for ScsecctrlSpec {
+    const RESET_VALUE: u32 = 0;
+}

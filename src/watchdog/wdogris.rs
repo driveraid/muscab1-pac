@@ -17,4 +17,6 @@ impl crate::RegisterSpec for WdogrisSpec {
 #[doc = "`read()` method returns [`wdogris::R`](R) reader structure"]
 impl crate::Readable for WdogrisSpec {}
 #[doc = "`reset()` method sets WDOGRIS to value 0"]
-impl crate::Resettable for WdogrisSpec {}
+impl crate::Resettable for WdogrisSpec {
+    const RESET_VALUE: u32 = 0;
+}

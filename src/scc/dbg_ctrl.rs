@@ -114,6 +114,8 @@ impl crate::Readable for DbgCtrlSpec {}
 #[doc = "`write(|w| ..)` method takes [`dbg_ctrl::W`](W) writer structure"]
 impl crate::Writable for DbgCtrlSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets DBG_CTRL to value 0x1f"]
 impl crate::Resettable for DbgCtrlSpec {

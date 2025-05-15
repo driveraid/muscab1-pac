@@ -18,6 +18,10 @@ impl crate::Readable for IntpolclrSpec {}
 #[doc = "`write(|w| ..)` method takes [`intpolclr::W`](W) writer structure"]
 impl crate::Writable for IntpolclrSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets INTPOLCLR to value 0"]
-impl crate::Resettable for IntpolclrSpec {}
+impl crate::Resettable for IntpolclrSpec {
+    const RESET_VALUE: u32 = 0;
+}

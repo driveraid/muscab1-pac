@@ -13,4 +13,6 @@ impl crate::RegisterSpec for IcdbgfillerrSpec {
 #[doc = "`read()` method returns [`icdbgfillerr::R`](R) reader structure"]
 impl crate::Readable for IcdbgfillerrSpec {}
 #[doc = "`reset()` method sets ICDBGFILLERR to value 0"]
-impl crate::Resettable for IcdbgfillerrSpec {}
+impl crate::Resettable for IcdbgfillerrSpec {
+    const RESET_VALUE: u32 = 0;
+}

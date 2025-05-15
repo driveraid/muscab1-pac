@@ -17,4 +17,6 @@ impl crate::RegisterSpec for IntStatSpec {
 #[doc = "`read()` method returns [`int_stat::R`](R) reader structure"]
 impl crate::Readable for IntStatSpec {}
 #[doc = "`reset()` method sets INT_STAT to value 0"]
-impl crate::Resettable for IntStatSpec {}
+impl crate::Resettable for IntStatSpec {
+    const RESET_VALUE: u32 = 0;
+}

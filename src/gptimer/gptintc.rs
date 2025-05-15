@@ -2,19 +2,23 @@
 pub type R = crate::R<GptintcSpec>;
 #[doc = "Register `GPTINTC` writer"]
 pub type W = crate::W<GptintcSpec>;
-#[doc = "Field `GPTINTC` reader - Writing 0b1 disables the ALARM\\[n\\] interrupt"]
+#[doc = "Field `GPTINTC` reader - Writing 0b1 disables the ALARM\\[n\\]
+interrupt"]
 pub type GptintcR = crate::FieldReader;
-#[doc = "Field `GPTINTC` writer - Writing 0b1 disables the ALARM\\[n\\] interrupt"]
+#[doc = "Field `GPTINTC` writer - Writing 0b1 disables the ALARM\\[n\\]
+interrupt"]
 pub type GptintcW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 impl R {
-    #[doc = "Bits 0:1 - Writing 0b1 disables the ALARM\\[n\\] interrupt"]
+    #[doc = "Bits 0:1 - Writing 0b1 disables the ALARM\\[n\\]
+interrupt"]
     #[inline(always)]
     pub fn gptintc(&self) -> GptintcR {
         GptintcR::new((self.bits & 3) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 0:1 - Writing 0b1 disables the ALARM\\[n\\] interrupt"]
+    #[doc = "Bits 0:1 - Writing 0b1 disables the ALARM\\[n\\]
+interrupt"]
     #[inline(always)]
     pub fn gptintc(&mut self) -> GptintcW<GptintcSpec> {
         GptintcW::new(self, 0)
@@ -30,6 +34,10 @@ impl crate::Readable for GptintcSpec {}
 #[doc = "`write(|w| ..)` method takes [`gptintc::W`](W) writer structure"]
 impl crate::Writable for GptintcSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets GPTINTC to value 0"]
-impl crate::Resettable for GptintcSpec {}
+impl crate::Resettable for GptintcSpec {
+    const RESET_VALUE: u32 = 0;
+}

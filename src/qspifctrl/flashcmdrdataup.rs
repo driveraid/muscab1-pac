@@ -13,4 +13,6 @@ impl crate::RegisterSpec for FlashcmdrdataupSpec {
 #[doc = "`read()` method returns [`flashcmdrdataup::R`](R) reader structure"]
 impl crate::Readable for FlashcmdrdataupSpec {}
 #[doc = "`reset()` method sets FLASHCMDRDATAUP to value 0"]
-impl crate::Resettable for FlashcmdrdataupSpec {}
+impl crate::Resettable for FlashcmdrdataupSpec {
+    const RESET_VALUE: u32 = 0;
+}

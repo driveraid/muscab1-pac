@@ -246,12 +246,15 @@ impl SPdCryptoOnR {
         *self == SPdCryptoOn::High
     }
 }
-#[doc = "Enable PDEXPIN\\[0\\] signal Sensitivity\n\nValue on reset: 0"]
+#[doc = "Enable PDEXPIN\\[0\\]
+signal Sensitivity\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SPdExp0In {
-    #[doc = "1: Enable PDEXPIN\\[0\\] signal Sensitivity."]
+    #[doc = "1: Enable PDEXPIN\\[0\\]
+signal Sensitivity."]
     Enable = 1,
-    #[doc = "0: Disable PDEXPIN\\[0\\] signal Sensitivity."]
+    #[doc = "0: Disable PDEXPIN\\[0\\]
+signal Sensitivity."]
     Disabled = 0,
 }
 impl From<SPdExp0In> for bool {
@@ -260,7 +263,8 @@ impl From<SPdExp0In> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `S_PD_EXP0_IN` reader - Enable PDEXPIN\\[0\\] signal Sensitivity"]
+#[doc = "Field `S_PD_EXP0_IN` reader - Enable PDEXPIN\\[0\\]
+signal Sensitivity"]
 pub type SPdExp0InR = crate::BitReader<SPdExp0In>;
 impl SPdExp0InR {
     #[doc = "Get enumerated values variant"]
@@ -271,40 +275,48 @@ impl SPdExp0InR {
             false => SPdExp0In::Disabled,
         }
     }
-    #[doc = "Enable PDEXPIN\\[0\\] signal Sensitivity."]
+    #[doc = "Enable PDEXPIN\\[0\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
         *self == SPdExp0In::Enable
     }
-    #[doc = "Disable PDEXPIN\\[0\\] signal Sensitivity."]
+    #[doc = "Disable PDEXPIN\\[0\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
         *self == SPdExp0In::Disabled
     }
 }
-#[doc = "Field `S_PD_EXP0_IN` writer - Enable PDEXPIN\\[0\\] signal Sensitivity"]
+#[doc = "Field `S_PD_EXP0_IN` writer - Enable PDEXPIN\\[0\\]
+signal Sensitivity"]
 pub type SPdExp0InW<'a, REG> = crate::BitWriter<'a, REG, SPdExp0In>;
 impl<'a, REG> SPdExp0InW<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "Enable PDEXPIN\\[0\\] signal Sensitivity."]
+    #[doc = "Enable PDEXPIN\\[0\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut crate::W<REG> {
         self.variant(SPdExp0In::Enable)
     }
-    #[doc = "Disable PDEXPIN\\[0\\] signal Sensitivity."]
+    #[doc = "Disable PDEXPIN\\[0\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn disabled(self) -> &'a mut crate::W<REG> {
         self.variant(SPdExp0In::Disabled)
     }
 }
-#[doc = "Enable PDEXPIN\\[1\\] signal Sensitivity\n\nValue on reset: 0"]
+#[doc = "Enable PDEXPIN\\[1\\]
+signal Sensitivity\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SPdExp1In {
-    #[doc = "1: Enable PDEXPIN\\[1\\] signal Sensitivity."]
+    #[doc = "1: Enable PDEXPIN\\[1\\]
+signal Sensitivity."]
     Enable = 1,
-    #[doc = "0: Disable PDEXPIN\\[1\\] signal Sensitivity."]
+    #[doc = "0: Disable PDEXPIN\\[1\\]
+signal Sensitivity."]
     Disabled = 0,
 }
 impl From<SPdExp1In> for bool {
@@ -313,7 +325,8 @@ impl From<SPdExp1In> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `S_PD_EXP1_IN` reader - Enable PDEXPIN\\[1\\] signal Sensitivity"]
+#[doc = "Field `S_PD_EXP1_IN` reader - Enable PDEXPIN\\[1\\]
+signal Sensitivity"]
 pub type SPdExp1InR = crate::BitReader<SPdExp1In>;
 impl SPdExp1InR {
     #[doc = "Get enumerated values variant"]
@@ -324,40 +337,48 @@ impl SPdExp1InR {
             false => SPdExp1In::Disabled,
         }
     }
-    #[doc = "Enable PDEXPIN\\[1\\] signal Sensitivity."]
+    #[doc = "Enable PDEXPIN\\[1\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
         *self == SPdExp1In::Enable
     }
-    #[doc = "Disable PDEXPIN\\[1\\] signal Sensitivity."]
+    #[doc = "Disable PDEXPIN\\[1\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
         *self == SPdExp1In::Disabled
     }
 }
-#[doc = "Field `S_PD_EXP1_IN` writer - Enable PDEXPIN\\[1\\] signal Sensitivity"]
+#[doc = "Field `S_PD_EXP1_IN` writer - Enable PDEXPIN\\[1\\]
+signal Sensitivity"]
 pub type SPdExp1InW<'a, REG> = crate::BitWriter<'a, REG, SPdExp1In>;
 impl<'a, REG> SPdExp1InW<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "Enable PDEXPIN\\[1\\] signal Sensitivity."]
+    #[doc = "Enable PDEXPIN\\[1\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut crate::W<REG> {
         self.variant(SPdExp1In::Enable)
     }
-    #[doc = "Disable PDEXPIN\\[1\\] signal Sensitivity."]
+    #[doc = "Disable PDEXPIN\\[1\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn disabled(self) -> &'a mut crate::W<REG> {
         self.variant(SPdExp1In::Disabled)
     }
 }
-#[doc = "Enable PDEXPIN\\[2\\] signal Sensitivity\n\nValue on reset: 0"]
+#[doc = "Enable PDEXPIN\\[2\\]
+signal Sensitivity\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SPdExp2In {
-    #[doc = "1: Enable PDEXPIN\\[2\\] signal Sensitivity."]
+    #[doc = "1: Enable PDEXPIN\\[2\\]
+signal Sensitivity."]
     Enable = 1,
-    #[doc = "0: Disable PDEXPIN\\[2\\] signal Sensitivity."]
+    #[doc = "0: Disable PDEXPIN\\[2\\]
+signal Sensitivity."]
     Disabled = 0,
 }
 impl From<SPdExp2In> for bool {
@@ -366,7 +387,8 @@ impl From<SPdExp2In> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `S_PD_EXP2_IN` reader - Enable PDEXPIN\\[2\\] signal Sensitivity"]
+#[doc = "Field `S_PD_EXP2_IN` reader - Enable PDEXPIN\\[2\\]
+signal Sensitivity"]
 pub type SPdExp2InR = crate::BitReader<SPdExp2In>;
 impl SPdExp2InR {
     #[doc = "Get enumerated values variant"]
@@ -377,40 +399,48 @@ impl SPdExp2InR {
             false => SPdExp2In::Disabled,
         }
     }
-    #[doc = "Enable PDEXPIN\\[2\\] signal Sensitivity."]
+    #[doc = "Enable PDEXPIN\\[2\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
         *self == SPdExp2In::Enable
     }
-    #[doc = "Disable PDEXPIN\\[2\\] signal Sensitivity."]
+    #[doc = "Disable PDEXPIN\\[2\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
         *self == SPdExp2In::Disabled
     }
 }
-#[doc = "Field `S_PD_EXP2_IN` writer - Enable PDEXPIN\\[2\\] signal Sensitivity"]
+#[doc = "Field `S_PD_EXP2_IN` writer - Enable PDEXPIN\\[2\\]
+signal Sensitivity"]
 pub type SPdExp2InW<'a, REG> = crate::BitWriter<'a, REG, SPdExp2In>;
 impl<'a, REG> SPdExp2InW<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "Enable PDEXPIN\\[2\\] signal Sensitivity."]
+    #[doc = "Enable PDEXPIN\\[2\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut crate::W<REG> {
         self.variant(SPdExp2In::Enable)
     }
-    #[doc = "Disable PDEXPIN\\[2\\] signal Sensitivity."]
+    #[doc = "Disable PDEXPIN\\[2\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn disabled(self) -> &'a mut crate::W<REG> {
         self.variant(SPdExp2In::Disabled)
     }
 }
-#[doc = "Enable PDEXPIN\\[3\\] signal Sensitivity\n\nValue on reset: 0"]
+#[doc = "Enable PDEXPIN\\[3\\]
+signal Sensitivity\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SPdExp3In {
-    #[doc = "1: Enable PDEXPIN\\[3\\] signal Sensitivity."]
+    #[doc = "1: Enable PDEXPIN\\[3\\]
+signal Sensitivity."]
     Enable = 1,
-    #[doc = "0: Disable PDEXPIN\\[3\\] signal Sensitivity."]
+    #[doc = "0: Disable PDEXPIN\\[3\\]
+signal Sensitivity."]
     Disabled = 0,
 }
 impl From<SPdExp3In> for bool {
@@ -419,7 +449,8 @@ impl From<SPdExp3In> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `S_PD_EXP3_IN` reader - Enable PDEXPIN\\[3\\] signal Sensitivity"]
+#[doc = "Field `S_PD_EXP3_IN` reader - Enable PDEXPIN\\[3\\]
+signal Sensitivity"]
 pub type SPdExp3InR = crate::BitReader<SPdExp3In>;
 impl SPdExp3InR {
     #[doc = "Get enumerated values variant"]
@@ -430,29 +461,34 @@ impl SPdExp3InR {
             false => SPdExp3In::Disabled,
         }
     }
-    #[doc = "Enable PDEXPIN\\[3\\] signal Sensitivity."]
+    #[doc = "Enable PDEXPIN\\[3\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
         *self == SPdExp3In::Enable
     }
-    #[doc = "Disable PDEXPIN\\[3\\] signal Sensitivity."]
+    #[doc = "Disable PDEXPIN\\[3\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
         *self == SPdExp3In::Disabled
     }
 }
-#[doc = "Field `S_PD_EXP3_IN` writer - Enable PDEXPIN\\[3\\] signal Sensitivity"]
+#[doc = "Field `S_PD_EXP3_IN` writer - Enable PDEXPIN\\[3\\]
+signal Sensitivity"]
 pub type SPdExp3InW<'a, REG> = crate::BitWriter<'a, REG, SPdExp3In>;
 impl<'a, REG> SPdExp3InW<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "Enable PDEXPIN\\[3\\] signal Sensitivity."]
+    #[doc = "Enable PDEXPIN\\[3\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut crate::W<REG> {
         self.variant(SPdExp3In::Enable)
     }
-    #[doc = "Disable PDEXPIN\\[3\\] signal Sensitivity."]
+    #[doc = "Disable PDEXPIN\\[3\\]
+signal Sensitivity."]
     #[inline(always)]
     pub fn disabled(self) -> &'a mut crate::W<REG> {
         self.variant(SPdExp3In::Disabled)
@@ -499,22 +535,26 @@ impl R {
     pub fn s_pd_crypto_on(&self) -> SPdCryptoOnR {
         SPdCryptoOnR::new(((self.bits >> 12) & 1) != 0)
     }
-    #[doc = "Bit 16 - Enable PDEXPIN\\[0\\] signal Sensitivity"]
+    #[doc = "Bit 16 - Enable PDEXPIN\\[0\\]
+signal Sensitivity"]
     #[inline(always)]
     pub fn s_pd_exp0_in(&self) -> SPdExp0InR {
         SPdExp0InR::new(((self.bits >> 16) & 1) != 0)
     }
-    #[doc = "Bit 17 - Enable PDEXPIN\\[1\\] signal Sensitivity"]
+    #[doc = "Bit 17 - Enable PDEXPIN\\[1\\]
+signal Sensitivity"]
     #[inline(always)]
     pub fn s_pd_exp1_in(&self) -> SPdExp1InR {
         SPdExp1InR::new(((self.bits >> 17) & 1) != 0)
     }
-    #[doc = "Bit 18 - Enable PDEXPIN\\[2\\] signal Sensitivity"]
+    #[doc = "Bit 18 - Enable PDEXPIN\\[2\\]
+signal Sensitivity"]
     #[inline(always)]
     pub fn s_pd_exp2_in(&self) -> SPdExp2InR {
         SPdExp2InR::new(((self.bits >> 18) & 1) != 0)
     }
-    #[doc = "Bit 19 - Enable PDEXPIN\\[3\\] signal Sensitivity"]
+    #[doc = "Bit 19 - Enable PDEXPIN\\[3\\]
+signal Sensitivity"]
     #[inline(always)]
     pub fn s_pd_exp3_in(&self) -> SPdExp3InR {
         SPdExp3InR::new(((self.bits >> 19) & 1) != 0)
@@ -526,22 +566,26 @@ impl W {
     pub fn s_pd_sys_on(&mut self) -> SPdSysOnW<PdcmPdSysSenseSpec> {
         SPdSysOnW::new(self, 0)
     }
-    #[doc = "Bit 16 - Enable PDEXPIN\\[0\\] signal Sensitivity"]
+    #[doc = "Bit 16 - Enable PDEXPIN\\[0\\]
+signal Sensitivity"]
     #[inline(always)]
     pub fn s_pd_exp0_in(&mut self) -> SPdExp0InW<PdcmPdSysSenseSpec> {
         SPdExp0InW::new(self, 16)
     }
-    #[doc = "Bit 17 - Enable PDEXPIN\\[1\\] signal Sensitivity"]
+    #[doc = "Bit 17 - Enable PDEXPIN\\[1\\]
+signal Sensitivity"]
     #[inline(always)]
     pub fn s_pd_exp1_in(&mut self) -> SPdExp1InW<PdcmPdSysSenseSpec> {
         SPdExp1InW::new(self, 17)
     }
-    #[doc = "Bit 18 - Enable PDEXPIN\\[2\\] signal Sensitivity"]
+    #[doc = "Bit 18 - Enable PDEXPIN\\[2\\]
+signal Sensitivity"]
     #[inline(always)]
     pub fn s_pd_exp2_in(&mut self) -> SPdExp2InW<PdcmPdSysSenseSpec> {
         SPdExp2InW::new(self, 18)
     }
-    #[doc = "Bit 19 - Enable PDEXPIN\\[3\\] signal Sensitivity"]
+    #[doc = "Bit 19 - Enable PDEXPIN\\[3\\]
+signal Sensitivity"]
     #[inline(always)]
     pub fn s_pd_exp3_in(&mut self) -> SPdExp3InW<PdcmPdSysSenseSpec> {
         SPdExp3InW::new(self, 19)
@@ -557,6 +601,8 @@ impl crate::Readable for PdcmPdSysSenseSpec {}
 #[doc = "`write(|w| ..)` method takes [`pdcm_pd_sys_sense::W`](W) writer structure"]
 impl crate::Writable for PdcmPdSysSenseSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets PDCM_PD_SYS_SENSE to value 0x7f"]
 impl crate::Resettable for PdcmPdSysSenseSpec {

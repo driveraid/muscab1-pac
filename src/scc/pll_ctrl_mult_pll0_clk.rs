@@ -30,6 +30,8 @@ impl crate::Readable for PllCtrlMultPll0ClkSpec {}
 #[doc = "`write(|w| ..)` method takes [`pll_ctrl_mult_pll0_clk::W`](W) writer structure"]
 impl crate::Writable for PllCtrlMultPll0ClkSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets PLL_CTRL_MULT_PLL0_CLK to value 0x1388"]
 impl crate::Resettable for PllCtrlMultPll0ClkSpec {

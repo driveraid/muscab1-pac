@@ -18,6 +18,10 @@ impl crate::Readable for Timer2bgloadSpec {}
 #[doc = "`write(|w| ..)` method takes [`timer2bgload::W`](W) writer structure"]
 impl crate::Writable for Timer2bgloadSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets TIMER2BGLOAD to value 0"]
-impl crate::Resettable for Timer2bgloadSpec {}
+impl crate::Resettable for Timer2bgloadSpec {
+    const RESET_VALUE: u32 = 0;
+}

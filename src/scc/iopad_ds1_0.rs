@@ -30,6 +30,8 @@ impl crate::Readable for IopadDs1_0Spec {}
 #[doc = "`write(|w| ..)` method takes [`iopad_ds1_0::W`](W) writer structure"]
 impl crate::Writable for IopadDs1_0Spec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets IOPAD_DS1_0 to value 0xffff_ffff"]
 impl crate::Resettable for IopadDs1_0Spec {

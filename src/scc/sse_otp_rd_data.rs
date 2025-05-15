@@ -17,4 +17,6 @@ impl crate::RegisterSpec for SseOtpRdDataSpec {
 #[doc = "`read()` method returns [`sse_otp_rd_data::R`](R) reader structure"]
 impl crate::Readable for SseOtpRdDataSpec {}
 #[doc = "`reset()` method sets SSE_OTP_RD_DATA to value 0"]
-impl crate::Resettable for SseOtpRdDataSpec {}
+impl crate::Resettable for SseOtpRdDataSpec {
+    const RESET_VALUE: u32 = 0;
+}

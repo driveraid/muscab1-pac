@@ -128,6 +128,8 @@ impl crate::Readable for ClkCtrlSelSpec {}
 #[doc = "`write(|w| ..)` method takes [`clk_ctrl_sel::W`](W) writer structure"]
 impl crate::Writable for ClkCtrlSelSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CLK_CTRL_SEL to value 0x72"]
 impl crate::Resettable for ClkCtrlSelSpec {

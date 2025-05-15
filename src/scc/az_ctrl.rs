@@ -170,6 +170,8 @@ impl crate::Readable for AzCtrlSpec {}
 #[doc = "`write(|w| ..)` method takes [`az_ctrl::W`](W) writer structure"]
 impl crate::Writable for AzCtrlSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets AZ_CTRL to value 0x0600"]
 impl crate::Resettable for AzCtrlSpec {

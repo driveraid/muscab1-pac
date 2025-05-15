@@ -37,6 +37,10 @@ impl crate::Readable for FclkDivSpec {}
 #[doc = "`write(|w| ..)` method takes [`fclk_div::W`](W) writer structure"]
 impl crate::Writable for FclkDivSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FCLK_DIV to value 0"]
-impl crate::Resettable for FclkDivSpec {}
+impl crate::Resettable for FclkDivSpec {
+    const RESET_VALUE: u32 = 0;
+}

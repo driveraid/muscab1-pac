@@ -13,4 +13,6 @@ impl crate::RegisterSpec for NsmscexpSpec {
 #[doc = "`read()` method returns [`nsmscexp::R`](R) reader structure"]
 impl crate::Readable for NsmscexpSpec {}
 #[doc = "`reset()` method sets NSMSCEXP to value 0"]
-impl crate::Resettable for NsmscexpSpec {}
+impl crate::Resettable for NsmscexpSpec {
+    const RESET_VALUE: u32 = 0;
+}

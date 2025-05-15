@@ -114,6 +114,10 @@ impl crate::Readable for UartlcrHSpec {}
 #[doc = "`write(|w| ..)` method takes [`uartlcr_h::W`](W) writer structure"]
 impl crate::Writable for UartlcrHSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets UARTLCR_H to value 0"]
-impl crate::Resettable for UartlcrHSpec {}
+impl crate::Resettable for UartlcrHSpec {
+    const RESET_VALUE: u32 = 0;
+}

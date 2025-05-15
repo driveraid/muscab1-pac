@@ -13,4 +13,6 @@ impl crate::RegisterSpec for IcsmSpec {
 #[doc = "`read()` method returns [`icsm::R`](R) reader structure"]
 impl crate::Readable for IcsmSpec {}
 #[doc = "`reset()` method sets ICSM to value 0"]
-impl crate::Resettable for IcsmSpec {}
+impl crate::Resettable for IcsmSpec {
+    const RESET_VALUE: u32 = 0;
+}

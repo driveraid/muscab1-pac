@@ -17,4 +17,6 @@ impl crate::RegisterSpec for Timer2misSpec {
 #[doc = "`read()` method returns [`timer2mis::R`](R) reader structure"]
 impl crate::Readable for Timer2misSpec {}
 #[doc = "`reset()` method sets TIMER2MIS to value 0"]
-impl crate::Resettable for Timer2misSpec {}
+impl crate::Resettable for Timer2misSpec {
+    const RESET_VALUE: u32 = 0;
+}

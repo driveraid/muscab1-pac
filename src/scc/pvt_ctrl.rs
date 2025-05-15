@@ -30,6 +30,10 @@ impl crate::Readable for PvtCtrlSpec {}
 #[doc = "`write(|w| ..)` method takes [`pvt_ctrl::W`](W) writer structure"]
 impl crate::Writable for PvtCtrlSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets PVT_CTRL to value 0"]
-impl crate::Resettable for PvtCtrlSpec {}
+impl crate::Resettable for PvtCtrlSpec {
+    const RESET_VALUE: u32 = 0;
+}

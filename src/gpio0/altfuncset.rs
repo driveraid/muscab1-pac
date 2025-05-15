@@ -18,6 +18,10 @@ impl crate::Readable for AltfuncsetSpec {}
 #[doc = "`write(|w| ..)` method takes [`altfuncset::W`](W) writer structure"]
 impl crate::Writable for AltfuncsetSpec {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets ALTFUNCSET to value 0"]
-impl crate::Resettable for AltfuncsetSpec {}
+impl crate::Resettable for AltfuncsetSpec {
+    const RESET_VALUE: u32 = 0;
+}

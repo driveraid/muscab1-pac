@@ -51,4 +51,6 @@ impl crate::RegisterSpec for PwmisSpec {
 #[doc = "`read()` method returns [`pwmis::R`](R) reader structure"]
 impl crate::Readable for PwmisSpec {}
 #[doc = "`reset()` method sets PWMIS to value 0"]
-impl crate::Resettable for PwmisSpec {}
+impl crate::Resettable for PwmisSpec {
+    const RESET_VALUE: u32 = 0;
+}

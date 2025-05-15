@@ -74,57 +74,68 @@ impl RegisterBlock {
         &self.flashcmdwrdataup
     }
 }
-#[doc = "QSPICFG (rw) register accessor: QSPI Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`qspicfg::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qspicfg::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qspicfg`] module"]
+#[doc = "QSPICFG (rw) register accessor: QSPI Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`qspicfg::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qspicfg::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qspicfg`]
+module"]
 #[doc(alias = "QSPICFG")]
 pub type Qspicfg = crate::Reg<qspicfg::QspicfgSpec>;
 #[doc = "QSPI Configuration Register"]
 pub mod qspicfg;
-#[doc = "DEVREADINSTR (rw) register accessor: Device Read Instruction Register\n\nYou can [`read`](crate::Reg::read) this register and get [`devreadinstr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`devreadinstr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@devreadinstr`] module"]
+#[doc = "DEVREADINSTR (rw) register accessor: Device Read Instruction Register\n\nYou can [`read`](crate::Reg::read) this register and get [`devreadinstr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`devreadinstr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@devreadinstr`]
+module"]
 #[doc(alias = "DEVREADINSTR")]
 pub type Devreadinstr = crate::Reg<devreadinstr::DevreadinstrSpec>;
 #[doc = "Device Read Instruction Register"]
 pub mod devreadinstr;
-#[doc = "DEVWRITEINSTR (rw) register accessor: Device Write Instruction Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`devwriteinstr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`devwriteinstr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@devwriteinstr`] module"]
+#[doc = "DEVWRITEINSTR (rw) register accessor: Device Write Instruction Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`devwriteinstr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`devwriteinstr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@devwriteinstr`]
+module"]
 #[doc(alias = "DEVWRITEINSTR")]
 pub type Devwriteinstr = crate::Reg<devwriteinstr::DevwriteinstrSpec>;
 #[doc = "Device Write Instruction Configuration Register"]
 pub mod devwriteinstr;
-#[doc = "DEVSIZE (rw) register accessor: Device Size Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`devsize::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`devsize::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@devsize`] module"]
+#[doc = "DEVSIZE (rw) register accessor: Device Size Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`devsize::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`devsize::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@devsize`]
+module"]
 #[doc(alias = "DEVSIZE")]
 pub type Devsize = crate::Reg<devsize::DevsizeSpec>;
 #[doc = "Device Size Configuration Register"]
 pub mod devsize;
-#[doc = "REMAPADDR (rw) register accessor: Remap Address Register\n\nYou can [`read`](crate::Reg::read) this register and get [`remapaddr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`remapaddr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@remapaddr`] module"]
+#[doc = "REMAPADDR (rw) register accessor: Remap Address Register\n\nYou can [`read`](crate::Reg::read) this register and get [`remapaddr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`remapaddr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@remapaddr`]
+module"]
 #[doc(alias = "REMAPADDR")]
 pub type Remapaddr = crate::Reg<remapaddr::RemapaddrSpec>;
 #[doc = "Remap Address Register"]
 pub mod remapaddr;
-#[doc = "FLASHCMDCTRL (rw) register accessor: Flash Command Control Register\n\nYou can [`read`](crate::Reg::read) this register and get [`flashcmdctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`flashcmdctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@flashcmdctrl`] module"]
+#[doc = "FLASHCMDCTRL (rw) register accessor: Flash Command Control Register\n\nYou can [`read`](crate::Reg::read) this register and get [`flashcmdctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`flashcmdctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@flashcmdctrl`]
+module"]
 #[doc(alias = "FLASHCMDCTRL")]
 pub type Flashcmdctrl = crate::Reg<flashcmdctrl::FlashcmdctrlSpec>;
 #[doc = "Flash Command Control Register"]
 pub mod flashcmdctrl;
-#[doc = "FLASHCMDADDR (rw) register accessor: Flash Command Address Register\n\nYou can [`read`](crate::Reg::read) this register and get [`flashcmdaddr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`flashcmdaddr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@flashcmdaddr`] module"]
+#[doc = "FLASHCMDADDR (rw) register accessor: Flash Command Address Register\n\nYou can [`read`](crate::Reg::read) this register and get [`flashcmdaddr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`flashcmdaddr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@flashcmdaddr`]
+module"]
 #[doc(alias = "FLASHCMDADDR")]
 pub type Flashcmdaddr = crate::Reg<flashcmdaddr::FlashcmdaddrSpec>;
 #[doc = "Flash Command Address Register"]
 pub mod flashcmdaddr;
-#[doc = "FLASHCMDRDATALOW (r) register accessor: Flash Command Read Data Register (Lower)\n\nYou can [`read`](crate::Reg::read) this register and get [`flashcmdrdatalow::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@flashcmdrdatalow`] module"]
+#[doc = "FLASHCMDRDATALOW (r) register accessor: Flash Command Read Data Register (Lower)\n\nYou can [`read`](crate::Reg::read) this register and get [`flashcmdrdatalow::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@flashcmdrdatalow`]
+module"]
 #[doc(alias = "FLASHCMDRDATALOW")]
 pub type Flashcmdrdatalow = crate::Reg<flashcmdrdatalow::FlashcmdrdatalowSpec>;
 #[doc = "Flash Command Read Data Register (Lower)"]
 pub mod flashcmdrdatalow;
-#[doc = "FLASHCMDRDATAUP (r) register accessor: Flash Command Read Data Register (Upper)\n\nYou can [`read`](crate::Reg::read) this register and get [`flashcmdrdataup::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@flashcmdrdataup`] module"]
+#[doc = "FLASHCMDRDATAUP (r) register accessor: Flash Command Read Data Register (Upper)\n\nYou can [`read`](crate::Reg::read) this register and get [`flashcmdrdataup::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@flashcmdrdataup`]
+module"]
 #[doc(alias = "FLASHCMDRDATAUP")]
 pub type Flashcmdrdataup = crate::Reg<flashcmdrdataup::FlashcmdrdataupSpec>;
 #[doc = "Flash Command Read Data Register (Upper)"]
 pub mod flashcmdrdataup;
-#[doc = "FLASHCMDWRDATALOW (rw) register accessor: Flash Command Write Data Register (Lower)\n\nYou can [`read`](crate::Reg::read) this register and get [`flashcmdwrdatalow::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`flashcmdwrdatalow::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@flashcmdwrdatalow`] module"]
+#[doc = "FLASHCMDWRDATALOW (rw) register accessor: Flash Command Write Data Register (Lower)\n\nYou can [`read`](crate::Reg::read) this register and get [`flashcmdwrdatalow::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`flashcmdwrdatalow::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@flashcmdwrdatalow`]
+module"]
 #[doc(alias = "FLASHCMDWRDATALOW")]
 pub type Flashcmdwrdatalow = crate::Reg<flashcmdwrdatalow::FlashcmdwrdatalowSpec>;
 #[doc = "Flash Command Write Data Register (Lower)"]
 pub mod flashcmdwrdatalow;
-#[doc = "FLASHCMDWRDATAUP (rw) register accessor: Flash Command Write Data Register (Upper)\n\nYou can [`read`](crate::Reg::read) this register and get [`flashcmdwrdataup::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`flashcmdwrdataup::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@flashcmdwrdataup`] module"]
+#[doc = "FLASHCMDWRDATAUP (rw) register accessor: Flash Command Write Data Register (Upper)\n\nYou can [`read`](crate::Reg::read) this register and get [`flashcmdwrdataup::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`flashcmdwrdataup::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@flashcmdwrdataup`]
+module"]
 #[doc(alias = "FLASHCMDWRDATAUP")]
 pub type Flashcmdwrdataup = crate::Reg<flashcmdwrdataup::FlashcmdwrdataupSpec>;
 #[doc = "Flash Command Write Data Register (Upper)"]

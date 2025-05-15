@@ -17,4 +17,6 @@ impl crate::RegisterSpec for TypeSpec {
 #[doc = "`read()` method returns [`type_::R`](R) reader structure"]
 impl crate::Readable for TypeSpec {}
 #[doc = "`reset()` method sets TYPE to value 0"]
-impl crate::Resettable for TypeSpec {}
+impl crate::Resettable for TypeSpec {
+    const RESET_VALUE: u32 = 0;
+}
