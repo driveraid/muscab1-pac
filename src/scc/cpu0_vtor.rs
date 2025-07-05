@@ -1,40 +1,39 @@
-#[doc = "Reader of register CPU0_VTOR"]
-pub type R = crate::R<u32, super::CPU0_VTOR>;
-#[doc = "Writer for register CPU0_VTOR"]
-pub type W = crate::W<u32, super::CPU0_VTOR>;
-#[doc = "Register CPU0_VTOR `reset()`'s with value 0x1000_0000"]
-impl crate::ResetValue for super::CPU0_VTOR {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x1000_0000
-    }
-}
-#[doc = "Reader of field `CPU0_VTOR_SECURE`"]
-pub type CPU0_VTOR_SECURE_R = crate::R<u32, u32>;
-#[doc = "Write proxy for field `CPU0_VTOR_SECURE`"]
-pub struct CPU0_VTOR_SECURE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CPU0_VTOR_SECURE_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01ff_ffff << 7)) | (((value as u32) & 0x01ff_ffff) << 7);
-        self.w
-    }
-}
+#[doc = "Register `CPU0_VTOR` reader"]
+pub type R = crate::R<Cpu0VtorSpec>;
+#[doc = "Register `CPU0_VTOR` writer"]
+pub type W = crate::W<Cpu0VtorSpec>;
+#[doc = "Field `CPU0_VTOR_SECURE` reader - Reset vector for CPU0 secure mode"]
+pub type Cpu0VtorSecureR = crate::FieldReader<u32>;
+#[doc = "Field `CPU0_VTOR_SECURE` writer - Reset vector for CPU0 secure mode"]
+pub type Cpu0VtorSecureW<'a, REG> = crate::FieldWriter<'a, REG, 25, u32>;
 impl R {
     #[doc = "Bits 7:31 - Reset vector for CPU0 secure mode"]
     #[inline(always)]
-    pub fn cpu0_vtor_secure(&self) -> CPU0_VTOR_SECURE_R {
-        CPU0_VTOR_SECURE_R::new(((self.bits >> 7) & 0x01ff_ffff) as u32)
+    pub fn cpu0_vtor_secure(&self) -> Cpu0VtorSecureR {
+        Cpu0VtorSecureR::new((self.bits >> 7) & 0x01ff_ffff)
     }
 }
 impl W {
     #[doc = "Bits 7:31 - Reset vector for CPU0 secure mode"]
     #[inline(always)]
-    pub fn cpu0_vtor_secure(&mut self) -> CPU0_VTOR_SECURE_W {
-        CPU0_VTOR_SECURE_W { w: self }
+    pub fn cpu0_vtor_secure(&mut self) -> Cpu0VtorSecureW<Cpu0VtorSpec> {
+        Cpu0VtorSecureW::new(self, 7)
     }
+}
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`cpu0_vtor::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpu0_vtor::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Cpu0VtorSpec;
+impl crate::RegisterSpec for Cpu0VtorSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`cpu0_vtor::R`](R) reader structure"]
+impl crate::Readable for Cpu0VtorSpec {}
+#[doc = "`write(|w| ..)` method takes [`cpu0_vtor::W`](W) writer structure"]
+impl crate::Writable for Cpu0VtorSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets CPU0_VTOR to value 0x1000_0000"]
+impl crate::Resettable for Cpu0VtorSpec {
+    const RESET_VALUE: u32 = 0x1000_0000;
 }

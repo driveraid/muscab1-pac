@@ -1,84 +1,65 @@
-#[doc = r"Register block"]
 #[repr(C)]
+#[doc = "Register block"]
 pub struct RegisterBlock {
-    #[doc = "0x00 - Control Register"]
-    pub ctrl: CTRL,
-    #[doc = "0x04 - Current Timer Counter Value"]
-    pub value: VALUE,
-    #[doc = "0x08 - Counter Reload Value"]
-    pub reload: RELOAD,
-    _reserved_3_intclear: [u8; 4usize],
+    ctrl: Ctrl,
+    value: Value,
+    reload: Reload,
+    _reserved_3_intclear: [u8; 0x04],
 }
 impl RegisterBlock {
-    #[doc = "0x0c - Timer Interrupt clear register"]
+    #[doc = "0x00 - Control Register"]
     #[inline(always)]
-    pub fn intclear(&self) -> &INTCLEAR {
-        unsafe { &*(((self as *const Self) as *const u8).add(12usize) as *const INTCLEAR) }
+    pub const fn ctrl(&self) -> &Ctrl {
+        &self.ctrl
+    }
+    #[doc = "0x04 - Current Timer Counter Value"]
+    #[inline(always)]
+    pub const fn value(&self) -> &Value {
+        &self.value
+    }
+    #[doc = "0x08 - Counter Reload Value"]
+    #[inline(always)]
+    pub const fn reload(&self) -> &Reload {
+        &self.reload
     }
     #[doc = "0x0c - Timer Interrupt clear register"]
     #[inline(always)]
-    pub fn intclear_mut(&self) -> &mut INTCLEAR {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(12usize) as *mut INTCLEAR) }
+    pub const fn intclear(&self) -> &Intclear {
+        unsafe { &*core::ptr::from_ref(self).cast::<u8>().add(12).cast() }
     }
     #[doc = "0x0c - Timer Interrupt status register"]
     #[inline(always)]
-    pub fn intstatus(&self) -> &INTSTATUS {
-        unsafe { &*(((self as *const Self) as *const u8).add(12usize) as *const INTSTATUS) }
-    }
-    #[doc = "0x0c - Timer Interrupt status register"]
-    #[inline(always)]
-    pub fn intstatus_mut(&self) -> &mut INTSTATUS {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(12usize) as *mut INTSTATUS) }
+    pub const fn intstatus(&self) -> &Intstatus {
+        unsafe { &*core::ptr::from_ref(self).cast::<u8>().add(12).cast() }
     }
 }
-#[doc = "Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ctrl](ctrl) module"]
-pub type CTRL = crate::Reg<u32, _CTRL>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CTRL;
-#[doc = "`read()` method returns [ctrl::R](ctrl::R) reader structure"]
-impl crate::Readable for CTRL {}
-#[doc = "`write(|w| ..)` method takes [ctrl::W](ctrl::W) writer structure"]
-impl crate::Writable for CTRL {}
+#[doc = "CTRL (rw) register accessor: Control Register\n\nYou can [`read`](crate::Reg::read) this register and get [`ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ctrl`]
+module"]
+#[doc(alias = "CTRL")]
+pub type Ctrl = crate::Reg<ctrl::CtrlSpec>;
 #[doc = "Control Register"]
 pub mod ctrl;
-#[doc = "Current Timer Counter Value\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [value](value) module"]
-pub type VALUE = crate::Reg<u32, _VALUE>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _VALUE;
-#[doc = "`read()` method returns [value::R](value::R) reader structure"]
-impl crate::Readable for VALUE {}
-#[doc = "`write(|w| ..)` method takes [value::W](value::W) writer structure"]
-impl crate::Writable for VALUE {}
+#[doc = "VALUE (rw) register accessor: Current Timer Counter Value\n\nYou can [`read`](crate::Reg::read) this register and get [`value::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`value::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@value`]
+module"]
+#[doc(alias = "VALUE")]
+pub type Value = crate::Reg<value::ValueSpec>;
 #[doc = "Current Timer Counter Value"]
 pub mod value;
-#[doc = "Counter Reload Value\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [reload](reload) module"]
-pub type RELOAD = crate::Reg<u32, _RELOAD>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _RELOAD;
-#[doc = "`read()` method returns [reload::R](reload::R) reader structure"]
-impl crate::Readable for RELOAD {}
-#[doc = "`write(|w| ..)` method takes [reload::W](reload::W) writer structure"]
-impl crate::Writable for RELOAD {}
+#[doc = "RELOAD (rw) register accessor: Counter Reload Value\n\nYou can [`read`](crate::Reg::read) this register and get [`reload::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`reload::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@reload`]
+module"]
+#[doc(alias = "RELOAD")]
+pub type Reload = crate::Reg<reload::ReloadSpec>;
 #[doc = "Counter Reload Value"]
 pub mod reload;
-#[doc = "Timer Interrupt status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intstatus](intstatus) module"]
-pub type INTSTATUS = crate::Reg<u32, _INTSTATUS>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _INTSTATUS;
-#[doc = "`read()` method returns [intstatus::R](intstatus::R) reader structure"]
-impl crate::Readable for INTSTATUS {}
+#[doc = "INTSTATUS (r) register accessor: Timer Interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`intstatus::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@intstatus`]
+module"]
+#[doc(alias = "INTSTATUS")]
+pub type Intstatus = crate::Reg<intstatus::IntstatusSpec>;
 #[doc = "Timer Interrupt status register"]
 pub mod intstatus;
-#[doc = "Timer Interrupt clear register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intclear](intclear) module"]
-pub type INTCLEAR = crate::Reg<u32, _INTCLEAR>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _INTCLEAR;
-#[doc = "`write(|w| ..)` method takes [intclear::W](intclear::W) writer structure"]
-impl crate::Writable for INTCLEAR {}
+#[doc = "INTCLEAR (w) register accessor: Timer Interrupt clear register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`intclear::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@intclear`]
+module"]
+#[doc(alias = "INTCLEAR")]
+pub type Intclear = crate::Reg<intclear::IntclearSpec>;
 #[doc = "Timer Interrupt clear register"]
 pub mod intclear;

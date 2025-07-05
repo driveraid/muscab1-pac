@@ -1,39 +1,26 @@
-#[doc = "Writer for register SWRESET"]
-pub type W = crate::W<u32, super::SWRESET>;
-#[doc = "Register SWRESET `reset()`'s with value 0"]
-impl crate::ResetValue for super::SWRESET {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
-    }
-}
-#[doc = "Write proxy for field `SWRESETREQ`"]
-pub struct SWRESETREQ_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SWRESETREQ_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
-        self.w
-    }
-}
+#[doc = "Register `SWRESET` writer"]
+pub type W = crate::W<SwresetSpec>;
+#[doc = "Field `SWRESETREQ` writer - High Active Software Reset Request"]
+pub type SwresetreqW<'a, REG> = crate::BitWriter<'a, REG>;
 impl W {
     #[doc = "Bit 9 - High Active Software Reset Request"]
     #[inline(always)]
-    pub fn swresetreq(&mut self) -> SWRESETREQ_W {
-        SWRESETREQ_W { w: self }
+    pub fn swresetreq(&mut self) -> SwresetreqW<SwresetSpec> {
+        SwresetreqW::new(self, 9)
     }
+}
+#[doc = "Software Reset\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`swreset::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SwresetSpec;
+impl crate::RegisterSpec for SwresetSpec {
+    type Ux = u32;
+}
+#[doc = "`write(|w| ..)` method takes [`swreset::W`](W) writer structure"]
+impl crate::Writable for SwresetSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets SWRESET to value 0"]
+impl crate::Resettable for SwresetSpec {
+    const RESET_VALUE: u32 = 0;
 }

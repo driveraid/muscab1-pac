@@ -1,376 +1,200 @@
-#[doc = "Reader of register CLOCK_FORCE"]
-pub type R = crate::R<u32, super::CLOCK_FORCE>;
-#[doc = "Writer for register CLOCK_FORCE"]
-pub type W = crate::W<u32, super::CLOCK_FORCE>;
-#[doc = "Register CLOCK_FORCE `reset()`'s with value 0"]
-impl crate::ResetValue for super::CLOCK_FORCE {
-    type Type = u32;
+#[doc = "Register `CLOCK_FORCE` reader"]
+pub type R = crate::R<ClockForceSpec>;
+#[doc = "Register `CLOCK_FORCE` writer"]
+pub type W = crate::W<ClockForceSpec>;
+#[doc = "Field `MAINCLK_FORCE` reader - Force MAINCLK to run when set to HIGH"]
+pub type MainclkForceR = crate::BitReader;
+#[doc = "Field `MAINCLK_FORCE` writer - Force MAINCLK to run when set to HIGH"]
+pub type MainclkForceW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `SYSSYSCLK_FORCE` reader - Force Base element Local SYSCLK to run when set to HIGH"]
+pub type SyssysclkForceR = crate::BitReader;
+#[doc = "Field `SYSSYSCLK_FORCE` writer - Force Base element Local SYSCLK to run when set to HIGH"]
+pub type SyssysclkForceW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `SYSFCLK_FORCE` reader - Force Base element Local FCLK to run when set to HIGH"]
+pub type SysfclkForceR = crate::BitReader;
+#[doc = "Field `SYSFCLK_FORCE` writer - Force Base element Local FCLK to run when set to HIGH"]
+pub type SysfclkForceW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `SRAMSYSCLK_FORCE` reader - Force SRAM Local SYSCLK to run when set to HIGH"]
+pub type SramsysclkForceR = crate::BitReader;
+#[doc = "Field `SRAMSYSCLK_FORCE` writer - Force SRAM Local SYSCLK to run when set to HIGH"]
+pub type SramsysclkForceW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `SRAMFCLK_FORCE` reader - Force SRAM Local FCLK to run when set to HIGH"]
+pub type SramfclkForceR = crate::BitReader;
+#[doc = "Field `SRAMFCLK_FORCE` writer - Force SRAM Local FCLK to run when set to HIGH"]
+pub type SramfclkForceW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `CPUSYSCLK_FORCE` reader - Force all CPU SYSCLK to run when set to HIGH"]
+pub type CpusysclkForceR = crate::BitReader;
+#[doc = "Field `CPUSYSCLK_FORCE` writer - Force all CPU SYSCLK to run when set to HIGH"]
+pub type CpusysclkForceW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `CPUFCLK_FORCE` reader - Force all CPU FCLK to run when set to HIGH"]
+pub type CpufclkForceR = crate::BitReader;
+#[doc = "Field `CPUFCLK_FORCE` writer - Force all CPU FCLK to run when set to HIGH"]
+pub type CpufclkForceW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `CRYPTOSYSCLK_FORCE` reader - Force all CryptoCell clocks to run when set to HIGH"]
+pub type CryptosysclkForceR = crate::BitReader;
+#[doc = "Field `CRYPTOSYSCLK_FORCE` writer - Force all CryptoCell clocks to run when set to HIGH"]
+pub type CryptosysclkForceW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Enable FCLK gating by HINTSYSCLKEN when CPU 1 is OFF\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum FclkhintgateEnable {
+    #[doc = "1: Enable FCLK gating by HINTSYSCLKEN when CPU 1 is OFF"]
+    Enable = 1,
+    #[doc = "0: improve SRAM3 access latency at the cost of increased power consumption"]
+    Latency = 0,
+}
+impl From<FclkhintgateEnable> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn from(variant: FclkhintgateEnable) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MAINCLK_FORCE`"]
-pub type MAINCLK_FORCE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MAINCLK_FORCE`"]
-pub struct MAINCLK_FORCE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> MAINCLK_FORCE_W<'a> {
-    #[doc = r"Sets the field bit"]
+#[doc = "Field `FCLKHINTGATE_ENABLE` reader - Enable FCLK gating by HINTSYSCLKEN when CPU 1 is OFF"]
+pub type FclkhintgateEnableR = crate::BitReader<FclkhintgateEnable>;
+impl FclkhintgateEnableR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
-    }
-}
-#[doc = "Reader of field `SYSSYSCLK_FORCE`"]
-pub type SYSSYSCLK_FORCE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SYSSYSCLK_FORCE`"]
-pub struct SYSSYSCLK_FORCE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SYSSYSCLK_FORCE_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
-        self.w
-    }
-}
-#[doc = "Reader of field `SYSFCLK_FORCE`"]
-pub type SYSFCLK_FORCE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SYSFCLK_FORCE`"]
-pub struct SYSFCLK_FORCE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SYSFCLK_FORCE_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
-        self.w
-    }
-}
-#[doc = "Reader of field `SRAMSYSCLK_FORCE`"]
-pub type SRAMSYSCLK_FORCE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SRAMSYSCLK_FORCE`"]
-pub struct SRAMSYSCLK_FORCE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SRAMSYSCLK_FORCE_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
-        self.w
-    }
-}
-#[doc = "Reader of field `SRAMFCLK_FORCE`"]
-pub type SRAMFCLK_FORCE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SRAMFCLK_FORCE`"]
-pub struct SRAMFCLK_FORCE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SRAMFCLK_FORCE_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
-        self.w
-    }
-}
-#[doc = "Reader of field `CPUSYSCLK_FORCE`"]
-pub type CPUSYSCLK_FORCE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CPUSYSCLK_FORCE`"]
-pub struct CPUSYSCLK_FORCE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CPUSYSCLK_FORCE_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
-        self.w
-    }
-}
-#[doc = "Reader of field `CPUFCLK_FORCE`"]
-pub type CPUFCLK_FORCE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CPUFCLK_FORCE`"]
-pub struct CPUFCLK_FORCE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CPUFCLK_FORCE_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
-        self.w
-    }
-}
-#[doc = "Reader of field `CRYPTOSYSCLK_FORCE`"]
-pub type CRYPTOSYSCLK_FORCE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CRYPTOSYSCLK_FORCE`"]
-pub struct CRYPTOSYSCLK_FORCE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CRYPTOSYSCLK_FORCE_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
-        self.w
-    }
-}
-#[doc = "Possible values of the field `FCLKHINTGATE_ENABLE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum FCLKHINTGATE_ENABLE_A {
-    #[doc = "Enable FCLK gating by HINTSYSCLKEN when CPU 1 is OFF"]
-    ENABLE,
-    #[doc = "improve SRAM3 access latency at the cost of increased power consumption"]
-    LATENCY,
-}
-impl From<FCLKHINTGATE_ENABLE_A> for bool {
-    #[inline(always)]
-    fn from(variant: FCLKHINTGATE_ENABLE_A) -> Self {
-        match variant {
-            FCLKHINTGATE_ENABLE_A::ENABLE => true,
-            FCLKHINTGATE_ENABLE_A::LATENCY => false,
-        }
-    }
-}
-#[doc = "Reader of field `FCLKHINTGATE_ENABLE`"]
-pub type FCLKHINTGATE_ENABLE_R = crate::R<bool, FCLKHINTGATE_ENABLE_A>;
-impl FCLKHINTGATE_ENABLE_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> FCLKHINTGATE_ENABLE_A {
+    pub const fn variant(&self) -> FclkhintgateEnable {
         match self.bits {
-            true => FCLKHINTGATE_ENABLE_A::ENABLE,
-            false => FCLKHINTGATE_ENABLE_A::LATENCY,
+            true => FclkhintgateEnable::Enable,
+            false => FclkhintgateEnable::Latency,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Enable FCLK gating by HINTSYSCLKEN when CPU 1 is OFF"]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == FCLKHINTGATE_ENABLE_A::ENABLE
-    }
-    #[doc = "Checks if the value of the field is `LATENCY`"]
-    #[inline(always)]
-    pub fn is_latency(&self) -> bool {
-        *self == FCLKHINTGATE_ENABLE_A::LATENCY
-    }
-}
-#[doc = "Write proxy for field `FCLKHINTGATE_ENABLE`"]
-pub struct FCLKHINTGATE_ENABLE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> FCLKHINTGATE_ENABLE_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: FCLKHINTGATE_ENABLE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "Enable FCLK gating by HINTSYSCLKEN when CPU 1 is OFF"]
-    #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(FCLKHINTGATE_ENABLE_A::ENABLE)
+        *self == FclkhintgateEnable::Enable
     }
     #[doc = "improve SRAM3 access latency at the cost of increased power consumption"]
     #[inline(always)]
-    pub fn latency(self) -> &'a mut W {
-        self.variant(FCLKHINTGATE_ENABLE_A::LATENCY)
+    pub fn is_latency(&self) -> bool {
+        *self == FclkhintgateEnable::Latency
     }
-    #[doc = r"Sets the field bit"]
+}
+#[doc = "Field `FCLKHINTGATE_ENABLE` writer - Enable FCLK gating by HINTSYSCLKEN when CPU 1 is OFF"]
+pub type FclkhintgateEnableW<'a, REG> = crate::BitWriter<'a, REG, FclkhintgateEnable>;
+impl<'a, REG> FclkhintgateEnableW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Enable FCLK gating by HINTSYSCLKEN when CPU 1 is OFF"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(FclkhintgateEnable::Enable)
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "improve SRAM3 access latency at the cost of increased power consumption"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
-        self.w
+    pub fn latency(self) -> &'a mut crate::W<REG> {
+        self.variant(FclkhintgateEnable::Latency)
     }
 }
 impl R {
     #[doc = "Bit 0 - Force MAINCLK to run when set to HIGH"]
     #[inline(always)]
-    pub fn mainclk_force(&self) -> MAINCLK_FORCE_R {
-        MAINCLK_FORCE_R::new((self.bits & 0x01) != 0)
+    pub fn mainclk_force(&self) -> MainclkForceR {
+        MainclkForceR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - Force Base element Local SYSCLK to run when set to HIGH"]
     #[inline(always)]
-    pub fn syssysclk_force(&self) -> SYSSYSCLK_FORCE_R {
-        SYSSYSCLK_FORCE_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn syssysclk_force(&self) -> SyssysclkForceR {
+        SyssysclkForceR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - Force Base element Local FCLK to run when set to HIGH"]
     #[inline(always)]
-    pub fn sysfclk_force(&self) -> SYSFCLK_FORCE_R {
-        SYSFCLK_FORCE_R::new(((self.bits >> 2) & 0x01) != 0)
+    pub fn sysfclk_force(&self) -> SysfclkForceR {
+        SysfclkForceR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - Force SRAM Local SYSCLK to run when set to HIGH"]
     #[inline(always)]
-    pub fn sramsysclk_force(&self) -> SRAMSYSCLK_FORCE_R {
-        SRAMSYSCLK_FORCE_R::new(((self.bits >> 3) & 0x01) != 0)
+    pub fn sramsysclk_force(&self) -> SramsysclkForceR {
+        SramsysclkForceR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - Force SRAM Local FCLK to run when set to HIGH"]
     #[inline(always)]
-    pub fn sramfclk_force(&self) -> SRAMFCLK_FORCE_R {
-        SRAMFCLK_FORCE_R::new(((self.bits >> 4) & 0x01) != 0)
+    pub fn sramfclk_force(&self) -> SramfclkForceR {
+        SramfclkForceR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - Force all CPU SYSCLK to run when set to HIGH"]
     #[inline(always)]
-    pub fn cpusysclk_force(&self) -> CPUSYSCLK_FORCE_R {
-        CPUSYSCLK_FORCE_R::new(((self.bits >> 5) & 0x01) != 0)
+    pub fn cpusysclk_force(&self) -> CpusysclkForceR {
+        CpusysclkForceR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - Force all CPU FCLK to run when set to HIGH"]
     #[inline(always)]
-    pub fn cpufclk_force(&self) -> CPUFCLK_FORCE_R {
-        CPUFCLK_FORCE_R::new(((self.bits >> 6) & 0x01) != 0)
+    pub fn cpufclk_force(&self) -> CpufclkForceR {
+        CpufclkForceR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - Force all CryptoCell clocks to run when set to HIGH"]
     #[inline(always)]
-    pub fn cryptosysclk_force(&self) -> CRYPTOSYSCLK_FORCE_R {
-        CRYPTOSYSCLK_FORCE_R::new(((self.bits >> 7) & 0x01) != 0)
+    pub fn cryptosysclk_force(&self) -> CryptosysclkForceR {
+        CryptosysclkForceR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 8 - Enable FCLK gating by HINTSYSCLKEN when CPU 1 is OFF"]
     #[inline(always)]
-    pub fn fclkhintgate_enable(&self) -> FCLKHINTGATE_ENABLE_R {
-        FCLKHINTGATE_ENABLE_R::new(((self.bits >> 8) & 0x01) != 0)
+    pub fn fclkhintgate_enable(&self) -> FclkhintgateEnableR {
+        FclkhintgateEnableR::new(((self.bits >> 8) & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 0 - Force MAINCLK to run when set to HIGH"]
     #[inline(always)]
-    pub fn mainclk_force(&mut self) -> MAINCLK_FORCE_W {
-        MAINCLK_FORCE_W { w: self }
+    pub fn mainclk_force(&mut self) -> MainclkForceW<ClockForceSpec> {
+        MainclkForceW::new(self, 0)
     }
     #[doc = "Bit 1 - Force Base element Local SYSCLK to run when set to HIGH"]
     #[inline(always)]
-    pub fn syssysclk_force(&mut self) -> SYSSYSCLK_FORCE_W {
-        SYSSYSCLK_FORCE_W { w: self }
+    pub fn syssysclk_force(&mut self) -> SyssysclkForceW<ClockForceSpec> {
+        SyssysclkForceW::new(self, 1)
     }
     #[doc = "Bit 2 - Force Base element Local FCLK to run when set to HIGH"]
     #[inline(always)]
-    pub fn sysfclk_force(&mut self) -> SYSFCLK_FORCE_W {
-        SYSFCLK_FORCE_W { w: self }
+    pub fn sysfclk_force(&mut self) -> SysfclkForceW<ClockForceSpec> {
+        SysfclkForceW::new(self, 2)
     }
     #[doc = "Bit 3 - Force SRAM Local SYSCLK to run when set to HIGH"]
     #[inline(always)]
-    pub fn sramsysclk_force(&mut self) -> SRAMSYSCLK_FORCE_W {
-        SRAMSYSCLK_FORCE_W { w: self }
+    pub fn sramsysclk_force(&mut self) -> SramsysclkForceW<ClockForceSpec> {
+        SramsysclkForceW::new(self, 3)
     }
     #[doc = "Bit 4 - Force SRAM Local FCLK to run when set to HIGH"]
     #[inline(always)]
-    pub fn sramfclk_force(&mut self) -> SRAMFCLK_FORCE_W {
-        SRAMFCLK_FORCE_W { w: self }
+    pub fn sramfclk_force(&mut self) -> SramfclkForceW<ClockForceSpec> {
+        SramfclkForceW::new(self, 4)
     }
     #[doc = "Bit 5 - Force all CPU SYSCLK to run when set to HIGH"]
     #[inline(always)]
-    pub fn cpusysclk_force(&mut self) -> CPUSYSCLK_FORCE_W {
-        CPUSYSCLK_FORCE_W { w: self }
+    pub fn cpusysclk_force(&mut self) -> CpusysclkForceW<ClockForceSpec> {
+        CpusysclkForceW::new(self, 5)
     }
     #[doc = "Bit 6 - Force all CPU FCLK to run when set to HIGH"]
     #[inline(always)]
-    pub fn cpufclk_force(&mut self) -> CPUFCLK_FORCE_W {
-        CPUFCLK_FORCE_W { w: self }
+    pub fn cpufclk_force(&mut self) -> CpufclkForceW<ClockForceSpec> {
+        CpufclkForceW::new(self, 6)
     }
     #[doc = "Bit 7 - Force all CryptoCell clocks to run when set to HIGH"]
     #[inline(always)]
-    pub fn cryptosysclk_force(&mut self) -> CRYPTOSYSCLK_FORCE_W {
-        CRYPTOSYSCLK_FORCE_W { w: self }
+    pub fn cryptosysclk_force(&mut self) -> CryptosysclkForceW<ClockForceSpec> {
+        CryptosysclkForceW::new(self, 7)
     }
     #[doc = "Bit 8 - Enable FCLK gating by HINTSYSCLKEN when CPU 1 is OFF"]
     #[inline(always)]
-    pub fn fclkhintgate_enable(&mut self) -> FCLKHINTGATE_ENABLE_W {
-        FCLKHINTGATE_ENABLE_W { w: self }
+    pub fn fclkhintgate_enable(&mut self) -> FclkhintgateEnableW<ClockForceSpec> {
+        FclkhintgateEnableW::new(self, 8)
     }
+}
+#[doc = "Clock Force\n\nYou can [`read`](crate::Reg::read) this register and get [`clock_force::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`clock_force::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct ClockForceSpec;
+impl crate::RegisterSpec for ClockForceSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`clock_force::R`](R) reader structure"]
+impl crate::Readable for ClockForceSpec {}
+#[doc = "`write(|w| ..)` method takes [`clock_force::W`](W) writer structure"]
+impl crate::Writable for ClockForceSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets CLOCK_FORCE to value 0"]
+impl crate::Resettable for ClockForceSpec {
+    const RESET_VALUE: u32 = 0;
 }

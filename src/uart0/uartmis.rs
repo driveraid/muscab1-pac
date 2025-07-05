@@ -1,81 +1,92 @@
-#[doc = "Reader of register UARTMIS"]
-pub type R = crate::R<u32, super::UARTMIS>;
-#[doc = "Reader of field `RIMMIS`"]
-pub type RIMMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `CTSMMIS`"]
-pub type CTSMMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `DCDMMIS`"]
-pub type DCDMMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `DSRMMIS`"]
-pub type DSRMMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `RXMIS`"]
-pub type RXMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `TXMIS`"]
-pub type TXMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `RTMIS`"]
-pub type RTMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `FEMIS`"]
-pub type FEMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `PEMIS`"]
-pub type PEMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `BEMIS`"]
-pub type BEMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `OEMIS`"]
-pub type OEMIS_R = crate::R<bool, bool>;
+#[doc = "Register `UARTMIS` reader"]
+pub type R = crate::R<UartmisSpec>;
+#[doc = "Field `RIMMIS` reader - nUARTRI modem masked interrupt status"]
+pub type RimmisR = crate::BitReader;
+#[doc = "Field `CTSMMIS` reader - nUARTCTS modem masked interrupt status."]
+pub type CtsmmisR = crate::BitReader;
+#[doc = "Field `DCDMMIS` reader - nUARTDCD modem masked interrupt status"]
+pub type DcdmmisR = crate::BitReader;
+#[doc = "Field `DSRMMIS` reader - nUARTDSR modem masked interrupt status"]
+pub type DsrmmisR = crate::BitReader;
+#[doc = "Field `RXMIS` reader - Receive masked interrupt status"]
+pub type RxmisR = crate::BitReader;
+#[doc = "Field `TXMIS` reader - Transmit masked interrupt status"]
+pub type TxmisR = crate::BitReader;
+#[doc = "Field `RTMIS` reader - Receive timeout masked interrupt status"]
+pub type RtmisR = crate::BitReader;
+#[doc = "Field `FEMIS` reader - Framing error masked interrupt status"]
+pub type FemisR = crate::BitReader;
+#[doc = "Field `PEMIS` reader - Parity error masked interrupt status"]
+pub type PemisR = crate::BitReader;
+#[doc = "Field `BEMIS` reader - Break error masked interrupt status"]
+pub type BemisR = crate::BitReader;
+#[doc = "Field `OEMIS` reader - Overrun error masked interrupt status"]
+pub type OemisR = crate::BitReader;
 impl R {
     #[doc = "Bit 0 - nUARTRI modem masked interrupt status"]
     #[inline(always)]
-    pub fn rimmis(&self) -> RIMMIS_R {
-        RIMMIS_R::new((self.bits & 0x01) != 0)
+    pub fn rimmis(&self) -> RimmisR {
+        RimmisR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - nUARTCTS modem masked interrupt status."]
     #[inline(always)]
-    pub fn ctsmmis(&self) -> CTSMMIS_R {
-        CTSMMIS_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn ctsmmis(&self) -> CtsmmisR {
+        CtsmmisR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - nUARTDCD modem masked interrupt status"]
     #[inline(always)]
-    pub fn dcdmmis(&self) -> DCDMMIS_R {
-        DCDMMIS_R::new(((self.bits >> 2) & 0x01) != 0)
+    pub fn dcdmmis(&self) -> DcdmmisR {
+        DcdmmisR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - nUARTDSR modem masked interrupt status"]
     #[inline(always)]
-    pub fn dsrmmis(&self) -> DSRMMIS_R {
-        DSRMMIS_R::new(((self.bits >> 3) & 0x01) != 0)
+    pub fn dsrmmis(&self) -> DsrmmisR {
+        DsrmmisR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - Receive masked interrupt status"]
     #[inline(always)]
-    pub fn rxmis(&self) -> RXMIS_R {
-        RXMIS_R::new(((self.bits >> 4) & 0x01) != 0)
+    pub fn rxmis(&self) -> RxmisR {
+        RxmisR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - Transmit masked interrupt status"]
     #[inline(always)]
-    pub fn txmis(&self) -> TXMIS_R {
-        TXMIS_R::new(((self.bits >> 5) & 0x01) != 0)
+    pub fn txmis(&self) -> TxmisR {
+        TxmisR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - Receive timeout masked interrupt status"]
     #[inline(always)]
-    pub fn rtmis(&self) -> RTMIS_R {
-        RTMIS_R::new(((self.bits >> 6) & 0x01) != 0)
+    pub fn rtmis(&self) -> RtmisR {
+        RtmisR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - Framing error masked interrupt status"]
     #[inline(always)]
-    pub fn femis(&self) -> FEMIS_R {
-        FEMIS_R::new(((self.bits >> 7) & 0x01) != 0)
+    pub fn femis(&self) -> FemisR {
+        FemisR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 8 - Parity error masked interrupt status"]
     #[inline(always)]
-    pub fn pemis(&self) -> PEMIS_R {
-        PEMIS_R::new(((self.bits >> 8) & 0x01) != 0)
+    pub fn pemis(&self) -> PemisR {
+        PemisR::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 9 - Break error masked interrupt status"]
     #[inline(always)]
-    pub fn bemis(&self) -> BEMIS_R {
-        BEMIS_R::new(((self.bits >> 9) & 0x01) != 0)
+    pub fn bemis(&self) -> BemisR {
+        BemisR::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bit 10 - Overrun error masked interrupt status"]
     #[inline(always)]
-    pub fn oemis(&self) -> OEMIS_R {
-        OEMIS_R::new(((self.bits >> 10) & 0x01) != 0)
+    pub fn oemis(&self) -> OemisR {
+        OemisR::new(((self.bits >> 10) & 1) != 0)
     }
+}
+#[doc = "Masked interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartmis::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct UartmisSpec;
+impl crate::RegisterSpec for UartmisSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`uartmis::R`](R) reader structure"]
+impl crate::Readable for UartmisSpec {}
+#[doc = "`reset()` method sets UARTMIS to value 0"]
+impl crate::Resettable for UartmisSpec {
+    const RESET_VALUE: u32 = 0;
 }

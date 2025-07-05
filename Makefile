@@ -1,17 +1,19 @@
 YAML = musca-b1.yaml
-SVD = musca-b1.svd.patched
+SVD_ORIG = svd/Musca_B1.svd
+SVD_CORRECTED = svd/Musca_B1.corrected.svd
+SVD = svd/Musca_B1.corrected.svd.patched
 
 prepare: patch generate
 	cargo build
 
 patch:
-	svd patch $(YAML)
+	cat $(SVD_ORIG) | sed 's|>read<|>read-only<|g' | sed 's|>write<|>write-only<|g' > $(SVD_CORRECTED)
+	svdtools patch $(YAML)
 
 # Generates PAC source code from (patched) SVD
 generate:
+	svd2rust -i $(SVD)
 	rm -rf src
-	mkdir src
-	svd2rust -i ./$(SVD)
 	form -i lib.rs -o src/ && rm lib.rs
 	cargo fmt
 
@@ -29,3 +31,11 @@ tag:
 version:
 	echo $(VERSION)
 
+svdtools:
+	cargo binstall form svdtools svd2rust
+
+svd2rust:
+	cargo binstall svd2rust
+
+form:
+	cargo install form

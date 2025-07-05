@@ -1,192 +1,151 @@
-#[doc = "Reader of register CTRL"]
-pub type R = crate::R<u32, super::CTRL>;
-#[doc = "Writer for register CTRL"]
-pub type W = crate::W<u32, super::CTRL>;
-#[doc = "Register CTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::CTRL {
-    type Type = u32;
+#[doc = "Register `CTRL` reader"]
+pub type R = crate::R<CtrlSpec>;
+#[doc = "Register `CTRL` writer"]
+pub type W = crate::W<CtrlSpec>;
+#[doc = "Enable\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Enable {
+    #[doc = "0: SAU is disabled"]
+    Disable = 0,
+    #[doc = "1: SAU is enabled"]
+    Enable = 1,
+}
+impl From<Enable> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn from(variant: Enable) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Possible values of the field `ENABLE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ENABLE_A {
-    #[doc = "SAU is disabled"]
-    DISABLE,
-    #[doc = "SAU is enabled"]
-    ENABLE,
-}
-impl From<ENABLE_A> for bool {
+#[doc = "Field `ENABLE` reader - Enable"]
+pub type EnableR = crate::BitReader<Enable>;
+impl EnableR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    fn from(variant: ENABLE_A) -> Self {
-        match variant {
-            ENABLE_A::DISABLE => false,
-            ENABLE_A::ENABLE => true,
-        }
-    }
-}
-#[doc = "Reader of field `ENABLE`"]
-pub type ENABLE_R = crate::R<bool, ENABLE_A>;
-impl ENABLE_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> ENABLE_A {
+    pub const fn variant(&self) -> Enable {
         match self.bits {
-            false => ENABLE_A::DISABLE,
-            true => ENABLE_A::ENABLE,
+            false => Enable::Disable,
+            true => Enable::Enable,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "SAU is disabled"]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == ENABLE_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
-    pub fn is_enable(&self) -> bool {
-        *self == ENABLE_A::ENABLE
-    }
-}
-#[doc = "Write proxy for field `ENABLE`"]
-pub struct ENABLE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> ENABLE_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: ENABLE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "SAU is disabled"]
-    #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(ENABLE_A::DISABLE)
+        *self == Enable::Disable
     }
     #[doc = "SAU is enabled"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(ENABLE_A::ENABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
+    pub fn is_enable(&self) -> bool {
+        *self == Enable::Enable
     }
 }
-#[doc = "Possible values of the field `ALLNS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ALLNS_A {
-    #[doc = "Memory is marked as secure"]
-    SECURE,
-    #[doc = "Memory is marked as non-secure"]
-    NON_SECURE,
-}
-impl From<ALLNS_A> for bool {
+#[doc = "Field `ENABLE` writer - Enable"]
+pub type EnableW<'a, REG> = crate::BitWriter<'a, REG, Enable>;
+impl<'a, REG> EnableW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "SAU is disabled"]
     #[inline(always)]
-    fn from(variant: ALLNS_A) -> Self {
-        match variant {
-            ALLNS_A::SECURE => false,
-            ALLNS_A::NON_SECURE => true,
-        }
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Enable::Disable)
+    }
+    #[doc = "SAU is enabled"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Enable::Enable)
     }
 }
-#[doc = "Reader of field `ALLNS`"]
-pub type ALLNS_R = crate::R<bool, ALLNS_A>;
-impl ALLNS_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Security attribution if SAU disabled\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Allns {
+    #[doc = "0: Memory is marked as secure"]
+    Secure = 0,
+    #[doc = "1: Memory is marked as non-secure"]
+    NonSecure = 1,
+}
+impl From<Allns> for bool {
     #[inline(always)]
-    pub fn variant(&self) -> ALLNS_A {
+    fn from(variant: Allns) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `ALLNS` reader - Security attribution if SAU disabled"]
+pub type AllnsR = crate::BitReader<Allns>;
+impl AllnsR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Allns {
         match self.bits {
-            false => ALLNS_A::SECURE,
-            true => ALLNS_A::NON_SECURE,
+            false => Allns::Secure,
+            true => Allns::NonSecure,
         }
     }
-    #[doc = "Checks if the value of the field is `SECURE`"]
+    #[doc = "Memory is marked as secure"]
     #[inline(always)]
     pub fn is_secure(&self) -> bool {
-        *self == ALLNS_A::SECURE
-    }
-    #[doc = "Checks if the value of the field is `NON_SECURE`"]
-    #[inline(always)]
-    pub fn is_non_secure(&self) -> bool {
-        *self == ALLNS_A::NON_SECURE
-    }
-}
-#[doc = "Write proxy for field `ALLNS`"]
-pub struct ALLNS_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> ALLNS_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: ALLNS_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "Memory is marked as secure"]
-    #[inline(always)]
-    pub fn secure(self) -> &'a mut W {
-        self.variant(ALLNS_A::SECURE)
+        *self == Allns::Secure
     }
     #[doc = "Memory is marked as non-secure"]
     #[inline(always)]
-    pub fn non_secure(self) -> &'a mut W {
-        self.variant(ALLNS_A::NON_SECURE)
+    pub fn is_non_secure(&self) -> bool {
+        *self == Allns::NonSecure
     }
-    #[doc = r"Sets the field bit"]
+}
+#[doc = "Field `ALLNS` writer - Security attribution if SAU disabled"]
+pub type AllnsW<'a, REG> = crate::BitWriter<'a, REG, Allns>;
+impl<'a, REG> AllnsW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Memory is marked as secure"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub fn secure(self) -> &'a mut crate::W<REG> {
+        self.variant(Allns::Secure)
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "Memory is marked as non-secure"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
-        self.w
+    pub fn non_secure(self) -> &'a mut crate::W<REG> {
+        self.variant(Allns::NonSecure)
     }
 }
 impl R {
     #[doc = "Bit 0 - Enable"]
     #[inline(always)]
-    pub fn enable(&self) -> ENABLE_R {
-        ENABLE_R::new((self.bits & 0x01) != 0)
+    pub fn enable(&self) -> EnableR {
+        EnableR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - Security attribution if SAU disabled"]
     #[inline(always)]
-    pub fn allns(&self) -> ALLNS_R {
-        ALLNS_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn allns(&self) -> AllnsR {
+        AllnsR::new(((self.bits >> 1) & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 0 - Enable"]
     #[inline(always)]
-    pub fn enable(&mut self) -> ENABLE_W {
-        ENABLE_W { w: self }
+    pub fn enable(&mut self) -> EnableW<CtrlSpec> {
+        EnableW::new(self, 0)
     }
     #[doc = "Bit 1 - Security attribution if SAU disabled"]
     #[inline(always)]
-    pub fn allns(&mut self) -> ALLNS_W {
-        ALLNS_W { w: self }
+    pub fn allns(&mut self) -> AllnsW<CtrlSpec> {
+        AllnsW::new(self, 1)
     }
+}
+#[doc = "Control Register\n\nYou can [`read`](crate::Reg::read) this register and get [`ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CtrlSpec;
+impl crate::RegisterSpec for CtrlSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`ctrl::R`](R) reader structure"]
+impl crate::Readable for CtrlSpec {}
+#[doc = "`write(|w| ..)` method takes [`ctrl::W`](W) writer structure"]
+impl crate::Writable for CtrlSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets CTRL to value 0"]
+impl crate::Resettable for CtrlSpec {
+    const RESET_VALUE: u32 = 0;
 }

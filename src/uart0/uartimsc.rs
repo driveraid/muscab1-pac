@@ -1,984 +1,718 @@
-#[doc = "Reader of register UARTIMSC"]
-pub type R = crate::R<u32, super::UARTIMSC>;
-#[doc = "Writer for register UARTIMSC"]
-pub type W = crate::W<u32, super::UARTIMSC>;
-#[doc = "Register UARTIMSC `reset()`'s with value 0"]
-impl crate::ResetValue for super::UARTIMSC {
-    type Type = u32;
+#[doc = "Register `UARTIMSC` reader"]
+pub type R = crate::R<UartimscSpec>;
+#[doc = "Register `UARTIMSC` writer"]
+pub type W = crate::W<UartimscSpec>;
+#[doc = "nUARTRI modem interrupt mask\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Rimim {
+    #[doc = "0: Clears the mask"]
+    Clear = 0,
+    #[doc = "1: Sets the mask"]
+    Set = 1,
+}
+impl From<Rimim> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn from(variant: Rimim) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Possible values of the field `RIMIM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RIMIM_A {
-    #[doc = "Clears the mask"]
-    CLEAR,
-    #[doc = "Sets the mask"]
-    SET,
-}
-impl From<RIMIM_A> for bool {
+#[doc = "Field `RIMIM` reader - nUARTRI modem interrupt mask"]
+pub type RimimR = crate::BitReader<Rimim>;
+impl RimimR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    fn from(variant: RIMIM_A) -> Self {
-        match variant {
-            RIMIM_A::CLEAR => false,
-            RIMIM_A::SET => true,
-        }
-    }
-}
-#[doc = "Reader of field `RIMIM`"]
-pub type RIMIM_R = crate::R<bool, RIMIM_A>;
-impl RIMIM_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> RIMIM_A {
+    pub const fn variant(&self) -> Rimim {
         match self.bits {
-            false => RIMIM_A::CLEAR,
-            true => RIMIM_A::SET,
+            false => Rimim::Clear,
+            true => Rimim::Set,
         }
     }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[doc = "Clears the mask"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == RIMIM_A::CLEAR
+        *self == Rimim::Clear
     }
-    #[doc = "Checks if the value of the field is `SET`"]
+    #[doc = "Sets the mask"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == RIMIM_A::SET
+        *self == Rimim::Set
     }
 }
-#[doc = "Write proxy for field `RIMIM`"]
-pub struct RIMIM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> RIMIM_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: RIMIM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `RIMIM` writer - nUARTRI modem interrupt mask"]
+pub type RimimW<'a, REG> = crate::BitWriter<'a, REG, Rimim>;
+impl<'a, REG> RimimW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clears the mask"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(RIMIM_A::CLEAR)
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(Rimim::Clear)
     }
     #[doc = "Sets the mask"]
     #[inline(always)]
-    pub fn set(self) -> &'a mut W {
-        self.variant(RIMIM_A::SET)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
+    pub fn set_(self) -> &'a mut crate::W<REG> {
+        self.variant(Rimim::Set)
     }
 }
-#[doc = "Possible values of the field `CTSMIM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CTSMIM_A {
-    #[doc = "Clears the mask"]
-    CLEAR,
-    #[doc = "Sets the mask"]
-    SET,
+#[doc = "nUARTCTS modem interrupt mask.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Ctsmim {
+    #[doc = "0: Clears the mask"]
+    Clear = 0,
+    #[doc = "1: Sets the mask"]
+    Set = 1,
 }
-impl From<CTSMIM_A> for bool {
+impl From<Ctsmim> for bool {
     #[inline(always)]
-    fn from(variant: CTSMIM_A) -> Self {
-        match variant {
-            CTSMIM_A::CLEAR => false,
-            CTSMIM_A::SET => true,
-        }
+    fn from(variant: Ctsmim) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CTSMIM`"]
-pub type CTSMIM_R = crate::R<bool, CTSMIM_A>;
-impl CTSMIM_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `CTSMIM` reader - nUARTCTS modem interrupt mask."]
+pub type CtsmimR = crate::BitReader<Ctsmim>;
+impl CtsmimR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> CTSMIM_A {
+    pub const fn variant(&self) -> Ctsmim {
         match self.bits {
-            false => CTSMIM_A::CLEAR,
-            true => CTSMIM_A::SET,
+            false => Ctsmim::Clear,
+            true => Ctsmim::Set,
         }
     }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[doc = "Clears the mask"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == CTSMIM_A::CLEAR
+        *self == Ctsmim::Clear
     }
-    #[doc = "Checks if the value of the field is `SET`"]
+    #[doc = "Sets the mask"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == CTSMIM_A::SET
+        *self == Ctsmim::Set
     }
 }
-#[doc = "Write proxy for field `CTSMIM`"]
-pub struct CTSMIM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CTSMIM_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: CTSMIM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `CTSMIM` writer - nUARTCTS modem interrupt mask."]
+pub type CtsmimW<'a, REG> = crate::BitWriter<'a, REG, Ctsmim>;
+impl<'a, REG> CtsmimW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clears the mask"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(CTSMIM_A::CLEAR)
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(Ctsmim::Clear)
     }
     #[doc = "Sets the mask"]
     #[inline(always)]
-    pub fn set(self) -> &'a mut W {
-        self.variant(CTSMIM_A::SET)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
-        self.w
+    pub fn set_(self) -> &'a mut crate::W<REG> {
+        self.variant(Ctsmim::Set)
     }
 }
-#[doc = "Possible values of the field `DCDMIM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DCDMIM_A {
-    #[doc = "Clears the mask"]
-    CLEAR,
-    #[doc = "Sets the mask"]
-    SET,
+#[doc = "nUARTDCD modem interrupt mask\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Dcdmim {
+    #[doc = "0: Clears the mask"]
+    Clear = 0,
+    #[doc = "1: Sets the mask"]
+    Set = 1,
 }
-impl From<DCDMIM_A> for bool {
+impl From<Dcdmim> for bool {
     #[inline(always)]
-    fn from(variant: DCDMIM_A) -> Self {
-        match variant {
-            DCDMIM_A::CLEAR => false,
-            DCDMIM_A::SET => true,
-        }
+    fn from(variant: Dcdmim) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DCDMIM`"]
-pub type DCDMIM_R = crate::R<bool, DCDMIM_A>;
-impl DCDMIM_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `DCDMIM` reader - nUARTDCD modem interrupt mask"]
+pub type DcdmimR = crate::BitReader<Dcdmim>;
+impl DcdmimR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> DCDMIM_A {
+    pub const fn variant(&self) -> Dcdmim {
         match self.bits {
-            false => DCDMIM_A::CLEAR,
-            true => DCDMIM_A::SET,
+            false => Dcdmim::Clear,
+            true => Dcdmim::Set,
         }
     }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[doc = "Clears the mask"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == DCDMIM_A::CLEAR
+        *self == Dcdmim::Clear
     }
-    #[doc = "Checks if the value of the field is `SET`"]
+    #[doc = "Sets the mask"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == DCDMIM_A::SET
+        *self == Dcdmim::Set
     }
 }
-#[doc = "Write proxy for field `DCDMIM`"]
-pub struct DCDMIM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> DCDMIM_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: DCDMIM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `DCDMIM` writer - nUARTDCD modem interrupt mask"]
+pub type DcdmimW<'a, REG> = crate::BitWriter<'a, REG, Dcdmim>;
+impl<'a, REG> DcdmimW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clears the mask"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(DCDMIM_A::CLEAR)
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(Dcdmim::Clear)
     }
     #[doc = "Sets the mask"]
     #[inline(always)]
-    pub fn set(self) -> &'a mut W {
-        self.variant(DCDMIM_A::SET)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
-        self.w
+    pub fn set_(self) -> &'a mut crate::W<REG> {
+        self.variant(Dcdmim::Set)
     }
 }
-#[doc = "Possible values of the field `DSRMIM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DSRMIM_A {
-    #[doc = "Clears the mask"]
-    CLEAR,
-    #[doc = "Sets the mask"]
-    SET,
+#[doc = "nUARTDSR modem interrupt mask\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Dsrmim {
+    #[doc = "0: Clears the mask"]
+    Clear = 0,
+    #[doc = "1: Sets the mask"]
+    Set = 1,
 }
-impl From<DSRMIM_A> for bool {
+impl From<Dsrmim> for bool {
     #[inline(always)]
-    fn from(variant: DSRMIM_A) -> Self {
-        match variant {
-            DSRMIM_A::CLEAR => false,
-            DSRMIM_A::SET => true,
-        }
+    fn from(variant: Dsrmim) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DSRMIM`"]
-pub type DSRMIM_R = crate::R<bool, DSRMIM_A>;
-impl DSRMIM_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `DSRMIM` reader - nUARTDSR modem interrupt mask"]
+pub type DsrmimR = crate::BitReader<Dsrmim>;
+impl DsrmimR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> DSRMIM_A {
+    pub const fn variant(&self) -> Dsrmim {
         match self.bits {
-            false => DSRMIM_A::CLEAR,
-            true => DSRMIM_A::SET,
+            false => Dsrmim::Clear,
+            true => Dsrmim::Set,
         }
     }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[doc = "Clears the mask"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == DSRMIM_A::CLEAR
+        *self == Dsrmim::Clear
     }
-    #[doc = "Checks if the value of the field is `SET`"]
+    #[doc = "Sets the mask"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == DSRMIM_A::SET
+        *self == Dsrmim::Set
     }
 }
-#[doc = "Write proxy for field `DSRMIM`"]
-pub struct DSRMIM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> DSRMIM_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: DSRMIM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `DSRMIM` writer - nUARTDSR modem interrupt mask"]
+pub type DsrmimW<'a, REG> = crate::BitWriter<'a, REG, Dsrmim>;
+impl<'a, REG> DsrmimW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clears the mask"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(DSRMIM_A::CLEAR)
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(Dsrmim::Clear)
     }
     #[doc = "Sets the mask"]
     #[inline(always)]
-    pub fn set(self) -> &'a mut W {
-        self.variant(DSRMIM_A::SET)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
-        self.w
+    pub fn set_(self) -> &'a mut crate::W<REG> {
+        self.variant(Dsrmim::Set)
     }
 }
-#[doc = "Possible values of the field `RXIM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RXIM_A {
-    #[doc = "Clears the mask"]
-    CLEAR,
-    #[doc = "Sets the mask"]
-    SET,
+#[doc = "Receive interrupt mask\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Rxim {
+    #[doc = "0: Clears the mask"]
+    Clear = 0,
+    #[doc = "1: Sets the mask"]
+    Set = 1,
 }
-impl From<RXIM_A> for bool {
+impl From<Rxim> for bool {
     #[inline(always)]
-    fn from(variant: RXIM_A) -> Self {
-        match variant {
-            RXIM_A::CLEAR => false,
-            RXIM_A::SET => true,
-        }
+    fn from(variant: Rxim) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RXIM`"]
-pub type RXIM_R = crate::R<bool, RXIM_A>;
-impl RXIM_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `RXIM` reader - Receive interrupt mask"]
+pub type RximR = crate::BitReader<Rxim>;
+impl RximR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> RXIM_A {
+    pub const fn variant(&self) -> Rxim {
         match self.bits {
-            false => RXIM_A::CLEAR,
-            true => RXIM_A::SET,
+            false => Rxim::Clear,
+            true => Rxim::Set,
         }
     }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[doc = "Clears the mask"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == RXIM_A::CLEAR
+        *self == Rxim::Clear
     }
-    #[doc = "Checks if the value of the field is `SET`"]
+    #[doc = "Sets the mask"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == RXIM_A::SET
+        *self == Rxim::Set
     }
 }
-#[doc = "Write proxy for field `RXIM`"]
-pub struct RXIM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> RXIM_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: RXIM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `RXIM` writer - Receive interrupt mask"]
+pub type RximW<'a, REG> = crate::BitWriter<'a, REG, Rxim>;
+impl<'a, REG> RximW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clears the mask"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(RXIM_A::CLEAR)
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxim::Clear)
     }
     #[doc = "Sets the mask"]
     #[inline(always)]
-    pub fn set(self) -> &'a mut W {
-        self.variant(RXIM_A::SET)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
-        self.w
+    pub fn set_(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxim::Set)
     }
 }
-#[doc = "Possible values of the field `TXIM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TXIM_A {
-    #[doc = "Clears the mask"]
-    CLEAR,
-    #[doc = "Sets the mask"]
-    SET,
+#[doc = "Transmit interrupt mask\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Txim {
+    #[doc = "0: Clears the mask"]
+    Clear = 0,
+    #[doc = "1: Sets the mask"]
+    Set = 1,
 }
-impl From<TXIM_A> for bool {
+impl From<Txim> for bool {
     #[inline(always)]
-    fn from(variant: TXIM_A) -> Self {
-        match variant {
-            TXIM_A::CLEAR => false,
-            TXIM_A::SET => true,
-        }
+    fn from(variant: Txim) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TXIM`"]
-pub type TXIM_R = crate::R<bool, TXIM_A>;
-impl TXIM_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `TXIM` reader - Transmit interrupt mask"]
+pub type TximR = crate::BitReader<Txim>;
+impl TximR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TXIM_A {
+    pub const fn variant(&self) -> Txim {
         match self.bits {
-            false => TXIM_A::CLEAR,
-            true => TXIM_A::SET,
+            false => Txim::Clear,
+            true => Txim::Set,
         }
     }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[doc = "Clears the mask"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == TXIM_A::CLEAR
+        *self == Txim::Clear
     }
-    #[doc = "Checks if the value of the field is `SET`"]
+    #[doc = "Sets the mask"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == TXIM_A::SET
+        *self == Txim::Set
     }
 }
-#[doc = "Write proxy for field `TXIM`"]
-pub struct TXIM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> TXIM_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: TXIM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `TXIM` writer - Transmit interrupt mask"]
+pub type TximW<'a, REG> = crate::BitWriter<'a, REG, Txim>;
+impl<'a, REG> TximW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clears the mask"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(TXIM_A::CLEAR)
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(Txim::Clear)
     }
     #[doc = "Sets the mask"]
     #[inline(always)]
-    pub fn set(self) -> &'a mut W {
-        self.variant(TXIM_A::SET)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
-        self.w
+    pub fn set_(self) -> &'a mut crate::W<REG> {
+        self.variant(Txim::Set)
     }
 }
-#[doc = "Possible values of the field `RTIM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RTIM_A {
-    #[doc = "Clears the mask"]
-    CLEAR,
-    #[doc = "Sets the mask"]
-    SET,
+#[doc = "Receive timeout interrupt mask\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Rtim {
+    #[doc = "0: Clears the mask"]
+    Clear = 0,
+    #[doc = "1: Sets the mask"]
+    Set = 1,
 }
-impl From<RTIM_A> for bool {
+impl From<Rtim> for bool {
     #[inline(always)]
-    fn from(variant: RTIM_A) -> Self {
-        match variant {
-            RTIM_A::CLEAR => false,
-            RTIM_A::SET => true,
-        }
+    fn from(variant: Rtim) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RTIM`"]
-pub type RTIM_R = crate::R<bool, RTIM_A>;
-impl RTIM_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `RTIM` reader - Receive timeout interrupt mask"]
+pub type RtimR = crate::BitReader<Rtim>;
+impl RtimR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> RTIM_A {
+    pub const fn variant(&self) -> Rtim {
         match self.bits {
-            false => RTIM_A::CLEAR,
-            true => RTIM_A::SET,
+            false => Rtim::Clear,
+            true => Rtim::Set,
         }
     }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[doc = "Clears the mask"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == RTIM_A::CLEAR
+        *self == Rtim::Clear
     }
-    #[doc = "Checks if the value of the field is `SET`"]
+    #[doc = "Sets the mask"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == RTIM_A::SET
+        *self == Rtim::Set
     }
 }
-#[doc = "Write proxy for field `RTIM`"]
-pub struct RTIM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> RTIM_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: RTIM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `RTIM` writer - Receive timeout interrupt mask"]
+pub type RtimW<'a, REG> = crate::BitWriter<'a, REG, Rtim>;
+impl<'a, REG> RtimW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clears the mask"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(RTIM_A::CLEAR)
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(Rtim::Clear)
     }
     #[doc = "Sets the mask"]
     #[inline(always)]
-    pub fn set(self) -> &'a mut W {
-        self.variant(RTIM_A::SET)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
-        self.w
+    pub fn set_(self) -> &'a mut crate::W<REG> {
+        self.variant(Rtim::Set)
     }
 }
-#[doc = "Possible values of the field `FEIM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum FEIM_A {
-    #[doc = "Clears the mask"]
-    CLEAR,
-    #[doc = "Sets the mask"]
-    SET,
+#[doc = "Framing error interrupt mask\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Feim {
+    #[doc = "0: Clears the mask"]
+    Clear = 0,
+    #[doc = "1: Sets the mask"]
+    Set = 1,
 }
-impl From<FEIM_A> for bool {
+impl From<Feim> for bool {
     #[inline(always)]
-    fn from(variant: FEIM_A) -> Self {
-        match variant {
-            FEIM_A::CLEAR => false,
-            FEIM_A::SET => true,
-        }
+    fn from(variant: Feim) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `FEIM`"]
-pub type FEIM_R = crate::R<bool, FEIM_A>;
-impl FEIM_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `FEIM` reader - Framing error interrupt mask"]
+pub type FeimR = crate::BitReader<Feim>;
+impl FeimR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> FEIM_A {
+    pub const fn variant(&self) -> Feim {
         match self.bits {
-            false => FEIM_A::CLEAR,
-            true => FEIM_A::SET,
+            false => Feim::Clear,
+            true => Feim::Set,
         }
     }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[doc = "Clears the mask"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == FEIM_A::CLEAR
+        *self == Feim::Clear
     }
-    #[doc = "Checks if the value of the field is `SET`"]
+    #[doc = "Sets the mask"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == FEIM_A::SET
+        *self == Feim::Set
     }
 }
-#[doc = "Write proxy for field `FEIM`"]
-pub struct FEIM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> FEIM_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: FEIM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `FEIM` writer - Framing error interrupt mask"]
+pub type FeimW<'a, REG> = crate::BitWriter<'a, REG, Feim>;
+impl<'a, REG> FeimW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clears the mask"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(FEIM_A::CLEAR)
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(Feim::Clear)
     }
     #[doc = "Sets the mask"]
     #[inline(always)]
-    pub fn set(self) -> &'a mut W {
-        self.variant(FEIM_A::SET)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
-        self.w
+    pub fn set_(self) -> &'a mut crate::W<REG> {
+        self.variant(Feim::Set)
     }
 }
-#[doc = "Possible values of the field `PEIM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PEIM_A {
-    #[doc = "Clears the mask"]
-    CLEAR,
-    #[doc = "Sets the mask"]
-    SET,
+#[doc = "Parity error interrupt mask\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Peim {
+    #[doc = "0: Clears the mask"]
+    Clear = 0,
+    #[doc = "1: Sets the mask"]
+    Set = 1,
 }
-impl From<PEIM_A> for bool {
+impl From<Peim> for bool {
     #[inline(always)]
-    fn from(variant: PEIM_A) -> Self {
-        match variant {
-            PEIM_A::CLEAR => false,
-            PEIM_A::SET => true,
-        }
+    fn from(variant: Peim) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `PEIM`"]
-pub type PEIM_R = crate::R<bool, PEIM_A>;
-impl PEIM_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `PEIM` reader - Parity error interrupt mask"]
+pub type PeimR = crate::BitReader<Peim>;
+impl PeimR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> PEIM_A {
+    pub const fn variant(&self) -> Peim {
         match self.bits {
-            false => PEIM_A::CLEAR,
-            true => PEIM_A::SET,
+            false => Peim::Clear,
+            true => Peim::Set,
         }
     }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[doc = "Clears the mask"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == PEIM_A::CLEAR
+        *self == Peim::Clear
     }
-    #[doc = "Checks if the value of the field is `SET`"]
+    #[doc = "Sets the mask"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == PEIM_A::SET
+        *self == Peim::Set
     }
 }
-#[doc = "Write proxy for field `PEIM`"]
-pub struct PEIM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> PEIM_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: PEIM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `PEIM` writer - Parity error interrupt mask"]
+pub type PeimW<'a, REG> = crate::BitWriter<'a, REG, Peim>;
+impl<'a, REG> PeimW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clears the mask"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(PEIM_A::CLEAR)
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(Peim::Clear)
     }
     #[doc = "Sets the mask"]
     #[inline(always)]
-    pub fn set(self) -> &'a mut W {
-        self.variant(PEIM_A::SET)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
-        self.w
+    pub fn set_(self) -> &'a mut crate::W<REG> {
+        self.variant(Peim::Set)
     }
 }
-#[doc = "Possible values of the field `BEIM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum BEIM_A {
-    #[doc = "Clears the mask"]
-    CLEAR,
-    #[doc = "Sets the mask"]
-    SET,
+#[doc = "Break error interrupt mask\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Beim {
+    #[doc = "0: Clears the mask"]
+    Clear = 0,
+    #[doc = "1: Sets the mask"]
+    Set = 1,
 }
-impl From<BEIM_A> for bool {
+impl From<Beim> for bool {
     #[inline(always)]
-    fn from(variant: BEIM_A) -> Self {
-        match variant {
-            BEIM_A::CLEAR => false,
-            BEIM_A::SET => true,
-        }
+    fn from(variant: Beim) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `BEIM`"]
-pub type BEIM_R = crate::R<bool, BEIM_A>;
-impl BEIM_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `BEIM` reader - Break error interrupt mask"]
+pub type BeimR = crate::BitReader<Beim>;
+impl BeimR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> BEIM_A {
+    pub const fn variant(&self) -> Beim {
         match self.bits {
-            false => BEIM_A::CLEAR,
-            true => BEIM_A::SET,
+            false => Beim::Clear,
+            true => Beim::Set,
         }
     }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[doc = "Clears the mask"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == BEIM_A::CLEAR
+        *self == Beim::Clear
     }
-    #[doc = "Checks if the value of the field is `SET`"]
+    #[doc = "Sets the mask"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == BEIM_A::SET
+        *self == Beim::Set
     }
 }
-#[doc = "Write proxy for field `BEIM`"]
-pub struct BEIM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> BEIM_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: BEIM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `BEIM` writer - Break error interrupt mask"]
+pub type BeimW<'a, REG> = crate::BitWriter<'a, REG, Beim>;
+impl<'a, REG> BeimW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clears the mask"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(BEIM_A::CLEAR)
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(Beim::Clear)
     }
     #[doc = "Sets the mask"]
     #[inline(always)]
-    pub fn set(self) -> &'a mut W {
-        self.variant(BEIM_A::SET)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
-        self.w
+    pub fn set_(self) -> &'a mut crate::W<REG> {
+        self.variant(Beim::Set)
     }
 }
-#[doc = "Possible values of the field `OEIM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum OEIM_A {
-    #[doc = "Clears the mask"]
-    CLEAR,
-    #[doc = "Sets the mask"]
-    SET,
+#[doc = "Overrun error interrupt mask\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Oeim {
+    #[doc = "0: Clears the mask"]
+    Clear = 0,
+    #[doc = "1: Sets the mask"]
+    Set = 1,
 }
-impl From<OEIM_A> for bool {
+impl From<Oeim> for bool {
     #[inline(always)]
-    fn from(variant: OEIM_A) -> Self {
-        match variant {
-            OEIM_A::CLEAR => false,
-            OEIM_A::SET => true,
-        }
+    fn from(variant: Oeim) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `OEIM`"]
-pub type OEIM_R = crate::R<bool, OEIM_A>;
-impl OEIM_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `OEIM` reader - Overrun error interrupt mask"]
+pub type OeimR = crate::BitReader<Oeim>;
+impl OeimR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> OEIM_A {
+    pub const fn variant(&self) -> Oeim {
         match self.bits {
-            false => OEIM_A::CLEAR,
-            true => OEIM_A::SET,
+            false => Oeim::Clear,
+            true => Oeim::Set,
         }
     }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[doc = "Clears the mask"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == OEIM_A::CLEAR
-    }
-    #[doc = "Checks if the value of the field is `SET`"]
-    #[inline(always)]
-    pub fn is_set(&self) -> bool {
-        *self == OEIM_A::SET
-    }
-}
-#[doc = "Write proxy for field `OEIM`"]
-pub struct OEIM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> OEIM_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: OEIM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "Clears the mask"]
-    #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(OEIM_A::CLEAR)
+        *self == Oeim::Clear
     }
     #[doc = "Sets the mask"]
     #[inline(always)]
-    pub fn set(self) -> &'a mut W {
-        self.variant(OEIM_A::SET)
+    pub fn is_set(&self) -> bool {
+        *self == Oeim::Set
     }
-    #[doc = r"Sets the field bit"]
+}
+#[doc = "Field `OEIM` writer - Overrun error interrupt mask"]
+pub type OeimW<'a, REG> = crate::BitWriter<'a, REG, Oeim>;
+impl<'a, REG> OeimW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Clears the mask"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(Oeim::Clear)
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "Sets the mask"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
-        self.w
+    pub fn set_(self) -> &'a mut crate::W<REG> {
+        self.variant(Oeim::Set)
     }
 }
 impl R {
     #[doc = "Bit 0 - nUARTRI modem interrupt mask"]
     #[inline(always)]
-    pub fn rimim(&self) -> RIMIM_R {
-        RIMIM_R::new((self.bits & 0x01) != 0)
+    pub fn rimim(&self) -> RimimR {
+        RimimR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - nUARTCTS modem interrupt mask."]
     #[inline(always)]
-    pub fn ctsmim(&self) -> CTSMIM_R {
-        CTSMIM_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn ctsmim(&self) -> CtsmimR {
+        CtsmimR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - nUARTDCD modem interrupt mask"]
     #[inline(always)]
-    pub fn dcdmim(&self) -> DCDMIM_R {
-        DCDMIM_R::new(((self.bits >> 2) & 0x01) != 0)
+    pub fn dcdmim(&self) -> DcdmimR {
+        DcdmimR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - nUARTDSR modem interrupt mask"]
     #[inline(always)]
-    pub fn dsrmim(&self) -> DSRMIM_R {
-        DSRMIM_R::new(((self.bits >> 3) & 0x01) != 0)
+    pub fn dsrmim(&self) -> DsrmimR {
+        DsrmimR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - Receive interrupt mask"]
     #[inline(always)]
-    pub fn rxim(&self) -> RXIM_R {
-        RXIM_R::new(((self.bits >> 4) & 0x01) != 0)
+    pub fn rxim(&self) -> RximR {
+        RximR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - Transmit interrupt mask"]
     #[inline(always)]
-    pub fn txim(&self) -> TXIM_R {
-        TXIM_R::new(((self.bits >> 5) & 0x01) != 0)
+    pub fn txim(&self) -> TximR {
+        TximR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - Receive timeout interrupt mask"]
     #[inline(always)]
-    pub fn rtim(&self) -> RTIM_R {
-        RTIM_R::new(((self.bits >> 6) & 0x01) != 0)
+    pub fn rtim(&self) -> RtimR {
+        RtimR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - Framing error interrupt mask"]
     #[inline(always)]
-    pub fn feim(&self) -> FEIM_R {
-        FEIM_R::new(((self.bits >> 7) & 0x01) != 0)
+    pub fn feim(&self) -> FeimR {
+        FeimR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 8 - Parity error interrupt mask"]
     #[inline(always)]
-    pub fn peim(&self) -> PEIM_R {
-        PEIM_R::new(((self.bits >> 8) & 0x01) != 0)
+    pub fn peim(&self) -> PeimR {
+        PeimR::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 9 - Break error interrupt mask"]
     #[inline(always)]
-    pub fn beim(&self) -> BEIM_R {
-        BEIM_R::new(((self.bits >> 9) & 0x01) != 0)
+    pub fn beim(&self) -> BeimR {
+        BeimR::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bit 10 - Overrun error interrupt mask"]
     #[inline(always)]
-    pub fn oeim(&self) -> OEIM_R {
-        OEIM_R::new(((self.bits >> 10) & 0x01) != 0)
+    pub fn oeim(&self) -> OeimR {
+        OeimR::new(((self.bits >> 10) & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 0 - nUARTRI modem interrupt mask"]
     #[inline(always)]
-    pub fn rimim(&mut self) -> RIMIM_W {
-        RIMIM_W { w: self }
+    pub fn rimim(&mut self) -> RimimW<UartimscSpec> {
+        RimimW::new(self, 0)
     }
     #[doc = "Bit 1 - nUARTCTS modem interrupt mask."]
     #[inline(always)]
-    pub fn ctsmim(&mut self) -> CTSMIM_W {
-        CTSMIM_W { w: self }
+    pub fn ctsmim(&mut self) -> CtsmimW<UartimscSpec> {
+        CtsmimW::new(self, 1)
     }
     #[doc = "Bit 2 - nUARTDCD modem interrupt mask"]
     #[inline(always)]
-    pub fn dcdmim(&mut self) -> DCDMIM_W {
-        DCDMIM_W { w: self }
+    pub fn dcdmim(&mut self) -> DcdmimW<UartimscSpec> {
+        DcdmimW::new(self, 2)
     }
     #[doc = "Bit 3 - nUARTDSR modem interrupt mask"]
     #[inline(always)]
-    pub fn dsrmim(&mut self) -> DSRMIM_W {
-        DSRMIM_W { w: self }
+    pub fn dsrmim(&mut self) -> DsrmimW<UartimscSpec> {
+        DsrmimW::new(self, 3)
     }
     #[doc = "Bit 4 - Receive interrupt mask"]
     #[inline(always)]
-    pub fn rxim(&mut self) -> RXIM_W {
-        RXIM_W { w: self }
+    pub fn rxim(&mut self) -> RximW<UartimscSpec> {
+        RximW::new(self, 4)
     }
     #[doc = "Bit 5 - Transmit interrupt mask"]
     #[inline(always)]
-    pub fn txim(&mut self) -> TXIM_W {
-        TXIM_W { w: self }
+    pub fn txim(&mut self) -> TximW<UartimscSpec> {
+        TximW::new(self, 5)
     }
     #[doc = "Bit 6 - Receive timeout interrupt mask"]
     #[inline(always)]
-    pub fn rtim(&mut self) -> RTIM_W {
-        RTIM_W { w: self }
+    pub fn rtim(&mut self) -> RtimW<UartimscSpec> {
+        RtimW::new(self, 6)
     }
     #[doc = "Bit 7 - Framing error interrupt mask"]
     #[inline(always)]
-    pub fn feim(&mut self) -> FEIM_W {
-        FEIM_W { w: self }
+    pub fn feim(&mut self) -> FeimW<UartimscSpec> {
+        FeimW::new(self, 7)
     }
     #[doc = "Bit 8 - Parity error interrupt mask"]
     #[inline(always)]
-    pub fn peim(&mut self) -> PEIM_W {
-        PEIM_W { w: self }
+    pub fn peim(&mut self) -> PeimW<UartimscSpec> {
+        PeimW::new(self, 8)
     }
     #[doc = "Bit 9 - Break error interrupt mask"]
     #[inline(always)]
-    pub fn beim(&mut self) -> BEIM_W {
-        BEIM_W { w: self }
+    pub fn beim(&mut self) -> BeimW<UartimscSpec> {
+        BeimW::new(self, 9)
     }
     #[doc = "Bit 10 - Overrun error interrupt mask"]
     #[inline(always)]
-    pub fn oeim(&mut self) -> OEIM_W {
-        OEIM_W { w: self }
+    pub fn oeim(&mut self) -> OeimW<UartimscSpec> {
+        OeimW::new(self, 10)
     }
+}
+#[doc = "Interrupt mask set/clear register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartimsc::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartimsc::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct UartimscSpec;
+impl crate::RegisterSpec for UartimscSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`uartimsc::R`](R) reader structure"]
+impl crate::Readable for UartimscSpec {}
+#[doc = "`write(|w| ..)` method takes [`uartimsc::W`](W) writer structure"]
+impl crate::Writable for UartimscSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets UARTIMSC to value 0"]
+impl crate::Resettable for UartimscSpec {
+    const RESET_VALUE: u32 = 0;
 }

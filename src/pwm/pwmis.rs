@@ -1,48 +1,56 @@
-#[doc = "Reader of register PWMIS"]
-pub type R = crate::R<u32, super::PWMIS>;
-#[doc = "Possible values of the field `Status`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum STATUS_A {
-    #[doc = "Interrupt is active"]
-    ACTIVE,
-    #[doc = "Interrupt is not active"]
-    NOTACTIVE,
+#[doc = "Register `PWMIS` reader"]
+pub type R = crate::R<PwmisSpec>;
+#[doc = "Reading from this address returns the current state of the PWM Interrupt output, and then sets the bit low\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Status {
+    #[doc = "1: Interrupt is active"]
+    Active = 1,
+    #[doc = "0: Interrupt is not active"]
+    Notactive = 0,
 }
-impl From<STATUS_A> for bool {
+impl From<Status> for bool {
     #[inline(always)]
-    fn from(variant: STATUS_A) -> Self {
-        match variant {
-            STATUS_A::ACTIVE => true,
-            STATUS_A::NOTACTIVE => false,
-        }
+    fn from(variant: Status) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `Status`"]
-pub type STATUS_R = crate::R<bool, STATUS_A>;
-impl STATUS_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `Status` reader - Reading from this address returns the current state of the PWM Interrupt output, and then sets the bit low"]
+pub type StatusR = crate::BitReader<Status>;
+impl StatusR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> STATUS_A {
+    pub const fn variant(&self) -> Status {
         match self.bits {
-            true => STATUS_A::ACTIVE,
-            false => STATUS_A::NOTACTIVE,
+            true => Status::Active,
+            false => Status::Notactive,
         }
     }
-    #[doc = "Checks if the value of the field is `ACTIVE`"]
+    #[doc = "Interrupt is active"]
     #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == STATUS_A::ACTIVE
+        *self == Status::Active
     }
-    #[doc = "Checks if the value of the field is `NOTACTIVE`"]
+    #[doc = "Interrupt is not active"]
     #[inline(always)]
     pub fn is_notactive(&self) -> bool {
-        *self == STATUS_A::NOTACTIVE
+        *self == Status::Notactive
     }
 }
 impl R {
     #[doc = "Bit 0 - Reading from this address returns the current state of the PWM Interrupt output, and then sets the bit low"]
     #[inline(always)]
-    pub fn status(&self) -> STATUS_R {
-        STATUS_R::new((self.bits & 0x01) != 0)
+    pub fn status(&self) -> StatusR {
+        StatusR::new((self.bits & 1) != 0)
     }
+}
+#[doc = "PWM Read Interrupt Status Register\n\nYou can [`read`](crate::Reg::read) this register and get [`pwmis::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct PwmisSpec;
+impl crate::RegisterSpec for PwmisSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`pwmis::R`](R) reader structure"]
+impl crate::Readable for PwmisSpec {}
+#[doc = "`reset()` method sets PWMIS to value 0"]
+impl crate::Resettable for PwmisSpec {
+    const RESET_VALUE: u32 = 0;
 }

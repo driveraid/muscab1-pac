@@ -1,41 +1,49 @@
-#[doc = "Reader of register PWMRI"]
-pub type R = crate::R<u32, super::PWMRI>;
-#[doc = "Possible values of the field `Enable_BIT`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ENABLE_BIT_A {
-    #[doc = "Interrupt is Enabled"]
-    ENABLED,
+#[doc = "Register `PWMRI` reader"]
+pub type R = crate::R<PwmriSpec>;
+#[doc = "Check whether the Interrupt is Enabled\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum EnableBit {
+    #[doc = "1: Interrupt is Enabled"]
+    Enabled = 1,
 }
-impl From<ENABLE_BIT_A> for bool {
+impl From<EnableBit> for bool {
     #[inline(always)]
-    fn from(variant: ENABLE_BIT_A) -> Self {
-        match variant {
-            ENABLE_BIT_A::ENABLED => true,
-        }
+    fn from(variant: EnableBit) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `Enable_BIT`"]
-pub type ENABLE_BIT_R = crate::R<bool, ENABLE_BIT_A>;
-impl ENABLE_BIT_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `Enable_BIT` reader - Check whether the Interrupt is Enabled"]
+pub type EnableBitR = crate::BitReader<EnableBit>;
+impl EnableBitR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<bool, ENABLE_BIT_A> {
-        use crate::Variant::*;
+    pub const fn variant(&self) -> Option<EnableBit> {
         match self.bits {
-            true => Val(ENABLE_BIT_A::ENABLED),
-            i => Res(i),
+            true => Some(EnableBit::Enabled),
+            _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[doc = "Interrupt is Enabled"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == ENABLE_BIT_A::ENABLED
+        *self == EnableBit::Enabled
     }
 }
 impl R {
     #[doc = "Bit 0 - Check whether the Interrupt is Enabled"]
     #[inline(always)]
-    pub fn enable_bit(&self) -> ENABLE_BIT_R {
-        ENABLE_BIT_R::new((self.bits & 0x01) != 0)
+    pub fn enable_bit(&self) -> EnableBitR {
+        EnableBitR::new((self.bits & 1) != 0)
     }
+}
+#[doc = "PWM Read Intr Enable Register.Reading from this address accesses the current state of the interrupt control registers\n\nYou can [`read`](crate::Reg::read) this register and get [`pwmri::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct PwmriSpec;
+impl crate::RegisterSpec for PwmriSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`pwmri::R`](R) reader structure"]
+impl crate::Readable for PwmriSpec {}
+#[doc = "`reset()` method sets PWMRI to value 0"]
+impl crate::Resettable for PwmriSpec {
+    const RESET_VALUE: u32 = 0;
 }

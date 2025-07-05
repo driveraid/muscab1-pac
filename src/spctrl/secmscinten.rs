@@ -1,14 +1,27 @@
-#[doc = "Reader of register SECMSCINTEN"]
-pub type R = crate::R<u32, super::SECMSCINTEN>;
-#[doc = "Writer for register SECMSCINTEN"]
-pub type W = crate::W<u32, super::SECMSCINTEN>;
-#[doc = "Register SECMSCINTEN `reset()`'s with value 0"]
-impl crate::ResetValue for super::SECMSCINTEN {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+#[doc = "Register `SECMSCINTEN` reader"]
+pub type R = crate::R<SecmscintenSpec>;
+#[doc = "Register `SECMSCINTEN` writer"]
+pub type W = crate::W<SecmscintenSpec>;
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        write!(f, "{}", self.bits())
     }
 }
-impl R {}
 impl W {}
+#[doc = "Secure MSC Interrupt Enable\n\nYou can [`read`](crate::Reg::read) this register and get [`secmscinten::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`secmscinten::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SecmscintenSpec;
+impl crate::RegisterSpec for SecmscintenSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`secmscinten::R`](R) reader structure"]
+impl crate::Readable for SecmscintenSpec {}
+#[doc = "`write(|w| ..)` method takes [`secmscinten::W`](W) writer structure"]
+impl crate::Writable for SecmscintenSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets SECMSCINTEN to value 0"]
+impl crate::Resettable for SecmscintenSpec {
+    const RESET_VALUE: u32 = 0;
+}

@@ -1,244 +1,123 @@
-#[doc = "Reader of register UARTLCR_H"]
-pub type R = crate::R<u32, super::UARTLCR_H>;
-#[doc = "Writer for register UARTLCR_H"]
-pub type W = crate::W<u32, super::UARTLCR_H>;
-#[doc = "Register UARTLCR_H `reset()`'s with value 0"]
-impl crate::ResetValue for super::UARTLCR_H {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
-    }
-}
-#[doc = "Reader of field `BRK`"]
-pub type BRK_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `BRK`"]
-pub struct BRK_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> BRK_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
-    }
-}
-#[doc = "Reader of field `PEN`"]
-pub type PEN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PEN`"]
-pub struct PEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> PEN_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
-        self.w
-    }
-}
-#[doc = "Reader of field `EPS`"]
-pub type EPS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `EPS`"]
-pub struct EPS_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> EPS_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
-        self.w
-    }
-}
-#[doc = "Reader of field `STP2`"]
-pub type STP2_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `STP2`"]
-pub struct STP2_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> STP2_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
-        self.w
-    }
-}
-#[doc = "Reader of field `FEN`"]
-pub type FEN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FEN`"]
-pub struct FEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> FEN_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
-        self.w
-    }
-}
-#[doc = "Reader of field `WLEN`"]
-pub type WLEN_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `WLEN`"]
-pub struct WLEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> WLEN_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 5)) | (((value as u32) & 0x03) << 5);
-        self.w
-    }
-}
-#[doc = "Reader of field `SPS`"]
-pub type SPS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SPS`"]
-pub struct SPS_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SPS_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
-        self.w
-    }
-}
+#[doc = "Register `UARTLCR_H` reader"]
+pub type R = crate::R<UartlcrHSpec>;
+#[doc = "Register `UARTLCR_H` writer"]
+pub type W = crate::W<UartlcrHSpec>;
+#[doc = "Field `BRK` reader - Send break"]
+pub type BrkR = crate::BitReader;
+#[doc = "Field `BRK` writer - Send break"]
+pub type BrkW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `PEN` reader - Parity enable"]
+pub type PenR = crate::BitReader;
+#[doc = "Field `PEN` writer - Parity enable"]
+pub type PenW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `EPS` reader - Even parity select"]
+pub type EpsR = crate::BitReader;
+#[doc = "Field `EPS` writer - Even parity select"]
+pub type EpsW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `STP2` reader - Two stop bits select"]
+pub type Stp2R = crate::BitReader;
+#[doc = "Field `STP2` writer - Two stop bits select"]
+pub type Stp2W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `FEN` reader - Enable FIFOs"]
+pub type FenR = crate::BitReader;
+#[doc = "Field `FEN` writer - Enable FIFOs"]
+pub type FenW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `WLEN` reader - Word length"]
+pub type WlenR = crate::FieldReader;
+#[doc = "Field `WLEN` writer - Word length"]
+pub type WlenW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+#[doc = "Field `SPS` reader - Stick parity select"]
+pub type SpsR = crate::BitReader;
+#[doc = "Field `SPS` writer - Stick parity select"]
+pub type SpsW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - Send break"]
     #[inline(always)]
-    pub fn brk(&self) -> BRK_R {
-        BRK_R::new((self.bits & 0x01) != 0)
+    pub fn brk(&self) -> BrkR {
+        BrkR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - Parity enable"]
     #[inline(always)]
-    pub fn pen(&self) -> PEN_R {
-        PEN_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn pen(&self) -> PenR {
+        PenR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - Even parity select"]
     #[inline(always)]
-    pub fn eps(&self) -> EPS_R {
-        EPS_R::new(((self.bits >> 2) & 0x01) != 0)
+    pub fn eps(&self) -> EpsR {
+        EpsR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - Two stop bits select"]
     #[inline(always)]
-    pub fn stp2(&self) -> STP2_R {
-        STP2_R::new(((self.bits >> 3) & 0x01) != 0)
+    pub fn stp2(&self) -> Stp2R {
+        Stp2R::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - Enable FIFOs"]
     #[inline(always)]
-    pub fn fen(&self) -> FEN_R {
-        FEN_R::new(((self.bits >> 4) & 0x01) != 0)
+    pub fn fen(&self) -> FenR {
+        FenR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bits 5:6 - Word length"]
     #[inline(always)]
-    pub fn wlen(&self) -> WLEN_R {
-        WLEN_R::new(((self.bits >> 5) & 0x03) as u8)
+    pub fn wlen(&self) -> WlenR {
+        WlenR::new(((self.bits >> 5) & 3) as u8)
     }
     #[doc = "Bit 7 - Stick parity select"]
     #[inline(always)]
-    pub fn sps(&self) -> SPS_R {
-        SPS_R::new(((self.bits >> 7) & 0x01) != 0)
+    pub fn sps(&self) -> SpsR {
+        SpsR::new(((self.bits >> 7) & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 0 - Send break"]
     #[inline(always)]
-    pub fn brk(&mut self) -> BRK_W {
-        BRK_W { w: self }
+    pub fn brk(&mut self) -> BrkW<UartlcrHSpec> {
+        BrkW::new(self, 0)
     }
     #[doc = "Bit 1 - Parity enable"]
     #[inline(always)]
-    pub fn pen(&mut self) -> PEN_W {
-        PEN_W { w: self }
+    pub fn pen(&mut self) -> PenW<UartlcrHSpec> {
+        PenW::new(self, 1)
     }
     #[doc = "Bit 2 - Even parity select"]
     #[inline(always)]
-    pub fn eps(&mut self) -> EPS_W {
-        EPS_W { w: self }
+    pub fn eps(&mut self) -> EpsW<UartlcrHSpec> {
+        EpsW::new(self, 2)
     }
     #[doc = "Bit 3 - Two stop bits select"]
     #[inline(always)]
-    pub fn stp2(&mut self) -> STP2_W {
-        STP2_W { w: self }
+    pub fn stp2(&mut self) -> Stp2W<UartlcrHSpec> {
+        Stp2W::new(self, 3)
     }
     #[doc = "Bit 4 - Enable FIFOs"]
     #[inline(always)]
-    pub fn fen(&mut self) -> FEN_W {
-        FEN_W { w: self }
+    pub fn fen(&mut self) -> FenW<UartlcrHSpec> {
+        FenW::new(self, 4)
     }
     #[doc = "Bits 5:6 - Word length"]
     #[inline(always)]
-    pub fn wlen(&mut self) -> WLEN_W {
-        WLEN_W { w: self }
+    pub fn wlen(&mut self) -> WlenW<UartlcrHSpec> {
+        WlenW::new(self, 5)
     }
     #[doc = "Bit 7 - Stick parity select"]
     #[inline(always)]
-    pub fn sps(&mut self) -> SPS_W {
-        SPS_W { w: self }
+    pub fn sps(&mut self) -> SpsW<UartlcrHSpec> {
+        SpsW::new(self, 7)
     }
+}
+#[doc = "Line control register\n\nYou can [`read`](crate::Reg::read) this register and get [`uartlcr_h::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`uartlcr_h::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct UartlcrHSpec;
+impl crate::RegisterSpec for UartlcrHSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`uartlcr_h::R`](R) reader structure"]
+impl crate::Readable for UartlcrHSpec {}
+#[doc = "`write(|w| ..)` method takes [`uartlcr_h::W`](W) writer structure"]
+impl crate::Writable for UartlcrHSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets UARTLCR_H to value 0"]
+impl crate::Resettable for UartlcrHSpec {
+    const RESET_VALUE: u32 = 0;
 }

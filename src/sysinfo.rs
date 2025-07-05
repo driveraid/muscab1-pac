@@ -1,127 +1,140 @@
-#[doc = r"Register block"]
 #[repr(C)]
+#[doc = "Register block"]
 pub struct RegisterBlock {
-    #[doc = "0x00 - System Version Register"]
-    pub sys_version: SYS_VERSION,
-    #[doc = "0x04 - System Hardware Configuration register"]
-    pub sys_config: SYS_CONFIG,
-    _reserved2: [u8; 4040usize],
-    #[doc = "0xfd0 - Peripheral ID 4"]
-    pub pidr4: PIDR4,
-    _reserved3: [u8; 12usize],
-    #[doc = "0xfe0 - Peripheral ID 0"]
-    pub pidr0: PIDR0,
-    #[doc = "0xfe4 - Peripheral ID 1"]
-    pub pidr1: PIDR1,
-    #[doc = "0xfe8 - Peripheral ID 2"]
-    pub pidr2: PIDR2,
-    #[doc = "0xfec - Peripheral ID 3"]
-    pub pidr3: PIDR3,
-    #[doc = "0xff0 - Component ID 0"]
-    pub cidr0: CIDR0,
-    #[doc = "0xff4 - Component ID 1"]
-    pub cidr1: CIDR1,
-    #[doc = "0xff8 - Component ID 2"]
-    pub cidr2: CIDR2,
-    #[doc = "0xffc - Component ID 3"]
-    pub cidr3: CIDR3,
+    sys_version: SysVersion,
+    sys_config: SysConfig,
+    _reserved2: [u8; 0x0fc8],
+    pidr4: Pidr4,
+    _reserved3: [u8; 0x0c],
+    pidr0: Pidr0,
+    pidr1: Pidr1,
+    pidr2: Pidr2,
+    pidr3: Pidr3,
+    cidr0: Cidr0,
+    cidr1: Cidr1,
+    cidr2: Cidr2,
+    cidr3: Cidr3,
 }
-#[doc = "System Version Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [sys_version](sys_version) module"]
-pub type SYS_VERSION = crate::Reg<u32, _SYS_VERSION>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SYS_VERSION;
-#[doc = "`read()` method returns [sys_version::R](sys_version::R) reader structure"]
-impl crate::Readable for SYS_VERSION {}
+impl RegisterBlock {
+    #[doc = "0x00 - System Version Register"]
+    #[inline(always)]
+    pub const fn sys_version(&self) -> &SysVersion {
+        &self.sys_version
+    }
+    #[doc = "0x04 - System Hardware Configuration register"]
+    #[inline(always)]
+    pub const fn sys_config(&self) -> &SysConfig {
+        &self.sys_config
+    }
+    #[doc = "0xfd0 - Peripheral ID 4"]
+    #[inline(always)]
+    pub const fn pidr4(&self) -> &Pidr4 {
+        &self.pidr4
+    }
+    #[doc = "0xfe0 - Peripheral ID 0"]
+    #[inline(always)]
+    pub const fn pidr0(&self) -> &Pidr0 {
+        &self.pidr0
+    }
+    #[doc = "0xfe4 - Peripheral ID 1"]
+    #[inline(always)]
+    pub const fn pidr1(&self) -> &Pidr1 {
+        &self.pidr1
+    }
+    #[doc = "0xfe8 - Peripheral ID 2"]
+    #[inline(always)]
+    pub const fn pidr2(&self) -> &Pidr2 {
+        &self.pidr2
+    }
+    #[doc = "0xfec - Peripheral ID 3"]
+    #[inline(always)]
+    pub const fn pidr3(&self) -> &Pidr3 {
+        &self.pidr3
+    }
+    #[doc = "0xff0 - Component ID 0"]
+    #[inline(always)]
+    pub const fn cidr0(&self) -> &Cidr0 {
+        &self.cidr0
+    }
+    #[doc = "0xff4 - Component ID 1"]
+    #[inline(always)]
+    pub const fn cidr1(&self) -> &Cidr1 {
+        &self.cidr1
+    }
+    #[doc = "0xff8 - Component ID 2"]
+    #[inline(always)]
+    pub const fn cidr2(&self) -> &Cidr2 {
+        &self.cidr2
+    }
+    #[doc = "0xffc - Component ID 3"]
+    #[inline(always)]
+    pub const fn cidr3(&self) -> &Cidr3 {
+        &self.cidr3
+    }
+}
+#[doc = "SYS_VERSION (r) register accessor: System Version Register\n\nYou can [`read`](crate::Reg::read) this register and get [`sys_version::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sys_version`]
+module"]
+#[doc(alias = "SYS_VERSION")]
+pub type SysVersion = crate::Reg<sys_version::SysVersionSpec>;
 #[doc = "System Version Register"]
 pub mod sys_version;
-#[doc = "System Hardware Configuration register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [sys_config](sys_config) module"]
-pub type SYS_CONFIG = crate::Reg<u32, _SYS_CONFIG>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SYS_CONFIG;
-#[doc = "`read()` method returns [sys_config::R](sys_config::R) reader structure"]
-impl crate::Readable for SYS_CONFIG {}
+#[doc = "SYS_CONFIG (r) register accessor: System Hardware Configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`sys_config::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sys_config`]
+module"]
+#[doc(alias = "SYS_CONFIG")]
+pub type SysConfig = crate::Reg<sys_config::SysConfigSpec>;
 #[doc = "System Hardware Configuration register"]
 pub mod sys_config;
-#[doc = "Peripheral ID 4\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pidr4](pidr4) module"]
-pub type PIDR4 = crate::Reg<u32, _PIDR4>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _PIDR4;
-#[doc = "`read()` method returns [pidr4::R](pidr4::R) reader structure"]
-impl crate::Readable for PIDR4 {}
+#[doc = "PIDR4 (r) register accessor: Peripheral ID 4\n\nYou can [`read`](crate::Reg::read) this register and get [`pidr4::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pidr4`]
+module"]
+#[doc(alias = "PIDR4")]
+pub type Pidr4 = crate::Reg<pidr4::Pidr4Spec>;
 #[doc = "Peripheral ID 4"]
 pub mod pidr4;
-#[doc = "Peripheral ID 0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pidr0](pidr0) module"]
-pub type PIDR0 = crate::Reg<u32, _PIDR0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _PIDR0;
-#[doc = "`read()` method returns [pidr0::R](pidr0::R) reader structure"]
-impl crate::Readable for PIDR0 {}
+#[doc = "PIDR0 (r) register accessor: Peripheral ID 0\n\nYou can [`read`](crate::Reg::read) this register and get [`pidr0::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pidr0`]
+module"]
+#[doc(alias = "PIDR0")]
+pub type Pidr0 = crate::Reg<pidr0::Pidr0Spec>;
 #[doc = "Peripheral ID 0"]
 pub mod pidr0;
-#[doc = "Peripheral ID 1\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pidr1](pidr1) module"]
-pub type PIDR1 = crate::Reg<u32, _PIDR1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _PIDR1;
-#[doc = "`read()` method returns [pidr1::R](pidr1::R) reader structure"]
-impl crate::Readable for PIDR1 {}
+#[doc = "PIDR1 (r) register accessor: Peripheral ID 1\n\nYou can [`read`](crate::Reg::read) this register and get [`pidr1::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pidr1`]
+module"]
+#[doc(alias = "PIDR1")]
+pub type Pidr1 = crate::Reg<pidr1::Pidr1Spec>;
 #[doc = "Peripheral ID 1"]
 pub mod pidr1;
-#[doc = "Peripheral ID 2\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pidr2](pidr2) module"]
-pub type PIDR2 = crate::Reg<u32, _PIDR2>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _PIDR2;
-#[doc = "`read()` method returns [pidr2::R](pidr2::R) reader structure"]
-impl crate::Readable for PIDR2 {}
+#[doc = "PIDR2 (r) register accessor: Peripheral ID 2\n\nYou can [`read`](crate::Reg::read) this register and get [`pidr2::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pidr2`]
+module"]
+#[doc(alias = "PIDR2")]
+pub type Pidr2 = crate::Reg<pidr2::Pidr2Spec>;
 #[doc = "Peripheral ID 2"]
 pub mod pidr2;
-#[doc = "Peripheral ID 3\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pidr3](pidr3) module"]
-pub type PIDR3 = crate::Reg<u32, _PIDR3>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _PIDR3;
-#[doc = "`read()` method returns [pidr3::R](pidr3::R) reader structure"]
-impl crate::Readable for PIDR3 {}
+#[doc = "PIDR3 (r) register accessor: Peripheral ID 3\n\nYou can [`read`](crate::Reg::read) this register and get [`pidr3::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pidr3`]
+module"]
+#[doc(alias = "PIDR3")]
+pub type Pidr3 = crate::Reg<pidr3::Pidr3Spec>;
 #[doc = "Peripheral ID 3"]
 pub mod pidr3;
-#[doc = "Component ID 0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [cidr0](cidr0) module"]
-pub type CIDR0 = crate::Reg<u32, _CIDR0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CIDR0;
-#[doc = "`read()` method returns [cidr0::R](cidr0::R) reader structure"]
-impl crate::Readable for CIDR0 {}
+#[doc = "CIDR0 (r) register accessor: Component ID 0\n\nYou can [`read`](crate::Reg::read) this register and get [`cidr0::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cidr0`]
+module"]
+#[doc(alias = "CIDR0")]
+pub type Cidr0 = crate::Reg<cidr0::Cidr0Spec>;
 #[doc = "Component ID 0"]
 pub mod cidr0;
-#[doc = "Component ID 1\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [cidr1](cidr1) module"]
-pub type CIDR1 = crate::Reg<u32, _CIDR1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CIDR1;
-#[doc = "`read()` method returns [cidr1::R](cidr1::R) reader structure"]
-impl crate::Readable for CIDR1 {}
+#[doc = "CIDR1 (r) register accessor: Component ID 1\n\nYou can [`read`](crate::Reg::read) this register and get [`cidr1::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cidr1`]
+module"]
+#[doc(alias = "CIDR1")]
+pub type Cidr1 = crate::Reg<cidr1::Cidr1Spec>;
 #[doc = "Component ID 1"]
 pub mod cidr1;
-#[doc = "Component ID 2\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [cidr2](cidr2) module"]
-pub type CIDR2 = crate::Reg<u32, _CIDR2>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CIDR2;
-#[doc = "`read()` method returns [cidr2::R](cidr2::R) reader structure"]
-impl crate::Readable for CIDR2 {}
+#[doc = "CIDR2 (r) register accessor: Component ID 2\n\nYou can [`read`](crate::Reg::read) this register and get [`cidr2::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cidr2`]
+module"]
+#[doc(alias = "CIDR2")]
+pub type Cidr2 = crate::Reg<cidr2::Cidr2Spec>;
 #[doc = "Component ID 2"]
 pub mod cidr2;
-#[doc = "Component ID 3\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [cidr3](cidr3) module"]
-pub type CIDR3 = crate::Reg<u32, _CIDR3>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CIDR3;
-#[doc = "`read()` method returns [cidr3::R](cidr3::R) reader structure"]
-impl crate::Readable for CIDR3 {}
+#[doc = "CIDR3 (r) register accessor: Component ID 3\n\nYou can [`read`](crate::Reg::read) this register and get [`cidr3::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cidr3`]
+module"]
+#[doc(alias = "CIDR3")]
+pub type Cidr3 = crate::Reg<cidr3::Cidr3Spec>;
 #[doc = "Component ID 3"]
 pub mod cidr3;

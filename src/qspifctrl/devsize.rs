@@ -1,184 +1,139 @@
-#[doc = "Reader of register DEVSIZE"]
-pub type R = crate::R<u32, super::DEVSIZE>;
-#[doc = "Writer for register DEVSIZE"]
-pub type W = crate::W<u32, super::DEVSIZE>;
-#[doc = "Register DEVSIZE `reset()`'s with value 0x0010_1002"]
-impl crate::ResetValue for super::DEVSIZE {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x0010_1002
-    }
-}
-#[doc = "Reader of field `FDEVSIZECS3`"]
-pub type FDEVSIZECS3_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `FDEVSIZECS3`"]
-pub struct FDEVSIZECS3_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> FDEVSIZECS3_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 27)) | (((value as u32) & 0x03) << 27);
-        self.w
-    }
-}
-#[doc = "Reader of field `FDEVSIZECS2`"]
-pub type FDEVSIZECS2_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `FDEVSIZECS2`"]
-pub struct FDEVSIZECS2_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> FDEVSIZECS2_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 25)) | (((value as u32) & 0x03) << 25);
-        self.w
-    }
-}
-#[doc = "Reader of field `FDEVSIZECS1`"]
-pub type FDEVSIZECS1_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `FDEVSIZECS1`"]
-pub struct FDEVSIZECS1_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> FDEVSIZECS1_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 23)) | (((value as u32) & 0x03) << 23);
-        self.w
-    }
-}
-#[doc = "Reader of field `FDEVSIZECS0`"]
-pub type FDEVSIZECS0_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `FDEVSIZECS0`"]
-pub struct FDEVSIZECS0_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> FDEVSIZECS0_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 21)) | (((value as u32) & 0x03) << 21);
-        self.w
-    }
-}
-#[doc = "Reader of field `BYTEPERBLKNUM`"]
-pub type BYTEPERBLKNUM_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `BYTEPERBLKNUM`"]
-pub struct BYTEPERBLKNUM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> BYTEPERBLKNUM_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x1f << 16)) | (((value as u32) & 0x1f) << 16);
-        self.w
-    }
-}
-#[doc = "Reader of field `BYTEPERDEVPGNUM`"]
-pub type BYTEPERDEVPGNUM_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `BYTEPERDEVPGNUM`"]
-pub struct BYTEPERDEVPGNUM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> BYTEPERDEVPGNUM_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0fff << 4)) | (((value as u32) & 0x0fff) << 4);
-        self.w
-    }
-}
-#[doc = "Reader of field `ADDRBYTENUM`"]
-pub type ADDRBYTENUM_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `ADDRBYTENUM`"]
-pub struct ADDRBYTENUM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> ADDRBYTENUM_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
-        self.w
-    }
-}
+#[doc = "Register `DEVSIZE` reader"]
+pub type R = crate::R<DevsizeSpec>;
+#[doc = "Register `DEVSIZE` writer"]
+pub type W = crate::W<DevsizeSpec>;
+#[doc = "Field `ADDRBYTENUM` reader - Number of address bytes"]
+pub type AddrbytenumR = crate::FieldReader;
+#[doc = "Field `ADDRBYTENUM` writer - Number of address bytes"]
+pub type AddrbytenumW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+#[doc = "Field `BYTEPERDEVPGNUM` reader - Number of bytes per device page"]
+pub type ByteperdevpgnumR = crate::FieldReader<u16>;
+#[doc = "Field `BYTEPERDEVPGNUM` writer - Number of bytes per device page"]
+pub type ByteperdevpgnumW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
+#[doc = "Field `BYTEPERBLKNUM` reader - Number of bytes per block"]
+pub type ByteperblknumR = crate::FieldReader;
+#[doc = "Field `BYTEPERBLKNUM` writer - Number of bytes per block"]
+pub type ByteperblknumW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+#[doc = "Field `FDEVSIZECS0` reader - Size of Flash Device connected to CS\\[0\\]
+pin"]
+pub type Fdevsizecs0R = crate::FieldReader;
+#[doc = "Field `FDEVSIZECS0` writer - Size of Flash Device connected to CS\\[0\\]
+pin"]
+pub type Fdevsizecs0W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+#[doc = "Field `FDEVSIZECS1` reader - Size of Flash Device connected to CS\\[1\\]
+pin"]
+pub type Fdevsizecs1R = crate::FieldReader;
+#[doc = "Field `FDEVSIZECS1` writer - Size of Flash Device connected to CS\\[1\\]
+pin"]
+pub type Fdevsizecs1W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+#[doc = "Field `FDEVSIZECS2` reader - Size of Flash Device connected to CS\\[2\\]
+pin"]
+pub type Fdevsizecs2R = crate::FieldReader;
+#[doc = "Field `FDEVSIZECS2` writer - Size of Flash Device connected to CS\\[2\\]
+pin"]
+pub type Fdevsizecs2W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+#[doc = "Field `FDEVSIZECS3` reader - Size of Flash Device connected to CS\\[3\\]
+pin"]
+pub type Fdevsizecs3R = crate::FieldReader;
+#[doc = "Field `FDEVSIZECS3` writer - Size of Flash Device connected to CS\\[3\\]
+pin"]
+pub type Fdevsizecs3W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 impl R {
-    #[doc = "Bits 27:28 - Size of Flash Device connected to CS\\[3\\] pin"]
+    #[doc = "Bits 0:3 - Number of address bytes"]
     #[inline(always)]
-    pub fn fdevsizecs3(&self) -> FDEVSIZECS3_R {
-        FDEVSIZECS3_R::new(((self.bits >> 27) & 0x03) as u8)
-    }
-    #[doc = "Bits 25:26 - Size of Flash Device connected to CS\\[2\\] pin"]
-    #[inline(always)]
-    pub fn fdevsizecs2(&self) -> FDEVSIZECS2_R {
-        FDEVSIZECS2_R::new(((self.bits >> 25) & 0x03) as u8)
-    }
-    #[doc = "Bits 23:24 - Size of Flash Device connected to CS\\[1\\] pin"]
-    #[inline(always)]
-    pub fn fdevsizecs1(&self) -> FDEVSIZECS1_R {
-        FDEVSIZECS1_R::new(((self.bits >> 23) & 0x03) as u8)
-    }
-    #[doc = "Bits 21:22 - Size of Flash Device connected to CS\\[0\\] pin"]
-    #[inline(always)]
-    pub fn fdevsizecs0(&self) -> FDEVSIZECS0_R {
-        FDEVSIZECS0_R::new(((self.bits >> 21) & 0x03) as u8)
-    }
-    #[doc = "Bits 16:20 - Number of bytes per block"]
-    #[inline(always)]
-    pub fn byteperblknum(&self) -> BYTEPERBLKNUM_R {
-        BYTEPERBLKNUM_R::new(((self.bits >> 16) & 0x1f) as u8)
+    pub fn addrbytenum(&self) -> AddrbytenumR {
+        AddrbytenumR::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 4:15 - Number of bytes per device page"]
     #[inline(always)]
-    pub fn byteperdevpgnum(&self) -> BYTEPERDEVPGNUM_R {
-        BYTEPERDEVPGNUM_R::new(((self.bits >> 4) & 0x0fff) as u16)
+    pub fn byteperdevpgnum(&self) -> ByteperdevpgnumR {
+        ByteperdevpgnumR::new(((self.bits >> 4) & 0x0fff) as u16)
     }
-    #[doc = "Bits 0:3 - Number of address bytes"]
+    #[doc = "Bits 16:20 - Number of bytes per block"]
     #[inline(always)]
-    pub fn addrbytenum(&self) -> ADDRBYTENUM_R {
-        ADDRBYTENUM_R::new((self.bits & 0x0f) as u8)
+    pub fn byteperblknum(&self) -> ByteperblknumR {
+        ByteperblknumR::new(((self.bits >> 16) & 0x1f) as u8)
+    }
+    #[doc = "Bits 21:22 - Size of Flash Device connected to CS\\[0\\]
+pin"]
+    #[inline(always)]
+    pub fn fdevsizecs0(&self) -> Fdevsizecs0R {
+        Fdevsizecs0R::new(((self.bits >> 21) & 3) as u8)
+    }
+    #[doc = "Bits 23:24 - Size of Flash Device connected to CS\\[1\\]
+pin"]
+    #[inline(always)]
+    pub fn fdevsizecs1(&self) -> Fdevsizecs1R {
+        Fdevsizecs1R::new(((self.bits >> 23) & 3) as u8)
+    }
+    #[doc = "Bits 25:26 - Size of Flash Device connected to CS\\[2\\]
+pin"]
+    #[inline(always)]
+    pub fn fdevsizecs2(&self) -> Fdevsizecs2R {
+        Fdevsizecs2R::new(((self.bits >> 25) & 3) as u8)
+    }
+    #[doc = "Bits 27:28 - Size of Flash Device connected to CS\\[3\\]
+pin"]
+    #[inline(always)]
+    pub fn fdevsizecs3(&self) -> Fdevsizecs3R {
+        Fdevsizecs3R::new(((self.bits >> 27) & 3) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 27:28 - Size of Flash Device connected to CS\\[3\\] pin"]
+    #[doc = "Bits 0:3 - Number of address bytes"]
     #[inline(always)]
-    pub fn fdevsizecs3(&mut self) -> FDEVSIZECS3_W {
-        FDEVSIZECS3_W { w: self }
-    }
-    #[doc = "Bits 25:26 - Size of Flash Device connected to CS\\[2\\] pin"]
-    #[inline(always)]
-    pub fn fdevsizecs2(&mut self) -> FDEVSIZECS2_W {
-        FDEVSIZECS2_W { w: self }
-    }
-    #[doc = "Bits 23:24 - Size of Flash Device connected to CS\\[1\\] pin"]
-    #[inline(always)]
-    pub fn fdevsizecs1(&mut self) -> FDEVSIZECS1_W {
-        FDEVSIZECS1_W { w: self }
-    }
-    #[doc = "Bits 21:22 - Size of Flash Device connected to CS\\[0\\] pin"]
-    #[inline(always)]
-    pub fn fdevsizecs0(&mut self) -> FDEVSIZECS0_W {
-        FDEVSIZECS0_W { w: self }
-    }
-    #[doc = "Bits 16:20 - Number of bytes per block"]
-    #[inline(always)]
-    pub fn byteperblknum(&mut self) -> BYTEPERBLKNUM_W {
-        BYTEPERBLKNUM_W { w: self }
+    pub fn addrbytenum(&mut self) -> AddrbytenumW<DevsizeSpec> {
+        AddrbytenumW::new(self, 0)
     }
     #[doc = "Bits 4:15 - Number of bytes per device page"]
     #[inline(always)]
-    pub fn byteperdevpgnum(&mut self) -> BYTEPERDEVPGNUM_W {
-        BYTEPERDEVPGNUM_W { w: self }
+    pub fn byteperdevpgnum(&mut self) -> ByteperdevpgnumW<DevsizeSpec> {
+        ByteperdevpgnumW::new(self, 4)
     }
-    #[doc = "Bits 0:3 - Number of address bytes"]
+    #[doc = "Bits 16:20 - Number of bytes per block"]
     #[inline(always)]
-    pub fn addrbytenum(&mut self) -> ADDRBYTENUM_W {
-        ADDRBYTENUM_W { w: self }
+    pub fn byteperblknum(&mut self) -> ByteperblknumW<DevsizeSpec> {
+        ByteperblknumW::new(self, 16)
     }
+    #[doc = "Bits 21:22 - Size of Flash Device connected to CS\\[0\\]
+pin"]
+    #[inline(always)]
+    pub fn fdevsizecs0(&mut self) -> Fdevsizecs0W<DevsizeSpec> {
+        Fdevsizecs0W::new(self, 21)
+    }
+    #[doc = "Bits 23:24 - Size of Flash Device connected to CS\\[1\\]
+pin"]
+    #[inline(always)]
+    pub fn fdevsizecs1(&mut self) -> Fdevsizecs1W<DevsizeSpec> {
+        Fdevsizecs1W::new(self, 23)
+    }
+    #[doc = "Bits 25:26 - Size of Flash Device connected to CS\\[2\\]
+pin"]
+    #[inline(always)]
+    pub fn fdevsizecs2(&mut self) -> Fdevsizecs2W<DevsizeSpec> {
+        Fdevsizecs2W::new(self, 25)
+    }
+    #[doc = "Bits 27:28 - Size of Flash Device connected to CS\\[3\\]
+pin"]
+    #[inline(always)]
+    pub fn fdevsizecs3(&mut self) -> Fdevsizecs3W<DevsizeSpec> {
+        Fdevsizecs3W::new(self, 27)
+    }
+}
+#[doc = "Device Size Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`devsize::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`devsize::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct DevsizeSpec;
+impl crate::RegisterSpec for DevsizeSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`devsize::R`](R) reader structure"]
+impl crate::Readable for DevsizeSpec {}
+#[doc = "`write(|w| ..)` method takes [`devsize::W`](W) writer structure"]
+impl crate::Writable for DevsizeSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets DEVSIZE to value 0x0010_1002"]
+impl crate::Resettable for DevsizeSpec {
+    const RESET_VALUE: u32 = 0x0010_1002;
 }

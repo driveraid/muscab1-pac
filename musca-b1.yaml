@@ -1,13 +1,127 @@
-_svd: musca-b1.svd
+_svd: svd/Musca_B1.corrected.svd
 
 _delete:
-  SPI0:
-  SPI0_Secure:
-  UART1:
-  UART1_Secure:
-  TIMER1:
-  TIMER1_Secure:
-  S32KTIMER:
-  S32KTIMER_Secure:
+  - SPI0
+  - SPI0_Secure
+  - UART1
+  - UART1_Secure
+  - TIMER1
+  - TIMER1_Secure
+  - S32KTIMER
+  - S32KTIMER_Secure
 
+_add:
+  MHU0:
+    description: Message Handling Unit 0
+    groupName: MHU
+    baseAddress: 0x40003000
+    size: 32
+    addressBlock:
+      offset: 0
+      size: 0x1000
+      usage: registers
+    interrupts:
+      MHU0:
+        description: MHU0 CPU0 Interrupt, MHU0 CPU1 Interrupt
+        value: 6
+    registers:
+      CPU0INTR_STAT:
+        description: Core 0 interrupt status register
+        addressOffset: 0x000
+        resetValue: 0
+        access: read-only
+        fields:
+          CPU0INTR_STAT:
+            description: CPU 0 Interrupt Status. When any bit is set to 1, the MHU interrupt signal to CPU 0 is set to HIGH.
+            bitOffset: 0
+            bitWidth: 4
+      CPU0INTR_SET:
+        description: Core 0 interrupt set register
+        addressOffset: 0x004
+        resetValue: 0
+        access: write-only
+        fields:
+          CPU0INTR_SET:
+            description: CPU 0 Interrupt Set. When a 1 is written to CPU0INTR_SET[n], the corresponding CPU0INTR_STAT[n] signal is set to HIGH.
+            bitOffset: 0
+            bitWidth: 4
+      CPU0INTR_CLR:
+        description: Core 0 interrupt clear register
+        addressOffset: 0x008
+        resetValue: 0
+        access: write-only
+        fields:
+          CPU0INTR_CLR:
+            description: CPU 0 Interrupt Clear. When a 1 is written to CPU0INTR_CLR[n], the corresponding CPU0INTR_STAT[n] signal is set to LOW.
+            bitOffset: 0
+            bitWidth: 4
+      CPU1INTR_STAT:
+        description: Core 1 interrupt status register
+        addressOffset: 0x010
+        resetValue: 0
+        access: read-only
+        fields:
+          CPU1INTR_STAT:
+            description: CPU 1 Interrupt Status. When any bit is set to 1, the MHU interrupt signal to CPU 1 is set to HIGH.
+            bitOffset: 0
+            bitWidth: 4
+      CPU1INTR_SET:
+        description: Core 1 interrupt set register
+        addressOffset: 0x014
+        resetValue: 0
+        access: write-only
+        fields:
+          CPU1INTR_SET:
+            description: CPU 1 Interrupt Set. When a 1 is written to CPU1INTR_SET[n], the corresponding CPU1INTR_STAT[n] signal is set to HIGH.
+            bitOffset: 0
+            bitWidth: 4
+      CPU1INTR_CLR:
+        description: Core 1 interrupt clear register
+        addressOffset: 0x018
+        resetValue: 0
+        access: write-only
+        fields:
+          CPU1INTR_CLR:
+            description: CPU 1 Interrupt Clear. When a 1 is written to CPU1INTR_CLR[n], the corresponding CPU1INTR_STAT[n] signal is set to LOW.
+            bitOffset: 0
+            bitWidth: 4
+
+  MHU0_Secure:
+    derivedFrom: MHU0
+    description: Message Handling Unit 0 (Secure)
+    baseAddress: 0x50003000
+
+  MHU1:
+    derivedFrom: MHU0
+    description: Message Handling Unit 1
+    baseAddress: 0x40004000
+    interrupts:
+      MHU1:
+        description: MHU1 CPU0 Interrupt, MHU1 CPU1 Interrupt
+        value: 7
+
+  MHU1_Secure:
+    derivedFrom: MHU1
+    description: Message Handling Unit 1 (Secure)
+    baseAddress: 0x50004000
+
+  CPU_IDENTITY:
+    description: CPU Identity
+    groupName: CPU Identity
+    baseAddress: 0x4001F000
+    size: 32
+    access: read-only
+    addressBlock:
+      offset: 0
+      size: 0x1000
+      usage: registers
+    registers:
+      CPUID:
+        description: Unique CPU Identity Number, where N is 0 for CPU 0 and 1 for CPU 1. Set to zero for a single processor system.
+        addressOffset: 0
+        access: read-only
+
+  CPU_IDENTITY_Secure:
+    description: CPU Identity (Secure)
+    baseAddress: 0x5001F000
 

@@ -1,196 +1,192 @@
-#[doc = "Reader of register ICIRQSTAT"]
-pub type R = crate::R<u32, super::ICIRQSTAT>;
-#[doc = "Possible values of the field `IC_STATUS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum IC_STATUS_A {
-    #[doc = "Indicates that a cache invalidation\n                          process has been completed"]
-    COMPLETED,
+#[doc = "Register `ICIRQSTAT` reader"]
+pub type R = crate::R<IcirqstatSpec>;
+#[doc = "Invalidate Complete IRQ Status\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum IcStatus {
+    #[doc = "1: Indicates that a cache invalidation process has been completed"]
+    Completed = 1,
 }
-impl From<IC_STATUS_A> for bool {
+impl From<IcStatus> for bool {
     #[inline(always)]
-    fn from(variant: IC_STATUS_A) -> Self {
-        match variant {
-            IC_STATUS_A::COMPLETED => true,
-        }
+    fn from(variant: IcStatus) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `IC_STATUS`"]
-pub type IC_STATUS_R = crate::R<bool, IC_STATUS_A>;
-impl IC_STATUS_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `IC_STATUS` reader - Invalidate Complete IRQ Status"]
+pub type IcStatusR = crate::BitReader<IcStatus>;
+impl IcStatusR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<bool, IC_STATUS_A> {
-        use crate::Variant::*;
+    pub const fn variant(&self) -> Option<IcStatus> {
         match self.bits {
-            true => Val(IC_STATUS_A::COMPLETED),
-            i => Res(i),
+            true => Some(IcStatus::Completed),
+            _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `COMPLETED`"]
+    #[doc = "Indicates that a cache invalidation process has been completed"]
     #[inline(always)]
     pub fn is_completed(&self) -> bool {
-        *self == IC_STATUS_A::COMPLETED
+        *self == IcStatus::Completed
     }
 }
-#[doc = "Possible values of the field `CDC_STATUS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CDC_STATUS_A {
-    #[doc = "Indicates that a request to disable\n                          the cache has been completed"]
-    COMPLETED,
+#[doc = "Cache Disable Complete IRQ Status\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CdcStatus {
+    #[doc = "1: Indicates that a request to disable the cache has been completed"]
+    Completed = 1,
 }
-impl From<CDC_STATUS_A> for bool {
+impl From<CdcStatus> for bool {
     #[inline(always)]
-    fn from(variant: CDC_STATUS_A) -> Self {
-        match variant {
-            CDC_STATUS_A::COMPLETED => true,
-        }
+    fn from(variant: CdcStatus) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CDC_STATUS`"]
-pub type CDC_STATUS_R = crate::R<bool, CDC_STATUS_A>;
-impl CDC_STATUS_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `CDC_STATUS` reader - Cache Disable Complete IRQ Status"]
+pub type CdcStatusR = crate::BitReader<CdcStatus>;
+impl CdcStatusR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<bool, CDC_STATUS_A> {
-        use crate::Variant::*;
+    pub const fn variant(&self) -> Option<CdcStatus> {
         match self.bits {
-            true => Val(CDC_STATUS_A::COMPLETED),
-            i => Res(i),
+            true => Some(CdcStatus::Completed),
+            _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `COMPLETED`"]
+    #[doc = "Indicates that a request to disable the cache has been completed"]
     #[inline(always)]
     pub fn is_completed(&self) -> bool {
-        *self == CDC_STATUS_A::COMPLETED
+        *self == CdcStatus::Completed
     }
 }
-#[doc = "Possible values of the field `CEC_STATUS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CEC_STATUS_A {
-    #[doc = "Indicates that a request to enable\n                          the cache has been completed"]
-    COMPLETED,
+#[doc = "Cache Enable Complete IRQ Status\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CecStatus {
+    #[doc = "1: Indicates that a request to enable the cache has been completed"]
+    Completed = 1,
 }
-impl From<CEC_STATUS_A> for bool {
+impl From<CecStatus> for bool {
     #[inline(always)]
-    fn from(variant: CEC_STATUS_A) -> Self {
-        match variant {
-            CEC_STATUS_A::COMPLETED => true,
-        }
+    fn from(variant: CecStatus) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CEC_STATUS`"]
-pub type CEC_STATUS_R = crate::R<bool, CEC_STATUS_A>;
-impl CEC_STATUS_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `CEC_STATUS` reader - Cache Enable Complete IRQ Status"]
+pub type CecStatusR = crate::BitReader<CecStatus>;
+impl CecStatusR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<bool, CEC_STATUS_A> {
-        use crate::Variant::*;
+    pub const fn variant(&self) -> Option<CecStatus> {
         match self.bits {
-            true => Val(CEC_STATUS_A::COMPLETED),
-            i => Res(i),
+            true => Some(CecStatus::Completed),
+            _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `COMPLETED`"]
+    #[doc = "Indicates that a request to enable the cache has been completed"]
     #[inline(always)]
     pub fn is_completed(&self) -> bool {
-        *self == CEC_STATUS_A::COMPLETED
+        *self == CecStatus::Completed
     }
 }
-#[doc = "Possible values of the field `CFE_STATUS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CFE_STATUS_A {
-    #[doc = "Indicates that a bus error occurred\n                          while filling a cache line"]
-    ERR_OCCURRED,
+#[doc = "Cache Fill Error IRQ Status\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CfeStatus {
+    #[doc = "1: Indicates that a bus error occurred while filling a cache line"]
+    ErrOccurred = 1,
 }
-impl From<CFE_STATUS_A> for bool {
+impl From<CfeStatus> for bool {
     #[inline(always)]
-    fn from(variant: CFE_STATUS_A) -> Self {
-        match variant {
-            CFE_STATUS_A::ERR_OCCURRED => true,
-        }
+    fn from(variant: CfeStatus) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CFE_STATUS`"]
-pub type CFE_STATUS_R = crate::R<bool, CFE_STATUS_A>;
-impl CFE_STATUS_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `CFE_STATUS` reader - Cache Fill Error IRQ Status"]
+pub type CfeStatusR = crate::BitReader<CfeStatus>;
+impl CfeStatusR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<bool, CFE_STATUS_A> {
-        use crate::Variant::*;
+    pub const fn variant(&self) -> Option<CfeStatus> {
         match self.bits {
-            true => Val(CFE_STATUS_A::ERR_OCCURRED),
-            i => Res(i),
+            true => Some(CfeStatus::ErrOccurred),
+            _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `ERR_OCCURRED`"]
+    #[doc = "Indicates that a bus error occurred while filling a cache line"]
     #[inline(always)]
     pub fn is_err_occurred(&self) -> bool {
-        *self == CFE_STATUS_A::ERR_OCCURRED
+        *self == CfeStatus::ErrOccurred
     }
 }
-#[doc = "Reader of field `SV_STATUS`"]
-pub type SV_STATUS_R = crate::R<bool, bool>;
-#[doc = "Possible values of the field `SS_STATUS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SS_STATUS_A {
-    #[doc = "Indicates that the internal\n                          statistic counters have saturated"]
-    SATURATED,
+#[doc = "Field `SV_STATUS` reader - Security violation IRQ Status"]
+pub type SvStatusR = crate::BitReader;
+#[doc = "Statistics Saturated Status\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SsStatus {
+    #[doc = "1: Indicates that the internal statistic counters have saturated"]
+    Saturated = 1,
 }
-impl From<SS_STATUS_A> for bool {
+impl From<SsStatus> for bool {
     #[inline(always)]
-    fn from(variant: SS_STATUS_A) -> Self {
-        match variant {
-            SS_STATUS_A::SATURATED => true,
-        }
+    fn from(variant: SsStatus) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SS_STATUS`"]
-pub type SS_STATUS_R = crate::R<bool, SS_STATUS_A>;
-impl SS_STATUS_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `SS_STATUS` reader - Statistics Saturated Status"]
+pub type SsStatusR = crate::BitReader<SsStatus>;
+impl SsStatusR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<bool, SS_STATUS_A> {
-        use crate::Variant::*;
+    pub const fn variant(&self) -> Option<SsStatus> {
         match self.bits {
-            true => Val(SS_STATUS_A::SATURATED),
-            i => Res(i),
+            true => Some(SsStatus::Saturated),
+            _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `SATURATED`"]
+    #[doc = "Indicates that the internal statistic counters have saturated"]
     #[inline(always)]
     pub fn is_saturated(&self) -> bool {
-        *self == SS_STATUS_A::SATURATED
+        *self == SsStatus::Saturated
     }
 }
 impl R {
     #[doc = "Bit 0 - Invalidate Complete IRQ Status"]
     #[inline(always)]
-    pub fn ic_status(&self) -> IC_STATUS_R {
-        IC_STATUS_R::new((self.bits & 0x01) != 0)
+    pub fn ic_status(&self) -> IcStatusR {
+        IcStatusR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - Cache Disable Complete IRQ Status"]
     #[inline(always)]
-    pub fn cdc_status(&self) -> CDC_STATUS_R {
-        CDC_STATUS_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn cdc_status(&self) -> CdcStatusR {
+        CdcStatusR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - Cache Enable Complete IRQ Status"]
     #[inline(always)]
-    pub fn cec_status(&self) -> CEC_STATUS_R {
-        CEC_STATUS_R::new(((self.bits >> 2) & 0x01) != 0)
+    pub fn cec_status(&self) -> CecStatusR {
+        CecStatusR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - Cache Fill Error IRQ Status"]
     #[inline(always)]
-    pub fn cfe_status(&self) -> CFE_STATUS_R {
-        CFE_STATUS_R::new(((self.bits >> 3) & 0x01) != 0)
+    pub fn cfe_status(&self) -> CfeStatusR {
+        CfeStatusR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - Security violation IRQ Status"]
     #[inline(always)]
-    pub fn sv_status(&self) -> SV_STATUS_R {
-        SV_STATUS_R::new(((self.bits >> 4) & 0x01) != 0)
+    pub fn sv_status(&self) -> SvStatusR {
+        SvStatusR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - Statistics Saturated Status"]
     #[inline(always)]
-    pub fn ss_status(&self) -> SS_STATUS_R {
-        SS_STATUS_R::new(((self.bits >> 5) & 0x01) != 0)
+    pub fn ss_status(&self) -> SsStatusR {
+        SsStatusR::new(((self.bits >> 5) & 1) != 0)
     }
+}
+#[doc = "Interrupt Request Status Register\n\nYou can [`read`](crate::Reg::read) this register and get [`icirqstat::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct IcirqstatSpec;
+impl crate::RegisterSpec for IcirqstatSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`icirqstat::R`](R) reader structure"]
+impl crate::Readable for IcirqstatSpec {}
+#[doc = "`reset()` method sets ICIRQSTAT to value 0"]
+impl crate::Resettable for IcirqstatSpec {
+    const RESET_VALUE: u32 = 0;
 }

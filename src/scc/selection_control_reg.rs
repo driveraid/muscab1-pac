@@ -1,98 +1,71 @@
-#[doc = "Reader of register SELECTION_CONTROL_REG"]
-pub type R = crate::R<u32, super::SELECTION_CONTROL_REG>;
-#[doc = "Writer for register SELECTION_CONTROL_REG"]
-pub type W = crate::W<u32, super::SELECTION_CONTROL_REG>;
-#[doc = "Register SELECTION_CONTROL_REG `reset()`'s with value 0x0100_0200"]
-impl crate::ResetValue for super::SELECTION_CONTROL_REG {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x0100_0200
-    }
-}
-#[doc = "Reader of field `clock_phase_shifter_select`"]
-pub type CLOCK_PHASE_SHIFTER_SELECT_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `clock_phase_shifter_select`"]
-pub struct CLOCK_PHASE_SHIFTER_SELECT_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CLOCK_PHASE_SHIFTER_SELECT_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
-        self.w
-    }
-}
-#[doc = "Reader of field `clock_phase_shifter_bypass`"]
-pub type CLOCK_PHASE_SHIFTER_BYPASS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `clock_phase_shifter_bypass`"]
-pub struct CLOCK_PHASE_SHIFTER_BYPASS_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CLOCK_PHASE_SHIFTER_BYPASS_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
-        self.w
-    }
-}
-#[doc = "Reader of field `sdio_mask_delay`"]
-pub type SDIO_MASK_DELAY_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `sdio_mask_delay`"]
-pub struct SDIO_MASK_DELAY_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SDIO_MASK_DELAY_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
-        self.w
-    }
-}
+#[doc = "Register `SELECTION_CONTROL_REG` reader"]
+pub type R = crate::R<SelectionControlRegSpec>;
+#[doc = "Register `SELECTION_CONTROL_REG` writer"]
+pub type W = crate::W<SelectionControlRegSpec>;
+#[doc = "Field `clock_phase_shifter_select` reader - QSPI input clock phase shift control"]
+pub type ClockPhaseShifterSelectR = crate::FieldReader;
+#[doc = "Field `clock_phase_shifter_select` writer - QSPI input clock phase shift control"]
+pub type ClockPhaseShifterSelectW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+#[doc = "Field `clock_phase_shifter_bypass` reader - QSPI input clock phase shift control"]
+pub type ClockPhaseShifterBypassR = crate::BitReader;
+#[doc = "Field `clock_phase_shifter_bypass` writer - QSPI input clock phase shift control"]
+pub type ClockPhaseShifterBypassW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `sdio_mask_delay` reader - SDIO mask delay"]
+pub type SdioMaskDelayR = crate::FieldReader;
+#[doc = "Field `sdio_mask_delay` writer - SDIO mask delay"]
+pub type SdioMaskDelayW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 impl R {
     #[doc = "Bits 0:1 - QSPI input clock phase shift control"]
     #[inline(always)]
-    pub fn clock_phase_shifter_select(&self) -> CLOCK_PHASE_SHIFTER_SELECT_R {
-        CLOCK_PHASE_SHIFTER_SELECT_R::new((self.bits & 0x03) as u8)
+    pub fn clock_phase_shifter_select(&self) -> ClockPhaseShifterSelectR {
+        ClockPhaseShifterSelectR::new((self.bits & 3) as u8)
     }
     #[doc = "Bit 2 - QSPI input clock phase shift control"]
     #[inline(always)]
-    pub fn clock_phase_shifter_bypass(&self) -> CLOCK_PHASE_SHIFTER_BYPASS_R {
-        CLOCK_PHASE_SHIFTER_BYPASS_R::new(((self.bits >> 2) & 0x01) != 0)
+    pub fn clock_phase_shifter_bypass(&self) -> ClockPhaseShifterBypassR {
+        ClockPhaseShifterBypassR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bits 8:9 - SDIO mask delay"]
     #[inline(always)]
-    pub fn sdio_mask_delay(&self) -> SDIO_MASK_DELAY_R {
-        SDIO_MASK_DELAY_R::new(((self.bits >> 8) & 0x03) as u8)
+    pub fn sdio_mask_delay(&self) -> SdioMaskDelayR {
+        SdioMaskDelayR::new(((self.bits >> 8) & 3) as u8)
     }
 }
 impl W {
     #[doc = "Bits 0:1 - QSPI input clock phase shift control"]
     #[inline(always)]
-    pub fn clock_phase_shifter_select(&mut self) -> CLOCK_PHASE_SHIFTER_SELECT_W {
-        CLOCK_PHASE_SHIFTER_SELECT_W { w: self }
+    pub fn clock_phase_shifter_select(
+        &mut self,
+    ) -> ClockPhaseShifterSelectW<SelectionControlRegSpec> {
+        ClockPhaseShifterSelectW::new(self, 0)
     }
     #[doc = "Bit 2 - QSPI input clock phase shift control"]
     #[inline(always)]
-    pub fn clock_phase_shifter_bypass(&mut self) -> CLOCK_PHASE_SHIFTER_BYPASS_W {
-        CLOCK_PHASE_SHIFTER_BYPASS_W { w: self }
+    pub fn clock_phase_shifter_bypass(
+        &mut self,
+    ) -> ClockPhaseShifterBypassW<SelectionControlRegSpec> {
+        ClockPhaseShifterBypassW::new(self, 2)
     }
     #[doc = "Bits 8:9 - SDIO mask delay"]
     #[inline(always)]
-    pub fn sdio_mask_delay(&mut self) -> SDIO_MASK_DELAY_W {
-        SDIO_MASK_DELAY_W { w: self }
+    pub fn sdio_mask_delay(&mut self) -> SdioMaskDelayW<SelectionControlRegSpec> {
+        SdioMaskDelayW::new(self, 8)
     }
+}
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`selection_control_reg::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`selection_control_reg::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SelectionControlRegSpec;
+impl crate::RegisterSpec for SelectionControlRegSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`selection_control_reg::R`](R) reader structure"]
+impl crate::Readable for SelectionControlRegSpec {}
+#[doc = "`write(|w| ..)` method takes [`selection_control_reg::W`](W) writer structure"]
+impl crate::Writable for SelectionControlRegSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets SELECTION_CONTROL_REG to value 0x0100_0200"]
+impl crate::Resettable for SelectionControlRegSpec {
+    const RESET_VALUE: u32 = 0x0100_0200;
 }

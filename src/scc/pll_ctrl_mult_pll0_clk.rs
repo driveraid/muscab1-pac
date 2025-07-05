@@ -1,40 +1,39 @@
-#[doc = "Reader of register PLL_CTRL_MULT_PLL0_CLK"]
-pub type R = crate::R<u32, super::PLL_CTRL_MULT_PLL0_CLK>;
-#[doc = "Writer for register PLL_CTRL_MULT_PLL0_CLK"]
-pub type W = crate::W<u32, super::PLL_CTRL_MULT_PLL0_CLK>;
-#[doc = "Register PLL_CTRL_MULT_PLL0_CLK `reset()`'s with value 0x1388"]
-impl crate::ResetValue for super::PLL_CTRL_MULT_PLL0_CLK {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x1388
-    }
-}
-#[doc = "Reader of field `pll_mult_ctrl_pll0_clk`"]
-pub type PLL_MULT_CTRL_PLL0_CLK_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `pll_mult_ctrl_pll0_clk`"]
-pub struct PLL_MULT_CTRL_PLL0_CLK_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> PLL_MULT_CTRL_PLL0_CLK_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x3fff) | ((value as u32) & 0x3fff);
-        self.w
-    }
-}
+#[doc = "Register `PLL_CTRL_MULT_PLL0_CLK` reader"]
+pub type R = crate::R<PllCtrlMultPll0ClkSpec>;
+#[doc = "Register `PLL_CTRL_MULT_PLL0_CLK` writer"]
+pub type W = crate::W<PllCtrlMultPll0ClkSpec>;
+#[doc = "Field `pll_mult_ctrl_pll0_clk` reader - pll_mult_ctrl_pll0_clk"]
+pub type PllMultCtrlPll0ClkR = crate::FieldReader<u16>;
+#[doc = "Field `pll_mult_ctrl_pll0_clk` writer - pll_mult_ctrl_pll0_clk"]
+pub type PllMultCtrlPll0ClkW<'a, REG> = crate::FieldWriter<'a, REG, 14, u16>;
 impl R {
     #[doc = "Bits 0:13 - pll_mult_ctrl_pll0_clk"]
     #[inline(always)]
-    pub fn pll_mult_ctrl_pll0_clk(&self) -> PLL_MULT_CTRL_PLL0_CLK_R {
-        PLL_MULT_CTRL_PLL0_CLK_R::new((self.bits & 0x3fff) as u16)
+    pub fn pll_mult_ctrl_pll0_clk(&self) -> PllMultCtrlPll0ClkR {
+        PllMultCtrlPll0ClkR::new((self.bits & 0x3fff) as u16)
     }
 }
 impl W {
     #[doc = "Bits 0:13 - pll_mult_ctrl_pll0_clk"]
     #[inline(always)]
-    pub fn pll_mult_ctrl_pll0_clk(&mut self) -> PLL_MULT_CTRL_PLL0_CLK_W {
-        PLL_MULT_CTRL_PLL0_CLK_W { w: self }
+    pub fn pll_mult_ctrl_pll0_clk(&mut self) -> PllMultCtrlPll0ClkW<PllCtrlMultPll0ClkSpec> {
+        PllMultCtrlPll0ClkW::new(self, 0)
     }
+}
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`pll_ctrl_mult_pll0_clk::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pll_ctrl_mult_pll0_clk::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct PllCtrlMultPll0ClkSpec;
+impl crate::RegisterSpec for PllCtrlMultPll0ClkSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`pll_ctrl_mult_pll0_clk::R`](R) reader structure"]
+impl crate::Readable for PllCtrlMultPll0ClkSpec {}
+#[doc = "`write(|w| ..)` method takes [`pll_ctrl_mult_pll0_clk::W`](W) writer structure"]
+impl crate::Writable for PllCtrlMultPll0ClkSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets PLL_CTRL_MULT_PLL0_CLK to value 0x1388"]
+impl crate::Resettable for PllCtrlMultPll0ClkSpec {
+    const RESET_VALUE: u32 = 0x1388;
 }

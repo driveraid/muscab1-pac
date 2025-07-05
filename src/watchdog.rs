@@ -1,88 +1,91 @@
-#[doc = r"Register block"]
 #[repr(C)]
+#[doc = "Register block"]
 pub struct RegisterBlock {
-    #[doc = "0x00 - Watchdog Load Register"]
-    pub wdogload: WDOGLOAD,
-    #[doc = "0x04 - Watchdog Value Register"]
-    pub wdogvalue: WDOGVALUE,
-    #[doc = "0x08 - Watchdog Control Register"]
-    pub wdogcontrol: WDOGCONTROL,
-    #[doc = "0x0c - Watchdog Interrupt Clear Register"]
-    pub wdogintclr: WDOGINTCLR,
-    #[doc = "0x10 - Watchdog Raw Interrupt Status Register"]
-    pub wdogris: WDOGRIS,
-    #[doc = "0x14 - Watchdog Mask Interrupt Status Register"]
-    pub wdogmis: WDOGMIS,
-    _reserved6: [u8; 3048usize],
-    #[doc = "0xc00 - Watchdog Lock Register"]
-    pub wdoglock: WDOGLOCK,
+    wdogload: Wdogload,
+    wdogvalue: Wdogvalue,
+    wdogcontrol: Wdogcontrol,
+    wdogintclr: Wdogintclr,
+    wdogris: Wdogris,
+    wdogmis: Wdogmis,
+    _reserved6: [u8; 0x0be8],
+    wdoglock: Wdoglock,
 }
-#[doc = "Watchdog Load Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [wdogload](wdogload) module"]
-pub type WDOGLOAD = crate::Reg<u32, _WDOGLOAD>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _WDOGLOAD;
-#[doc = "`read()` method returns [wdogload::R](wdogload::R) reader structure"]
-impl crate::Readable for WDOGLOAD {}
-#[doc = "`write(|w| ..)` method takes [wdogload::W](wdogload::W) writer structure"]
-impl crate::Writable for WDOGLOAD {}
+impl RegisterBlock {
+    #[doc = "0x00 - Watchdog Load Register"]
+    #[inline(always)]
+    pub const fn wdogload(&self) -> &Wdogload {
+        &self.wdogload
+    }
+    #[doc = "0x04 - Watchdog Value Register"]
+    #[inline(always)]
+    pub const fn wdogvalue(&self) -> &Wdogvalue {
+        &self.wdogvalue
+    }
+    #[doc = "0x08 - Watchdog Control Register"]
+    #[inline(always)]
+    pub const fn wdogcontrol(&self) -> &Wdogcontrol {
+        &self.wdogcontrol
+    }
+    #[doc = "0x0c - Watchdog Interrupt Clear Register"]
+    #[inline(always)]
+    pub const fn wdogintclr(&self) -> &Wdogintclr {
+        &self.wdogintclr
+    }
+    #[doc = "0x10 - Watchdog Raw Interrupt Status Register"]
+    #[inline(always)]
+    pub const fn wdogris(&self) -> &Wdogris {
+        &self.wdogris
+    }
+    #[doc = "0x14 - Watchdog Mask Interrupt Status Register"]
+    #[inline(always)]
+    pub const fn wdogmis(&self) -> &Wdogmis {
+        &self.wdogmis
+    }
+    #[doc = "0xc00 - Watchdog Lock Register"]
+    #[inline(always)]
+    pub const fn wdoglock(&self) -> &Wdoglock {
+        &self.wdoglock
+    }
+}
+#[doc = "WDOGLOAD (rw) register accessor: Watchdog Load Register\n\nYou can [`read`](crate::Reg::read) this register and get [`wdogload::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wdogload::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@wdogload`]
+module"]
+#[doc(alias = "WDOGLOAD")]
+pub type Wdogload = crate::Reg<wdogload::WdogloadSpec>;
 #[doc = "Watchdog Load Register"]
 pub mod wdogload;
-#[doc = "Watchdog Value Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [wdogvalue](wdogvalue) module"]
-pub type WDOGVALUE = crate::Reg<u32, _WDOGVALUE>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _WDOGVALUE;
-#[doc = "`read()` method returns [wdogvalue::R](wdogvalue::R) reader structure"]
-impl crate::Readable for WDOGVALUE {}
+#[doc = "WDOGVALUE (r) register accessor: Watchdog Value Register\n\nYou can [`read`](crate::Reg::read) this register and get [`wdogvalue::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@wdogvalue`]
+module"]
+#[doc(alias = "WDOGVALUE")]
+pub type Wdogvalue = crate::Reg<wdogvalue::WdogvalueSpec>;
 #[doc = "Watchdog Value Register"]
 pub mod wdogvalue;
-#[doc = "Watchdog Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [wdogcontrol](wdogcontrol) module"]
-pub type WDOGCONTROL = crate::Reg<u32, _WDOGCONTROL>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _WDOGCONTROL;
-#[doc = "`read()` method returns [wdogcontrol::R](wdogcontrol::R) reader structure"]
-impl crate::Readable for WDOGCONTROL {}
-#[doc = "`write(|w| ..)` method takes [wdogcontrol::W](wdogcontrol::W) writer structure"]
-impl crate::Writable for WDOGCONTROL {}
+#[doc = "WDOGCONTROL (rw) register accessor: Watchdog Control Register\n\nYou can [`read`](crate::Reg::read) this register and get [`wdogcontrol::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wdogcontrol::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@wdogcontrol`]
+module"]
+#[doc(alias = "WDOGCONTROL")]
+pub type Wdogcontrol = crate::Reg<wdogcontrol::WdogcontrolSpec>;
 #[doc = "Watchdog Control Register"]
 pub mod wdogcontrol;
-#[doc = "Watchdog Interrupt Clear Register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [wdogintclr](wdogintclr) module"]
-pub type WDOGINTCLR = crate::Reg<u32, _WDOGINTCLR>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _WDOGINTCLR;
-#[doc = "`write(|w| ..)` method takes [wdogintclr::W](wdogintclr::W) writer structure"]
-impl crate::Writable for WDOGINTCLR {}
+#[doc = "WDOGINTCLR (w) register accessor: Watchdog Interrupt Clear Register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wdogintclr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@wdogintclr`]
+module"]
+#[doc(alias = "WDOGINTCLR")]
+pub type Wdogintclr = crate::Reg<wdogintclr::WdogintclrSpec>;
 #[doc = "Watchdog Interrupt Clear Register"]
 pub mod wdogintclr;
-#[doc = "Watchdog Raw Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [wdogris](wdogris) module"]
-pub type WDOGRIS = crate::Reg<u32, _WDOGRIS>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _WDOGRIS;
-#[doc = "`read()` method returns [wdogris::R](wdogris::R) reader structure"]
-impl crate::Readable for WDOGRIS {}
+#[doc = "WDOGRIS (r) register accessor: Watchdog Raw Interrupt Status Register\n\nYou can [`read`](crate::Reg::read) this register and get [`wdogris::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@wdogris`]
+module"]
+#[doc(alias = "WDOGRIS")]
+pub type Wdogris = crate::Reg<wdogris::WdogrisSpec>;
 #[doc = "Watchdog Raw Interrupt Status Register"]
 pub mod wdogris;
-#[doc = "Watchdog Mask Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [wdogmis](wdogmis) module"]
-pub type WDOGMIS = crate::Reg<u32, _WDOGMIS>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _WDOGMIS;
-#[doc = "`read()` method returns [wdogmis::R](wdogmis::R) reader structure"]
-impl crate::Readable for WDOGMIS {}
+#[doc = "WDOGMIS (r) register accessor: Watchdog Mask Interrupt Status Register\n\nYou can [`read`](crate::Reg::read) this register and get [`wdogmis::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@wdogmis`]
+module"]
+#[doc(alias = "WDOGMIS")]
+pub type Wdogmis = crate::Reg<wdogmis::WdogmisSpec>;
 #[doc = "Watchdog Mask Interrupt Status Register"]
 pub mod wdogmis;
-#[doc = "Watchdog Lock Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [wdoglock](wdoglock) module"]
-pub type WDOGLOCK = crate::Reg<u32, _WDOGLOCK>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _WDOGLOCK;
-#[doc = "`read()` method returns [wdoglock::R](wdoglock::R) reader structure"]
-impl crate::Readable for WDOGLOCK {}
-#[doc = "`write(|w| ..)` method takes [wdoglock::W](wdoglock::W) writer structure"]
-impl crate::Writable for WDOGLOCK {}
+#[doc = "WDOGLOCK (rw) register accessor: Watchdog Lock Register\n\nYou can [`read`](crate::Reg::read) this register and get [`wdoglock::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wdoglock::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@wdoglock`]
+module"]
+#[doc(alias = "WDOGLOCK")]
+pub type Wdoglock = crate::Reg<wdoglock::WdoglockSpec>;
 #[doc = "Watchdog Lock Register"]
 pub mod wdoglock;

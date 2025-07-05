@@ -1,758 +1,421 @@
-#[doc = "Reader of register QSPICFG"]
-pub type R = crate::R<u32, super::QSPICFG>;
-#[doc = "Writer for register QSPICFG"]
-pub type W = crate::W<u32, super::QSPICFG>;
-#[doc = "Register QSPICFG `reset()`'s with value 0x8078_0081"]
-impl crate::ResetValue for super::QSPICFG {
-    type Type = u32;
+#[doc = "Register `QSPICFG` reader"]
+pub type R = crate::R<QspicfgSpec>;
+#[doc = "Register `QSPICFG` writer"]
+pub type W = crate::W<QspicfgSpec>;
+#[doc = "Field `QSPIEN` reader - QSPI Enable"]
+pub type QspienR = crate::BitReader;
+#[doc = "Field `QSPIEN` writer - QSPI Enable"]
+pub type QspienW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `CLKPOLARITY` reader - Clock polarity outside SPI word. This maps to the standard SPI CPOL transfer format"]
+pub type ClkpolarityR = crate::BitReader;
+#[doc = "Field `CLKPOLARITY` writer - Clock polarity outside SPI word. This maps to the standard SPI CPOL transfer format"]
+pub type ClkpolarityW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `CLKPHASE` reader - Clock phase, this maps to the standard SPI CPHA transfer format"]
+pub type ClkphaseR = crate::BitReader;
+#[doc = "Field `CLKPHASE` writer - Clock phase, this maps to the standard SPI CPHA transfer format"]
+pub type ClkphaseW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `PHYMODEEN` reader - PHY Mode enable"]
+pub type PhymodeenR = crate::BitReader;
+#[doc = "Field `PHYMODEEN` writer - PHY Mode enable"]
+pub type PhymodeenW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `ENDIRACCCTR` reader - Enable Direct Access Controller"]
+pub type EndiraccctrR = crate::BitReader;
+#[doc = "Field `ENDIRACCCTR` writer - Enable Direct Access Controller"]
+pub type EndiraccctrW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `LEGIPMODEEN` reader - Legacy IP Mode Enable"]
+pub type LegipmodeenR = crate::BitReader;
+#[doc = "Field `LEGIPMODEEN` writer - Legacy IP Mode Enable"]
+pub type LegipmodeenW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Peripheral select decode\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Perseldec {
+    #[doc = "0: Only 1 of 4 selects n_ss_out is active"]
+    Disabled = 0,
+    #[doc = "1: Allow external 4-to-16 decode"]
+    Enabled = 1,
+}
+impl From<Perseldec> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x8078_0081
+    fn from(variant: Perseldec) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `PIPLIDLE`"]
-pub type PIPLIDLE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PIPLIDLE`"]
-pub struct PIPLIDLE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> PIPLIDLE_W<'a> {
-    #[doc = r"Sets the field bit"]
+#[doc = "Field `PERSELDEC` reader - Peripheral select decode"]
+pub type PerseldecR = crate::BitReader<Perseldec>;
+impl PerseldecR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
-        self.w
-    }
-}
-#[doc = "Reader of field `PIPLPHYEN`"]
-pub type PIPLPHYEN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PIPLPHYEN`"]
-pub struct PIPLPHYEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> PIPLPHYEN_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 25)) | (((value as u32) & 0x01) << 25);
-        self.w
-    }
-}
-#[doc = "Reader of field `DTREN`"]
-pub type DTREN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DTREN`"]
-pub struct DTREN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> DTREN_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
-        self.w
-    }
-}
-#[doc = "Reader of field `AHBDECEN`"]
-pub type AHBDECEN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `AHBDECEN`"]
-pub struct AHBDECEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> AHBDECEN_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
-        self.w
-    }
-}
-#[doc = "Reader of field `MAMOBRDIV`"]
-pub type MAMOBRDIV_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `MAMOBRDIV`"]
-pub struct MAMOBRDIV_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> MAMOBRDIV_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 19)) | (((value as u32) & 0x0f) << 19);
-        self.w
-    }
-}
-#[doc = "Reader of field `ENTRXIPMODEIMM`"]
-pub type ENTRXIPMODEIMM_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENTRXIPMODEIMM`"]
-pub struct ENTRXIPMODEIMM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> ENTRXIPMODEIMM_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
-        self.w
-    }
-}
-#[doc = "Reader of field `ENTRXIPMODEONR`"]
-pub type ENTRXIPMODEONR_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENTRXIPMODEONR`"]
-pub struct ENTRXIPMODEONR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> ENTRXIPMODEONR_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
-        self.w
-    }
-}
-#[doc = "Reader of field `ENAHBADDRRM`"]
-pub type ENAHBADDRRM_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENAHBADDRRM`"]
-pub struct ENAHBADDRRM_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> ENAHBADDRRM_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
-        self.w
-    }
-}
-#[doc = "Reader of field `ENDMAPIF`"]
-pub type ENDMAPIF_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENDMAPIF`"]
-pub struct ENDMAPIF_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> ENDMAPIF_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
-        self.w
-    }
-}
-#[doc = "Reader of field `WPPINDRV`"]
-pub type WPPINDRV_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `WPPINDRV`"]
-pub struct WPPINDRV_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> WPPINDRV_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
-        self.w
-    }
-}
-#[doc = "Possible values of the field `PERCSLINES`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PERCSLINES_A {
-    #[doc = "n_ss_out: 0b1110"]
-    SS0,
-    #[doc = "n_ss_out: 0b1101"]
-    SS1,
-    #[doc = "n_ss_out: 0b1011"]
-    SS2,
-    #[doc = "n_ss_out: 0b0111"]
-    SS3,
-    #[doc = "n_ss_out: 0b1111 (no peripheral selected)"]
-    SSINACTIVE,
-}
-impl From<PERCSLINES_A> for u8 {
-    #[inline(always)]
-    fn from(variant: PERCSLINES_A) -> Self {
-        match variant {
-            PERCSLINES_A::SS0 => 0,
-            PERCSLINES_A::SS1 => 1,
-            PERCSLINES_A::SS2 => 3,
-            PERCSLINES_A::SS3 => 7,
-            PERCSLINES_A::SSINACTIVE => 15,
-        }
-    }
-}
-#[doc = "Reader of field `PERCSLINES`"]
-pub type PERCSLINES_R = crate::R<u8, PERCSLINES_A>;
-impl PERCSLINES_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, PERCSLINES_A> {
-        use crate::Variant::*;
+    pub const fn variant(&self) -> Perseldec {
         match self.bits {
-            0 => Val(PERCSLINES_A::SS0),
-            1 => Val(PERCSLINES_A::SS1),
-            3 => Val(PERCSLINES_A::SS2),
-            7 => Val(PERCSLINES_A::SS3),
-            15 => Val(PERCSLINES_A::SSINACTIVE),
-            i => Res(i),
+            false => Perseldec::Disabled,
+            true => Perseldec::Enabled,
         }
     }
-    #[doc = "Checks if the value of the field is `SS0`"]
-    #[inline(always)]
-    pub fn is_ss0(&self) -> bool {
-        *self == PERCSLINES_A::SS0
-    }
-    #[doc = "Checks if the value of the field is `SS1`"]
-    #[inline(always)]
-    pub fn is_ss1(&self) -> bool {
-        *self == PERCSLINES_A::SS1
-    }
-    #[doc = "Checks if the value of the field is `SS2`"]
-    #[inline(always)]
-    pub fn is_ss2(&self) -> bool {
-        *self == PERCSLINES_A::SS2
-    }
-    #[doc = "Checks if the value of the field is `SS3`"]
-    #[inline(always)]
-    pub fn is_ss3(&self) -> bool {
-        *self == PERCSLINES_A::SS3
-    }
-    #[doc = "Checks if the value of the field is `SSINACTIVE`"]
-    #[inline(always)]
-    pub fn is_ssinactive(&self) -> bool {
-        *self == PERCSLINES_A::SSINACTIVE
-    }
-}
-#[doc = "Write proxy for field `PERCSLINES`"]
-pub struct PERCSLINES_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> PERCSLINES_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: PERCSLINES_A) -> &'a mut W {
-        unsafe { self.bits(variant.into()) }
-    }
-    #[doc = "n_ss_out: 0b1110"]
-    #[inline(always)]
-    pub fn ss0(self) -> &'a mut W {
-        self.variant(PERCSLINES_A::SS0)
-    }
-    #[doc = "n_ss_out: 0b1101"]
-    #[inline(always)]
-    pub fn ss1(self) -> &'a mut W {
-        self.variant(PERCSLINES_A::SS1)
-    }
-    #[doc = "n_ss_out: 0b1011"]
-    #[inline(always)]
-    pub fn ss2(self) -> &'a mut W {
-        self.variant(PERCSLINES_A::SS2)
-    }
-    #[doc = "n_ss_out: 0b0111"]
-    #[inline(always)]
-    pub fn ss3(self) -> &'a mut W {
-        self.variant(PERCSLINES_A::SS3)
-    }
-    #[doc = "n_ss_out: 0b1111 (no peripheral selected)"]
-    #[inline(always)]
-    pub fn ssinactive(self) -> &'a mut W {
-        self.variant(PERCSLINES_A::SSINACTIVE)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 10)) | (((value as u32) & 0x0f) << 10);
-        self.w
-    }
-}
-#[doc = "Possible values of the field `PERSELDEC`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PERSELDEC_A {
     #[doc = "Only 1 of 4 selects n_ss_out is active"]
-    DISABLED,
-    #[doc = "Allow external 4-to-16 decode"]
-    ENABLED,
-}
-impl From<PERSELDEC_A> for bool {
-    #[inline(always)]
-    fn from(variant: PERSELDEC_A) -> Self {
-        match variant {
-            PERSELDEC_A::DISABLED => false,
-            PERSELDEC_A::ENABLED => true,
-        }
-    }
-}
-#[doc = "Reader of field `PERSELDEC`"]
-pub type PERSELDEC_R = crate::R<bool, PERSELDEC_A>;
-impl PERSELDEC_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> PERSELDEC_A {
-        match self.bits {
-            false => PERSELDEC_A::DISABLED,
-            true => PERSELDEC_A::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == PERSELDEC_A::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline(always)]
-    pub fn is_enabled(&self) -> bool {
-        *self == PERSELDEC_A::ENABLED
-    }
-}
-#[doc = "Write proxy for field `PERSELDEC`"]
-pub struct PERSELDEC_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> PERSELDEC_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: PERSELDEC_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "Only 1 of 4 selects n_ss_out is active"]
-    #[inline(always)]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(PERSELDEC_A::DISABLED)
+        *self == Perseldec::Disabled
     }
     #[doc = "Allow external 4-to-16 decode"]
     #[inline(always)]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(PERSELDEC_A::ENABLED)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
-        self.w
+    pub fn is_enabled(&self) -> bool {
+        *self == Perseldec::Enabled
     }
 }
-#[doc = "Reader of field `LEGIPMODEEN`"]
-pub type LEGIPMODEEN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LEGIPMODEEN`"]
-pub struct LEGIPMODEEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> LEGIPMODEEN_W<'a> {
-    #[doc = r"Sets the field bit"]
+#[doc = "Field `PERSELDEC` writer - Peripheral select decode"]
+pub type PerseldecW<'a, REG> = crate::BitWriter<'a, REG, Perseldec>;
+impl<'a, REG> PerseldecW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Only 1 of 4 selects n_ss_out is active"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(Perseldec::Disabled)
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "Allow external 4-to-16 decode"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
-        self.w
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(Perseldec::Enabled)
     }
 }
-#[doc = "Reader of field `ENDIRACCCTR`"]
-pub type ENDIRACCCTR_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENDIRACCCTR`"]
-pub struct ENDIRACCCTR_W<'a> {
-    w: &'a mut W,
+#[doc = "Peripheral chip select lines\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Percslines {
+    #[doc = "0: n_ss_out: 0b1110"]
+    Ss0 = 0,
+    #[doc = "1: n_ss_out: 0b1101"]
+    Ss1 = 1,
+    #[doc = "3: n_ss_out: 0b1011"]
+    Ss2 = 3,
+    #[doc = "7: n_ss_out: 0b0111"]
+    Ss3 = 7,
+    #[doc = "15: n_ss_out: 0b1111 (no peripheral selected)"]
+    Ssinactive = 15,
 }
-impl<'a> ENDIRACCCTR_W<'a> {
-    #[doc = r"Sets the field bit"]
+impl From<Percslines> for u8 {
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
-        self.w
+    fn from(variant: Percslines) -> Self {
+        variant as _
     }
 }
-#[doc = "Reader of field `PHYMODEEN`"]
-pub type PHYMODEEN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PHYMODEEN`"]
-pub struct PHYMODEEN_W<'a> {
-    w: &'a mut W,
+impl crate::FieldSpec for Percslines {
+    type Ux = u8;
 }
-impl<'a> PHYMODEEN_W<'a> {
-    #[doc = r"Sets the field bit"]
+impl crate::IsEnum for Percslines {}
+#[doc = "Field `PERCSLINES` reader - Peripheral chip select lines"]
+pub type PercslinesR = crate::FieldReader<Percslines>;
+impl PercslinesR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub const fn variant(&self) -> Option<Percslines> {
+        match self.bits {
+            0 => Some(Percslines::Ss0),
+            1 => Some(Percslines::Ss1),
+            3 => Some(Percslines::Ss2),
+            7 => Some(Percslines::Ss3),
+            15 => Some(Percslines::Ssinactive),
+            _ => None,
+        }
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "n_ss_out: 0b1110"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
+    pub fn is_ss0(&self) -> bool {
+        *self == Percslines::Ss0
     }
-    #[doc = r"Writes raw bits to the field"]
+    #[doc = "n_ss_out: 0b1101"]
     #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
-        self.w
+    pub fn is_ss1(&self) -> bool {
+        *self == Percslines::Ss1
     }
-}
-#[doc = "Reader of field `CLKPHASE`"]
-pub type CLKPHASE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CLKPHASE`"]
-pub struct CLKPHASE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CLKPHASE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    #[doc = "n_ss_out: 0b1011"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub fn is_ss2(&self) -> bool {
+        *self == Percslines::Ss2
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "n_ss_out: 0b0111"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
+    pub fn is_ss3(&self) -> bool {
+        *self == Percslines::Ss3
     }
-    #[doc = r"Writes raw bits to the field"]
+    #[doc = "n_ss_out: 0b1111 (no peripheral selected)"]
     #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
-        self.w
+    pub fn is_ssinactive(&self) -> bool {
+        *self == Percslines::Ssinactive
     }
 }
-#[doc = "Reader of field `CLKPOLARITY`"]
-pub type CLKPOLARITY_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CLKPOLARITY`"]
-pub struct CLKPOLARITY_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CLKPOLARITY_W<'a> {
-    #[doc = r"Sets the field bit"]
+#[doc = "Field `PERCSLINES` writer - Peripheral chip select lines"]
+pub type PercslinesW<'a, REG> = crate::FieldWriter<'a, REG, 4, Percslines>;
+impl<'a, REG> PercslinesW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "n_ss_out: 0b1110"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub fn ss0(self) -> &'a mut crate::W<REG> {
+        self.variant(Percslines::Ss0)
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "n_ss_out: 0b1101"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
+    pub fn ss1(self) -> &'a mut crate::W<REG> {
+        self.variant(Percslines::Ss1)
     }
-    #[doc = r"Writes raw bits to the field"]
+    #[doc = "n_ss_out: 0b1011"]
     #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
-        self.w
+    pub fn ss2(self) -> &'a mut crate::W<REG> {
+        self.variant(Percslines::Ss2)
     }
-}
-#[doc = "Reader of field `QSPIEN`"]
-pub type QSPIEN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `QSPIEN`"]
-pub struct QSPIEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> QSPIEN_W<'a> {
-    #[doc = r"Sets the field bit"]
+    #[doc = "n_ss_out: 0b0111"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub fn ss3(self) -> &'a mut crate::W<REG> {
+        self.variant(Percslines::Ss3)
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "n_ss_out: 0b1111 (no peripheral selected)"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
+    pub fn ssinactive(self) -> &'a mut crate::W<REG> {
+        self.variant(Percslines::Ssinactive)
     }
 }
+#[doc = "Field `WPPINDRV` reader - Set to drive the WP pin of Flash device"]
+pub type WppindrvR = crate::BitReader;
+#[doc = "Field `WPPINDRV` writer - Set to drive the WP pin of Flash device"]
+pub type WppindrvW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `ENDMAPIF` reader - Enable DMA Peripheral Interface"]
+pub type EndmapifR = crate::BitReader;
+#[doc = "Field `ENDMAPIF` writer - Enable DMA Peripheral Interface"]
+pub type EndmapifW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `ENAHBADDRRM` reader - Enable AHB Address Re-mapping"]
+pub type EnahbaddrrmR = crate::BitReader;
+#[doc = "Field `ENAHBADDRRM` writer - Enable AHB Address Re-mapping"]
+pub type EnahbaddrrmW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `ENTRXIPMODEONR` reader - Enter XIP Mode on next READ"]
+pub type EntrxipmodeonrR = crate::BitReader;
+#[doc = "Field `ENTRXIPMODEONR` writer - Enter XIP Mode on next READ"]
+pub type EntrxipmodeonrW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `ENTRXIPMODEIMM` reader - Enter XIP Mode immediately"]
+pub type EntrxipmodeimmR = crate::BitReader;
+#[doc = "Field `ENTRXIPMODEIMM` writer - Enter XIP Mode immediately"]
+pub type EntrxipmodeimmW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `MAMOBRDIV` reader - Master mode baud rate divisor (2 to 32)"]
+pub type MamobrdivR = crate::FieldReader;
+#[doc = "Field `MAMOBRDIV` writer - Master mode baud rate divisor (2 to 32)"]
+pub type MamobrdivW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+#[doc = "Field `AHBDECEN` reader - Enable AHB Decoder"]
+pub type AhbdecenR = crate::BitReader;
+#[doc = "Field `AHBDECEN` writer - Enable AHB Decoder"]
+pub type AhbdecenW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `DTREN` reader - Enable DTR Protocol"]
+pub type DtrenR = crate::BitReader;
+#[doc = "Field `DTREN` writer - Enable DTR Protocol"]
+pub type DtrenW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `PIPLPHYEN` reader - Pipeline PHY Mode enable"]
+pub type PiplphyenR = crate::BitReader;
+#[doc = "Field `PIPLPHYEN` writer - Pipeline PHY Mode enable"]
+pub type PiplphyenW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `PIPLIDLE` reader - Serial Interface and QSPI pipeline is IDLE"]
+pub type PiplidleR = crate::BitReader;
+#[doc = "Field `PIPLIDLE` writer - Serial Interface and QSPI pipeline is IDLE"]
+pub type PiplidleW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 31 - Serial Interface and QSPI pipeline is IDLE"]
+    #[doc = "Bit 0 - QSPI Enable"]
     #[inline(always)]
-    pub fn piplidle(&self) -> PIPLIDLE_R {
-        PIPLIDLE_R::new(((self.bits >> 31) & 0x01) != 0)
-    }
-    #[doc = "Bit 25 - Pipeline PHY Mode enable"]
-    #[inline(always)]
-    pub fn piplphyen(&self) -> PIPLPHYEN_R {
-        PIPLPHYEN_R::new(((self.bits >> 25) & 0x01) != 0)
-    }
-    #[doc = "Bit 24 - Enable DTR Protocol"]
-    #[inline(always)]
-    pub fn dtren(&self) -> DTREN_R {
-        DTREN_R::new(((self.bits >> 24) & 0x01) != 0)
-    }
-    #[doc = "Bit 23 - Enable AHB Decoder"]
-    #[inline(always)]
-    pub fn ahbdecen(&self) -> AHBDECEN_R {
-        AHBDECEN_R::new(((self.bits >> 23) & 0x01) != 0)
-    }
-    #[doc = "Bits 19:22 - Master mode baud rate divisor (2 to 32)"]
-    #[inline(always)]
-    pub fn mamobrdiv(&self) -> MAMOBRDIV_R {
-        MAMOBRDIV_R::new(((self.bits >> 19) & 0x0f) as u8)
-    }
-    #[doc = "Bit 18 - Enter XIP Mode immediately"]
-    #[inline(always)]
-    pub fn entrxipmodeimm(&self) -> ENTRXIPMODEIMM_R {
-        ENTRXIPMODEIMM_R::new(((self.bits >> 18) & 0x01) != 0)
-    }
-    #[doc = "Bit 17 - Enter XIP Mode on next READ"]
-    #[inline(always)]
-    pub fn entrxipmodeonr(&self) -> ENTRXIPMODEONR_R {
-        ENTRXIPMODEONR_R::new(((self.bits >> 17) & 0x01) != 0)
-    }
-    #[doc = "Bit 16 - Enable AHB Address Re-mapping"]
-    #[inline(always)]
-    pub fn enahbaddrrm(&self) -> ENAHBADDRRM_R {
-        ENAHBADDRRM_R::new(((self.bits >> 16) & 0x01) != 0)
-    }
-    #[doc = "Bit 15 - Enable DMA Peripheral Interface"]
-    #[inline(always)]
-    pub fn endmapif(&self) -> ENDMAPIF_R {
-        ENDMAPIF_R::new(((self.bits >> 15) & 0x01) != 0)
-    }
-    #[doc = "Bit 14 - Set to drive the WP pin of Flash device"]
-    #[inline(always)]
-    pub fn wppindrv(&self) -> WPPINDRV_R {
-        WPPINDRV_R::new(((self.bits >> 14) & 0x01) != 0)
-    }
-    #[doc = "Bits 10:13 - Peripheral chip select lines"]
-    #[inline(always)]
-    pub fn percslines(&self) -> PERCSLINES_R {
-        PERCSLINES_R::new(((self.bits >> 10) & 0x0f) as u8)
-    }
-    #[doc = "Bit 9 - Peripheral select decode"]
-    #[inline(always)]
-    pub fn perseldec(&self) -> PERSELDEC_R {
-        PERSELDEC_R::new(((self.bits >> 9) & 0x01) != 0)
-    }
-    #[doc = "Bit 8 - Legacy IP Mode Enable"]
-    #[inline(always)]
-    pub fn legipmodeen(&self) -> LEGIPMODEEN_R {
-        LEGIPMODEEN_R::new(((self.bits >> 8) & 0x01) != 0)
-    }
-    #[doc = "Bit 7 - Enable Direct Access Controller"]
-    #[inline(always)]
-    pub fn endiraccctr(&self) -> ENDIRACCCTR_R {
-        ENDIRACCCTR_R::new(((self.bits >> 7) & 0x01) != 0)
-    }
-    #[doc = "Bit 3 - PHY Mode enable"]
-    #[inline(always)]
-    pub fn phymodeen(&self) -> PHYMODEEN_R {
-        PHYMODEEN_R::new(((self.bits >> 3) & 0x01) != 0)
-    }
-    #[doc = "Bit 2 - Clock phase, this maps to the standard SPI CPHA transfer format"]
-    #[inline(always)]
-    pub fn clkphase(&self) -> CLKPHASE_R {
-        CLKPHASE_R::new(((self.bits >> 2) & 0x01) != 0)
+    pub fn qspien(&self) -> QspienR {
+        QspienR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - Clock polarity outside SPI word. This maps to the standard SPI CPOL transfer format"]
     #[inline(always)]
-    pub fn clkpolarity(&self) -> CLKPOLARITY_R {
-        CLKPOLARITY_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn clkpolarity(&self) -> ClkpolarityR {
+        ClkpolarityR::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 0 - QSPI Enable"]
+    #[doc = "Bit 2 - Clock phase, this maps to the standard SPI CPHA transfer format"]
     #[inline(always)]
-    pub fn qspien(&self) -> QSPIEN_R {
-        QSPIEN_R::new((self.bits & 0x01) != 0)
+    pub fn clkphase(&self) -> ClkphaseR {
+        ClkphaseR::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bit 3 - PHY Mode enable"]
+    #[inline(always)]
+    pub fn phymodeen(&self) -> PhymodeenR {
+        PhymodeenR::new(((self.bits >> 3) & 1) != 0)
+    }
+    #[doc = "Bit 7 - Enable Direct Access Controller"]
+    #[inline(always)]
+    pub fn endiraccctr(&self) -> EndiraccctrR {
+        EndiraccctrR::new(((self.bits >> 7) & 1) != 0)
+    }
+    #[doc = "Bit 8 - Legacy IP Mode Enable"]
+    #[inline(always)]
+    pub fn legipmodeen(&self) -> LegipmodeenR {
+        LegipmodeenR::new(((self.bits >> 8) & 1) != 0)
+    }
+    #[doc = "Bit 9 - Peripheral select decode"]
+    #[inline(always)]
+    pub fn perseldec(&self) -> PerseldecR {
+        PerseldecR::new(((self.bits >> 9) & 1) != 0)
+    }
+    #[doc = "Bits 10:13 - Peripheral chip select lines"]
+    #[inline(always)]
+    pub fn percslines(&self) -> PercslinesR {
+        PercslinesR::new(((self.bits >> 10) & 0x0f) as u8)
+    }
+    #[doc = "Bit 14 - Set to drive the WP pin of Flash device"]
+    #[inline(always)]
+    pub fn wppindrv(&self) -> WppindrvR {
+        WppindrvR::new(((self.bits >> 14) & 1) != 0)
+    }
+    #[doc = "Bit 15 - Enable DMA Peripheral Interface"]
+    #[inline(always)]
+    pub fn endmapif(&self) -> EndmapifR {
+        EndmapifR::new(((self.bits >> 15) & 1) != 0)
+    }
+    #[doc = "Bit 16 - Enable AHB Address Re-mapping"]
+    #[inline(always)]
+    pub fn enahbaddrrm(&self) -> EnahbaddrrmR {
+        EnahbaddrrmR::new(((self.bits >> 16) & 1) != 0)
+    }
+    #[doc = "Bit 17 - Enter XIP Mode on next READ"]
+    #[inline(always)]
+    pub fn entrxipmodeonr(&self) -> EntrxipmodeonrR {
+        EntrxipmodeonrR::new(((self.bits >> 17) & 1) != 0)
+    }
+    #[doc = "Bit 18 - Enter XIP Mode immediately"]
+    #[inline(always)]
+    pub fn entrxipmodeimm(&self) -> EntrxipmodeimmR {
+        EntrxipmodeimmR::new(((self.bits >> 18) & 1) != 0)
+    }
+    #[doc = "Bits 19:22 - Master mode baud rate divisor (2 to 32)"]
+    #[inline(always)]
+    pub fn mamobrdiv(&self) -> MamobrdivR {
+        MamobrdivR::new(((self.bits >> 19) & 0x0f) as u8)
+    }
+    #[doc = "Bit 23 - Enable AHB Decoder"]
+    #[inline(always)]
+    pub fn ahbdecen(&self) -> AhbdecenR {
+        AhbdecenR::new(((self.bits >> 23) & 1) != 0)
+    }
+    #[doc = "Bit 24 - Enable DTR Protocol"]
+    #[inline(always)]
+    pub fn dtren(&self) -> DtrenR {
+        DtrenR::new(((self.bits >> 24) & 1) != 0)
+    }
+    #[doc = "Bit 25 - Pipeline PHY Mode enable"]
+    #[inline(always)]
+    pub fn piplphyen(&self) -> PiplphyenR {
+        PiplphyenR::new(((self.bits >> 25) & 1) != 0)
+    }
+    #[doc = "Bit 31 - Serial Interface and QSPI pipeline is IDLE"]
+    #[inline(always)]
+    pub fn piplidle(&self) -> PiplidleR {
+        PiplidleR::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 31 - Serial Interface and QSPI pipeline is IDLE"]
+    #[doc = "Bit 0 - QSPI Enable"]
     #[inline(always)]
-    pub fn piplidle(&mut self) -> PIPLIDLE_W {
-        PIPLIDLE_W { w: self }
-    }
-    #[doc = "Bit 25 - Pipeline PHY Mode enable"]
-    #[inline(always)]
-    pub fn piplphyen(&mut self) -> PIPLPHYEN_W {
-        PIPLPHYEN_W { w: self }
-    }
-    #[doc = "Bit 24 - Enable DTR Protocol"]
-    #[inline(always)]
-    pub fn dtren(&mut self) -> DTREN_W {
-        DTREN_W { w: self }
-    }
-    #[doc = "Bit 23 - Enable AHB Decoder"]
-    #[inline(always)]
-    pub fn ahbdecen(&mut self) -> AHBDECEN_W {
-        AHBDECEN_W { w: self }
-    }
-    #[doc = "Bits 19:22 - Master mode baud rate divisor (2 to 32)"]
-    #[inline(always)]
-    pub fn mamobrdiv(&mut self) -> MAMOBRDIV_W {
-        MAMOBRDIV_W { w: self }
-    }
-    #[doc = "Bit 18 - Enter XIP Mode immediately"]
-    #[inline(always)]
-    pub fn entrxipmodeimm(&mut self) -> ENTRXIPMODEIMM_W {
-        ENTRXIPMODEIMM_W { w: self }
-    }
-    #[doc = "Bit 17 - Enter XIP Mode on next READ"]
-    #[inline(always)]
-    pub fn entrxipmodeonr(&mut self) -> ENTRXIPMODEONR_W {
-        ENTRXIPMODEONR_W { w: self }
-    }
-    #[doc = "Bit 16 - Enable AHB Address Re-mapping"]
-    #[inline(always)]
-    pub fn enahbaddrrm(&mut self) -> ENAHBADDRRM_W {
-        ENAHBADDRRM_W { w: self }
-    }
-    #[doc = "Bit 15 - Enable DMA Peripheral Interface"]
-    #[inline(always)]
-    pub fn endmapif(&mut self) -> ENDMAPIF_W {
-        ENDMAPIF_W { w: self }
-    }
-    #[doc = "Bit 14 - Set to drive the WP pin of Flash device"]
-    #[inline(always)]
-    pub fn wppindrv(&mut self) -> WPPINDRV_W {
-        WPPINDRV_W { w: self }
-    }
-    #[doc = "Bits 10:13 - Peripheral chip select lines"]
-    #[inline(always)]
-    pub fn percslines(&mut self) -> PERCSLINES_W {
-        PERCSLINES_W { w: self }
-    }
-    #[doc = "Bit 9 - Peripheral select decode"]
-    #[inline(always)]
-    pub fn perseldec(&mut self) -> PERSELDEC_W {
-        PERSELDEC_W { w: self }
-    }
-    #[doc = "Bit 8 - Legacy IP Mode Enable"]
-    #[inline(always)]
-    pub fn legipmodeen(&mut self) -> LEGIPMODEEN_W {
-        LEGIPMODEEN_W { w: self }
-    }
-    #[doc = "Bit 7 - Enable Direct Access Controller"]
-    #[inline(always)]
-    pub fn endiraccctr(&mut self) -> ENDIRACCCTR_W {
-        ENDIRACCCTR_W { w: self }
-    }
-    #[doc = "Bit 3 - PHY Mode enable"]
-    #[inline(always)]
-    pub fn phymodeen(&mut self) -> PHYMODEEN_W {
-        PHYMODEEN_W { w: self }
-    }
-    #[doc = "Bit 2 - Clock phase, this maps to the standard SPI CPHA transfer format"]
-    #[inline(always)]
-    pub fn clkphase(&mut self) -> CLKPHASE_W {
-        CLKPHASE_W { w: self }
+    pub fn qspien(&mut self) -> QspienW<QspicfgSpec> {
+        QspienW::new(self, 0)
     }
     #[doc = "Bit 1 - Clock polarity outside SPI word. This maps to the standard SPI CPOL transfer format"]
     #[inline(always)]
-    pub fn clkpolarity(&mut self) -> CLKPOLARITY_W {
-        CLKPOLARITY_W { w: self }
+    pub fn clkpolarity(&mut self) -> ClkpolarityW<QspicfgSpec> {
+        ClkpolarityW::new(self, 1)
     }
-    #[doc = "Bit 0 - QSPI Enable"]
+    #[doc = "Bit 2 - Clock phase, this maps to the standard SPI CPHA transfer format"]
     #[inline(always)]
-    pub fn qspien(&mut self) -> QSPIEN_W {
-        QSPIEN_W { w: self }
+    pub fn clkphase(&mut self) -> ClkphaseW<QspicfgSpec> {
+        ClkphaseW::new(self, 2)
     }
+    #[doc = "Bit 3 - PHY Mode enable"]
+    #[inline(always)]
+    pub fn phymodeen(&mut self) -> PhymodeenW<QspicfgSpec> {
+        PhymodeenW::new(self, 3)
+    }
+    #[doc = "Bit 7 - Enable Direct Access Controller"]
+    #[inline(always)]
+    pub fn endiraccctr(&mut self) -> EndiraccctrW<QspicfgSpec> {
+        EndiraccctrW::new(self, 7)
+    }
+    #[doc = "Bit 8 - Legacy IP Mode Enable"]
+    #[inline(always)]
+    pub fn legipmodeen(&mut self) -> LegipmodeenW<QspicfgSpec> {
+        LegipmodeenW::new(self, 8)
+    }
+    #[doc = "Bit 9 - Peripheral select decode"]
+    #[inline(always)]
+    pub fn perseldec(&mut self) -> PerseldecW<QspicfgSpec> {
+        PerseldecW::new(self, 9)
+    }
+    #[doc = "Bits 10:13 - Peripheral chip select lines"]
+    #[inline(always)]
+    pub fn percslines(&mut self) -> PercslinesW<QspicfgSpec> {
+        PercslinesW::new(self, 10)
+    }
+    #[doc = "Bit 14 - Set to drive the WP pin of Flash device"]
+    #[inline(always)]
+    pub fn wppindrv(&mut self) -> WppindrvW<QspicfgSpec> {
+        WppindrvW::new(self, 14)
+    }
+    #[doc = "Bit 15 - Enable DMA Peripheral Interface"]
+    #[inline(always)]
+    pub fn endmapif(&mut self) -> EndmapifW<QspicfgSpec> {
+        EndmapifW::new(self, 15)
+    }
+    #[doc = "Bit 16 - Enable AHB Address Re-mapping"]
+    #[inline(always)]
+    pub fn enahbaddrrm(&mut self) -> EnahbaddrrmW<QspicfgSpec> {
+        EnahbaddrrmW::new(self, 16)
+    }
+    #[doc = "Bit 17 - Enter XIP Mode on next READ"]
+    #[inline(always)]
+    pub fn entrxipmodeonr(&mut self) -> EntrxipmodeonrW<QspicfgSpec> {
+        EntrxipmodeonrW::new(self, 17)
+    }
+    #[doc = "Bit 18 - Enter XIP Mode immediately"]
+    #[inline(always)]
+    pub fn entrxipmodeimm(&mut self) -> EntrxipmodeimmW<QspicfgSpec> {
+        EntrxipmodeimmW::new(self, 18)
+    }
+    #[doc = "Bits 19:22 - Master mode baud rate divisor (2 to 32)"]
+    #[inline(always)]
+    pub fn mamobrdiv(&mut self) -> MamobrdivW<QspicfgSpec> {
+        MamobrdivW::new(self, 19)
+    }
+    #[doc = "Bit 23 - Enable AHB Decoder"]
+    #[inline(always)]
+    pub fn ahbdecen(&mut self) -> AhbdecenW<QspicfgSpec> {
+        AhbdecenW::new(self, 23)
+    }
+    #[doc = "Bit 24 - Enable DTR Protocol"]
+    #[inline(always)]
+    pub fn dtren(&mut self) -> DtrenW<QspicfgSpec> {
+        DtrenW::new(self, 24)
+    }
+    #[doc = "Bit 25 - Pipeline PHY Mode enable"]
+    #[inline(always)]
+    pub fn piplphyen(&mut self) -> PiplphyenW<QspicfgSpec> {
+        PiplphyenW::new(self, 25)
+    }
+    #[doc = "Bit 31 - Serial Interface and QSPI pipeline is IDLE"]
+    #[inline(always)]
+    pub fn piplidle(&mut self) -> PiplidleW<QspicfgSpec> {
+        PiplidleW::new(self, 31)
+    }
+}
+#[doc = "QSPI Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`qspicfg::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qspicfg::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct QspicfgSpec;
+impl crate::RegisterSpec for QspicfgSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`qspicfg::R`](R) reader structure"]
+impl crate::Readable for QspicfgSpec {}
+#[doc = "`write(|w| ..)` method takes [`qspicfg::W`](W) writer structure"]
+impl crate::Writable for QspicfgSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets QSPICFG to value 0x8078_0081"]
+impl crate::Resettable for QspicfgSpec {
+    const RESET_VALUE: u32 = 0x8078_0081;
 }

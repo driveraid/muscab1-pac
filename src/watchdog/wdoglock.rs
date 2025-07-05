@@ -1,128 +1,102 @@
-#[doc = "Reader of register WDOGLOCK"]
-pub type R = crate::R<u32, super::WDOGLOCK>;
-#[doc = "Writer for register WDOGLOCK"]
-pub type W = crate::W<u32, super::WDOGLOCK>;
-#[doc = "Register WDOGLOCK `reset()`'s with value 0"]
-impl crate::ResetValue for super::WDOGLOCK {
-    type Type = u32;
+#[doc = "Register `WDOGLOCK` reader"]
+pub type R = crate::R<WdoglockSpec>;
+#[doc = "Register `WDOGLOCK` writer"]
+pub type W = crate::W<WdoglockSpec>;
+#[doc = "Register write enable status\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Status {
+    #[doc = "0: Write access to all other registers is enabled. This is the default."]
+    Enabled = 0,
+    #[doc = "1: Write access to all other registers is disabled."]
+    Disabled = 1,
+}
+impl From<Status> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn from(variant: Status) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `Access`"]
-pub type ACCESS_R = crate::R<u32, u32>;
-#[doc = "Write proxy for field `Access`"]
-pub struct ACCESS_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> ACCESS_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+#[doc = "Field `Status` reader - Register write enable status"]
+pub type StatusR = crate::BitReader<Status>;
+impl StatusR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x7fff_ffff << 1)) | (((value as u32) & 0x7fff_ffff) << 1);
-        self.w
-    }
-}
-#[doc = "Possible values of the field `Status`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum STATUS_A {
-    #[doc = "Write access to all other registers is enabled. This is the default."]
-    ENABLED,
-    #[doc = "Write access to all other registers is disabled."]
-    DISABLED,
-}
-impl From<STATUS_A> for bool {
-    #[inline(always)]
-    fn from(variant: STATUS_A) -> Self {
-        match variant {
-            STATUS_A::ENABLED => false,
-            STATUS_A::DISABLED => true,
-        }
-    }
-}
-#[doc = "Reader of field `Status`"]
-pub type STATUS_R = crate::R<bool, STATUS_A>;
-impl STATUS_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> STATUS_A {
+    pub const fn variant(&self) -> Status {
         match self.bits {
-            false => STATUS_A::ENABLED,
-            true => STATUS_A::DISABLED,
+            false => Status::Enabled,
+            true => Status::Disabled,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[doc = "Write access to all other registers is enabled. This is the default."]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == STATUS_A::ENABLED
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline(always)]
-    pub fn is_disabled(&self) -> bool {
-        *self == STATUS_A::DISABLED
-    }
-}
-#[doc = "Write proxy for field `Status`"]
-pub struct STATUS_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> STATUS_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: STATUS_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "Write access to all other registers is enabled. This is the default."]
-    #[inline(always)]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(STATUS_A::ENABLED)
+        *self == Status::Enabled
     }
     #[doc = "Write access to all other registers is disabled."]
     #[inline(always)]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(STATUS_A::DISABLED)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
+    pub fn is_disabled(&self) -> bool {
+        *self == Status::Disabled
     }
 }
-impl R {
-    #[doc = "Bits 1:31 - Enable register writes"]
+#[doc = "Field `Status` writer - Register write enable status"]
+pub type StatusW<'a, REG> = crate::BitWriter<'a, REG, Status>;
+impl<'a, REG> StatusW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Write access to all other registers is enabled. This is the default."]
     #[inline(always)]
-    pub fn access(&self) -> ACCESS_R {
-        ACCESS_R::new(((self.bits >> 1) & 0x7fff_ffff) as u32)
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(Status::Enabled)
     }
+    #[doc = "Write access to all other registers is disabled."]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(Status::Disabled)
+    }
+}
+#[doc = "Field `Access` reader - Enable register writes"]
+pub type AccessR = crate::FieldReader<u32>;
+#[doc = "Field `Access` writer - Enable register writes"]
+pub type AccessW<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
+impl R {
     #[doc = "Bit 0 - Register write enable status"]
     #[inline(always)]
-    pub fn status(&self) -> STATUS_R {
-        STATUS_R::new((self.bits & 0x01) != 0)
+    pub fn status(&self) -> StatusR {
+        StatusR::new((self.bits & 1) != 0)
+    }
+    #[doc = "Bits 1:31 - Enable register writes"]
+    #[inline(always)]
+    pub fn access(&self) -> AccessR {
+        AccessR::new((self.bits >> 1) & 0x7fff_ffff)
     }
 }
 impl W {
-    #[doc = "Bits 1:31 - Enable register writes"]
-    #[inline(always)]
-    pub fn access(&mut self) -> ACCESS_W {
-        ACCESS_W { w: self }
-    }
     #[doc = "Bit 0 - Register write enable status"]
     #[inline(always)]
-    pub fn status(&mut self) -> STATUS_W {
-        STATUS_W { w: self }
+    pub fn status(&mut self) -> StatusW<WdoglockSpec> {
+        StatusW::new(self, 0)
     }
+    #[doc = "Bits 1:31 - Enable register writes"]
+    #[inline(always)]
+    pub fn access(&mut self) -> AccessW<WdoglockSpec> {
+        AccessW::new(self, 1)
+    }
+}
+#[doc = "Watchdog Lock Register\n\nYou can [`read`](crate::Reg::read) this register and get [`wdoglock::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wdoglock::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct WdoglockSpec;
+impl crate::RegisterSpec for WdoglockSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`wdoglock::R`](R) reader structure"]
+impl crate::Readable for WdoglockSpec {}
+#[doc = "`write(|w| ..)` method takes [`wdoglock::W`](W) writer structure"]
+impl crate::Writable for WdoglockSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets WDOGLOCK to value 0"]
+impl crate::Resettable for WdoglockSpec {
+    const RESET_VALUE: u32 = 0;
 }

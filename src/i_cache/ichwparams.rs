@@ -1,113 +1,118 @@
-#[doc = "Reader of register ICHWPARAMS"]
-pub type R = crate::R<u32, super::ICHWPARAMS>;
-#[doc = "Reader of field `CSIZE`"]
-pub type CSIZE_R = crate::R<u8, u8>;
-#[doc = "Reader of field `STATS`"]
-pub type STATS_R = crate::R<bool, bool>;
-#[doc = "Possible values of the field `DMA`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DMA_A {
-    #[doc = "The Instruction cache supports\n                          pre-fetch and locking"]
-    SUPPORT,
-    #[doc = "The Instruction cache does not\n                          support pre-fetch and locking"]
-    UNSUPPORT,
+#[doc = "Register `ICHWPARAMS` reader"]
+pub type R = crate::R<IchwparamsSpec>;
+#[doc = "Field `CSIZE` reader - Cache size: Defines the size of the instruction cache"]
+pub type CsizeR = crate::FieldReader;
+#[doc = "Field `STATS` reader - Presence of Statistic Functionality"]
+pub type StatsR = crate::BitReader;
+#[doc = "Presence of DMA Engine\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Dma {
+    #[doc = "1: The Instruction cache supports pre-fetch and locking"]
+    Support = 1,
+    #[doc = "0: The Instruction cache does not support pre-fetch and locking"]
+    Unsupport = 0,
 }
-impl From<DMA_A> for bool {
+impl From<Dma> for bool {
     #[inline(always)]
-    fn from(variant: DMA_A) -> Self {
-        match variant {
-            DMA_A::SUPPORT => true,
-            DMA_A::UNSUPPORT => false,
-        }
+    fn from(variant: Dma) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DMA`"]
-pub type DMA_R = crate::R<bool, DMA_A>;
-impl DMA_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `DMA` reader - Presence of DMA Engine"]
+pub type DmaR = crate::BitReader<Dma>;
+impl DmaR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> DMA_A {
+    pub const fn variant(&self) -> Dma {
         match self.bits {
-            true => DMA_A::SUPPORT,
-            false => DMA_A::UNSUPPORT,
+            true => Dma::Support,
+            false => Dma::Unsupport,
         }
     }
-    #[doc = "Checks if the value of the field is `SUPPORT`"]
+    #[doc = "The Instruction cache supports pre-fetch and locking"]
     #[inline(always)]
     pub fn is_support(&self) -> bool {
-        *self == DMA_A::SUPPORT
+        *self == Dma::Support
     }
-    #[doc = "Checks if the value of the field is `UNSUPPORT`"]
+    #[doc = "The Instruction cache does not support pre-fetch and locking"]
     #[inline(always)]
     pub fn is_unsupport(&self) -> bool {
-        *self == DMA_A::UNSUPPORT
+        *self == Dma::Unsupport
     }
 }
-#[doc = "Possible values of the field `INVMAT`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum INVMAT_A {
-    #[doc = "Indicates Invalidate Cache Line\n                          on Write Match is enabled"]
-    ENABLED,
+#[doc = "Indicates whether invalidate cache line on write match is enabled\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Invmat {
+    #[doc = "1: Indicates Invalidate Cache Line on Write Match is enabled"]
+    Enabled = 1,
 }
-impl From<INVMAT_A> for bool {
+impl From<Invmat> for bool {
     #[inline(always)]
-    fn from(variant: INVMAT_A) -> Self {
-        match variant {
-            INVMAT_A::ENABLED => true,
-        }
+    fn from(variant: Invmat) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `INVMAT`"]
-pub type INVMAT_R = crate::R<bool, INVMAT_A>;
-impl INVMAT_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Field `INVMAT` reader - Indicates whether invalidate cache line on write match is enabled"]
+pub type InvmatR = crate::BitReader<Invmat>;
+impl InvmatR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<bool, INVMAT_A> {
-        use crate::Variant::*;
+    pub const fn variant(&self) -> Option<Invmat> {
         match self.bits {
-            true => Val(INVMAT_A::ENABLED),
-            i => Res(i),
+            true => Some(Invmat::Enabled),
+            _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[doc = "Indicates Invalidate Cache Line on Write Match is enabled"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == INVMAT_A::ENABLED
+        *self == Invmat::Enabled
     }
 }
-#[doc = "Reader of field `COFFSIZE`"]
-pub type COFFSIZE_R = crate::R<u8, u8>;
-#[doc = "Reader of field `COFFSET`"]
-pub type COFFSET_R = crate::R<u16, u16>;
+#[doc = "Field `COFFSIZE` reader - Cacheable Block Size"]
+pub type CoffsizeR = crate::FieldReader;
+#[doc = "Field `COFFSET` reader - Cacheable Offset Address"]
+pub type CoffsetR = crate::FieldReader<u16>;
 impl R {
     #[doc = "Bits 0:3 - Cache size: Defines the size of the instruction cache"]
     #[inline(always)]
-    pub fn csize(&self) -> CSIZE_R {
-        CSIZE_R::new((self.bits & 0x0f) as u8)
+    pub fn csize(&self) -> CsizeR {
+        CsizeR::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bit 4 - Presence of Statistic Functionality"]
     #[inline(always)]
-    pub fn stats(&self) -> STATS_R {
-        STATS_R::new(((self.bits >> 4) & 0x01) != 0)
+    pub fn stats(&self) -> StatsR {
+        StatsR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - Presence of DMA Engine"]
     #[inline(always)]
-    pub fn dma(&self) -> DMA_R {
-        DMA_R::new(((self.bits >> 5) & 0x01) != 0)
+    pub fn dma(&self) -> DmaR {
+        DmaR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - Indicates whether invalidate cache line on write match is enabled"]
     #[inline(always)]
-    pub fn invmat(&self) -> INVMAT_R {
-        INVMAT_R::new(((self.bits >> 6) & 0x01) != 0)
+    pub fn invmat(&self) -> InvmatR {
+        InvmatR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bits 12:15 - Cacheable Block Size"]
     #[inline(always)]
-    pub fn coffsize(&self) -> COFFSIZE_R {
-        COFFSIZE_R::new(((self.bits >> 12) & 0x0f) as u8)
+    pub fn coffsize(&self) -> CoffsizeR {
+        CoffsizeR::new(((self.bits >> 12) & 0x0f) as u8)
     }
     #[doc = "Bits 16:31 - Cacheable Offset Address"]
     #[inline(always)]
-    pub fn coffset(&self) -> COFFSET_R {
-        COFFSET_R::new(((self.bits >> 16) & 0xffff) as u16)
+    pub fn coffset(&self) -> CoffsetR {
+        CoffsetR::new(((self.bits >> 16) & 0xffff) as u16)
     }
+}
+#[doc = "Hardware Parameter Register\n\nYou can [`read`](crate::Reg::read) this register and get [`ichwparams::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct IchwparamsSpec;
+impl crate::RegisterSpec for IchwparamsSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`ichwparams::R`](R) reader structure"]
+impl crate::Readable for IchwparamsSpec {}
+#[doc = "`reset()` method sets ICHWPARAMS to value 0"]
+impl crate::Resettable for IchwparamsSpec {
+    const RESET_VALUE: u32 = 0;
 }

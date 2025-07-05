@@ -1,244 +1,123 @@
-#[doc = "Reader of register DBG_CTRL"]
-pub type R = crate::R<u32, super::DBG_CTRL>;
-#[doc = "Writer for register DBG_CTRL"]
-pub type W = crate::W<u32, super::DBG_CTRL>;
-#[doc = "Register DBG_CTRL `reset()`'s with value 0x1f"]
-impl crate::ResetValue for super::DBG_CTRL {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x1f
-    }
-}
-#[doc = "Reader of field `SSE_200_DBGENIN`"]
-pub type SSE_200_DBGENIN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SSE_200_DBGENIN`"]
-pub struct SSE_200_DBGENIN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SSE_200_DBGENIN_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
-    }
-}
-#[doc = "Reader of field `SSE_200_NIDENIN`"]
-pub type SSE_200_NIDENIN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SSE_200_NIDENIN`"]
-pub struct SSE_200_NIDENIN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SSE_200_NIDENIN_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
-        self.w
-    }
-}
-#[doc = "Reader of field `SSE_200_SPIDENIN`"]
-pub type SSE_200_SPIDENIN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SSE_200_SPIDENIN`"]
-pub struct SSE_200_SPIDENIN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SSE_200_SPIDENIN_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
-        self.w
-    }
-}
-#[doc = "Reader of field `SSE_200_SPNIDENIN`"]
-pub type SSE_200_SPNIDENIN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SSE_200_SPNIDENIN`"]
-pub struct SSE_200_SPNIDENIN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SSE_200_SPNIDENIN_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
-        self.w
-    }
-}
-#[doc = "Reader of field `TODBGENSEL0`"]
-pub type TODBGENSEL0_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `TODBGENSEL0`"]
-pub struct TODBGENSEL0_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> TODBGENSEL0_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
-        self.w
-    }
-}
-#[doc = "Reader of field `TODBGENSEL1`"]
-pub type TODBGENSEL1_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `TODBGENSEL1`"]
-pub struct TODBGENSEL1_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> TODBGENSEL1_W<'a> {
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
-        self.w
-    }
-}
-#[doc = "Reader of field `DBG_DCU_FORCE`"]
-pub type DBG_DCU_FORCE_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `DBG_DCU_FORCE`"]
-pub struct DBG_DCU_FORCE_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> DBG_DCU_FORCE_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 30)) | (((value as u32) & 0x03) << 30);
-        self.w
-    }
-}
+#[doc = "Register `DBG_CTRL` reader"]
+pub type R = crate::R<DbgCtrlSpec>;
+#[doc = "Register `DBG_CTRL` writer"]
+pub type W = crate::W<DbgCtrlSpec>;
+#[doc = "Field `SSE_200_DBGENIN` reader - 0: Not enable 1: Enable"]
+pub type Sse200DbgeninR = crate::BitReader;
+#[doc = "Field `SSE_200_DBGENIN` writer - 0: Not enable 1: Enable"]
+pub type Sse200DbgeninW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `SSE_200_NIDENIN` reader - 0: Not enable 1: Enable"]
+pub type Sse200NideninR = crate::BitReader;
+#[doc = "Field `SSE_200_NIDENIN` writer - 0: Not enable 1: Enable"]
+pub type Sse200NideninW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `SSE_200_SPIDENIN` reader - 0: Not enable 1: Enable"]
+pub type Sse200SpideninR = crate::BitReader;
+#[doc = "Field `SSE_200_SPIDENIN` writer - 0: Not enable 1: Enable"]
+pub type Sse200SpideninW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `SSE_200_SPNIDENIN` reader - 0: Not enable 1: Enable"]
+pub type Sse200SpnideninR = crate::BitReader;
+#[doc = "Field `SSE_200_SPNIDENIN` writer - 0: Not enable 1: Enable"]
+pub type Sse200SpnideninW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `TODBGENSEL0` reader - 0: Enable 1: Mask or bypass"]
+pub type Todbgensel0R = crate::BitReader;
+#[doc = "Field `TODBGENSEL0` writer - 0: Enable 1: Mask or bypass"]
+pub type Todbgensel0W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `TODBGENSEL1` reader - 0: Enable 1: Mask or bypass"]
+pub type Todbgensel1R = crate::BitReader;
+#[doc = "Field `TODBGENSEL1` writer - 0: Enable 1: Mask or bypass"]
+pub type Todbgensel1W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `DBG_DCU_FORCE` reader - SSE-200 debug ports control"]
+pub type DbgDcuForceR = crate::FieldReader;
+#[doc = "Field `DBG_DCU_FORCE` writer - SSE-200 debug ports control"]
+pub type DbgDcuForceW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 impl R {
     #[doc = "Bit 0 - 0: Not enable 1: Enable"]
     #[inline(always)]
-    pub fn sse_200_dbgenin(&self) -> SSE_200_DBGENIN_R {
-        SSE_200_DBGENIN_R::new((self.bits & 0x01) != 0)
+    pub fn sse_200_dbgenin(&self) -> Sse200DbgeninR {
+        Sse200DbgeninR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 0: Not enable 1: Enable"]
     #[inline(always)]
-    pub fn sse_200_nidenin(&self) -> SSE_200_NIDENIN_R {
-        SSE_200_NIDENIN_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn sse_200_nidenin(&self) -> Sse200NideninR {
+        Sse200NideninR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - 0: Not enable 1: Enable"]
     #[inline(always)]
-    pub fn sse_200_spidenin(&self) -> SSE_200_SPIDENIN_R {
-        SSE_200_SPIDENIN_R::new(((self.bits >> 2) & 0x01) != 0)
+    pub fn sse_200_spidenin(&self) -> Sse200SpideninR {
+        Sse200SpideninR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - 0: Not enable 1: Enable"]
     #[inline(always)]
-    pub fn sse_200_spnidenin(&self) -> SSE_200_SPNIDENIN_R {
-        SSE_200_SPNIDENIN_R::new(((self.bits >> 3) & 0x01) != 0)
+    pub fn sse_200_spnidenin(&self) -> Sse200SpnideninR {
+        Sse200SpnideninR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 7 - 0: Enable 1: Mask or bypass"]
     #[inline(always)]
-    pub fn todbgensel0(&self) -> TODBGENSEL0_R {
-        TODBGENSEL0_R::new(((self.bits >> 7) & 0x01) != 0)
+    pub fn todbgensel0(&self) -> Todbgensel0R {
+        Todbgensel0R::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 8 - 0: Enable 1: Mask or bypass"]
     #[inline(always)]
-    pub fn todbgensel1(&self) -> TODBGENSEL1_R {
-        TODBGENSEL1_R::new(((self.bits >> 8) & 0x01) != 0)
+    pub fn todbgensel1(&self) -> Todbgensel1R {
+        Todbgensel1R::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bits 30:31 - SSE-200 debug ports control"]
     #[inline(always)]
-    pub fn dbg_dcu_force(&self) -> DBG_DCU_FORCE_R {
-        DBG_DCU_FORCE_R::new(((self.bits >> 30) & 0x03) as u8)
+    pub fn dbg_dcu_force(&self) -> DbgDcuForceR {
+        DbgDcuForceR::new(((self.bits >> 30) & 3) as u8)
     }
 }
 impl W {
     #[doc = "Bit 0 - 0: Not enable 1: Enable"]
     #[inline(always)]
-    pub fn sse_200_dbgenin(&mut self) -> SSE_200_DBGENIN_W {
-        SSE_200_DBGENIN_W { w: self }
+    pub fn sse_200_dbgenin(&mut self) -> Sse200DbgeninW<DbgCtrlSpec> {
+        Sse200DbgeninW::new(self, 0)
     }
     #[doc = "Bit 1 - 0: Not enable 1: Enable"]
     #[inline(always)]
-    pub fn sse_200_nidenin(&mut self) -> SSE_200_NIDENIN_W {
-        SSE_200_NIDENIN_W { w: self }
+    pub fn sse_200_nidenin(&mut self) -> Sse200NideninW<DbgCtrlSpec> {
+        Sse200NideninW::new(self, 1)
     }
     #[doc = "Bit 2 - 0: Not enable 1: Enable"]
     #[inline(always)]
-    pub fn sse_200_spidenin(&mut self) -> SSE_200_SPIDENIN_W {
-        SSE_200_SPIDENIN_W { w: self }
+    pub fn sse_200_spidenin(&mut self) -> Sse200SpideninW<DbgCtrlSpec> {
+        Sse200SpideninW::new(self, 2)
     }
     #[doc = "Bit 3 - 0: Not enable 1: Enable"]
     #[inline(always)]
-    pub fn sse_200_spnidenin(&mut self) -> SSE_200_SPNIDENIN_W {
-        SSE_200_SPNIDENIN_W { w: self }
+    pub fn sse_200_spnidenin(&mut self) -> Sse200SpnideninW<DbgCtrlSpec> {
+        Sse200SpnideninW::new(self, 3)
     }
     #[doc = "Bit 7 - 0: Enable 1: Mask or bypass"]
     #[inline(always)]
-    pub fn todbgensel0(&mut self) -> TODBGENSEL0_W {
-        TODBGENSEL0_W { w: self }
+    pub fn todbgensel0(&mut self) -> Todbgensel0W<DbgCtrlSpec> {
+        Todbgensel0W::new(self, 7)
     }
     #[doc = "Bit 8 - 0: Enable 1: Mask or bypass"]
     #[inline(always)]
-    pub fn todbgensel1(&mut self) -> TODBGENSEL1_W {
-        TODBGENSEL1_W { w: self }
+    pub fn todbgensel1(&mut self) -> Todbgensel1W<DbgCtrlSpec> {
+        Todbgensel1W::new(self, 8)
     }
     #[doc = "Bits 30:31 - SSE-200 debug ports control"]
     #[inline(always)]
-    pub fn dbg_dcu_force(&mut self) -> DBG_DCU_FORCE_W {
-        DBG_DCU_FORCE_W { w: self }
+    pub fn dbg_dcu_force(&mut self) -> DbgDcuForceW<DbgCtrlSpec> {
+        DbgDcuForceW::new(self, 30)
     }
+}
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`dbg_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dbg_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct DbgCtrlSpec;
+impl crate::RegisterSpec for DbgCtrlSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`dbg_ctrl::R`](R) reader structure"]
+impl crate::Readable for DbgCtrlSpec {}
+#[doc = "`write(|w| ..)` method takes [`dbg_ctrl::W`](W) writer structure"]
+impl crate::Writable for DbgCtrlSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets DBG_CTRL to value 0x1f"]
+impl crate::Resettable for DbgCtrlSpec {
+    const RESET_VALUE: u32 = 0x1f;
 }

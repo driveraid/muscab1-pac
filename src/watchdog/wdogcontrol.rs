@@ -1,192 +1,151 @@
-#[doc = "Reader of register WDOGCONTROL"]
-pub type R = crate::R<u32, super::WDOGCONTROL>;
-#[doc = "Writer for register WDOGCONTROL"]
-pub type W = crate::W<u32, super::WDOGCONTROL>;
-#[doc = "Register WDOGCONTROL `reset()`'s with value 0"]
-impl crate::ResetValue for super::WDOGCONTROL {
-    type Type = u32;
+#[doc = "Register `WDOGCONTROL` reader"]
+pub type R = crate::R<WdogcontrolSpec>;
+#[doc = "Register `WDOGCONTROL` writer"]
+pub type W = crate::W<WdogcontrolSpec>;
+#[doc = "Enable the interrupt event\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Inten {
+    #[doc = "0: Disable Watchdog interrupt"]
+    Disable = 0,
+    #[doc = "1: Enable Watchdog interrupt."]
+    Enable = 1,
+}
+impl From<Inten> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn from(variant: Inten) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Possible values of the field `INTEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum INTEN_A {
-    #[doc = "Disable Watchdog interrupt"]
-    DISABLE,
-    #[doc = "Enable Watchdog interrupt."]
-    ENABLE,
-}
-impl From<INTEN_A> for bool {
+#[doc = "Field `INTEN` reader - Enable the interrupt event"]
+pub type IntenR = crate::BitReader<Inten>;
+impl IntenR {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    fn from(variant: INTEN_A) -> Self {
-        match variant {
-            INTEN_A::DISABLE => false,
-            INTEN_A::ENABLE => true,
-        }
-    }
-}
-#[doc = "Reader of field `INTEN`"]
-pub type INTEN_R = crate::R<bool, INTEN_A>;
-impl INTEN_R {
-    #[doc = r"Get enumerated values variant"]
-    #[inline(always)]
-    pub fn variant(&self) -> INTEN_A {
+    pub const fn variant(&self) -> Inten {
         match self.bits {
-            false => INTEN_A::DISABLE,
-            true => INTEN_A::ENABLE,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline(always)]
-    pub fn is_disable(&self) -> bool {
-        *self == INTEN_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
-    pub fn is_enable(&self) -> bool {
-        *self == INTEN_A::ENABLE
-    }
-}
-#[doc = "Write proxy for field `INTEN`"]
-pub struct INTEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> INTEN_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: INTEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
+            false => Inten::Disable,
+            true => Inten::Enable,
         }
     }
     #[doc = "Disable Watchdog interrupt"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(INTEN_A::DISABLE)
+    pub fn is_disable(&self) -> bool {
+        *self == Inten::Disable
     }
     #[doc = "Enable Watchdog interrupt."]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(INTEN_A::ENABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
+    pub fn is_enable(&self) -> bool {
+        *self == Inten::Enable
     }
 }
-#[doc = "Possible values of the field `RESEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RESEN_A {
-    #[doc = "Disable Watchdog reset"]
-    DISABLE,
-    #[doc = "Enable Watchdog reset"]
-    ENABLE,
-}
-impl From<RESEN_A> for bool {
+#[doc = "Field `INTEN` writer - Enable the interrupt event"]
+pub type IntenW<'a, REG> = crate::BitWriter<'a, REG, Inten>;
+impl<'a, REG> IntenW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Disable Watchdog interrupt"]
     #[inline(always)]
-    fn from(variant: RESEN_A) -> Self {
-        match variant {
-            RESEN_A::DISABLE => false,
-            RESEN_A::ENABLE => true,
-        }
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Inten::Disable)
+    }
+    #[doc = "Enable Watchdog interrupt."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Inten::Enable)
     }
 }
-#[doc = "Reader of field `RESEN`"]
-pub type RESEN_R = crate::R<bool, RESEN_A>;
-impl RESEN_R {
-    #[doc = r"Get enumerated values variant"]
+#[doc = "Enable watchdog reset output\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Resen {
+    #[doc = "0: Disable Watchdog reset"]
+    Disable = 0,
+    #[doc = "1: Enable Watchdog reset"]
+    Enable = 1,
+}
+impl From<Resen> for bool {
     #[inline(always)]
-    pub fn variant(&self) -> RESEN_A {
+    fn from(variant: Resen) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `RESEN` reader - Enable watchdog reset output"]
+pub type ResenR = crate::BitReader<Resen>;
+impl ResenR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Resen {
         match self.bits {
-            false => RESEN_A::DISABLE,
-            true => RESEN_A::ENABLE,
+            false => Resen::Disable,
+            true => Resen::Enable,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Disable Watchdog reset"]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == RESEN_A::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline(always)]
-    pub fn is_enable(&self) -> bool {
-        *self == RESEN_A::ENABLE
-    }
-}
-#[doc = "Write proxy for field `RESEN`"]
-pub struct RESEN_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> RESEN_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: RESEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
-    #[doc = "Disable Watchdog reset"]
-    #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(RESEN_A::DISABLE)
+        *self == Resen::Disable
     }
     #[doc = "Enable Watchdog reset"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(RESEN_A::ENABLE)
+    pub fn is_enable(&self) -> bool {
+        *self == Resen::Enable
     }
-    #[doc = r"Sets the field bit"]
+}
+#[doc = "Field `RESEN` writer - Enable watchdog reset output"]
+pub type ResenW<'a, REG> = crate::BitWriter<'a, REG, Resen>;
+impl<'a, REG> ResenW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Disable Watchdog reset"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Resen::Disable)
     }
-    #[doc = r"Clears the field bit"]
+    #[doc = "Enable Watchdog reset"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
-        self.w
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Resen::Enable)
     }
 }
 impl R {
     #[doc = "Bit 0 - Enable the interrupt event"]
     #[inline(always)]
-    pub fn inten(&self) -> INTEN_R {
-        INTEN_R::new((self.bits & 0x01) != 0)
+    pub fn inten(&self) -> IntenR {
+        IntenR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - Enable watchdog reset output"]
     #[inline(always)]
-    pub fn resen(&self) -> RESEN_R {
-        RESEN_R::new(((self.bits >> 1) & 0x01) != 0)
+    pub fn resen(&self) -> ResenR {
+        ResenR::new(((self.bits >> 1) & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 0 - Enable the interrupt event"]
     #[inline(always)]
-    pub fn inten(&mut self) -> INTEN_W {
-        INTEN_W { w: self }
+    pub fn inten(&mut self) -> IntenW<WdogcontrolSpec> {
+        IntenW::new(self, 0)
     }
     #[doc = "Bit 1 - Enable watchdog reset output"]
     #[inline(always)]
-    pub fn resen(&mut self) -> RESEN_W {
-        RESEN_W { w: self }
+    pub fn resen(&mut self) -> ResenW<WdogcontrolSpec> {
+        ResenW::new(self, 1)
     }
+}
+#[doc = "Watchdog Control Register\n\nYou can [`read`](crate::Reg::read) this register and get [`wdogcontrol::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wdogcontrol::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct WdogcontrolSpec;
+impl crate::RegisterSpec for WdogcontrolSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`wdogcontrol::R`](R) reader structure"]
+impl crate::Readable for WdogcontrolSpec {}
+#[doc = "`write(|w| ..)` method takes [`wdogcontrol::W`](W) writer structure"]
+impl crate::Writable for WdogcontrolSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets WDOGCONTROL to value 0"]
+impl crate::Resettable for WdogcontrolSpec {
+    const RESET_VALUE: u32 = 0;
 }

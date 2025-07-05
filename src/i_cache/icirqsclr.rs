@@ -1,330 +1,193 @@
-#[doc = "Writer for register ICIRQSCLR"]
-pub type W = crate::W<u32, super::ICIRQSCLR>;
-#[doc = "Register ICIRQSCLR `reset()`'s with value 0"]
-impl crate::ResetValue for super::ICIRQSCLR {
-    type Type = u32;
+#[doc = "Register `ICIRQSCLR` writer"]
+pub type W = crate::W<IcirqsclrSpec>;
+#[doc = "Invalidate Complete IRQ Status Clear\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum IcClr {
+    #[doc = "1: Clear the Invalidate Complete IRQ Status"]
+    Clear = 1,
+}
+impl From<IcClr> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn from(variant: IcClr) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Possible values of the field `IC_CLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum IC_CLR_AW {
-    #[doc = "Clear the Invalidate Complete\n                          IRQ Status"]
-    CLEAR,
-}
-impl From<IC_CLR_AW> for bool {
-    #[inline(always)]
-    fn from(variant: IC_CLR_AW) -> Self {
-        match variant {
-            IC_CLR_AW::CLEAR => true,
-        }
-    }
-}
-#[doc = "Write proxy for field `IC_CLR`"]
-pub struct IC_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> IC_CLR_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: IC_CLR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `IC_CLR` writer - Invalidate Complete IRQ Status Clear"]
+pub type IcClrW<'a, REG> = crate::BitWriter<'a, REG, IcClr>;
+impl<'a, REG> IcClrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clear the Invalidate Complete IRQ Status"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(IC_CLR_AW::CLEAR)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(IcClr::Clear)
     }
 }
-#[doc = "Possible values of the field `CDC_CLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CDC_CLR_AW {
-    #[doc = "Clear Cache Disable Complete IRQ\n                          Status"]
-    CLEAR,
+#[doc = "Cache Disable Complete IRQ Status Clear\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CdcClr {
+    #[doc = "1: Clear Cache Disable Complete IRQ Status"]
+    Clear = 1,
 }
-impl From<CDC_CLR_AW> for bool {
+impl From<CdcClr> for bool {
     #[inline(always)]
-    fn from(variant: CDC_CLR_AW) -> Self {
-        match variant {
-            CDC_CLR_AW::CLEAR => true,
-        }
+    fn from(variant: CdcClr) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `CDC_CLR`"]
-pub struct CDC_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CDC_CLR_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: CDC_CLR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `CDC_CLR` writer - Cache Disable Complete IRQ Status Clear"]
+pub type CdcClrW<'a, REG> = crate::BitWriter<'a, REG, CdcClr>;
+impl<'a, REG> CdcClrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clear Cache Disable Complete IRQ Status"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(CDC_CLR_AW::CLEAR)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
-        self.w
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(CdcClr::Clear)
     }
 }
-#[doc = "Possible values of the field `CEC_CLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CEC_CLR_AW {
-    #[doc = "Clear the Cache Enable Complete\n                          IRQ Status"]
-    CLEAR,
+#[doc = "Cache Enable Complete IRQ Status Clear\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CecClr {
+    #[doc = "1: Clear the Cache Enable Complete IRQ Status"]
+    Clear = 1,
 }
-impl From<CEC_CLR_AW> for bool {
+impl From<CecClr> for bool {
     #[inline(always)]
-    fn from(variant: CEC_CLR_AW) -> Self {
-        match variant {
-            CEC_CLR_AW::CLEAR => true,
-        }
+    fn from(variant: CecClr) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `CEC_CLR`"]
-pub struct CEC_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CEC_CLR_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: CEC_CLR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `CEC_CLR` writer - Cache Enable Complete IRQ Status Clear"]
+pub type CecClrW<'a, REG> = crate::BitWriter<'a, REG, CecClr>;
+impl<'a, REG> CecClrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clear the Cache Enable Complete IRQ Status"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(CEC_CLR_AW::CLEAR)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
-        self.w
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(CecClr::Clear)
     }
 }
-#[doc = "Possible values of the field `CFE_CLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CFE_CLR_AW {
-    #[doc = "Clear the Cache Fill Error\n                          IRQ Status"]
-    CLEAR,
+#[doc = "Cache Fill Error IRQ Status Clear\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CfeClr {
+    #[doc = "1: Clear the Cache Fill Error IRQ Status"]
+    Clear = 1,
 }
-impl From<CFE_CLR_AW> for bool {
+impl From<CfeClr> for bool {
     #[inline(always)]
-    fn from(variant: CFE_CLR_AW) -> Self {
-        match variant {
-            CFE_CLR_AW::CLEAR => true,
-        }
+    fn from(variant: CfeClr) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `CFE_CLR`"]
-pub struct CFE_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> CFE_CLR_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: CFE_CLR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `CFE_CLR` writer - Cache Fill Error IRQ Status Clear"]
+pub type CfeClrW<'a, REG> = crate::BitWriter<'a, REG, CfeClr>;
+impl<'a, REG> CfeClrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clear the Cache Fill Error IRQ Status"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(CFE_CLR_AW::CLEAR)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
-        self.w
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(CfeClr::Clear)
     }
 }
-#[doc = "Possible values of the field `SV_CLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SV_CLR_AW {
-    #[doc = "Clear the Security violation\n                          IRQ Status"]
-    CLEAR,
+#[doc = "Security violation IRQ Status Clear\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SvClr {
+    #[doc = "1: Clear the Security violation IRQ Status"]
+    Clear = 1,
 }
-impl From<SV_CLR_AW> for bool {
+impl From<SvClr> for bool {
     #[inline(always)]
-    fn from(variant: SV_CLR_AW) -> Self {
-        match variant {
-            SV_CLR_AW::CLEAR => true,
-        }
+    fn from(variant: SvClr) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `SV_CLR`"]
-pub struct SV_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SV_CLR_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: SV_CLR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `SV_CLR` writer - Security violation IRQ Status Clear"]
+pub type SvClrW<'a, REG> = crate::BitWriter<'a, REG, SvClr>;
+impl<'a, REG> SvClrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clear the Security violation IRQ Status"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(SV_CLR_AW::CLEAR)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
-        self.w
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(SvClr::Clear)
     }
 }
-#[doc = "Possible values of the field `SS_CLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SS_CLR_AW {
-    #[doc = "Clear the Statistics Saturated\n                          Status"]
-    CLEAR,
+#[doc = "Statistics Saturated Status Clear\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SsClr {
+    #[doc = "1: Clear the Statistics Saturated Status"]
+    Clear = 1,
 }
-impl From<SS_CLR_AW> for bool {
+impl From<SsClr> for bool {
     #[inline(always)]
-    fn from(variant: SS_CLR_AW) -> Self {
-        match variant {
-            SS_CLR_AW::CLEAR => true,
-        }
+    fn from(variant: SsClr) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `SS_CLR`"]
-pub struct SS_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SS_CLR_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: SS_CLR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `SS_CLR` writer - Statistics Saturated Status Clear"]
+pub type SsClrW<'a, REG> = crate::BitWriter<'a, REG, SsClr>;
+impl<'a, REG> SsClrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Clear the Statistics Saturated Status"]
     #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(SS_CLR_AW::CLEAR)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
-        self.w
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(SsClr::Clear)
     }
 }
 impl W {
     #[doc = "Bit 0 - Invalidate Complete IRQ Status Clear"]
     #[inline(always)]
-    pub fn ic_clr(&mut self) -> IC_CLR_W {
-        IC_CLR_W { w: self }
+    pub fn ic_clr(&mut self) -> IcClrW<IcirqsclrSpec> {
+        IcClrW::new(self, 0)
     }
     #[doc = "Bit 1 - Cache Disable Complete IRQ Status Clear"]
     #[inline(always)]
-    pub fn cdc_clr(&mut self) -> CDC_CLR_W {
-        CDC_CLR_W { w: self }
+    pub fn cdc_clr(&mut self) -> CdcClrW<IcirqsclrSpec> {
+        CdcClrW::new(self, 1)
     }
     #[doc = "Bit 2 - Cache Enable Complete IRQ Status Clear"]
     #[inline(always)]
-    pub fn cec_clr(&mut self) -> CEC_CLR_W {
-        CEC_CLR_W { w: self }
+    pub fn cec_clr(&mut self) -> CecClrW<IcirqsclrSpec> {
+        CecClrW::new(self, 2)
     }
     #[doc = "Bit 3 - Cache Fill Error IRQ Status Clear"]
     #[inline(always)]
-    pub fn cfe_clr(&mut self) -> CFE_CLR_W {
-        CFE_CLR_W { w: self }
+    pub fn cfe_clr(&mut self) -> CfeClrW<IcirqsclrSpec> {
+        CfeClrW::new(self, 3)
     }
     #[doc = "Bit 4 - Security violation IRQ Status Clear"]
     #[inline(always)]
-    pub fn sv_clr(&mut self) -> SV_CLR_W {
-        SV_CLR_W { w: self }
+    pub fn sv_clr(&mut self) -> SvClrW<IcirqsclrSpec> {
+        SvClrW::new(self, 4)
     }
     #[doc = "Bit 5 - Statistics Saturated Status Clear"]
     #[inline(always)]
-    pub fn ss_clr(&mut self) -> SS_CLR_W {
-        SS_CLR_W { w: self }
+    pub fn ss_clr(&mut self) -> SsClrW<IcirqsclrSpec> {
+        SsClrW::new(self, 5)
     }
+}
+#[doc = "Interrupt Status Clear register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icirqsclr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct IcirqsclrSpec;
+impl crate::RegisterSpec for IcirqsclrSpec {
+    type Ux = u32;
+}
+#[doc = "`write(|w| ..)` method takes [`icirqsclr::W`](W) writer structure"]
+impl crate::Writable for IcirqsclrSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets ICIRQSCLR to value 0"]
+impl crate::Resettable for IcirqsclrSpec {
+    const RESET_VALUE: u32 = 0;
 }

@@ -1,11 +1,22 @@
-#[doc = "Reader of register FLASH0_DOUT_0"]
-pub type R = crate::R<u32, super::FLASH0_DOUT_0>;
-#[doc = "Reader of field `scc_flash0_dout0`"]
-pub type SCC_FLASH0_DOUT0_R = crate::R<u32, u32>;
+#[doc = "Register `FLASH0_DOUT_0` reader"]
+pub type R = crate::R<Flash0Dout0Spec>;
+#[doc = "Field `scc_flash0_dout0` reader - eFlash 0 data output\\[31:0\\]"]
+pub type SccFlash0Dout0R = crate::FieldReader<u32>;
 impl R {
     #[doc = "Bits 0:31 - eFlash 0 data output\\[31:0\\]"]
     #[inline(always)]
-    pub fn scc_flash0_dout0(&self) -> SCC_FLASH0_DOUT0_R {
-        SCC_FLASH0_DOUT0_R::new((self.bits & 0xffff_ffff) as u32)
+    pub fn scc_flash0_dout0(&self) -> SccFlash0Dout0R {
+        SccFlash0Dout0R::new(self.bits)
     }
+}
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`flash0_dout_0::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Flash0Dout0Spec;
+impl crate::RegisterSpec for Flash0Dout0Spec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`flash0_dout_0::R`](R) reader structure"]
+impl crate::Readable for Flash0Dout0Spec {}
+#[doc = "`reset()` method sets FLASH0_DOUT_0 to value 0xffff_ffff"]
+impl crate::Resettable for Flash0Dout0Spec {
+    const RESET_VALUE: u32 = 0xffff_ffff;
 }

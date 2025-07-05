@@ -1,40 +1,39 @@
-#[doc = "Reader of register RBAR"]
-pub type R = crate::R<u32, super::RBAR>;
-#[doc = "Writer for register RBAR"]
-pub type W = crate::W<u32, super::RBAR>;
-#[doc = "Register RBAR `reset()`'s with value 0"]
-impl crate::ResetValue for super::RBAR {
-    type Type = u32;
-    #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
-    }
-}
-#[doc = "Reader of field `BADDR`"]
-pub type BADDR_R = crate::R<u32, u32>;
-#[doc = "Write proxy for field `BADDR`"]
-pub struct BADDR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> BADDR_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07ff_ffff << 5)) | (((value as u32) & 0x07ff_ffff) << 5);
-        self.w
-    }
-}
+#[doc = "Register `RBAR` reader"]
+pub type R = crate::R<RbarSpec>;
+#[doc = "Register `RBAR` writer"]
+pub type W = crate::W<RbarSpec>;
+#[doc = "Field `BADDR` reader - Base Address"]
+pub type BaddrR = crate::FieldReader<u32>;
+#[doc = "Field `BADDR` writer - Base Address"]
+pub type BaddrW<'a, REG> = crate::FieldWriter<'a, REG, 27, u32>;
 impl R {
     #[doc = "Bits 5:31 - Base Address"]
     #[inline(always)]
-    pub fn baddr(&self) -> BADDR_R {
-        BADDR_R::new(((self.bits >> 5) & 0x07ff_ffff) as u32)
+    pub fn baddr(&self) -> BaddrR {
+        BaddrR::new((self.bits >> 5) & 0x07ff_ffff)
     }
 }
 impl W {
     #[doc = "Bits 5:31 - Base Address"]
     #[inline(always)]
-    pub fn baddr(&mut self) -> BADDR_W {
-        BADDR_W { w: self }
+    pub fn baddr(&mut self) -> BaddrW<RbarSpec> {
+        BaddrW::new(self, 5)
     }
+}
+#[doc = "Region Base Address Register\n\nYou can [`read`](crate::Reg::read) this register and get [`rbar::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rbar::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct RbarSpec;
+impl crate::RegisterSpec for RbarSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`rbar::R`](R) reader structure"]
+impl crate::Readable for RbarSpec {}
+#[doc = "`write(|w| ..)` method takes [`rbar::W`](W) writer structure"]
+impl crate::Writable for RbarSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets RBAR to value 0"]
+impl crate::Resettable for RbarSpec {
+    const RESET_VALUE: u32 = 0;
 }

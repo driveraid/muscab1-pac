@@ -1,0 +1,28 @@
+#[doc = "Register `CPU0INTR_CLR` writer"]
+pub type W = crate::W<Cpu0intrClrSpec>;
+#[doc = "Field `CPU0INTR_CLR` writer - CPU 0 Interrupt Clear. When a 1 is written to CPU0INTR_CLR\\[n\\], the corresponding CPU0INTR_STAT\\[n\\]
+signal is set to LOW."]
+pub type Cpu0intrClrW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+impl W {
+    #[doc = "Bits 0:3 - CPU 0 Interrupt Clear. When a 1 is written to CPU0INTR_CLR\\[n\\], the corresponding CPU0INTR_STAT\\[n\\]
+signal is set to LOW."]
+    #[inline(always)]
+    pub fn cpu0intr_clr(&mut self) -> Cpu0intrClrW<Cpu0intrClrSpec> {
+        Cpu0intrClrW::new(self, 0)
+    }
+}
+#[doc = "Core 0 interrupt clear register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpu0intr_clr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Cpu0intrClrSpec;
+impl crate::RegisterSpec for Cpu0intrClrSpec {
+    type Ux = u32;
+}
+#[doc = "`write(|w| ..)` method takes [`cpu0intr_clr::W`](W) writer structure"]
+impl crate::Writable for Cpu0intrClrSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets CPU0INTR_CLR to value 0"]
+impl crate::Resettable for Cpu0intrClrSpec {
+    const RESET_VALUE: u32 = 0;
+}

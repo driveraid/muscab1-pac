@@ -1,500 +1,307 @@
-#[doc = "Writer for register SECDBGCLR"]
-pub type W = crate::W<u32, super::SECDBGCLR>;
-#[doc = "Register SECDBGCLR `reset()`'s with value 0"]
-impl crate::ResetValue for super::SECDBGCLR {
-    type Type = u32;
+#[doc = "Register `SECDBGCLR` writer"]
+pub type W = crate::W<SecdbgclrSpec>;
+#[doc = "Debug enable clear control\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum DbgenIClr {
+    #[doc = "1: debug enable clear control"]
+    Enable = 1,
+    #[doc = "0: debug disable clear control"]
+    Disable = 0,
+}
+impl From<DbgenIClr> for bool {
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn from(variant: DbgenIClr) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Possible values of the field `DBGEN_I_CLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DBGEN_I_CLR_AW {
-    #[doc = "debug enable clear control"]
-    ENABLE,
-    #[doc = "debug disable clear control"]
-    DISABLE,
-}
-impl From<DBGEN_I_CLR_AW> for bool {
-    #[inline(always)]
-    fn from(variant: DBGEN_I_CLR_AW) -> Self {
-        match variant {
-            DBGEN_I_CLR_AW::ENABLE => true,
-            DBGEN_I_CLR_AW::DISABLE => false,
-        }
-    }
-}
-#[doc = "Write proxy for field `DBGEN_I_CLR`"]
-pub struct DBGEN_I_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> DBGEN_I_CLR_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: DBGEN_I_CLR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `DBGEN_I_CLR` writer - Debug enable clear control"]
+pub type DbgenIClrW<'a, REG> = crate::BitWriter<'a, REG, DbgenIClr>;
+impl<'a, REG> DbgenIClrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "debug enable clear control"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(DBGEN_I_CLR_AW::ENABLE)
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(DbgenIClr::Enable)
     }
     #[doc = "debug disable clear control"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(DBGEN_I_CLR_AW::DISABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
-        self.w
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(DbgenIClr::Disable)
     }
 }
-#[doc = "Possible values of the field `DBGEN_SEL_CLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DBGEN_SEL_CLR_AW {
-    #[doc = "debug enable selector clear control"]
-    ENABLE,
-    #[doc = "debug disable selector clear control"]
-    DISABLE,
+#[doc = "Debug enable selector clear control\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum DbgenSelClr {
+    #[doc = "1: debug enable selector clear control"]
+    Enable = 1,
+    #[doc = "0: debug disable selector clear control"]
+    Disable = 0,
 }
-impl From<DBGEN_SEL_CLR_AW> for bool {
+impl From<DbgenSelClr> for bool {
     #[inline(always)]
-    fn from(variant: DBGEN_SEL_CLR_AW) -> Self {
-        match variant {
-            DBGEN_SEL_CLR_AW::ENABLE => true,
-            DBGEN_SEL_CLR_AW::DISABLE => false,
-        }
+    fn from(variant: DbgenSelClr) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `DBGEN_SEL_CLR`"]
-pub struct DBGEN_SEL_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> DBGEN_SEL_CLR_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: DBGEN_SEL_CLR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `DBGEN_SEL_CLR` writer - Debug enable selector clear control"]
+pub type DbgenSelClrW<'a, REG> = crate::BitWriter<'a, REG, DbgenSelClr>;
+impl<'a, REG> DbgenSelClrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "debug enable selector clear control"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(DBGEN_SEL_CLR_AW::ENABLE)
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(DbgenSelClr::Enable)
     }
     #[doc = "debug disable selector clear control"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(DBGEN_SEL_CLR_AW::DISABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
-        self.w
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(DbgenSelClr::Disable)
     }
 }
-#[doc = "Possible values of the field `NIDEN_I_CLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum NIDEN_I_CLR_AW {
-    #[doc = "non-invasive debug enable clear control"]
-    ENABLE,
-    #[doc = "non-invasive debug disable clear control"]
-    DISABLE,
+#[doc = "Non-invasive debug enable clear control\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum NidenIClr {
+    #[doc = "1: non-invasive debug enable clear control"]
+    Enable = 1,
+    #[doc = "0: non-invasive debug disable clear control"]
+    Disable = 0,
 }
-impl From<NIDEN_I_CLR_AW> for bool {
+impl From<NidenIClr> for bool {
     #[inline(always)]
-    fn from(variant: NIDEN_I_CLR_AW) -> Self {
-        match variant {
-            NIDEN_I_CLR_AW::ENABLE => true,
-            NIDEN_I_CLR_AW::DISABLE => false,
-        }
+    fn from(variant: NidenIClr) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `NIDEN_I_CLR`"]
-pub struct NIDEN_I_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> NIDEN_I_CLR_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: NIDEN_I_CLR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `NIDEN_I_CLR` writer - Non-invasive debug enable clear control"]
+pub type NidenIClrW<'a, REG> = crate::BitWriter<'a, REG, NidenIClr>;
+impl<'a, REG> NidenIClrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "non-invasive debug enable clear control"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(NIDEN_I_CLR_AW::ENABLE)
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(NidenIClr::Enable)
     }
     #[doc = "non-invasive debug disable clear control"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(NIDEN_I_CLR_AW::DISABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
-        self.w
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(NidenIClr::Disable)
     }
 }
-#[doc = "Possible values of the field `NIDEN_SEL_CLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum NIDEN_SEL_CLR_AW {
-    #[doc = "non-invasive debug enable selector clear control"]
-    ENABLE,
-    #[doc = "non-invasive debug disable selector clear control"]
-    DISABLE,
+#[doc = "Non-invasive debug enable selector clear control\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum NidenSelClr {
+    #[doc = "1: non-invasive debug enable selector clear control"]
+    Enable = 1,
+    #[doc = "0: non-invasive debug disable selector clear control"]
+    Disable = 0,
 }
-impl From<NIDEN_SEL_CLR_AW> for bool {
+impl From<NidenSelClr> for bool {
     #[inline(always)]
-    fn from(variant: NIDEN_SEL_CLR_AW) -> Self {
-        match variant {
-            NIDEN_SEL_CLR_AW::ENABLE => true,
-            NIDEN_SEL_CLR_AW::DISABLE => false,
-        }
+    fn from(variant: NidenSelClr) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `NIDEN_SEL_CLR`"]
-pub struct NIDEN_SEL_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> NIDEN_SEL_CLR_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: NIDEN_SEL_CLR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `NIDEN_SEL_CLR` writer - Non-invasive debug enable selector clear control"]
+pub type NidenSelClrW<'a, REG> = crate::BitWriter<'a, REG, NidenSelClr>;
+impl<'a, REG> NidenSelClrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "non-invasive debug enable selector clear control"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(NIDEN_SEL_CLR_AW::ENABLE)
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(NidenSelClr::Enable)
     }
     #[doc = "non-invasive debug disable selector clear control"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(NIDEN_SEL_CLR_AW::DISABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
-        self.w
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(NidenSelClr::Disable)
     }
 }
-#[doc = "Possible values of the field `SPIDEN_I_CLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SPIDEN_I_CLR_AW {
-    #[doc = "Secure privilege invasive debug enable clear control"]
-    ENABLE,
-    #[doc = "Secure privilege invasive debug disable clear control"]
-    DISABLE,
+#[doc = "Secure privilege invasive debug enable clear control\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SpidenIClr {
+    #[doc = "1: Secure privilege invasive debug enable clear control"]
+    Enable = 1,
+    #[doc = "0: Secure privilege invasive debug disable clear control"]
+    Disable = 0,
 }
-impl From<SPIDEN_I_CLR_AW> for bool {
+impl From<SpidenIClr> for bool {
     #[inline(always)]
-    fn from(variant: SPIDEN_I_CLR_AW) -> Self {
-        match variant {
-            SPIDEN_I_CLR_AW::ENABLE => true,
-            SPIDEN_I_CLR_AW::DISABLE => false,
-        }
+    fn from(variant: SpidenIClr) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `SPIDEN_I_CLR`"]
-pub struct SPIDEN_I_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SPIDEN_I_CLR_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: SPIDEN_I_CLR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `SPIDEN_I_CLR` writer - Secure privilege invasive debug enable clear control"]
+pub type SpidenIClrW<'a, REG> = crate::BitWriter<'a, REG, SpidenIClr>;
+impl<'a, REG> SpidenIClrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Secure privilege invasive debug enable clear control"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(SPIDEN_I_CLR_AW::ENABLE)
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(SpidenIClr::Enable)
     }
     #[doc = "Secure privilege invasive debug disable clear control"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(SPIDEN_I_CLR_AW::DISABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
-        self.w
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(SpidenIClr::Disable)
     }
 }
-#[doc = "Possible values of the field `SPIDEN_SEL_CLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SPIDEN_SEL_CLR_AW {
-    #[doc = "Secure privilege invasive debug enable selector clear control"]
-    ENABLE,
-    #[doc = "Secure privilege invasive debug disable selector clear control"]
-    DISABLE,
+#[doc = "Secure privilege invasive debug enable selector clear control\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SpidenSelClr {
+    #[doc = "1: Secure privilege invasive debug enable selector clear control"]
+    Enable = 1,
+    #[doc = "0: Secure privilege invasive debug disable selector clear control"]
+    Disable = 0,
 }
-impl From<SPIDEN_SEL_CLR_AW> for bool {
+impl From<SpidenSelClr> for bool {
     #[inline(always)]
-    fn from(variant: SPIDEN_SEL_CLR_AW) -> Self {
-        match variant {
-            SPIDEN_SEL_CLR_AW::ENABLE => true,
-            SPIDEN_SEL_CLR_AW::DISABLE => false,
-        }
+    fn from(variant: SpidenSelClr) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `SPIDEN_SEL_CLR`"]
-pub struct SPIDEN_SEL_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SPIDEN_SEL_CLR_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: SPIDEN_SEL_CLR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `SPIDEN_SEL_CLR` writer - Secure privilege invasive debug enable selector clear control"]
+pub type SpidenSelClrW<'a, REG> = crate::BitWriter<'a, REG, SpidenSelClr>;
+impl<'a, REG> SpidenSelClrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Secure privilege invasive debug enable selector clear control"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(SPIDEN_SEL_CLR_AW::ENABLE)
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(SpidenSelClr::Enable)
     }
     #[doc = "Secure privilege invasive debug disable selector clear control"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(SPIDEN_SEL_CLR_AW::DISABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
-        self.w
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(SpidenSelClr::Disable)
     }
 }
-#[doc = "Possible values of the field `SPNIDEN_I_CLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SPNIDEN_I_CLR_AW {
-    #[doc = "Secure privilege non-invasive debug enable clear control"]
-    ENABLE,
-    #[doc = "Secure privilege non-invasive debug disable clear control"]
-    DISABLE,
+#[doc = "Secure privilege non-invasive debug enable clear control\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SpnidenIClr {
+    #[doc = "1: Secure privilege non-invasive debug enable clear control"]
+    Enable = 1,
+    #[doc = "0: Secure privilege non-invasive debug disable clear control"]
+    Disable = 0,
 }
-impl From<SPNIDEN_I_CLR_AW> for bool {
+impl From<SpnidenIClr> for bool {
     #[inline(always)]
-    fn from(variant: SPNIDEN_I_CLR_AW) -> Self {
-        match variant {
-            SPNIDEN_I_CLR_AW::ENABLE => true,
-            SPNIDEN_I_CLR_AW::DISABLE => false,
-        }
+    fn from(variant: SpnidenIClr) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `SPNIDEN_I_CLR`"]
-pub struct SPNIDEN_I_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SPNIDEN_I_CLR_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: SPNIDEN_I_CLR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `SPNIDEN_I_CLR` writer - Secure privilege non-invasive debug enable clear control"]
+pub type SpnidenIClrW<'a, REG> = crate::BitWriter<'a, REG, SpnidenIClr>;
+impl<'a, REG> SpnidenIClrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Secure privilege non-invasive debug enable clear control"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(SPNIDEN_I_CLR_AW::ENABLE)
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(SpnidenIClr::Enable)
     }
     #[doc = "Secure privilege non-invasive debug disable clear control"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(SPNIDEN_I_CLR_AW::DISABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
-        self.w
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(SpnidenIClr::Disable)
     }
 }
-#[doc = "Possible values of the field `SPNIDEN_SEL_CLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SPNIDEN_SEL_CLR_AW {
-    #[doc = "Secure privilege non-invasive debug enable selector clear control"]
-    ENABLE,
-    #[doc = "Secure privilege non-invasive debug disable selector clear control"]
-    DISABLE,
+#[doc = "Secure privilege non-invasive debug enable selector clear control\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SpnidenSelClr {
+    #[doc = "1: Secure privilege non-invasive debug enable selector clear control"]
+    Enable = 1,
+    #[doc = "0: Secure privilege non-invasive debug disable selector clear control"]
+    Disable = 0,
 }
-impl From<SPNIDEN_SEL_CLR_AW> for bool {
+impl From<SpnidenSelClr> for bool {
     #[inline(always)]
-    fn from(variant: SPNIDEN_SEL_CLR_AW) -> Self {
-        match variant {
-            SPNIDEN_SEL_CLR_AW::ENABLE => true,
-            SPNIDEN_SEL_CLR_AW::DISABLE => false,
-        }
+    fn from(variant: SpnidenSelClr) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `SPNIDEN_SEL_CLR`"]
-pub struct SPNIDEN_SEL_CLR_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> SPNIDEN_SEL_CLR_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: SPNIDEN_SEL_CLR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
-    }
+#[doc = "Field `SPNIDEN_SEL_CLR` writer - Secure privilege non-invasive debug enable selector clear control"]
+pub type SpnidenSelClrW<'a, REG> = crate::BitWriter<'a, REG, SpnidenSelClr>;
+impl<'a, REG> SpnidenSelClrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Secure privilege non-invasive debug enable selector clear control"]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(SPNIDEN_SEL_CLR_AW::ENABLE)
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(SpnidenSelClr::Enable)
     }
     #[doc = "Secure privilege non-invasive debug disable selector clear control"]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(SPNIDEN_SEL_CLR_AW::DISABLE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
-        self.w
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(SpnidenSelClr::Disable)
     }
 }
 impl W {
     #[doc = "Bit 0 - Debug enable clear control"]
     #[inline(always)]
-    pub fn dbgen_i_clr(&mut self) -> DBGEN_I_CLR_W {
-        DBGEN_I_CLR_W { w: self }
+    pub fn dbgen_i_clr(&mut self) -> DbgenIClrW<SecdbgclrSpec> {
+        DbgenIClrW::new(self, 0)
     }
     #[doc = "Bit 1 - Debug enable selector clear control"]
     #[inline(always)]
-    pub fn dbgen_sel_clr(&mut self) -> DBGEN_SEL_CLR_W {
-        DBGEN_SEL_CLR_W { w: self }
+    pub fn dbgen_sel_clr(&mut self) -> DbgenSelClrW<SecdbgclrSpec> {
+        DbgenSelClrW::new(self, 1)
     }
     #[doc = "Bit 2 - Non-invasive debug enable clear control"]
     #[inline(always)]
-    pub fn niden_i_clr(&mut self) -> NIDEN_I_CLR_W {
-        NIDEN_I_CLR_W { w: self }
+    pub fn niden_i_clr(&mut self) -> NidenIClrW<SecdbgclrSpec> {
+        NidenIClrW::new(self, 2)
     }
     #[doc = "Bit 3 - Non-invasive debug enable selector clear control"]
     #[inline(always)]
-    pub fn niden_sel_clr(&mut self) -> NIDEN_SEL_CLR_W {
-        NIDEN_SEL_CLR_W { w: self }
+    pub fn niden_sel_clr(&mut self) -> NidenSelClrW<SecdbgclrSpec> {
+        NidenSelClrW::new(self, 3)
     }
     #[doc = "Bit 4 - Secure privilege invasive debug enable clear control"]
     #[inline(always)]
-    pub fn spiden_i_clr(&mut self) -> SPIDEN_I_CLR_W {
-        SPIDEN_I_CLR_W { w: self }
+    pub fn spiden_i_clr(&mut self) -> SpidenIClrW<SecdbgclrSpec> {
+        SpidenIClrW::new(self, 4)
     }
     #[doc = "Bit 5 - Secure privilege invasive debug enable selector clear control"]
     #[inline(always)]
-    pub fn spiden_sel_clr(&mut self) -> SPIDEN_SEL_CLR_W {
-        SPIDEN_SEL_CLR_W { w: self }
+    pub fn spiden_sel_clr(&mut self) -> SpidenSelClrW<SecdbgclrSpec> {
+        SpidenSelClrW::new(self, 5)
     }
     #[doc = "Bit 6 - Secure privilege non-invasive debug enable clear control"]
     #[inline(always)]
-    pub fn spniden_i_clr(&mut self) -> SPNIDEN_I_CLR_W {
-        SPNIDEN_I_CLR_W { w: self }
+    pub fn spniden_i_clr(&mut self) -> SpnidenIClrW<SecdbgclrSpec> {
+        SpnidenIClrW::new(self, 6)
     }
     #[doc = "Bit 7 - Secure privilege non-invasive debug enable selector clear control"]
     #[inline(always)]
-    pub fn spniden_sel_clr(&mut self) -> SPNIDEN_SEL_CLR_W {
-        SPNIDEN_SEL_CLR_W { w: self }
+    pub fn spniden_sel_clr(&mut self) -> SpnidenSelClrW<SecdbgclrSpec> {
+        SpnidenSelClrW::new(self, 7)
     }
+}
+#[doc = "Secure Debug Configuration Clear\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`secdbgclr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SecdbgclrSpec;
+impl crate::RegisterSpec for SecdbgclrSpec {
+    type Ux = u32;
+}
+#[doc = "`write(|w| ..)` method takes [`secdbgclr::W`](W) writer structure"]
+impl crate::Writable for SecdbgclrSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets SECDBGCLR to value 0"]
+impl crate::Resettable for SecdbgclrSpec {
+    const RESET_VALUE: u32 = 0;
 }
